@@ -26,8 +26,15 @@ const features = [
 ];
 
 export default function TrevaAgent() {
-  const { register, handleSubmit, formState: { isSubmitSuccessful }, reset } = useForm();
-  const onSubmit = async () => { await new Promise((r) => setTimeout(r, 800)); reset(); };
+  const { register, handleSubmit, formState: { isSubmitSuccessful } } = useForm();
+  const onSubmit = async (data) => {
+    const res = await fetch('https://formspree.io/f/xwvrokge', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({ _subject: 'Treva Agent Waitlist', ...data }),
+    });
+    if (!res.ok) throw new Error('Submission failed');
+  };
 
   return (
     <>

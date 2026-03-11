@@ -44,14 +44,14 @@ export default function SEOHead({
             name: 'Treva',
             description,
             url: 'https://treva.in',
-            telephone: '+91-98765-43210',
-            email: 'hello@treva.in',
+            telephone: '+91-70229-22526',
+            email: 'info@treva.in',
             address: {
               '@type': 'PostalAddress',
-              streetAddress: 'HSR Layout',
+              streetAddress: '4, 2nd Floor, Tarang Complex, Attiguppe, Chandra Layout Main Rd, Vijayanagar',
               addressLocality: 'Bengaluru',
               addressRegion: 'Karnataka',
-              postalCode: '560102',
+              postalCode: '560040',
               addressCountry: 'IN',
             },
             geo: {

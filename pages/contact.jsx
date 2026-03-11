@@ -22,13 +22,15 @@ const services = [
 ];
 
 export default function Contact() {
-  const { register, handleSubmit, formState: { errors, isSubmitting, isSubmitSuccessful }, reset } = useForm();
+  const { register, handleSubmit, formState: { errors, isSubmitting, isSubmitSuccessful } } = useForm();
 
   const onSubmit = async (data) => {
-    // Integrate with Formspree / EmailJS here
-    await new Promise((r) => setTimeout(r, 1000));
-    console.log('Form data:', data);
-    reset();
+    const res = await fetch('https://formspree.io/f/xwvrokge', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(data),
+    });
+    if (!res.ok) throw new Error('Submission failed');
   };
 
   return (
@@ -105,7 +107,7 @@ export default function Contact() {
               {/* WhatsApp */}
               <FadeIn delay={0.4}>
                 <a
-                  href="https://wa.me/919876543210?text=Hi%20Treva%2C%20I%27d%20like%20to%20discuss%20a%20project."
+                  href="https://wa.me/917022922526?text=Hi%20Treva%2C%20I%27d%20like%20to%20discuss%20a%20project."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 bg-[#25D366]/10 border border-[#25D366]/20 rounded-xl p-4 hover:bg-[#25D366]/15 transition-colors"
@@ -123,13 +125,14 @@ export default function Contact() {
               <FadeIn delay={0.5}>
                 <div className="rounded-xl overflow-hidden border border-[rgba(41,200,213,0.1)] h-48">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15553.29447609063!2d77.63!3d12.91!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15b78c4c1dcb%3A0x70a0b1ce6b0c4a2c!2sHSR%20Layout%2C%20Bengaluru!5e0!3m2!1sen!2sin!4v1000000000"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.183869991309!2d77.52963147409558!3d12.96008328735424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3f4deb4b22d3%3A0x218d32a888d66351!2sTreva%20HQ!5e0!3m2!1sen!2sin!4v1773224958940!5m2!1sen!2sin"
                     width="100%"
                     height="100%"
                     style={{ border: 0, filter: 'grayscale(1) invert(0.9) hue-rotate(180deg)' }}
                     allowFullScreen
                     loading="lazy"
-                    title="Treva Office Location"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Treva HQ Location"
                   />
                 </div>
               </FadeIn>

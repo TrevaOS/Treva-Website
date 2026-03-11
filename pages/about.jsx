@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
-import { ArrowUpRight, Target, Eye, Heart, Zap, Users, Award } from 'lucide-react';
+import { ArrowUpRight, Target, Eye, Heart, Zap } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 
 function FadeIn({ children, delay = 0, className = '' }) {
@@ -38,12 +38,6 @@ const values = [
   },
 ];
 
-const team = [
-  { name: 'Founder / CEO', initials: 'T', role: 'Visionary & Strategy Lead', desc: 'Drives Treva\'s mission to blend creativity with technology for measurable brand growth.' },
-  { name: 'Creative Director', initials: 'C', role: 'Brand & Design Lead', desc: 'Leads all visual identity work, motion graphics, and brand strategy deliverables.' },
-  { name: 'Performance Lead', initials: 'P', role: 'Digital Marketing Head', desc: 'Oversees all paid media, SEO, and performance marketing campaigns across platforms.' },
-  { name: 'Tech Lead', initials: 'T', role: 'Development & Products', desc: 'Architects all web, app, and AI-powered product development at Treva.' },
-];
 
 export default function About() {
   return (

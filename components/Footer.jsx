@@ -43,14 +43,14 @@ export default function Footer() {
             {/* Contact Info */}
             <div className="space-y-3 mb-6">
               <a
-                href="mailto:hello@treva.in"
+                href="mailto:info@treva.in"
                 className="flex items-center gap-2 text-sm text-[#8A9AB0] hover:text-[#29C8D5] transition-colors"
               >
                 <Mail size={14} className="text-[#29C8D5]" />
                 info@treva.in
               </a>
               <a
-                href="tel:+919876543210"
+                href="tel:+917022922526"
                 className="flex items-center gap-2 text-sm text-[#8A9AB0] hover:text-[#29C8D5] transition-colors"
               >
                 <Phone size={14} className="text-[#29C8D5]" />
