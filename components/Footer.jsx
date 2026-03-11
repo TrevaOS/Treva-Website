@@ -94,10 +94,8 @@ export default function Footer() {
           {/* Socials */}
           <div className="flex items-center gap-4">
             {[
-              { Icon: Instagram, href: 'https://instagram.com/treva', label: 'Instagram' },
-              { Icon: Linkedin, href: 'https://linkedin.com/company/treva', label: 'LinkedIn' },
-              { Icon: Twitter, href: 'https://twitter.com/treva', label: 'Twitter' },
-              { Icon: Facebook, href: 'https://facebook.com/treva', label: 'Facebook' },
+              { Icon: Instagram, href: 'https://www.instagram.com/treva.in?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', label: 'Instagram' },
+              { Icon: Linkedin, href: 'https://www.linkedin.com/company/trevain/posts/?feedView=all', label: 'LinkedIn' },
             ].map(({ Icon, href, label }) => (
               <a
                 key={label}
