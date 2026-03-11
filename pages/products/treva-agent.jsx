@@ -26,14 +26,17 @@ const features = [
 ];
 
 export default function TrevaAgent() {
-  const { register, handleSubmit, formState: { isSubmitSuccessful } } = useForm();
+  const { register, handleSubmit, setError, formState: { isSubmitSuccessful, errors } } = useForm();
   const onSubmit = async (data) => {
     const res = await fetch('https://formspree.io/f/xwvrokge', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({ _subject: 'Treva Agent Waitlist', ...data }),
     });
-    if (!res.ok) throw new Error('Submission failed');
+    if (!res.ok) {
+      setError('root', { message: 'Something went wrong. Please try again.' });
+      throw new Error('Submission failed');
+    }
   };
 
   return (
@@ -144,12 +147,15 @@ export default function TrevaAgent() {
                   <p className="text-white font-600">You're on the list!</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col sm:flex-row gap-3" noValidate>
-                  <input {...register('email', { required: true })} type="email" placeholder="Enter your email"
-                    className="flex-1 bg-[#0D1117] border border-purple-500/15 rounded-lg px-4 py-3 text-white text-sm placeholder-[#4A5568] focus:outline-none focus:border-purple-500 transition-colors" />
-                  <button type="submit" style={{ background: '#7C3AED' }} className="btn-primary whitespace-nowrap">
-                    Join Waitlist <ArrowUpRight size={14} />
-                  </button>
+                <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3" noValidate>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <input {...register('email', { required: true })} type="email" placeholder="Enter your email"
+                      className="flex-1 bg-[#0D1117] border border-purple-500/15 rounded-lg px-4 py-3 text-white text-sm placeholder-[#4A5568] focus:outline-none focus:border-purple-500 transition-colors" />
+                    <button type="submit" style={{ background: '#7C3AED' }} className="btn-primary whitespace-nowrap">
+                      Join Waitlist <ArrowUpRight size={14} />
+                    </button>
+                  </div>
+                  {errors.root && <p className="text-red-400 text-xs text-center">{errors.root.message}</p>}
                 </form>
               )}
             </div>

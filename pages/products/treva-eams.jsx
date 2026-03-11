@@ -27,14 +27,17 @@ const features = [
 ];
 
 export default function TrevaEAMS() {
-  const { register, handleSubmit, formState: { isSubmitSuccessful } } = useForm();
+  const { register, handleSubmit, setError, formState: { isSubmitSuccessful, errors } } = useForm();
   const onSubmit = async (data) => {
     const res = await fetch('https://formspree.io/f/xwvrokge', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({ _subject: 'Treva EAMS Waitlist', ...data }),
     });
-    if (!res.ok) throw new Error('Submission failed');
+    if (!res.ok) {
+      setError('root', { message: 'Something went wrong. Please try again.' });
+      throw new Error('Submission failed');
+    }
   };
 
   return (
@@ -149,13 +152,16 @@ export default function TrevaEAMS() {
                   <p className="text-white font-600">You're on the early access list!</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col sm:flex-row gap-3" noValidate>
-                  <input {...register('email', { required: true })} type="email" placeholder="Enter your business email"
-                    className="flex-1 bg-[#0D1117] rounded-lg px-4 py-3 text-white text-sm placeholder-[#4A5568] focus:outline-none transition-colors border"
-                    style={{ borderColor: `${green}20` }} />
-                  <button type="submit" className="btn-primary whitespace-nowrap" style={{ background: green, color: '#000' }}>
-                    Join Waitlist <ArrowUpRight size={14} />
-                  </button>
+                <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3" noValidate>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <input {...register('email', { required: true })} type="email" placeholder="Enter your business email"
+                      className="flex-1 bg-[#0D1117] rounded-lg px-4 py-3 text-white text-sm placeholder-[#4A5568] focus:outline-none transition-colors border"
+                      style={{ borderColor: `${green}20` }} />
+                    <button type="submit" className="btn-primary whitespace-nowrap" style={{ background: green, color: '#000' }}>
+                      Join Waitlist <ArrowUpRight size={14} />
+                    </button>
+                  </div>
+                  {errors.root && <p className="text-red-400 text-xs text-center">{errors.root.message}</p>}
                 </form>
               )}
             </div>

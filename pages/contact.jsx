@@ -22,7 +22,7 @@ const services = [
 ];
 
 export default function Contact() {
-  const { register, handleSubmit, formState: { errors, isSubmitting, isSubmitSuccessful } } = useForm();
+  const { register, handleSubmit, setError, formState: { errors, isSubmitting, isSubmitSuccessful } } = useForm();
 
   const onSubmit = async (data) => {
     const res = await fetch('https://formspree.io/f/xwvrokge', {
@@ -30,7 +30,10 @@ export default function Contact() {
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify(data),
     });
-    if (!res.ok) throw new Error('Submission failed');
+    if (!res.ok) {
+      setError('root', { message: "Something went wrong. Please try again or email us at info@treva.in" });
+      throw new Error('Submission failed');
+    }
   };
 
   return (
@@ -82,9 +85,9 @@ export default function Contact() {
               </FadeIn>
 
               {[
-                { Icon: Mail, label: 'Email', value: 'info@treva.in', href: 'mailto:info@treva.in?bcc=tech@treva.in' },
+                { Icon: Mail, label: 'Email', value: 'info@treva.in', href: 'mailto:info@treva.in' },
                 { Icon: Phone, label: 'Phone', value: '+91 70229 22526', href: 'tel:+917022922526' },
-                { Icon: MapPin, label: 'Address', value: 'Vijayanagar, Bengaluru, Karnataka 560102', href: 'https://share.google/ZmtaQtW8vRZ7ihfgz' },
+                { Icon: MapPin, label: 'Address', value: '4, 2nd Floor, Tarang Complex, Attiguppe, Vijayanagar, Bengaluru 560040', href: 'https://share.google/ZmtaQtW8vRZ7ihfgz' },
                 { Icon: Clock, label: 'Working Hours', value: 'Mon – Fri, 9AM – 6PM IST', href: null },
               ].map(({ Icon, label, value, href }, i) => (
                 <FadeIn key={label} delay={i * 0.08}>
@@ -230,6 +233,10 @@ export default function Contact() {
                       />
                       {errors.message && <p className="text-red-400 text-xs mt-1">{errors.message.message}</p>}
                     </div>
+
+                    {errors.root && (
+                      <p className="text-red-400 text-xs text-center">{errors.root.message}</p>
+                    )}
 
                     <button
                       type="submit"
