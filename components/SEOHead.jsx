@@ -6,6 +6,7 @@ export default function SEOHead({
   image = '/og-image.jpg',
   url = 'https://treva.in',
   type = 'website',
+  keywords = 'digital marketing agency Bengaluru, performance marketing, social media marketing, Google Ads, Meta Ads, SEO agency India, branding agency, web development, app development, digital marketing company Bangalore',
 }) {
   const fullTitle = title.includes('Treva') ? title : `${title} | Treva`;
 
@@ -13,6 +14,7 @@ export default function SEOHead({
     <Head>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      <meta name="keywords" content={keywords} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="theme-color" content="#29C8D5" />
 
@@ -40,8 +42,9 @@ export default function SEOHead({
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
-            '@type': 'LocalBusiness',
+            '@type': 'ProfessionalService',
             name: 'Treva',
+            serviceType: 'Digital Marketing Agency',
             description,
             url: 'https://treva.in',
             telephone: '+91-70229-22526',

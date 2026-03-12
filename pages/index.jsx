@@ -328,9 +328,10 @@ export default function Home() {
   return (
     <>
       <SEOHead
-        title="Treva  Where Creativity Meets Technology"
-        description="Treva is Bengaluru's premier full-service digital agency. We help brands grow with strategy, branding, performance marketing, web development, and AI-powered solutions."
+        title="Treva | Digital Marketing Agency in Bengaluru | Branding, Ads & Web"
+        description="Treva is Bengaluru's top digital marketing agency. We deliver performance marketing, Google & Meta Ads, branding, social media management, SEO, web & app development for high-growth brands."
         url="https://treva.in"
+        keywords="digital marketing agency Bengaluru, digital marketing agency Bangalore, performance marketing agency India, Google Ads agency, Meta Ads agency, social media marketing Bengaluru, branding agency Bangalore, SEO agency Bengaluru, web development agency India, full service digital agency"
       />
 
       {/* ── HERO ─────────────────────────────────────── */}
@@ -374,8 +375,8 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-[#8A9AB0] text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed"
           >
-            We help ambitious brands grow with strategy, design, performance marketing,
-            and intelligent technology all under one roof, 
+            We help ambitious brands grow with strategy, design, performance marketing
+            and intelligent technology all under one roof{' '}  
             <span className="font-semibold text-cyan-400">built to scale and drive measurable ROI.</span>          
           </motion.p>
 
@@ -507,9 +508,9 @@ export default function Home() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { value: '3x', label: 'Avg. ROAS Delivered', sub: 'Across performance campaigns' },
-                { value: '95%', label: 'Client Retention Rate', sub: 'Because results speak' },
+                { value: '95%', label: 'Client Retention Rate', sub: 'Because results speak for themselves' },
                 { value: '48hr', label: 'Avg. Turnaround', sub: 'For creative deliverables' },
-                { value: '0', label: 'Hidden Costs', sub: 'Transparent pricing always' },
+                { value: '0', label: <>Hidden <br /> Costs</>, sub: 'Transparent pricing always' },
               ].map(({ value, label, sub }, i) => (
                 <FadeIn key={label} delay={i * 0.1}>
                   <div className="bg-[#000000] border border-[rgba(41,200,213,0.1)] rounded-2xl p-8 card-glow testimonial-card relative">

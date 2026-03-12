@@ -121,9 +121,10 @@ export default function Services() {
   return (
     <>
       <SEOHead
-        title="Services Branding, Marketing & Technology"
-        description="Treva offers branding, media production, social media marketing, performance marketing, web development, and app development services in Bengaluru."
+        title="Digital Marketing Services in Bengaluru | Treva"
+        description="Treva offers end-to-end digital marketing services in Bengaluru — branding, performance marketing, Google & Meta Ads, social media management, video production, web & app development."
         url="https://treva.in/services"
+        keywords="digital marketing services Bengaluru, performance marketing agency, Google Ads management, Meta Ads agency, social media marketing agency, branding agency Bangalore, video production agency, web development Bengaluru, app development agency India"
       />
 
       {/* Hero */}
