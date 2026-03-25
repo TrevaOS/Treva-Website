@@ -11,6 +11,11 @@ const nextConfig = {
       },
     ];
   },
+
+  // ✅ IMPORTANT (for Cloudflare)
+  output: 'export',
+
+  turbopack: false,
 };
 
 module.exports = nextConfig;
