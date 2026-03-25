@@ -1,12 +1,4 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-
-  images: {
-    domains: ['images.unsplash.com', 'api.dicebear.com'],
-    formats: ['image/avif', 'image/webp'],
-  },
-
   async headers() {
     return [
       {
@@ -19,13 +11,6 @@ const nextConfig = {
       },
     ];
   },
-
-  experimental: {
-    runtime: 'edge', // keep inside main config
-  },
-
-  // 🚨 IMPORTANT FIX
-  turbopack: false,
 };
 
 module.exports = nextConfig;
