@@ -119,7 +119,7 @@ export default function TrevaAgent() {
               What Treva Agent <span style={{ background: 'linear-gradient(135deg, #7C3AED, #A78BFA)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Does</span>
             </h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {features.map(({ icon: Icon, title, desc }, i) => (
               <FadeIn key={title} delay={i * 0.08}>
                 <div className="bg-[#000000] border border-purple-500/10 rounded-2xl p-7 hover:border-purple-500/25 transition-all">

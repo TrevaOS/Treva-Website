@@ -266,3 +266,12 @@ body {
 .testimonial-card::after {
   display: none;
 }
+.equal-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.equal-card p {
+  flex-grow: 1;
+}

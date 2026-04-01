@@ -254,7 +254,7 @@ export default function BlogDetail({ post, content }) {
         <section className="py-16 bg-[#080C10] border-t border-[rgba(41,200,213,0.08)]">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="font-800 text-white text-2xl mb-8">More from the Blog</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
               {others.map((p) => (
                 <Link
                   key={p.slug}

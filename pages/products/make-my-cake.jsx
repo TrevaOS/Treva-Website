@@ -132,7 +132,7 @@ export default function MakeMyCake() {
               How <span style={{ background: `linear-gradient(135deg, ${amber}, #FBBF24)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>It Works</span>
             </h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {features.map(({ icon: Icon, title, desc }, i) => (
               <FadeIn key={title} delay={i * 0.08}>
                 <div className="bg-[#000000] rounded-2xl p-7 card-glow border" style={{ borderColor: `${amber}10` }}>

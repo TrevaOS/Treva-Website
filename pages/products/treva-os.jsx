@@ -149,7 +149,7 @@ export default function TrevaOS() {
               Everything You Need, <span className="teal-gradient-text">Nothing You Don't</span>
             </h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {features.map(({ icon: Icon, title, desc }, i) => (
               <FadeIn key={title} delay={i * 0.08}>
                 <div className="bg-[#000000] border border-[rgba(41,200,213,0.1)] rounded-2xl p-7 card-glow">

@@ -153,7 +153,7 @@ export default function Blog() {
           </FadeIn>
 
           {/* Other Posts */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
             {rest.map(({ slug, tag, title, excerpt, readTime, date }, i) => (
               <FadeIn key={slug} delay={i * 0.08}>
                 <Link

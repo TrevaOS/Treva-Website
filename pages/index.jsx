@@ -439,12 +439,12 @@ export default function Home() {
             </p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {services.map(({ icon: Icon, title, desc, href }, i) => (
               <FadeIn key={title} delay={i * 0.08}>
                 <Link
                   href={href}
-                  className="group block bg-gradient-to-br from-[#06121a] via-[#081018] to-[#0b2a2f] border border-[rgba(41,200,213,0.12)] rounded-2xl p-7 card-glow transition-all duration-300 h-full"
+                  className="group block bg-gradient-to-br from-[#06121a] via-[#081018] to-[#0b2a2f] border border-[rgba(41,200,213,0.12)] rounded-2xl p-7 card-glow transition-all duration-300 h-full flex flex-col"
                 >
                   <div className="w-12 h-12 rounded-xl bg-[rgba(41,200,213,0.08)] border border-[rgba(41,200,213,0.15)] flex items-center justify-center mb-5 group-hover:bg-[rgba(41,200,213,0.15)] transition-colors">
                     <Icon size={22} className="text-[#29C8D5]" />
@@ -452,7 +452,7 @@ export default function Home() {
                   <h3 className="font-700 text-white text-lg mb-2 group-hover:text-[#29C8D5] transition-colors">
                     {title}
                   </h3>
-                  <p className="text-[#8A9AB0] text-sm leading-relaxed mb-4">{desc}</p>
+                  <p className="text-[#8A9AB0] text-sm leading-relaxed mb-4 flex-grow">{desc}</p>
                   <span className="inline-flex items-center gap-1 text-[#29C8D5] text-xs font-600 uppercase tracking-wide">
                     Learn More <ArrowUpRight size={12} />
                   </span>
@@ -548,7 +548,7 @@ export default function Home() {
             </p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {workflowSteps.map(({ step, title, desc }, i) => (
               <FadeIn key={step} delay={i * 0.08}>
                 <div className="relative bg-[#000000] border border-[rgba(41,200,213,0.1)] rounded-2xl p-7 card-glow group">
@@ -606,17 +606,17 @@ export default function Home() {
             </p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
             {testimonials.map(({ name, role, stars, text }, i) => (
               <FadeIn key={name} delay={i * 0.1}>
-                <div className="bg-[#000000] border border-[rgba(41,200,213,0.1)] rounded-2xl p-8 card-glow relative">
+                <div className="bg-[#000000] border border-[rgba(41,200,213,0.1)] rounded-2xl p-8 card-glow relative h-full flex flex-col">
                   <Quote size={28} className="text-[rgba(41,200,213,0.15)] absolute top-6 right-6" />
                   <div className="flex gap-1 mb-4">
                     {Array.from({ length: stars }).map((_, j) => (
                       <Star key={j} size={14} className="text-[#29C8D5] fill-[#29C8D5]" />
                     ))}
                   </div>
-                  <p className="text-[#8A9AB0] text-sm leading-relaxed mb-6 italic">"{text}"</p>
+                  <p className="text-[#8A9AB0] text-sm leading-relaxed mb-6 italic flex-grow">"{text}"</p>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-[rgba(41,200,213,0.1)] border border-[rgba(41,200,213,0.2)] flex items-center justify-center">
                       <span className="text-[#29C8D5] font-700 text-sm">{name[0]}</span>
