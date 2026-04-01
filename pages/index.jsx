@@ -119,21 +119,21 @@ const products = [
 
 const testimonials = [
   {
-    name: 'Rahul Sharma', role: 'CEO, Amazon Seller Partner', stars: 5,
-    text: 'Treva transformed our Amazon advertising. Their performance marketing team cut our CPC by 40% while tripling our ROAS. Incredible ROI in just 90 days.',
+    name: 'Ankesh', role: 'McKinsey', stars: 5,
+    text: "Treva.in helped us create a powerful brand that resonates with our target audience. We couldn't be happier with the results!",
   },
   {
-    name: 'Priya Nair', role: 'Marketing Head, Zolo',  stars: 5,
-    text: 'The brand refresh Treva delivered was exactly what we needed. Our social engagement doubled and we gained 50,000+ new followers within the first quarter.',
+    name: 'Akhil Sikri', role: 'Co-founder, Zolostays',  stars: 5,
+    text: "I've been consistently impressed by this agency's commitment to excellence. They've shouldered a multitude of responsibilities and have proven to be an unwavering support system. Their collective expertise, exceptional skills, and relentless drive to achieve targets and ambitious milestones are truly commendable. ",
   },
   {
-    name: 'Aditya Verma', role: 'Founder, District 6', stars: 5,
-    text: 'Our event campaigns run like clockwork now. Treva\'s social team creates content that actually resonates with our crowd. House full, every time.Great Team',
+    name: 'Ashok Reddy', role: 'CEO, BETSOL', stars: 5,
+    text: "The agency's unwavering commitment to enhancing the customer experience and taking complete ownership of tasks is not only impressive but also incredibly inspiring.",
   },
-  {
-    name: 'Sneha Kapoor', role: 'Co-founder, Edureka', stars: 5,
-    text: 'The website Treva built for us loads 68% faster and conversions went up by 29% immediately. Their SEO work got us to top 3 on Google within 6 months.',
-  },
+  // {
+  //   name: 'Sneha Kapoor', role: 'Co-founder, Edureka', stars: 5,
+  //   text: 'The website Treva built for us loads 68% faster and conversions went up by 29% immediately. Their SEO work got us to top 3 on Google within 6 months.',
+  // },
 ];
 
 const workflowSteps = [
