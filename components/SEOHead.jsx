@@ -7,8 +7,38 @@ export default function SEOHead({
   url = 'https://www.treva.in',
   type = 'website',
   keywords = 'digital marketing agency Bengaluru, performance marketing, social media marketing, Google Ads, Meta Ads, SEO agency India, branding agency, web development, app development, digital marketing company Bangalore',
+<<<<<<< HEAD
+  schema = null,
 }) {
   const fullTitle = title.includes('Treva') ? title : `${title} | Treva`;
+  const defaultSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: 'Treva',
+    serviceType: 'Digital Marketing Agency',
+    description,
+    url: 'https://www.treva.in',
+    telephone: '+91-70229-22526',
+    email: 'info@treva.in',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '4, 2nd Floor, Tarang Complex, Attiguppe, Chandra Layout Main Rd, Vijayanagar',
+      addressLocality: 'Bengaluru',
+      addressRegion: 'Karnataka',
+      postalCode: '560040',
+      addressCountry: 'IN',
+    },
+    openingHours: 'Mo-Fr 09:00-18:00',
+    sameAs: [
+      'https://www.instagram.com/treva.in',
+      'https://www.linkedin.com/company/trevain/posts/?feedView=all',
+    ],
+  };
+  const schemaPayload = Array.isArray(schema) ? [defaultSchema, ...schema] : schema ? [defaultSchema, schema] : [defaultSchema];
+=======
+}) {
+  const fullTitle = title.includes('Treva') ? title : `${title} | Treva`;
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
 
   return (
     <Head>
@@ -26,6 +56,10 @@ export default function SEOHead({
       <meta property="og:image" content={image} />
       <meta property="og:site_name" content="Treva" />
       <meta property="og:locale" content="en_IN" />
+<<<<<<< HEAD
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+=======
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -40,6 +74,9 @@ export default function SEOHead({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
+<<<<<<< HEAD
+          __html: JSON.stringify(schemaPayload),
+=======
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'ProfessionalService',
@@ -69,6 +106,7 @@ export default function SEOHead({
               'https://twitter.com/treva',
             ],
           }),
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
         }}
       />
 

@@ -1,0 +1,19 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#081018"/>
+  <circle cx="1230" cy="180" r="220" fill="#29C8D5" fill-opacity="0.18"/>
+  <circle cx="310" cy="760" r="260" fill="#29C8D5" fill-opacity="0.08"/>
+  <rect x="140" y="120" width="560" height="620" rx="34" fill="#0D1117" stroke="#29C8D5" stroke-opacity="0.22"/>
+  <rect x="190" y="190" width="230" height="26" rx="13" fill="#29C8D5" fill-opacity="0.26"/>
+  <rect x="190" y="248" width="440" height="18" rx="9" fill="white" fill-opacity="0.08"/>
+  <rect x="190" y="286" width="380" height="18" rx="9" fill="white" fill-opacity="0.08"/>
+  <rect x="190" y="358" width="460" height="94" rx="22" fill="#0A0D12" stroke="white" stroke-opacity="0.06"/>
+  <rect x="190" y="484" width="460" height="94" rx="22" fill="#0A0D12" stroke="white" stroke-opacity="0.06"/>
+  <rect x="190" y="610" width="210" height="56" rx="18" fill="#29C8D5"/>
+  <text x="740" y="304" fill="white" font-family="Arial, sans-serif" font-size="82" font-weight="700">CRM Tools</text>
+  <text x="740" y="390" fill="#29C8D5" font-family="Arial, sans-serif" font-size="82" font-weight="700">for Small Business</text>
+  <text x="742" y="474" fill="#9FB2C8" font-family="Arial, sans-serif" font-size="28">Organize leads, automate follow-ups, and build a cleaner sales system.</text>
+  <rect x="740" y="552" width="310" height="72" rx="22" fill="#0D1117" stroke="#29C8D5" stroke-opacity="0.22"/>
+  <text x="778" y="598" fill="#29C8D5" font-family="Arial, sans-serif" font-size="30" font-weight="700">Lead Management</text>
+  <rect x="1074" y="552" width="246" height="72" rx="22" fill="#0D1117" stroke="#29C8D5" stroke-opacity="0.22"/>
+  <text x="1112" y="598" fill="#29C8D5" font-family="Arial, sans-serif" font-size="30" font-weight="700">Workflow</text>
+</svg>

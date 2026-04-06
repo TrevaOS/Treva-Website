@@ -1,8 +1,14 @@
 import { useRef } from 'react';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
+<<<<<<< HEAD
+import { ArrowUpRight, Clock } from 'lucide-react';
+import SEOHead from '../../components/SEOHead';
+import { blogPosts } from '../../data/blogData';
+=======
 import { ArrowUpRight, Clock, Tag } from 'lucide-react';
 import SEOHead from '../../components/SEOHead';
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
 
 function FadeIn({ children, delay = 0, className = '' }) {
   const ref = useRef(null);
@@ -15,6 +21,8 @@ function FadeIn({ children, delay = 0, className = '' }) {
   );
 }
 
+<<<<<<< HEAD
+=======
 export const blogPosts = [
   {
     slug: 'seo-to-geo-search-strategy-2026',
@@ -63,6 +71,7 @@ export const blogPosts = [
   },
 ];
 
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
 const tagColors = {
   'Strategy': 'bg-blue-500/10 text-blue-400 border-blue-500/20',
   'AI & Technology': 'bg-purple-500/10 text-purple-400 border-purple-500/20',
@@ -118,12 +127,22 @@ export default function Blog() {
               className="group block bg-[#080C10] border border-[rgba(41,200,213,0.12)] rounded-2xl overflow-hidden card-glow"
             >
               <div className="grid grid-cols-1 lg:grid-cols-2">
+<<<<<<< HEAD
+                <div className="h-72 lg:h-auto bg-[#0D1117] relative overflow-hidden">
+                  <img
+                    src={featured.image}
+                    alt={featured.title}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#080C10]/40 via-transparent to-transparent" />
+=======
                 <div className="h-72 lg:h-auto bg-[#0D1117] relative flex items-center justify-center overflow-hidden">
                   <div
                     className="absolute inset-0 group-hover:opacity-80 transition-opacity"
                     style={{ background: 'radial-gradient(ellipse at center, rgba(41,200,213,0.15), transparent 70%)' }}
                   />
                   <span className="relative text-[7rem] font-black text-[rgba(41,200,213,0.06)] select-none">AI</span>
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
                   <div className="absolute top-4 left-4">
                     <span className="bg-[#29C8D5] text-black text-xs font-700 px-3 py-1 rounded-full uppercase tracking-wide">
                       Featured
@@ -154,12 +173,25 @@ export default function Blog() {
 
           {/* Other Posts */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+<<<<<<< HEAD
+            {rest.map(({ slug, tag, title, excerpt, readTime, date, image }, i) => (
+=======
             {rest.map(({ slug, tag, title, excerpt, readTime, date }, i) => (
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
               <FadeIn key={slug} delay={i * 0.08}>
                 <Link
                   href={`/blog/${slug}`}
                   className="group block bg-[#080C10] border border-[rgba(41,200,213,0.1)] rounded-2xl overflow-hidden card-glow h-full"
                 >
+<<<<<<< HEAD
+                  <div className="h-44 bg-[#0D1117] relative overflow-hidden">
+                    <img
+                      src={image}
+                      alt={title}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#080C10]/45 via-transparent to-transparent" />
+=======
                   <div className="h-44 bg-[#0D1117] relative flex items-center justify-center overflow-hidden">
                     <div
                       className="absolute inset-0 group-hover:opacity-80 transition-opacity"
@@ -168,6 +200,7 @@ export default function Blog() {
                     <span className="relative text-[4rem] font-black text-[rgba(41,200,213,0.05)] select-none">
                       {tag.split(' ')[0]}
                     </span>
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
                     <div className="absolute top-3 left-3">
                       <span className={`text-xs font-600 px-2.5 py-1 rounded-full border ${tagColors[tag]}`}>
                         {tag}

@@ -1,6 +1,10 @@
 import '../styles/globals.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+<<<<<<< HEAD
+import CRMNotification from '../components/CRMNotification';
+=======
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
 import { AnimatePresence, motion } from 'framer-motion';
 import Script from 'next/script';
 
@@ -31,6 +35,10 @@ export default function App({ Component, pageProps, router }) {
           <Component {...pageProps} />
         </motion.div>
       </AnimatePresence>
+<<<<<<< HEAD
+      <CRMNotification />
+=======
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
       <Footer />
     </>
   );
