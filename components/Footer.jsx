@@ -15,17 +15,11 @@ const footerLinks = {
     { label: 'About', href: '/about' },
     { label: 'Products', href: '/products' },
     { label: 'Blog', href: '/blog' },
-<<<<<<< HEAD
     { label: 'FAQ', href: '/faq' },
     { label: 'Contact', href: '/contact' },
   ],
   Products: [
     { label: 'Treva CRM', href: 'https://crm.treva.in' },
-=======
-    { label: 'Contact', href: '/contact' },
-  ],
-  Products: [
->>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
     { label: 'Treva OS', href: '/products/treva-os' },
     { label: 'Treva Agent', href: '/products/treva-agent' },
     { label: 'Make My Cake', href: '/products/make-my-cake' },
@@ -78,7 +72,6 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link.label}>
-<<<<<<< HEAD
                     {link.href.startsWith('http') ? (
                       <a
                         href={link.href}
@@ -96,14 +89,6 @@ export default function Footer() {
                         {link.label}
                       </Link>
                     )}
-=======
-                    <Link
-                      href={link.href}
-                      className="text-[#8A9AB0] text-sm hover:text-[#29C8D5] transition-colors"
-                    >
-                      {link.label}
-                    </Link>
->>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
                   </li>
                 ))}
               </ul>
