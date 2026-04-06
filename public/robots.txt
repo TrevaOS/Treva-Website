@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
+<<<<<<< HEAD
 Disallow: /api/
+=======
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
 
 Sitemap: https://www.treva.in/sitemap.xml

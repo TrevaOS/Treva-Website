@@ -166,12 +166,18 @@ body {
 /* Marquee container */
 .marquee-wrapper {
   overflow: hidden;
+<<<<<<< HEAD
   width: 100%;
   padding-inline: 1rem;
+=======
+  white-space: nowrap;
+  width: 100%;
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
 }
 .marquee-content {
   display: inline-flex;
   animation: marquee 300s linear infinite;
+<<<<<<< HEAD
   gap: 2rem;
   will-change: transform;
   width: max-content;
@@ -180,6 +186,10 @@ body {
 .marquee-logo-card {
   background: #ffffff;
   flex: 0 0 auto;
+=======
+  gap: 5rem;
+  will-change: transform;
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
 }
 
 @keyframes marquee {
@@ -280,6 +290,7 @@ body {
 
 .equal-card p {
   flex-grow: 1;
+<<<<<<< HEAD
 }
 
 .crm-live-banner {
@@ -320,3 +331,6 @@ body {
     max-width: 92px !important;
   }
 }
+=======
+}
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6

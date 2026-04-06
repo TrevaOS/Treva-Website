@@ -7,7 +7,10 @@ import {
   Star, Quote, CheckCircle, ArrowRight
 } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
+<<<<<<< HEAD
 import { products as productCatalog } from '../data/products';
+=======
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
 
 // ─────────────────────────────────────────────
 // DATA
@@ -96,11 +99,19 @@ const workItems = [
 
 const products = [
   {
+<<<<<<< HEAD
     name: 'Treva CRM',
     tag: 'Now Live',
     desc: 'Our live CRM is free right now for teams that want faster follow-ups, cleaner pipelines, and one place for every customer conversation.',
     icon: Users,
     href: 'https://crm.treva.in',
+=======
+    name: 'Treva OS',
+    tag: 'Coming Soon',
+    desc: 'An all-in-one business operating system  manage your brand, campaigns, and analytics from a single intelligent dashboard.',
+    icon: Zap,
+    href: '/products/treva-os',
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
   },
   {
     name: 'Treva Agent',
@@ -219,6 +230,7 @@ function ProductSlider() {
 
 const items = [
   {
+<<<<<<< HEAD
     name: 'Treva CRM',
     image: '/images/crm.png',
     tag: 'Now Live',
@@ -230,6 +242,16 @@ const items = [
     ctaLabel: 'Get Access',
     external: true,
     imageClassName: 'object-contain p-8 sm:p-10 bg-white',
+=======
+    name: 'Treva OS',
+    image: '/images/1.svg',
+    tag: 'Coming Soon',
+    quote: 'One platform to manage your entire brand operation',
+    desc: 'An all-in-one business operating system  manage your brand, campaigns, and analytics from a single intelligent dashboard.',
+    impacts: ['Campaign Manager', 'AI Insights Engine', 'Brand Health Score', 'CRM Integration'],
+    href: '/products/treva-os',
+    color: '#29C8D5',
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
   },
   {
     name: 'Treva Agent',
@@ -240,7 +262,10 @@ const items = [
     impacts: ['Lead Qualification', 'Auto Ad Optimization', 'Meeting Booking', 'Email Sequences'],
     href: '/products/treva-agent',
     color: '#7C3AED',
+<<<<<<< HEAD
     ctaLabel: 'Learn More & Join Waitlist',
+=======
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
   },
   {
     name: 'Make My Cake',
@@ -251,7 +276,10 @@ const items = [
     impacts: ['Baker Discovery', 'Custom Cake Orders', 'Real-time Tracking', 'Baker Dashboard'],
     href: '/products/make-my-cake',
     color: '#F59E0B',
+<<<<<<< HEAD
     ctaLabel: 'Learn More & Join Waitlist',
+=======
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
   },
   {
     name: 'Treva EAMS',
@@ -262,7 +290,10 @@ const items = [
     impacts: ['Unified Analytics', 'Asset Management', 'Predictive Models', 'Multi-brand Support'],
     href: '/products/treva-eams',
     color: '#10B981',
+<<<<<<< HEAD
     ctaLabel: 'Learn More & Join Waitlist',
+=======
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
   },
 ];
 
@@ -285,7 +316,11 @@ const items = [
             <img
               src={current.image}
               alt={current.name}
+<<<<<<< HEAD
               className={`absolute inset-0 h-full w-full ${current.imageClassName || 'object-cover'}`}
+=======
+              className="w-full h-full object-cover absolute inset-0"
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
             />
           </div>
 
@@ -300,6 +335,7 @@ const items = [
             <p className="text-[#8A9AB0] text-sm leading-relaxed mb-6">
               {current.desc}
             </p>
+<<<<<<< HEAD
             {current.external ? (
               <a
                 href={current.href}
@@ -318,6 +354,13 @@ const items = [
                 <ArrowUpRight size={14} />
               </Link>
             )}
+=======
+            <Link href={current.href} className="btn-primary w-fit"
+              style={{ background: current.color, color: '#000' }}>
+              Learn More & Join Waitlist
+              <ArrowUpRight size={14} />
+            </Link>
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
           </div>
         </div>
       </div>
@@ -345,10 +388,17 @@ const items = [
 }
 
 export default function Home() {
+<<<<<<< HEAD
   const crmProduct = productCatalog.find((product) => product.slug === 'treva-crm');
 
   return (
     <>
+=======
+  
+  return (
+    <>
+    <h1>Working</h1>
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
       <SEOHead
         title="Treva | Digital Marketing Agency in Bengaluru | Branding, Ads & Web"
         description="Treva is Bengaluru's top digital marketing agency. We deliver performance marketing, Google & Meta Ads, branding, social media management, SEO, web & app development for high-growth brands."
@@ -367,6 +417,7 @@ export default function Home() {
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+<<<<<<< HEAD
           {crmProduct && (
             <div className="mb-8 flex justify-center">
               <a
@@ -383,6 +434,8 @@ export default function Home() {
               </a>
             </div>
           )}
+=======
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -449,7 +502,11 @@ export default function Home() {
         <div className="marquee-wrapper">
           <div className="marquee-content">
             {[...clients, ...clients].map((logo, i) => (
+<<<<<<< HEAD
               <div key={i} className="marquee-logo-card flex items-center justify-center rounded-xl px-6 py-4 sm:px-8"
+=======
+              <div key={i} className="flex items-center justify-center bg-white rounded-xl px-8 py-4"
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
                 style={{ flexShrink: 0 }}>
                 <img src={logo} className="h-16 w-auto object-contain" style={{ maxWidth: '160px' }} />
               </div>
@@ -551,7 +608,11 @@ export default function Home() {
                 { value: '0', label: <>Hidden <br /> Costs</>, sub: 'Transparent pricing always' },
               ].map(({ value, label, sub }, i) => (
                 <FadeIn key={label} delay={i * 0.1}>
+<<<<<<< HEAD
                   <div className="bg-[#000000] border border-[rgba(41,200,213,0.1)] rounded-2xl p-8 card-glow testimonial-card relative flex h-full min-h-[248px] flex-col justify-between">
+=======
+                  <div className="bg-[#000000] border border-[rgba(41,200,213,0.1)] rounded-2xl p-8 card-glow testimonial-card relative">
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
                   <div
                     className="font-black text-white mb-2"
                     style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', letterSpacing: '-0.02em' }}
@@ -698,4 +759,8 @@ export default function Home() {
       </section>
     </>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
