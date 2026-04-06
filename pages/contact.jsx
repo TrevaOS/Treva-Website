@@ -96,7 +96,7 @@ export default function Contact() {
 
               {[
                 { Icon: Mail, label: 'Email', value: 'info@treva.in', href: 'mailto:info@treva.in' },
-                { Icon: Phone, label: 'Phone', value: '+91 70229 22526', href: 'tel:+917022922526' },
+                { Icon: Phone, label: 'Phone', value: '+91 70229 22526', href: 'tel:+917022922526' },
                 { Icon: MapPin, label: 'Address', value: '4, 2nd Floor, Tarang Complex, Attiguppe, Vijayanagar, Bengaluru 560040', href: 'https://share.google/ZmtaQtW8vRZ7ihfgz' },
                 { Icon: Clock, label: 'Working Hours', value: 'Mon – Fri, 9AM – 6PM IST', href: null },
               ].map(({ Icon, label, value, href }, i) => (
@@ -206,7 +206,7 @@ export default function Contact() {
                         <input
                           {...register('phone')}
                           type="tel"
-                          placeholder="+91 70229 22526"
+                          placeholder="+91 70229 22526"
                           className="w-full bg-[#0D1117] border border-[rgba(41,200,213,0.15)] rounded-lg px-4 py-3 text-white text-sm placeholder-[#4A5568] focus:outline-none focus:border-[#29C8D5] transition-colors"
                         />
                       </div>
