@@ -65,7 +65,7 @@ const features = [
   {
     icon: FileText,
     title: 'Payments & Billing',
-    desc: 'Generate invoices, track paid/pending/overdue bills, and manage your revenue — all inside Treva.',
+    desc: 'Generate invoices, track paid/pending/overdue bills, and manage your revenue all inside Treva.',
     color: 'text-green-400',
     bg: 'bg-green-500/10 border-green-500/20',
   },
@@ -100,7 +100,7 @@ const features = [
 ];
 
 const steps = [
-  { step: '01', title: 'Create your account', desc: 'Sign up free — no credit card needed. Get started in 30 seconds.' },
+  { step: '01', title: 'Create your account', desc: 'Sign up free no credit card needed. Get started in 30 seconds.' },
   { step: '02', title: 'Set up your workspace', desc: 'Choose your business type and fill in org details. Done in under 2 minutes.' },
   { step: '03', title: 'Import your contacts', desc: 'Upload a CSV or Excel file. Treva maps your fields automatically.' },
   { step: '04', title: 'Start closing deals', desc: 'Add deals, track stages, automate follow-ups, and watch your pipeline grow.' },
@@ -135,6 +135,30 @@ const testimonials = [
 ];
 
 /* ─── screen tabs ───────────────────────────────────────── */
+const productTabs = [
+  {
+    id: 'dashboard',
+    label: 'Dashboard',
+    icon: LayoutDashboard,
+    image: '/images/dash.png',
+    alt: 'Treva CRM dashboard overview',
+  },
+  {
+    id: 'contacts',
+    label: 'Contacts',
+    icon: Users,
+    image: '/images/contacts.png',
+    alt: 'Treva CRM contacts management',
+  },
+  {
+    id: 'deals',
+    label: 'Deals',
+    icon: BarChart3,
+    image: '/images/deals.png',
+    alt: 'Treva CRM deals pipeline',
+  },
+];
+
 /* ─── component ─────────────────────────────────────────── */
 export default function TrevaCRM() {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -142,13 +166,14 @@ export default function TrevaCRM() {
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const activeProductTab = productTabs.find(({ id }) => id === activeTab) ?? productTabs[0];
 
 
   return (
     <>
       <SEOHead
-        title="Treva CRM — Free CRM for Modern Sales Teams"
-        description="Treva CRM is live and free. Manage contacts, track deals, automate follow-ups, and run customer workflows — all in one clean platform."
+        title="Treva CRM Free CRM for Modern Sales Teams"
+        description="Treva CRM is live and free. Manage contacts, track deals, automate follow-ups, and run customer workflows all in one clean platform."
         url="https://www.treva.in/products/treva-crm"
         keywords="free CRM India, CRM software Bengaluru, sales pipeline software, workflow automation CRM, Treva CRM"
         schema={{
@@ -158,7 +183,7 @@ export default function TrevaCRM() {
           applicationCategory: 'BusinessApplication',
           operatingSystem: 'Web',
           offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
-          description: 'Treva CRM — free CRM for sales, pipelines, and customer workflows.',
+          description: 'Treva CRM free CRM for sales, pipelines, and customer workflows.',
           url: 'https://www.treva.in/products/treva-crm',
         }}
       />
@@ -290,7 +315,7 @@ export default function TrevaCRM() {
               </div>
             </div>
             <img
-              src="/images/crm.png"
+              src="/images/dash.png"
               alt="Treva CRM Dashboard"
               className="w-full object-cover"
             />
@@ -321,23 +346,11 @@ export default function TrevaCRM() {
               <CheckCircle size={14} className="text-green-400" />
             </div>
             <div>
-              <p className="text-white text-xs font-700">50 contacts imported</p>
-              <p className="text-[#8A9AB0] text-xs">in under 60 seconds</p>
+              <p className="text-white text-xs font-700">Contacts import</p>
+              <p className="text-[#8A9AB0] text-xs">in few seconds</p>
             </div>
           </motion.div>
         </motion.div>
-      </section>
-
-      {/* ── LOGO BAR ─────────────────────────────────────── */}
-      <section className="bg-[#000000] border-t border-[rgba(41,200,213,0.06)] py-12 overflow-hidden">
-        <FadeIn className="text-center mb-8">
-          <p className="text-[#8A9AB0] text-sm uppercase tracking-widest">Trusted by teams using Treva</p>
-        </FadeIn>
-        <div className="flex gap-12 items-center justify-center flex-wrap opacity-40 px-6">
-          {[1, 2, 3, 4, 5, 6].map((n) => (
-            <img key={n} src={`/logos/${n}.svg`} alt="" className="h-7 object-contain grayscale" />
-          ))}
-        </div>
       </section>
 
       {/* ── PRODUCT SCREENSHOTS TABS ─────────────────────── */}
@@ -351,18 +364,13 @@ export default function TrevaCRM() {
               <span className="teal-gradient-text">nothing they don't</span>
             </h2>
             <p className="text-[#8A9AB0] mt-4 max-w-xl mx-auto text-lg">
-              Navigate between modules — every view is designed for speed and clarity.
+              Navigate between modules every view is designed for speed and clarity.
             </p>
           </FadeIn>
 
           {/* tab bar */}
           <div className="flex flex-wrap justify-center gap-2 mb-10">
-            {[
-              { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-              { id: 'contacts',  label: 'Contacts',  icon: Users },
-              { id: 'deals',     label: 'Deals',     icon: BarChart3 },
-              { id: 'billing',   label: 'Billing',   icon: FileText },
-            ].map(({ id, label, icon: Icon }) => (
+            {productTabs.map(({ id, label, icon: Icon }) => (
               <button
                 key={id}
                 onClick={() => setActiveTab(id)}
@@ -394,11 +402,11 @@ export default function TrevaCRM() {
                   <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
                   <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
                 </div>
-                <div className="text-xs text-[#8A9AB0]">crm.treva.in · {activeTab}</div>
+                <div className="text-xs text-[#8A9AB0]">crm.treva.in · {activeProductTab.id}</div>
               </div>
               <img
-                src="/images/crm.png"
-                alt={`Treva CRM ${activeTab}`}
+                src={activeProductTab.image}
+                alt={activeProductTab.alt}
                 className="w-full object-cover"
               />
             </motion.div>
@@ -475,7 +483,7 @@ export default function TrevaCRM() {
                 Create your free account, sign in with Google or email, and you're inside your CRM workspace within seconds. No onboarding calls. No credit card. No friction.
               </p>
               <ul className="space-y-3">
-                {['Google OAuth or email sign-in', 'Free — no credit card required', 'Workspace ready in 30 seconds'].map((item) => (
+                {['Google OAuth or email sign-in', 'Free no credit card required', 'Workspace ready in 30 seconds'].map((item) => (
                   <li key={item} className="flex items-center gap-3 text-[#8A9AB0] text-sm">
                     <CheckCircle size={16} className="text-[#29C8D5] shrink-0" />
                     {item}
@@ -485,7 +493,7 @@ export default function TrevaCRM() {
             </FadeIn>
             <FadeIn direction="right" delay={0.1}>
               <div className="rounded-2xl overflow-hidden border border-[rgba(41,200,213,0.15)] shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
-                <img src="/images/crm.png" alt="Sign in to Treva CRM" className="w-full object-cover" />
+                <img src="/images/sign.png" alt="Sign in to Treva CRM" className="w-full object-cover" />
               </div>
             </FadeIn>
           </div>
@@ -493,7 +501,7 @@ export default function TrevaCRM() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <FadeIn direction="left" delay={0.1}>
               <div className="rounded-2xl overflow-hidden border border-[rgba(41,200,213,0.15)] shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
-                <img src="/images/crm.png" alt="Import contacts to Treva CRM" className="w-full object-cover" />
+                <img src="/images/import.png" alt="Import contacts to Treva CRM" className="w-full object-cover" />
               </div>
             </FadeIn>
             <FadeIn direction="right">
@@ -520,7 +528,7 @@ export default function TrevaCRM() {
       </section>
 
       {/* ── TESTIMONIALS ─────────────────────────────────── */}
-      <section className="bg-[#000000] py-28 px-6">
+      {/* <section className="bg-[#000000] py-28 px-6">
         <div className="mx-auto max-w-7xl">
           <FadeIn className="text-center mb-16">
             <span className="section-pill mb-4">What teams say</span>
@@ -548,7 +556,7 @@ export default function TrevaCRM() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── CTA FINAL ────────────────────────────────────── */}
       <section className="bg-[#080C10] py-28 px-6">
