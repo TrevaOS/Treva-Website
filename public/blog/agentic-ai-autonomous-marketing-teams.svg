@@ -1,0 +1,13 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#0A0713"/>
+  <circle cx="1240" cy="180" r="230" fill="#8B5CF6" fill-opacity="0.18"/>
+  <rect x="108" y="122" width="520" height="620" rx="34" fill="#120D1F" stroke="#8B5CF6" stroke-opacity="0.26"/>
+  <rect x="168" y="202" width="156" height="156" rx="28" fill="#8B5CF6" fill-opacity="0.18"/>
+  <path d="M222 280H270L286 248H338L354 280H402" stroke="#C4B5FD" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="168" y="420" width="396" height="28" rx="14" fill="white" fill-opacity="0.08"/>
+  <rect x="168" y="472" width="340" height="28" rx="14" fill="white" fill-opacity="0.08"/>
+  <rect x="168" y="552" width="180" height="60" rx="18" fill="#8B5CF6"/>
+  <text x="700" y="290" fill="white" font-family="Arial, sans-serif" font-size="82" font-weight="700">Agentic AI</text>
+  <text x="700" y="378" fill="#A78BFA" font-family="Arial, sans-serif" font-size="76" font-weight="700">Autonomous Marketing Teams</text>
+  <text x="700" y="456" fill="#B8B2C9" font-family="Arial, sans-serif" font-size="28">From assisted execution to autonomous workflows.</text>
+</svg>

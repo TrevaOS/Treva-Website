@@ -1,0 +1,11 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#120B05"/>
+  <circle cx="1310" cy="172" r="220" fill="#FB923C" fill-opacity="0.16"/>
+  <path d="M220 658C220 520 332 408 470 408H510C648 408 760 520 760 658V686H220V658Z" fill="#1B1209" stroke="#FB923C" stroke-opacity="0.24"/>
+  <rect x="410" y="258" width="160" height="190" rx="28" fill="#FB923C" fill-opacity="0.18"/>
+  <rect x="456" y="320" width="70" height="88" rx="14" fill="#FDBA74"/>
+  <text x="850" y="282" fill="white" font-family="Arial, sans-serif" font-size="70" font-weight="700">Privacy-First</text>
+  <text x="850" y="360" fill="#FB923C" font-family="Arial, sans-serif" font-size="70" font-weight="700">Personalization</text>
+  <text x="850" y="438" fill="white" font-family="Arial, sans-serif" font-size="70" font-weight="700">Paradox</text>
+  <text x="850" y="512" fill="#C4B4A5" font-family="Arial, sans-serif" font-size="28">Build trust without losing conversion momentum.</text>
+</svg>
