@@ -21,7 +21,6 @@ const services = [
   'Bespoke Technical Solution', 'Not Sure Yet',
 ];
 
-<<<<<<< HEAD
 const products = [
   'Treva CRM',
   'Treva OS',
@@ -31,8 +30,6 @@ const products = [
   'Not Sure Yet',
 ];
 
-=======
->>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
 export default function Contact() {
   const { register, handleSubmit, setError, formState: { errors, isSubmitting, isSubmitSuccessful } } = useForm();
 
@@ -51,16 +48,10 @@ export default function Contact() {
   return (
     <>
       <SEOHead
-<<<<<<< HEAD
         title="Contact Treva Book a Free Strategy Call or CRM Demo"
         description="Get in touch with Treva to book a free strategy call, request product details, or access Treva CRM. We serve brands in Bengaluru and across India."
         url="https://www.treva.in/contact"
         keywords="contact Treva, Treva CRM demo, free CRM India, book CRM demo, digital marketing agency contact Bengaluru"
-=======
-        title="Contact Treva Book a Free Strategy Call"
-        description="Get in touch with Treva to book a free strategy call. We serve brands in Bengaluru and across India with full-service digital marketing and technology solutions."
-        url="https://www.treva.in/contact"
->>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
       />
 
       {/* Hero */}
@@ -84,11 +75,7 @@ export default function Contact() {
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
             className="text-[#8A9AB0] text-xl max-w-xl mx-auto">
-<<<<<<< HEAD
             Whether you're ready to start, want product details, or want access to Treva CRM, we'd love to hear from you.
-=======
-            Whether you're ready to start or just exploring options we'd love to hear from you.
->>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
           </motion.p>
         </div>
       </section>
@@ -246,7 +233,6 @@ export default function Contact() {
                       {errors.service && <p className="text-red-400 text-xs mt-1">{errors.service.message}</p>}
                     </div>
 
-<<<<<<< HEAD
                     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                       <div>
                         <label className="block text-[#8A9AB0] text-xs font-600 mb-2 uppercase tracking-wider">Product Interested In</label>
@@ -268,8 +254,6 @@ export default function Contact() {
                       </div>
                     </div>
 
-=======
->>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
                     <div>
                       <label className="block text-[#8A9AB0] text-xs font-600 mb-2 uppercase tracking-wider">Message *</label>
                       <textarea

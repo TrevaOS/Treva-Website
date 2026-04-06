@@ -1,14 +1,9 @@
 import { useRef } from 'react';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
-<<<<<<< HEAD
 import { ArrowUpRight, Clock } from 'lucide-react';
 import SEOHead from '../../components/SEOHead';
 import { blogPosts } from '../../data/blogData';
-=======
-import { ArrowUpRight, Clock, Tag } from 'lucide-react';
-import SEOHead from '../../components/SEOHead';
->>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
 
 function FadeIn({ children, delay = 0, className = '' }) {
   const ref = useRef(null);
@@ -21,57 +16,6 @@ function FadeIn({ children, delay = 0, className = '' }) {
   );
 }
 
-<<<<<<< HEAD
-=======
-export const blogPosts = [
-  {
-    slug: 'seo-to-geo-search-strategy-2026',
-    tag: 'Strategy',
-    title: 'From SEO to GEO: Why Your Search Strategy is Obsolete in 2026',
-    excerpt: 'The race to #1 on Google is over. In 2026, brands must own AI-generated answers not just blue links. Here\'s how Treva is helping clients become the source AI trusts.',
-    readTime: '6 min read',
-    date: 'Mar 5, 2026',
-    featured: true,
-  },
-  {
-    slug: 'agentic-ai-autonomous-marketing-teams',
-    tag: 'AI & Technology',
-    title: 'Agentic AI: Moving from Content Tools to Autonomous Marketing Teams',
-    excerpt: 'Forget using AI to write. In 2026, AI executes entire campaigns. Learn how agentic systems are replacing repetitive marketing tasks and giving human teams back their most valuable resource: time.',
-    readTime: '7 min read',
-    date: 'Feb 20, 2026',
-    featured: false,
-  },
-  {
-    slug: 'privacy-first-personalization-paradox',
-    tag: 'Marketing',
-    title: 'The Privacy-First Personalization Paradox: High Conversion Without the Creep',
-    excerpt: 'Third-party cookies are dead. Privacy laws are stricter. Yet users demand personalization. At Treva, we solve this with Zero-Party Data strategies that build trust and drive conversions simultaneously.',
-    readTime: '5 min read',
-    date: 'Feb 8, 2026',
-    featured: false,
-  },
-  {
-    slug: 'surviving-zero-click-apocalypse',
-    tag: 'SEO',
-    title: 'Surviving the Zero-Click Apocalypse: Building Authority in the Snippet Era',
-    excerpt: '65% of searches end without a click. Google has become an answer engine. Discover how Treva\'s "Brand Impression Strategy" ensures your brand wins visibility even when users never visit your site.',
-    readTime: '6 min read',
-    date: 'Jan 25, 2026',
-    featured: false,
-  },
-  {
-    slug: 'conversational-everything-next-website-dialogue',
-    tag: 'Web & Design',
-    title: 'Conversational Everything: Why Your Next Website Will Be a Dialogue',
-    excerpt: 'The static brochure website is dying. In 2026, top-performing sites ask questions, adapt in real-time, and guide visitors like a personal consultant. Treva is building the next generation of conversational web experiences.',
-    readTime: '5 min read',
-    date: 'Jan 12, 2026',
-    featured: false,
-  },
-];
-
->>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
 const tagColors = {
   'Strategy': 'bg-blue-500/10 text-blue-400 border-blue-500/20',
   'AI & Technology': 'bg-purple-500/10 text-purple-400 border-purple-500/20',
@@ -127,7 +71,6 @@ export default function Blog() {
               className="group block bg-[#080C10] border border-[rgba(41,200,213,0.12)] rounded-2xl overflow-hidden card-glow"
             >
               <div className="grid grid-cols-1 lg:grid-cols-2">
-<<<<<<< HEAD
                 <div className="h-72 lg:h-auto bg-[#0D1117] relative overflow-hidden">
                   <img
                     src={featured.image}
@@ -135,14 +78,6 @@ export default function Blog() {
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#080C10]/40 via-transparent to-transparent" />
-=======
-                <div className="h-72 lg:h-auto bg-[#0D1117] relative flex items-center justify-center overflow-hidden">
-                  <div
-                    className="absolute inset-0 group-hover:opacity-80 transition-opacity"
-                    style={{ background: 'radial-gradient(ellipse at center, rgba(41,200,213,0.15), transparent 70%)' }}
-                  />
-                  <span className="relative text-[7rem] font-black text-[rgba(41,200,213,0.06)] select-none">AI</span>
->>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
                   <div className="absolute top-4 left-4">
                     <span className="bg-[#29C8D5] text-black text-xs font-700 px-3 py-1 rounded-full uppercase tracking-wide">
                       Featured
@@ -173,17 +108,12 @@ export default function Blog() {
 
           {/* Other Posts */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-<<<<<<< HEAD
             {rest.map(({ slug, tag, title, excerpt, readTime, date, image }, i) => (
-=======
-            {rest.map(({ slug, tag, title, excerpt, readTime, date }, i) => (
->>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
               <FadeIn key={slug} delay={i * 0.08}>
                 <Link
                   href={`/blog/${slug}`}
                   className="group block bg-[#080C10] border border-[rgba(41,200,213,0.1)] rounded-2xl overflow-hidden card-glow h-full"
                 >
-<<<<<<< HEAD
                   <div className="h-44 bg-[#0D1117] relative overflow-hidden">
                     <img
                       src={image}
@@ -191,16 +121,6 @@ export default function Blog() {
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#080C10]/45 via-transparent to-transparent" />
-=======
-                  <div className="h-44 bg-[#0D1117] relative flex items-center justify-center overflow-hidden">
-                    <div
-                      className="absolute inset-0 group-hover:opacity-80 transition-opacity"
-                      style={{ background: 'radial-gradient(ellipse at center, rgba(41,200,213,0.08), transparent 70%)' }}
-                    />
-                    <span className="relative text-[4rem] font-black text-[rgba(41,200,213,0.05)] select-none">
-                      {tag.split(' ')[0]}
-                    </span>
->>>>>>> e5d6efa8be56e2787d96a4069704fd7bcf5632b6
                     <div className="absolute top-3 left-3">
                       <span className={`text-xs font-600 px-2.5 py-1 rounded-full border ${tagColors[tag]}`}>
                         {tag}
