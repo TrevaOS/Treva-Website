@@ -400,7 +400,7 @@ export default function Home() {
           >
             Don't Just Manage Your Business.
             <br />
-            Unleash Its Full <span className="teal-gradient-text">Potential.</span>
+            Unleash Its <span className="teal-gradient-text">Full Potential.</span>
           </motion.h1>
 
           {/* Subheading */}
