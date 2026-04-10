@@ -42,9 +42,7 @@ export default function CRMNotification() {
               View Details
             </a>
             <a
-              href="https://crm.treva.in"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
               className="btn-primary"
             >
               Get Access

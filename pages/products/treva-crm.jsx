@@ -183,7 +183,7 @@ function FeatureTabs({ items }) {
                 <span className="h-2.5 w-2.5 rounded-full bg-[#ff8a80]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#ffd166]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#8bd3a6]" />
-                <span className="ml-2 text-[11px] font-medium text-gray-400">crm.treva.in / {cur.path}</span>
+                <span className="ml-2 text-[11px] font-medium text-gray-400">Treva CRM / {cur.path}</span>
                 <span className="ml-auto flex items-center gap-1 rounded-full border border-[#29C8D5]/25 bg-white px-2 py-0.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#29C8D5]" />
                   <span className="text-[10px] font-semibold text-[#0b8a96]">Live</span>
@@ -406,9 +406,7 @@ export default function TrevaCRM() {
           {/* CTAs */}
           <FadeIn delay={0.14} className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="https://crm.treva.in"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
               className="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-gray-800"
             >
               Get started it's free
@@ -439,7 +437,7 @@ export default function TrevaCRM() {
                 <span className="h-2.5 w-2.5 rounded-full bg-[#ffd166]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#8bd3a6]" />
                 <div className="ml-3 rounded-full border border-gray-200 bg-white px-3 py-0.5 text-[11px] text-gray-400">
-                  crm.treva.in / dashboard
+                  Treva CRM / dashboard
                 </div>
                 <div className="ml-auto flex items-center gap-1 rounded-full border border-[#29C8D5]/25 bg-white px-2.5 py-1">
                   <Bell size={11} className="text-[#0b8a96]" />
@@ -616,7 +614,7 @@ export default function TrevaCRM() {
               Real screens. Real workflows.
             </h2>
             <p className="mx-auto mt-3 max-w-md text-sm text-gray-500">
-              Not a mockup this is the actual Treva CRM product, live at crm.treva.in.
+              Not a mockup this is the actual Treva CRM product, live right now.
             </p>
           </FadeIn>
           <div className="grid gap-4 lg:grid-cols-3">
@@ -709,9 +707,7 @@ export default function TrevaCRM() {
                 </div>
                 <div className="flex flex-col items-start justify-start gap-3 md:items-end">
                   <a
-                    href="https://crm.treva.in"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/contact"
                     className="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-gray-800"
                   >
                     Get started free
@@ -753,9 +749,7 @@ export default function TrevaCRM() {
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <a
-                href="https://crm.treva.in"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/contact"
                 className="inline-flex items-center gap-2 rounded-lg bg-[#29C8D5] px-7 py-3 text-sm font-semibold text-gray-900 transition hover:bg-[#55dbe6]"
               >
                 Start for free

@@ -6,7 +6,7 @@ We provide branding, performance marketing, social media, media production, web 
 
 Key product:
 - Treva CRM: https://www.treva.in/products/treva-crm
-- Live app access: https://crm.treva.in
+- Live app access: /products/treva-crm
 
 Treva CRM summary:
 - Treva CRM is live.

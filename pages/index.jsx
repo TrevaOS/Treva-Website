@@ -100,7 +100,7 @@ const products = [
     tag: 'Now Live',
     desc: 'Our live CRM is free right now for teams that want faster follow-ups, cleaner pipelines, and one place for every customer conversation.',
     icon: Users,
-    href: 'https://crm.treva.in',
+    href: '/products/treva-crm',
   },
   {
     name: 'Treva Agent',
@@ -225,10 +225,10 @@ const items = [
     quote: 'Your sales pipeline, follow-ups, and client history in one live workspace',
     desc: 'Treva CRM is free right now and built for teams that want faster closures, cleaner handoffs, and a better way to manage every lead from first touch to renewal.',
     impacts: ['Lead Capture', 'Pipeline Tracking', 'Workflow Automation', 'Activity Logs'],
-    href: 'https://crm.treva.in',
+    href: '/products/treva-crm',
     color: '#29C8D5',
-    ctaLabel: 'Get Access',
-    external: true,
+    ctaLabel: 'View Details',
+    external: false,
     imageClassName: 'object-contain p-8 sm:p-10 bg-white',
   },
   {
@@ -369,18 +369,16 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
           {crmProduct && (
             <div className="mb-8 flex justify-center">
-              <a
-                href={crmProduct.ctaHref}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href={crmProduct.detailHref || '/products/treva-crm'}
                 className="inline-flex items-center gap-3 rounded-full border border-[#29C8D5]/20 bg-[#081018] px-4 py-2 text-sm text-white transition-colors hover:border-[#29C8D5]/40"
               >
                 <span className="inline-flex items-center gap-2 text-[#7FE7FF]">
                   <span className="h-2 w-2 rounded-full bg-[#29C8D5]" />
                   Treva CRM is live and free
                 </span>
-                <span className="text-[#8A9AB0]">See details or access it at crm.treva.in</span>
-              </a>
+                <span className="text-[#8A9AB0]">See Treva CRM details</span>
+              </Link>
             </div>
           )}
           {/* Badge */}
@@ -398,25 +396,22 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
             className="font-black leading-tight mb-6"
-            style={{ fontSize: 'clamp(2.5rem, 7vw, 5.5rem)', letterSpacing: '-0.03em' }}
+            style={{ fontSize: 'clamp(2rem, 5.4vw, 4.4rem)', letterSpacing: '-0.03em' }}
           >
-            Where{' '}
-            <span className="teal-gradient-text">Creativity</span>
+            Don't Just Manage Your Business.
             <br />
-            Meets Technology.
+            Unleash Its Full <span className="teal-gradient-text">Potential.</span>
           </motion.h1>
 
           {/* Subheading */}
-          <motion.p
+          <motion.h2
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-[#8A9AB0] text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed"
           >
-            We help ambitious brands grow with strategy, design, performance marketing
-            and intelligent technology all under one roof{' '}  
-            <span className="font-semibold text-cyan-400">built to scale and drive measurable ROI.</span>          
-          </motion.p>
+            The only AI-powered Operating System that unifies your entire sales funnel, financial forecasts, and performance marketing in one dashboard.
+          </motion.h2>
 
           {/* CTAs */}
           <motion.div

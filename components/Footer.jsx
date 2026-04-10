@@ -19,7 +19,7 @@ const footerLinks = {
     { label: 'Contact', href: '/contact' },
   ],
   Products: [
-    { label: 'Treva CRM', href: 'https://crm.treva.in' },
+    { label: 'Treva CRM', href: '/products/treva-crm' },
     { label: 'Treva OS', href: '/products/treva-os' },
     { label: 'Treva Agent', href: '/products/treva-agent' },
     { label: 'Make My Cake', href: '/products/make-my-cake' },

@@ -61,7 +61,7 @@ const faqGroups = [
       },
       {
         q: 'How can I get Treva CRM access?',
-        a: 'You can access the live CRM through crm.treva.in or visit the Treva CRM details page first and then click Get Access.',
+        a: 'You can visit the Treva CRM details page and then click Get Access.',
       },
     ],
   },
