@@ -35,7 +35,7 @@ export default function About() {
   return (
     <>
       <SEOHead
-        title="About Treva — Bengaluru's Performance Marketing Specialists | ₹15 Cr+ Google Ads Managed"
+        title="About Treva Bengaluru's Performance Marketing Specialists | ₹15 Cr+ Google Ads Managed"
         description="Treva is a Bengaluru-based performance marketing agency in Vijayanagar. We have managed ₹15 Cr+ in Google Ads and obsess over one thing: your ROI."
         url="https://www.treva.in/about"
         keywords="about Treva, performance marketing agency Bengaluru, Google Ads agency Vijayanagar Bangalore, Treva performance marketing team"
@@ -105,7 +105,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Brand Story — compact */}
+      {/* Brand Story compact */}
       <section className="py-16 bg-[#080C10]">
         <div className="max-w-4xl mx-auto px-6">
           <FadeIn>
@@ -125,7 +125,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* What We Learned — equal height cards, no em-dash */}
+      {/* What We Learned equal height cards, no em-dash */}
       <section className="py-16 bg-[#000000]">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-10">
@@ -149,7 +149,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Principles — equal height cards */}
+      {/* Principles equal height cards */}
       <section className="py-16 bg-[#080C10]">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-10">
@@ -176,7 +176,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Office — compact */}
+      {/* Office compact */}
       <section className="py-16 bg-[#000000]">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-10">

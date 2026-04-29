@@ -24,13 +24,13 @@ const performanceServices = [
     icon: Target,
     title: 'Google Search Ads Management',
     tagline: 'Own the keywords that win you clients.',
-    desc: "When someone types 'performance marketing agency Bangalore' or 'buy CRM software India' into Google, they are not browsing — they are ready to act. Google Search Ads put your brand in front of that intent at exactly the right moment. At Treva, Search Ads is the foundation of every client's performance strategy. We have managed over ₹15 Crore in Google Search budget across B2B, D2C, SaaS, real estate, and healthcare verticals.",
+    desc: "When someone types 'performance marketing agency Bangalore' or 'buy CRM software India' into Google, they are not browsing they are ready to act. Google Search Ads put your brand in front of that intent at exactly the right moment. At Treva, Search Ads is the foundation of every client's performance strategy. We have managed over ₹15 Crore in Google Search budget across B2B, D2C, SaaS, real estate, and healthcare verticals.",
     features: [
-      'Intent-based keyword architecture — every keyword mapped to a buying stage',
+      'Intent-based keyword architecture every keyword mapped to a buying stage',
       'Ad copy that speaks to pain, not features',
       'Bidding strategy aligned to your CPL or ROAS target',
-      'Negative keyword hygiene — stopping spend leakage every week',
-      'Quality Score optimisation — reducing CPC while increasing ad rank',
+      'Negative keyword hygiene stopping spend leakage every week',
+      'Quality Score optimisation reducing CPC while increasing ad rank',
       'Weekly optimisation reports with actionable insights',
     ],
     broken: [
@@ -45,20 +45,20 @@ const performanceServices = [
     icon: BarChart3,
     title: 'Performance Max Campaigns',
     tagline: "Google's full network, managed with precision.",
-    desc: "Performance Max is Google's most powerful — and most misunderstood — campaign type. Left on autopilot, it burns budget. In the right hands, it delivers ROAS across Search, Display, YouTube, Gmail, and Discover simultaneously. Treva manages PMax with full asset group strategy, audience signal design, brand exclusions, and search theme controls.",
+    desc: "Performance Max is Google's most powerful and most misunderstood campaign type. Left on autopilot, it burns budget. In the right hands, it delivers ROAS across Search, Display, YouTube, Gmail, and Discover simultaneously. Treva manages PMax with full asset group strategy, audience signal design, brand exclusions, and search theme controls.",
     features: [
-      'Asset group strategy — right creative for every audience segment',
-      'Audience signal design — teaching Google who your best customers are',
-      'Brand exclusions and search theme controls — protecting your budget',
-      'ROAS governance — weekly performance review against targets',
+      'Asset group strategy right creative for every audience segment',
+      'Audience signal design teaching Google who your best customers are',
+      'Brand exclusions and search theme controls protecting your budget',
+      'ROAS governance weekly performance review against targets',
       'Full asset production: headlines, descriptions, images, video scripts',
-      'Performance Max vs. Search analysis — when to use each',
+      'Performance Max vs. Search analysis when to use each',
     ],
     broken: [
-      'No asset group segmentation — one generic creative for all audiences',
-      'Missing audience signals — Google targets cold, irrelevant traffic',
-      'No brand exclusions — wasting budget on brand-term cannibalism',
-      'Zero search term visibility — spending blind with no optimisation lever',
+      'No asset group segmentation one generic creative for all audiences',
+      'Missing audience signals Google targets cold, irrelevant traffic',
+      'No brand exclusions wasting budget on brand-term cannibalism',
+      'Zero search term visibility spending blind with no optimisation lever',
     ],
   },
   {
@@ -68,9 +68,9 @@ const performanceServices = [
     tagline: 'Put your products in front of ready-to-buy shoppers.',
     desc: 'For eCommerce and D2C brands, Google Shopping is the highest-purchase-intent channel available. Feed quality, bidding granularity, and seasonal strategy separate the profitable campaigns from the expensive ones. Treva builds feed-optimised Shopping campaigns that drive high purchase-intent traffic with efficient ROAS.',
     features: [
-      'Product feed audit and optimisation — titles, descriptions, images, GTINs',
-      'Bidding by category vs. SKU — getting granular for better returns',
-      'Seasonal demand spike preparation — Diwali, New Year, sale periods',
+      'Product feed audit and optimisation titles, descriptions, images, GTINs',
+      'Bidding by category vs. SKU getting granular for better returns',
+      'Seasonal demand spike preparation Diwali, New Year, sale periods',
       'Smart Shopping vs. Standard Shopping analysis',
       'Competitor price positioning intelligence',
       'Integration with Performance Max for full-funnel eCommerce coverage',
@@ -82,14 +82,14 @@ const performanceServices = [
     icon: Zap,
     title: 'Display & Remarketing',
     tagline: 'Recover the revenue you almost lost.',
-    desc: "Most visitors do not convert on their first visit. Remarketing brings them back — at a fraction of the acquisition cost. We build segmented remarketing funnels that re-engage your warmest audiences with the right message at the right stage of their buying journey.",
+    desc: "Most visitors do not convert on their first visit. Remarketing brings them back at a fraction of the acquisition cost. We build segmented remarketing funnels that re-engage your warmest audiences with the right message at the right stage of their buying journey.",
     features: [
-      'Audience segmentation — site visitors, cart abandoners, past customers',
-      'Dynamic remarketing for eCommerce — show the exact product they viewed',
-      'Frequency capping — preventing ad fatigue and wasted impressions',
-      'Exclusion lists — not spending on existing customers or converted leads',
-      'Custom intent audience targeting — reaching competitors\' audiences',
-      'Display creative production — static, animated, and responsive ads',
+      'Audience segmentation site visitors, cart abandoners, past customers',
+      'Dynamic remarketing for eCommerce show the exact product they viewed',
+      'Frequency capping preventing ad fatigue and wasted impressions',
+      'Exclusion lists not spending on existing customers or converted leads',
+      'Custom intent audience targeting reaching competitors\' audiences',
+      'Display creative production static, animated, and responsive ads',
     ],
     broken: [],
   },
@@ -98,10 +98,10 @@ const performanceServices = [
     icon: Video,
     title: 'YouTube Ads',
     tagline: 'Performance video that generates leads, not just views.',
-    desc: 'YouTube is the second-largest search engine in the world. Performance-driven video campaigns on YouTube generate awareness and mid-funnel intent — tracked to actual conversions, not vanity view counts. Treva builds YouTube campaigns that work as a performance channel, not a branding afterthought.',
+    desc: 'YouTube is the second-largest search engine in the world. Performance-driven video campaigns on YouTube generate awareness and mid-funnel intent tracked to actual conversions, not vanity view counts. Treva builds YouTube campaigns that work as a performance channel, not a branding afterthought.',
     features: [
       'TrueView In-Stream and Bumper Ad strategy',
-      'Audience layering — remarketing, custom intent, in-market',
+      'Audience layering remarketing, custom intent, in-market',
       'Video script brief and creative direction',
       'View-through conversion tracking',
       'YouTube + Search combined attribution modelling',
@@ -114,12 +114,12 @@ const performanceServices = [
     icon: Globe,
     title: 'Landing Page & CRO',
     tagline: 'Where clicks become customers.',
-    desc: 'A great ad wasted on a weak landing page is money burned. The post-click experience is as important as the ad itself — sometimes more. Treva audits and optimises your landing pages to turn more of your paid clicks into qualified leads or purchases.',
+    desc: 'A great ad wasted on a weak landing page is money burned. The post-click experience is as important as the ad itself sometimes more. Treva audits and optimises your landing pages to turn more of your paid clicks into qualified leads or purchases.',
     features: [
-      'Landing page audit — load speed, message match, CTA clarity',
-      'A/B testing — headline, CTA copy, form length, trust signals',
+      'Landing page audit load speed, message match, CTA clarity',
+      'A/B testing headline, CTA copy, form length, trust signals',
       'Heatmap and session recording analysis',
-      'Lead form optimisation — fewer fields, higher conversion',
+      'Lead form optimisation fewer fields, higher conversion',
       'Thank you page and follow-up sequence optimisation',
       'Core Web Vitals improvement for Quality Score uplift',
     ],
@@ -135,17 +135,17 @@ const otherServices = [
 ];
 
 const industries = [
-  { name: 'Real Estate', desc: 'High CPCs, long sales cycles, lead quality problems — we have solved all three for Bangalore developers and brokers.' },
+  { name: 'Real Estate', desc: 'High CPCs, long sales cycles, lead quality problems we have solved all three for Bangalore developers and brokers.' },
   { name: 'SaaS & Technology', desc: 'Trial signups, demo leads, and CAC optimisation for B2B and B2C software companies across India.' },
   { name: 'eCommerce & D2C', desc: 'Feed-optimised Shopping campaigns and Performance Max strategies for D2C brands scaling profitably.' },
   { name: 'Education & Edtech', desc: 'High-intent enrolment leads at lower CPL for institutions and edtech platforms across Bengaluru and India.' },
-  { name: 'Healthcare', desc: 'Patient acquisition campaigns for hospitals, clinics, and health brands — compliant and conversion-focused.' },
+  { name: 'Healthcare', desc: 'Patient acquisition campaigns for hospitals, clinics, and health brands compliant and conversion-focused.' },
   { name: 'Financial Services', desc: 'Lead generation for fintech, insurance, and financial advisory brands with strict audience targeting.' },
 ];
 
 const servicesFAQ = [
   { q: 'What is your minimum Google Ads budget to work with Treva?', a: 'We work with clients starting from ₹50,000/month in ad spend up to ₹50 Lakh+ per month. Our management fees scale with spend.' },
-  { q: 'How do you report on campaign performance?', a: 'You get access to a live dashboard — not a once-a-month PDF. We also provide weekly bid adjustment updates, monthly creative reviews, and quarterly strategy calls.' },
+  { q: 'How do you report on campaign performance?', a: 'You get access to a live dashboard not a once-a-month PDF. We also provide weekly bid adjustment updates, monthly creative reviews, and quarterly strategy calls.' },
   { q: 'Do you manage Google Ads for both B2B and B2C businesses?', a: 'Yes. We manage campaigns for B2B SaaS companies, B2C eCommerce brands, real estate developers, edtech platforms, and healthcare providers across India.' },
   { q: 'What is Performance Max and should I be running it?', a: 'Performance Max is Google\'s full-network campaign type covering Search, Display, YouTube, Gmail, and Discover in one campaign. Whether you should run it depends on your conversion volume, budget, and goals. Treva assesses this in the free audit.' },
   { q: 'How long does it take to see results from Google Ads?', a: 'Most clients see improved CPL and ROAS within the first 4–6 weeks. Full campaign maturity typically reaches 90 days as smart bidding accumulates conversion data.' },
@@ -157,7 +157,7 @@ export default function Services() {
     <>
       <SEOHead
         title="Google Ads & Performance Marketing Services in Bangalore | Treva"
-        description="Expert Google Ads management, Performance Max, Shopping, and remarketing campaigns by Treva — Bangalore's performance marketing agency with ₹15 Cr+ in ad budget managed."
+        description="Expert Google Ads management, Performance Max, Shopping, and remarketing campaigns by Treva Bangalore's performance marketing agency with ₹15 Cr+ in ad budget managed."
         url="https://www.treva.in/services"
         keywords="Google Ads management Bangalore, performance marketing services India, PPC agency Bengaluru, Google Search Ads management, Performance Max campaigns India, Google Shopping Ads India, remarketing agency Bangalore, lead generation Google Ads Bengaluru"
         faqSchema={{
@@ -191,7 +191,7 @@ export default function Services() {
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
             className="text-[#8A9AB0] text-xl max-w-2xl mx-auto mb-8">
-            Every service at Treva is built around one question: will this generate a measurable return on your ad spend? We specialise in Google Ads performance — and we do it with obsessive depth.
+            Every service at Treva is built around one question: will this generate a measurable return on your ad spend? We specialise in Google Ads performance and we do it with obsessive depth.
           </motion.p>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -215,7 +215,7 @@ export default function Services() {
               <span className="teal-gradient-text">We Master One: Google Ads Performance.</span>
             </h2>
             <p className="text-[#8A9AB0] mt-4 max-w-2xl mx-auto">
-              Generalist agencies spread thin. Treva specialises deep. With ₹15 Crore+ managed, we know Google Ads inside out — every campaign type, every bidding strategy, every optimisation lever.
+              Generalist agencies spread thin. Treva specialises deep. With ₹15 Crore+ managed, we know Google Ads inside out every campaign type, every bidding strategy, every optimisation lever.
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -236,7 +236,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Performance Services — Deep Copy */}
+      {/* Performance Services Deep Copy */}
       <section className="py-20 bg-[#000000]">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="mb-12">

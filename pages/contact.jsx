@@ -48,13 +48,13 @@ export default function Contact() {
   return (
     <>
       <SEOHead
-        title="Talk to Treva — Free Google Ads Audit | Performance Marketing Agency Bangalore"
-        description="Get a free Google Ads audit from Treva — Bangalore's performance marketing agency. We'll identify budget waste, CPL issues, and give you an actionable roadmap. No obligation."
+        title="Talk to Treva Free Google Ads Audit | Performance Marketing Agency Bangalore"
+        description="Get a free Google Ads audit from Treva Bangalore's performance marketing agency. We'll identify budget waste, CPL issues, and give you an actionable roadmap. No obligation."
         url="https://www.treva.in/contact"
         keywords="free Google Ads audit Bangalore, contact performance marketing agency Bengaluru, Google Ads consultation India, book free audit Treva"
       />
 
-      {/* Hero — fits viewport, no em-dash, no "free" push */}
+      {/* Hero fits viewport, no em-dash, no "free" push */}
       <section className="pt-28 pb-12 bg-[#000000] relative overflow-hidden">
         <div className="absolute top-0 left-0 w-[400px] h-[400px] pointer-events-none"
           style={{ background: 'radial-gradient(circle, rgba(41,200,213,0.06), transparent 70%)' }} />
@@ -79,12 +79,12 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Contact Info + Form — issue #8: form on left, info+map on right */}
+      {/* Contact Info + Form issue #8: form on left, info+map on right */}
       <section className="py-12 bg-[#000000]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
 
-            {/* Info — moved to right via order-last on desktop */}
+            {/* Info moved to right via order-last on desktop */}
             <div className="lg:col-span-2 space-y-5 lg:order-last">
               <FadeIn>
                 <h2 className="font-800 text-white text-lg mb-3">What You Get in the Audit</h2>

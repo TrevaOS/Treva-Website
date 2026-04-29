@@ -39,7 +39,7 @@ const stats = [
 ];
 
 const workflowSteps = [
-  { step: '01', title: 'Google Ads Audit',      desc: 'We review your existing account — keyword waste, Quality Score gaps, bidding inefficiencies and missed opportunities. You get a full report at no charge.' },
+  { step: '01', title: 'Google Ads Audit',      desc: 'We review your existing account keyword waste, Quality Score gaps, bidding inefficiencies and missed opportunities. You get a full report at no charge.' },
   { step: '02', title: 'Strategy Architecture', desc: 'We build a campaign architecture designed around your specific CPL or ROAS target. No templates and no copy-paste from previous clients.' },
   { step: '03', title: 'Campaign Launch',        desc: 'Ad copy written, landing pages audited, conversion tracking verified and bid strategies set. We do not go live until every layer is right.' },
   { step: '04', title: 'Optimise and Scale',     desc: 'Weekly bid adjustments, monthly creative refreshes and quarterly strategy reviews. You get a live dashboard not a once-a-month report.' },
@@ -223,7 +223,7 @@ export default function Home() {
         }}
       />
 
-      {/* ── HERO — fits 1920x1080 viewport, no pill, no em-dash ── */}
+      {/* ── HERO fits 1920x1080 viewport, no pill, no em-dash ── */}
       <section className="relative h-screen flex flex-col justify-center overflow-hidden bg-[#000000] grid-bg">
         <ParticleCanvas />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
@@ -253,7 +253,7 @@ export default function Home() {
             Stop guessing. Start measuring. We build Google Ads campaigns engineered around your Cost Per Lead, ROAS and revenue goals.
           </motion.h2>
 
-          {/* CTAs — no arrow icons */}
+          {/* CTAs no arrow icons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -306,7 +306,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── PROBLEM / AGITATION — equal height cards ── */}
+      {/* ── PROBLEM / AGITATION equal height cards ── */}
       <section className="py-20 bg-[#080C10]">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <FadeIn>
@@ -339,7 +339,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── SERVICES — no arrow icons, equal height cards ── */}
+      {/* ── SERVICES no arrow icons, equal height cards ── */}
       <section className="py-20 bg-[#000000]">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-12">
@@ -377,7 +377,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── STATS — equal sized cards ── */}
+      {/* ── STATS equal sized cards ── */}
       <section className="py-20 bg-[#080C10]">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-12">
@@ -406,7 +406,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── WHY TREVA — stat cards equal height, no em-dash ── */}
+      {/* ── WHY TREVA stat cards equal height, no em-dash ── */}
       <section className="py-20 bg-[#000000]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
@@ -462,7 +462,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── HOW WE WORK — equal height step cards ── */}
+      {/* ── HOW WE WORK equal height step cards ── */}
       <section className="py-20 bg-[#080C10]">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-12">
@@ -509,7 +509,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── TESTIMONIALS — equal height cards ── */}
+      {/* ── TESTIMONIALS equal height cards ── */}
       <section className="py-20 bg-[#080C10]">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-12">
@@ -547,7 +547,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FAQ — proper heading size, no arrow icons ── */}
+      {/* ── FAQ proper heading size, no arrow icons ── */}
       <section className="py-20 bg-[#000000]">
         <div className="max-w-4xl mx-auto px-6">
           <FadeIn className="text-center mb-10">
@@ -577,7 +577,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CTA BANNER — no em-dash, no arrow ── */}
+      {/* ── CTA BANNER no em-dash, no arrow ── */}
       <section className="py-20 bg-[#080C10]">
         <div className="max-w-3xl mx-auto px-6">
           <FadeIn>

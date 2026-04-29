@@ -23,7 +23,7 @@ const faqGroups = [
     items: [
       {
         q: 'What is performance marketing?',
-        a: 'Performance marketing is a form of digital advertising where every rupee spent is tied to a measurable outcome — a click, a lead, a sale, or a customer. Unlike brand advertising, performance marketing campaigns are optimised in real-time based on data. Google Ads is the primary performance marketing channel for most Indian businesses.',
+        a: 'Performance marketing is a form of digital advertising where every rupee spent is tied to a measurable outcome a click, a lead, a sale, or a customer. Unlike brand advertising, performance marketing campaigns are optimised in real-time based on data. Google Ads is the primary performance marketing channel for most Indian businesses.',
       },
       {
         q: 'How much Google Ads budget do you manage at Treva?',
@@ -35,7 +35,7 @@ const faqGroups = [
       },
       {
         q: 'What is a good ROAS for Google Ads in India?',
-        a: 'ROAS benchmarks vary by industry. eCommerce typically targets 3x–5x ROAS. Lead generation campaigns are better measured by CPL. SaaS brands focus on CAC-to-LTV ratio. Treva sets targets based on your specific business economics — not industry averages.',
+        a: 'ROAS benchmarks vary by industry. eCommerce typically targets 3x–5x ROAS. Lead generation campaigns are better measured by CPL. SaaS brands focus on CAC-to-LTV ratio. Treva sets targets based on your specific business economics not industry averages.',
       },
       {
         q: 'Why is my Google Ads cost per lead so high?',
@@ -43,7 +43,7 @@ const faqGroups = [
       },
       {
         q: 'What is the difference between Google Search Ads and Performance Max?',
-        a: 'Google Search Ads show only on Google Search results for specific keywords. Performance Max runs across all Google channels — Search, Display, YouTube, Gmail, and Discover — using automation and asset groups. Search gives more control; Performance Max gives more reach. Most accounts benefit from running both in coordination.',
+        a: 'Google Search Ads show only on Google Search results for specific keywords. Performance Max runs across all Google channels Search, Display, YouTube, Gmail, and Discover using automation and asset groups. Search gives more control; Performance Max gives more reach. Most accounts benefit from running both in coordination.',
       },
     ],
   },
@@ -56,15 +56,15 @@ const faqGroups = [
       },
       {
         q: 'Are you based in Bangalore?',
-        a: 'Yes — Treva is based in Vijayanagar, Bengaluru. Our office address is #93/2 2nd Floor, 8th E Cross, 14th Main, Attiguppe, Vijayanagar, Bengaluru – 560040. We serve clients across India and internationally.',
+        a: 'Yes Treva is based in Vijayanagar, Bengaluru. Our office address is #93/2 2nd Floor, 8th E Cross, 14th Main, Attiguppe, Vijayanagar, Bengaluru – 560040. We serve clients across India and internationally.',
       },
       {
         q: 'Do you work with businesses outside of Bangalore?',
-        a: 'Yes. While we are headquartered in Bengaluru, we manage Google Ads campaigns for clients across India — Mumbai, Delhi, Hyderabad, Chennai, and Pan-India brands.',
+        a: 'Yes. While we are headquartered in Bengaluru, we manage Google Ads campaigns for clients across India Mumbai, Delhi, Hyderabad, Chennai, and Pan-India brands.',
       },
       {
         q: 'How do you report on campaign performance?',
-        a: 'You get access to a live performance dashboard — not a once-a-month PDF. We also provide weekly bid adjustment updates, monthly creative reviews, and quarterly strategy calls.',
+        a: 'You get access to a live performance dashboard not a once-a-month PDF. We also provide weekly bid adjustment updates, monthly creative reviews, and quarterly strategy calls.',
       },
       {
         q: 'Can I book a call with Treva?',
@@ -89,7 +89,7 @@ const faqGroups = [
       },
       {
         q: 'Can Treva handle both strategy and execution?',
-        a: 'Yes. Treva works across strategy, campaign setup, optimisation, creative production, reporting, and landing page improvement — end-to-end Google Ads management.',
+        a: 'Yes. Treva works across strategy, campaign setup, optimisation, creative production, reporting, and landing page improvement end-to-end Google Ads management.',
       },
     ],
   },
@@ -124,8 +124,8 @@ export default function FAQPage() {
   return (
     <>
       <SEOHead
-        title="FAQ — Performance Marketing, Google Ads & Treva | Frequently Asked Questions"
-        description="Answers to the most common questions about Google Ads, performance marketing, ROAS, CPL, and working with Treva — Bangalore's performance marketing agency."
+        title="FAQ Performance Marketing, Google Ads & Treva | Frequently Asked Questions"
+        description="Answers to the most common questions about Google Ads, performance marketing, ROAS, CPL, and working with Treva Bangalore's performance marketing agency."
         url="https://www.treva.in/faq"
         keywords="performance marketing FAQ, Google Ads FAQ India, ROAS Google Ads, CPL Google Ads, Treva FAQ, performance marketing agency questions"
         faqSchema={{
@@ -152,7 +152,7 @@ export default function FAQPage() {
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
             className="mx-auto max-w-2xl text-xl text-[#8A9AB0]">
-            Everything you need to know about Google Ads, ROAS, CPL, and working with Treva — Bangalore's performance marketing agency.
+            Everything you need to know about Google Ads, ROAS, CPL, and working with Treva Bangalore's performance marketing agency.
           </motion.p>
         </div>
       </section>
@@ -185,7 +185,7 @@ export default function FAQPage() {
               <span className="teal-gradient-text">Let's Talk.</span>
             </h2>
             <p className="text-[#8A9AB0] mb-8">
-              Book a free 30-minute Google Ads audit call. We will review your account and answer every question you have — no obligation.
+              Book a free 30-minute Google Ads audit call. We will review your account and answer every question you have no obligation.
             </p>
             <Link href="/contact" className="btn-primary">
               Claim My Free Audit <ArrowUpRight size={16} />

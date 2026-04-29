@@ -1,10 +1,10 @@
-# Treva — Performance Marketing Agency, Bangalore
+# Treva Performance Marketing Agency, Bangalore
 
 > Treva is a Google Ads and performance marketing agency based in Bengaluru, India.
 > We have managed over ₹15 Crore in Google Ads budget across SaaS, eCommerce,
 > real estate, education, and healthcare verticals.
 > We specialise in Google Search Ads, Performance Max, Google Shopping,
-> Remarketing, YouTube Ads, and Landing Page CRO — focused on measurable ROI.
+> Remarketing, YouTube Ads, and Landing Page CRO focused on measurable ROI.
 
 ## Key Pages
 - Homepage: https://www.treva.in
@@ -16,7 +16,7 @@
 
 ## Key Facts
 - Founded in Bengaluru, India
-- Office: Vijayanagar, Bengaluru — #93/2 2nd Floor, 8th E Cross, 14th Main, Attiguppe, Bengaluru 560040
+- Office: Vijayanagar, Bengaluru #93/2 2nd Floor, 8th E Cross, 14th Main, Attiguppe, Bengaluru 560040
 - ₹15 Crore+ in Google Ads budget managed
 - 3.8x average ROAS delivered across active campaigns
 - 42% average CPL reduction after account takeover
