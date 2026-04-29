@@ -48,10 +48,10 @@ export default function Contact() {
   return (
     <>
       <SEOHead
-        title="Contact Treva Book a Free Strategy Call or CRM Demo"
-        description="Get in touch with Treva to book a free strategy call, request product details, or access Treva CRM. We serve brands in Bengaluru and across India."
+        title="Talk to Treva — Free Google Ads Audit | Performance Marketing Agency Bangalore"
+        description="Get a free Google Ads audit from Treva — Bangalore's performance marketing agency. We'll identify budget waste, CPL issues, and give you an actionable roadmap. No obligation."
         url="https://www.treva.in/contact"
-        keywords="contact Treva, Treva CRM demo, free CRM India, book CRM demo, digital marketing agency contact Bengaluru"
+        keywords="free Google Ads audit Bangalore, contact performance marketing agency Bengaluru, Google Ads consultation India, book free audit Treva"
       />
 
       {/* Hero */}
@@ -71,11 +71,12 @@ export default function Contact() {
             className="font-black text-white mt-2 mb-6"
             style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', letterSpacing: '-0.03em' }}
           >
-            Get in <span className="teal-gradient-text">Touch</span>
+            Get Your Free Google Ads Audit —{' '}
+            <span className="teal-gradient-text">Worth ₹15,000. Zero Cost.</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
             className="text-[#8A9AB0] text-xl max-w-xl mx-auto">
-            Whether you're ready to start, want product details, or want access to Treva CRM, we'd love to hear from you.
+            We'll audit your existing Google Ads account, identify where budget is being wasted, and give you a concrete roadmap to hit your CPL or ROAS targets. No sales pitch. No obligation.
           </motion.p>
         </div>
       </section>
@@ -88,16 +89,39 @@ export default function Contact() {
             {/* Info */}
             <div className="lg:col-span-2 space-y-6">
               <FadeIn>
-                <h2 className="font-800 text-white text-2xl mb-2">We're Based in Bengaluru</h2>
-                <p className="text-[#8A9AB0] text-sm leading-relaxed">
-                  Our team operates from Bengaluru. While we serve clients across India and globally, we're always just a call or message away.
-                </p>
+                <h2 className="font-800 text-white text-2xl mb-2">What You'll Get in Your Free Audit (Worth ₹15,000)</h2>
+                <div className="space-y-2 mt-4">
+                  {[
+                    'Complete keyword waste analysis — where you\'re paying for irrelevant clicks',
+                    'Quality Score breakdown — why your ads aren\'t showing or cost too much',
+                    'CPL & ROAS gap analysis — where you should be vs. where you are',
+                    'Competitor intelligence — who\'s bidding on your keywords and at what cost',
+                    '30-day improvement roadmap — a concrete plan, not a vague proposal',
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-2">
+                      <span className="text-[#29C8D5] mt-0.5 shrink-0">→</span>
+                      <p className="text-[#8A9AB0] text-sm leading-relaxed">{item}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6 pt-6 border-t border-[rgba(41,200,213,0.1)]">
+                  <h3 className="text-white font-700 text-sm mb-3">What Happens After You Submit</h3>
+                  <div className="space-y-2">
+                    {[
+                      'Step 1: We respond within 4 business hours',
+                      'Step 2: 30-minute discovery call — we learn your business & goals',
+                      'Step 3: You receive your audit report within 48 hours',
+                    ].map((step, i) => (
+                      <p key={i} className="text-[#8A9AB0] text-xs leading-relaxed">{step}</p>
+                    ))}
+                  </div>
+                </div>
               </FadeIn>
 
               {[
                 { Icon: Mail, label: 'Email', value: 'info@treva.in', href: 'mailto:info@treva.in' },
                 { Icon: Phone, label: 'Phone', value: '+91 70229 22526', href: 'tel:+917022922526' },
-                { Icon: MapPin, label: 'Address', value: '4, 2nd Floor, Tarang Complex, Attiguppe, Vijayanagar, Bengaluru 560040', href: 'https://share.google/ZmtaQtW8vRZ7ihfgz' },
+                { Icon: MapPin, label: 'Address', value: '#93/2 2nd Floor, 8th E Cross, 14th Main, Attiguppe, Vijayanagar, Bengaluru – 560040', href: 'https://share.google/ZmtaQtW8vRZ7ihfgz' },
                 { Icon: Clock, label: 'Working Hours', value: 'Mon – Fri, 9AM – 6PM IST', href: null },
               ].map(({ Icon, label, value, href }, i) => (
                 <FadeIn key={label} delay={i * 0.08}>
@@ -154,9 +178,9 @@ export default function Contact() {
             {/* Form */}
             <FadeIn className="lg:col-span-3" delay={0.1}>
               <div className="bg-[#080C10] border border-[rgba(41,200,213,0.12)] rounded-2xl p-8 md:p-10">
-                <h2 className="font-800 text-white text-2xl mb-2">Send Us a Message</h2>
+                <h2 className="font-800 text-white text-2xl mb-2">Claim Your Free Google Ads Audit</h2>
                 <p className="text-[#8A9AB0] text-sm mb-8">
-                  Fill in the form and we'll get back to you within 24 hours.
+                  Fill in the form and we will respond within 4 business hours.
                 </p>
 
                 {isSubmitSuccessful ? (
@@ -274,7 +298,7 @@ export default function Contact() {
                       disabled={isSubmitting}
                       className="btn-primary w-full justify-center text-sm disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      {isSubmitting ? 'Sending…' : 'Send Message'}
+                      {isSubmitting ? 'Sending…' : 'Claim My Free Audit'}
                       {!isSubmitting && <Send size={14} />}
                     </button>
                   </form>
