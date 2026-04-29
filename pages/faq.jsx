@@ -141,14 +141,14 @@ export default function FAQPage() {
         <div className="mx-auto max-w-5xl px-6 text-center">
           <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="section-pill">FAQ</motion.span>
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
             className="mt-3 mb-6 font-black text-white"
-            style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', letterSpacing: '-0.03em' }}
+            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', letterSpacing: '-0.03em' }}
           >
             Frequently Asked Questions About{' '}
-            <span className="teal-gradient-text">Performance Marketing & Google Ads</span>
+            <span className="teal-gradient-text">Performance Marketing and Google Ads</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
             className="mx-auto max-w-2xl text-xl text-[#8A9AB0]">

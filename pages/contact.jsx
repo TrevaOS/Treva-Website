@@ -54,62 +54,60 @@ export default function Contact() {
         keywords="free Google Ads audit Bangalore, contact performance marketing agency Bengaluru, Google Ads consultation India, book free audit Treva"
       />
 
-      {/* Hero */}
-      <section className="pt-32 pb-16 bg-[#000000] relative overflow-hidden">
-        <div
-          className="absolute top-0 left-0 w-[400px] h-[400px] pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(41,200,213,0.06), transparent 70%)' }}
-        />
+      {/* Hero — fits viewport, no em-dash, no "free" push */}
+      <section className="pt-28 pb-12 bg-[#000000] relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-[400px] h-[400px] pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(41,200,213,0.06), transparent 70%)' }} />
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="section-pill">
             Let's Talk
           </motion.span>
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-black text-white mt-2 mb-6"
-            style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', letterSpacing: '-0.03em' }}
+            className="font-black text-white mt-3 mb-5"
+            style={{ fontSize: 'clamp(2rem, 4vw, 3.4rem)', letterSpacing: '-0.03em' }}
           >
-            Get Your Free Google Ads Audit —{' '}
-            <span className="teal-gradient-text">Worth ₹15,000. Zero Cost.</span>
+            Get Your Google Ads Audit.{' '}
+            <span className="teal-gradient-text">No Charge. No Obligation.</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
-            className="text-[#8A9AB0] text-xl max-w-xl mx-auto">
-            We'll audit your existing Google Ads account, identify where budget is being wasted, and give you a concrete roadmap to hit your CPL or ROAS targets. No sales pitch. No obligation.
+            className="text-[#8A9AB0] text-base max-w-xl mx-auto">
+            We audit your Google Ads account, identify where budget is being wasted and give you a concrete roadmap to hit your CPL or ROAS targets.
           </motion.p>
         </div>
       </section>
 
-      {/* Contact Info + Form */}
-      <section className="py-16 bg-[#000000]">
+      {/* Contact Info + Form — issue #8: form on left, info+map on right */}
+      <section className="py-12 bg-[#000000]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
 
-            {/* Info */}
-            <div className="lg:col-span-2 space-y-6">
+            {/* Info — moved to right via order-last on desktop */}
+            <div className="lg:col-span-2 space-y-5 lg:order-last">
               <FadeIn>
-                <h2 className="font-800 text-white text-2xl mb-2">What You'll Get in Your Free Audit (Worth ₹15,000)</h2>
-                <div className="space-y-2 mt-4">
+                <h2 className="font-800 text-white text-lg mb-3">What You Get in the Audit</h2>
+                <div className="space-y-2 mt-3">
                   {[
-                    'Complete keyword waste analysis — where you\'re paying for irrelevant clicks',
-                    'Quality Score breakdown — why your ads aren\'t showing or cost too much',
-                    'CPL & ROAS gap analysis — where you should be vs. where you are',
-                    'Competitor intelligence — who\'s bidding on your keywords and at what cost',
-                    '30-day improvement roadmap — a concrete plan, not a vague proposal',
+                    'Complete keyword waste analysis. Where you are paying for irrelevant clicks.',
+                    'Quality Score breakdown. Why your ads are not showing or cost too much.',
+                    'CPL and ROAS gap analysis. Where you should be versus where you are.',
+                    'Competitor intelligence. Who is bidding on your keywords and at what cost.',
+                    '30-day improvement roadmap. A concrete plan not a vague proposal.',
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-2">
-                      <span className="text-[#29C8D5] mt-0.5 shrink-0">→</span>
+                      <span className="text-[#29C8D5] mt-0.5 shrink-0 text-xs">✓</span>
                       <p className="text-[#8A9AB0] text-sm leading-relaxed">{item}</p>
                     </div>
                   ))}
                 </div>
-                <div className="mt-6 pt-6 border-t border-[rgba(41,200,213,0.1)]">
-                  <h3 className="text-white font-700 text-sm mb-3">What Happens After You Submit</h3>
-                  <div className="space-y-2">
+                <div className="mt-5 pt-5 border-t border-[rgba(41,200,213,0.1)]">
+                  <h3 className="text-white font-700 text-sm mb-2">What Happens After You Submit</h3>
+                  <div className="space-y-1.5">
                     {[
                       'Step 1: We respond within 4 business hours',
-                      'Step 2: 30-minute discovery call — we learn your business & goals',
+                      'Step 2: 30-minute discovery call to understand your goals',
                       'Step 3: You receive your audit report within 48 hours',
                     ].map((step, i) => (
                       <p key={i} className="text-[#8A9AB0] text-xs leading-relaxed">{step}</p>
@@ -122,7 +120,7 @@ export default function Contact() {
                 { Icon: Mail, label: 'Email', value: 'info@treva.in', href: 'mailto:info@treva.in' },
                 { Icon: Phone, label: 'Phone', value: '+91 70229 22526', href: 'tel:+917022922526' },
                 { Icon: MapPin, label: 'Address', value: '#93/2 2nd Floor, 8th E Cross, 14th Main, Attiguppe, Vijayanagar, Bengaluru – 560040', href: 'https://share.google/ZmtaQtW8vRZ7ihfgz' },
-                { Icon: Clock, label: 'Working Hours', value: 'Mon – Fri, 9AM – 6PM IST', href: null },
+                { Icon: Clock, label: 'Working Hours', value: 'Mon to Fri, 9AM to 6PM IST', href: null },
               ].map(({ Icon, label, value, href }, i) => (
                 <FadeIn key={label} delay={i * 0.08}>
                   <div className="bg-[#080C10] border border-[rgba(41,200,213,0.1)] rounded-xl p-5 flex gap-4 items-start card-glow">
@@ -178,7 +176,7 @@ export default function Contact() {
             {/* Form */}
             <FadeIn className="lg:col-span-3" delay={0.1}>
               <div className="bg-[#080C10] border border-[rgba(41,200,213,0.12)] rounded-2xl p-8 md:p-10">
-                <h2 className="font-800 text-white text-2xl mb-2">Claim Your Free Google Ads Audit</h2>
+                <h2 className="font-800 text-white text-2xl mb-2">Book Your Google Ads Audit</h2>
                 <p className="text-[#8A9AB0] text-sm mb-8">
                   Fill in the form and we will respond within 4 business hours.
                 </p>

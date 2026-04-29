@@ -76,7 +76,6 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-4">
             <Link href="/contact" className="btn-primary text-xs py-3 px-6">
               Book a Call
-              <ArrowUpRight size={14} />
             </Link>
           </div>
 
@@ -126,7 +125,6 @@ export default function Navbar() {
             >
               <Link href="/contact" className="btn-primary">
                 Book a Call
-                <ArrowUpRight size={16} />
               </Link>
             </motion.div>
           </motion.div>
