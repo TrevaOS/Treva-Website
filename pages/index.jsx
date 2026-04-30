@@ -238,9 +238,14 @@ export default function Home() {
             className="font-black leading-tight mb-5"
             style={{ fontSize: 'clamp(2.2rem, 4.8vw, 4rem)', letterSpacing: '-0.03em' }}
           >
-            Bengaluru's Performance Marketing Agency
+            We Build Growth Through Performance Marketing
             <br />
-            <span className="teal-gradient-text">₹15 Crore+ in Google Ads Managed</span>
+            <span
+              className="teal-gradient-text inline-block"
+              style={{ fontSize: 'clamp(1.35rem, 2.8vw, 2.3rem)', letterSpacing: '-0.02em' }}
+            >
+              Experts in Google Ads & Revenue Growth
+            </span>
           </motion.h1>
 
           {/* H2 */}
@@ -424,7 +429,7 @@ export default function Home() {
                 {[
                   'You speak directly to the strategist running your account',
                   'Live reporting dashboard access not a monthly report',
-                  '₹15 Crore+ in Google Ads managed across SaaS, eCommerce, real estate and more',
+                  'Experts in Google Ads & Revenue Growth across SaaS, eCommerce, real estate and more',
                   'CPL and ROAS targets set before a single rupee is spent',
                   'Bengaluru-based team with local market expertise',
                 ].map((point) => (

@@ -56,9 +56,6 @@ export default function About() {
           style={{ background: 'radial-gradient(circle, rgba(41,200,213,0.1), transparent 70%)' }} />
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
-            <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="section-pill">
-              Who We Are
-            </motion.span>
             <motion.h1
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
@@ -138,8 +135,8 @@ export default function About() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {learnings.map(({ title, desc }, i) => (
-              <FadeIn key={title} delay={i * 0.1}>
-                <div className="bg-[#080C10] border border-[rgba(41,200,213,0.1)] rounded-2xl p-6 card-glow flex flex-col" style={{ minHeight: '180px' }}>
+              <FadeIn key={title} delay={i * 0.1} className="h-full">
+                <div className="bg-[#080C10] border border-[rgba(41,200,213,0.1)] rounded-2xl p-6 card-glow flex flex-col h-full" style={{ minHeight: '180px' }}>
                   <h3 className="font-700 text-white text-base mb-3">{title}</h3>
                   <p className="text-[#8A9AB0] text-sm leading-relaxed flex-grow">{desc}</p>
                 </div>
@@ -162,8 +159,8 @@ export default function About() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {principles.map(({ title, desc }, i) => (
-              <FadeIn key={title} delay={i * 0.08}>
-                <div className="bg-[#000000] border border-[rgba(41,200,213,0.1)] rounded-2xl p-6 card-glow flex gap-4 items-start" style={{ minHeight: '120px' }}>
+              <FadeIn key={title} delay={i * 0.08} className="h-full">
+                <div className="bg-[#000000] border border-[rgba(41,200,213,0.1)] rounded-2xl p-6 card-glow flex gap-4 items-start h-full" style={{ minHeight: '150px' }}>
                   <CheckCircle size={18} className="text-[#29C8D5] mt-0.5 shrink-0" />
                   <div>
                     <h3 className="font-700 text-white text-sm mb-1.5">{title}</h3>

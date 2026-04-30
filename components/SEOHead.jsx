@@ -18,7 +18,7 @@ export default function SEOHead({
     name: 'Treva',
     url: 'https://www.treva.in',
     logo: 'https://www.treva.in/treva-logo.png',
-    description: "Bengaluru's performance marketing agency with ₹15 Crore+ in Google Ads managed. Specialising in Google Search Ads, Performance Max, Shopping, Remarketing, and YouTube Ads.",
+    description: "We Build Growth Through Performance Marketing with Experts in Google Ads & Revenue Growth. Specialising in Google Search Ads, Performance Max, Shopping, Remarketing, and YouTube Ads.",
     telephone: '+91-7022922526',
     email: 'info@treva.in',
     sameAs: [
@@ -31,7 +31,7 @@ export default function SEOHead({
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'ProfessionalService'],
     name: 'Treva',
-    description: "Bengaluru's performance marketing agency with ₹15 Crore+ in Google Ads managed. Specialising in Google Search Ads, Performance Max, Shopping, Remarketing, and YouTube Ads.",
+    description: "We Build Growth Through Performance Marketing with Experts in Google Ads & Revenue Growth. Specialising in Google Search Ads, Performance Max, Shopping, Remarketing, and YouTube Ads.",
     url: 'https://www.treva.in',
     telephone: '+91-7022922526',
     email: 'info@treva.in',
@@ -123,7 +123,7 @@ export default function SEOHead({
 
       {/* Favicon */}
       <link rel="icon" href="/treva-fav.png" type="image/png" />
-      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      <link rel="apple-touch-icon" href="/treva-fav.png" />
     </Head>
   );
 }

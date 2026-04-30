@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <>
       <SEOHead
-        title="404 – Page Not Found | Treva"
+        title="404 - Page Not Found | Treva"
         description="The page you're looking for doesn't exist. Head back to Treva's homepage."
         url="https://www.treva.in/404"
       />

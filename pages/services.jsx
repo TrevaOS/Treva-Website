@@ -148,7 +148,7 @@ const servicesFAQ = [
   { q: 'How do you report on campaign performance?', a: 'You get access to a live dashboard not a once-a-month PDF. We also provide weekly bid adjustment updates, monthly creative reviews, and quarterly strategy calls.' },
   { q: 'Do you manage Google Ads for both B2B and B2C businesses?', a: 'Yes. We manage campaigns for B2B SaaS companies, B2C eCommerce brands, real estate developers, edtech platforms, and healthcare providers across India.' },
   { q: 'What is Performance Max and should I be running it?', a: 'Performance Max is Google\'s full-network campaign type covering Search, Display, YouTube, Gmail, and Discover in one campaign. Whether you should run it depends on your conversion volume, budget, and goals. Treva assesses this in the free audit.' },
-  { q: 'How long does it take to see results from Google Ads?', a: 'Most clients see improved CPL and ROAS within the first 4–6 weeks. Full campaign maturity typically reaches 90 days as smart bidding accumulates conversion data.' },
+  { q: 'How long does it take to see results from Google Ads?', a: 'Most clients see improved CPL and ROAS within the first 4-6 weeks. Full campaign maturity typically reaches 90 days as smart bidding accumulates conversion data.' },
   { q: 'Do you offer Google Ads management outside of Bangalore?', a: 'Yes. While we are based in Vijayanagar, Bengaluru, we manage Google Ads campaigns for clients across Mumbai, Delhi, Hyderabad, Chennai, and Pan-India brands.' },
 ];
 
@@ -237,13 +237,13 @@ export default function Services() {
       </section>
 
       {/* Performance Services Deep Copy */}
-      <section className="py-20 bg-[#000000]">
+      <section id="performance" className="py-20 bg-[#000000] scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="mb-12">
             <span className="section-pill">Google Ads Services</span>
             <h2 className="font-black text-white mt-4"
               style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.02em' }}>
-              Our Google Ads Services —{' '}
+              Our Google Ads Services:{' '}
               <span className="teal-gradient-text">Built for Measurable ROI</span>
             </h2>
           </FadeIn>
@@ -327,7 +327,7 @@ export default function Services() {
             <span className="section-pill">Full-Service Capabilities</span>
             <h2 className="font-black text-white mt-4"
               style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.02em' }}>
-              Beyond Google Ads —{' '}
+              Beyond Google Ads:{' '}
               <span className="teal-gradient-text">Full Digital Services</span>
             </h2>
             <p className="text-[#8A9AB0] mt-4 max-w-xl">

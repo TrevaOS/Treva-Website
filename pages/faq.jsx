@@ -31,11 +31,11 @@ const faqGroups = [
       },
       {
         q: 'How long does it take to see results from Google Ads?',
-        a: 'Most clients see improved CPL and ROAS within the first 4–6 weeks as the campaign optimises. Full campaign maturity typically reaches 90 days as smart bidding algorithms accumulate sufficient conversion data.',
+        a: 'Most clients see improved CPL and ROAS within the first 4-6 weeks as the campaign optimises. Full campaign maturity typically reaches 90 days as smart bidding algorithms accumulate sufficient conversion data.',
       },
       {
         q: 'What is a good ROAS for Google Ads in India?',
-        a: 'ROAS benchmarks vary by industry. eCommerce typically targets 3x–5x ROAS. Lead generation campaigns are better measured by CPL. SaaS brands focus on CAC-to-LTV ratio. Treva sets targets based on your specific business economics not industry averages.',
+        a: 'ROAS benchmarks vary by industry. eCommerce typically targets 3x-5x ROAS. Lead generation campaigns are better measured by CPL. SaaS brands focus on CAC-to-LTV ratio. Treva sets targets based on your specific business economics not industry averages.',
       },
       {
         q: 'Why is my Google Ads cost per lead so high?',
@@ -56,7 +56,7 @@ const faqGroups = [
       },
       {
         q: 'Are you based in Bangalore?',
-        a: 'Yes Treva is based in Vijayanagar, Bengaluru. Our office address is #93/2 2nd Floor, 8th E Cross, 14th Main, Attiguppe, Vijayanagar, Bengaluru – 560040. We serve clients across India and internationally.',
+        a: 'Yes Treva is based in Vijayanagar, Bengaluru. Our office address is #93/2 2nd Floor, 8th E Cross, 14th Main, Attiguppe, Vijayanagar, Bengaluru 560040. We serve clients across India and internationally.',
       },
       {
         q: 'Do you work with businesses outside of Bangalore?',

@@ -119,7 +119,7 @@ export default function Contact() {
               {[
                 { Icon: Mail, label: 'Email', value: 'info@treva.in', href: 'mailto:info@treva.in' },
                 { Icon: Phone, label: 'Phone', value: '+91 70229 22526', href: 'tel:+917022922526' },
-                { Icon: MapPin, label: 'Address', value: '#93/2 2nd Floor, 8th E Cross, 14th Main, Attiguppe, Vijayanagar, Bengaluru – 560040', href: 'https://share.google/ZmtaQtW8vRZ7ihfgz' },
+                { Icon: MapPin, label: 'Address', value: '#93/2 2nd Floor, 8th E Cross, 14th Main, Attiguppe, Vijayanagar, Bengaluru 560040', href: 'https://share.google/ZmtaQtW8vRZ7ihfgz' },
                 { Icon: Clock, label: 'Working Hours', value: 'Mon to Fri, 9AM to 6PM IST', href: null },
               ].map(({ Icon, label, value, href }, i) => (
                 <FadeIn key={label} delay={i * 0.08}>

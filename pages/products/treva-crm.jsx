@@ -423,7 +423,7 @@ export default function TrevaCRM() {
 
           {/* proof pills */}
           <FadeIn delay={0.18} className="mt-5 flex flex-wrap items-center justify-center gap-2">
-            {['6+ modules', 'Free forever', '2-min setup', 'No credit card'].map((p) => (
+            {['6+ modules', 'Free', '2-min setup', 'No credit card'].map((p) => (
               <span key={p} className="rounded-full border border-gray-100 bg-gray-50 px-3 py-1 text-xs text-gray-500">{p}</span>
             ))}
           </FadeIn>
@@ -490,7 +490,7 @@ export default function TrevaCRM() {
         <div className="mx-auto max-w-4xl">
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
             {[
-              ['100%', 'Free forever'],
+              ['100%', 'Free'],
               ['6+', 'Core modules'],
               ['2 min', 'Average setup'],
               ['99.9%', 'Uptime'],
