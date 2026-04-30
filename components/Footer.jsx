@@ -37,9 +37,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="treva-wordmark mb-4">
-              <span className="treva-wordmark-bar" aria-hidden="true" />
-              <span className="treva-wordmark-text">TREVA</span>
+            <Link href="/" className="flex items-center gap-2 mb-4 group">
+              <img src="/treva-logo.png" alt="Treva" className="h-10 w-auto object-contain" />
             </Link>
             <p className="text-[#8A9AB0] text-sm leading-relaxed mb-6 max-w-xs">
               Where creativity meets technology. We help brands grow with strategy, design, and intelligent solutions.
@@ -47,13 +46,13 @@ export default function Footer() {
 
             {/* Contact Info */}
             <div className="space-y-3 mb-6">
-              <Link
-                href="/contact"
+              <a
+                href="mailto:info@treva.in"
                 className="flex items-center gap-2 text-sm text-[#8A9AB0] hover:text-[#29C8D5] transition-colors"
               >
                 <Mail size={14} className="text-[#29C8D5]" />
                 info@treva.in
-              </Link>
+              </a>
               <a
                 href="tel:+917022922526"
                 className="flex items-center gap-2 text-sm text-[#8A9AB0] hover:text-[#29C8D5] transition-colors"

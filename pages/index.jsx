@@ -3,19 +3,21 @@ import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
 import {
   Target, BarChart3, Globe,
-  Video, Star, Quote, CheckCircle, TrendingUp, Zap
+  Smartphone, Video, Palette,
+  Star, Quote, CheckCircle, TrendingUp, Zap
 } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
+import { products as productCatalog } from '../data/products';
 
 const clients = [
-  { src: '/logos/12.svg', width: 140, height: 56 },
-  { src: '/logos/15.svg', width: 140, height: 56 },
-  { src: '/logos/10.svg', width: 140, height: 56 },
-  { src: '/logos/2.svg', width: 140, height: 56 },
-  { src: '/logos/13.svg', width: 140, height: 56 },
-  { src: '/logos/1.svg', width: 140, height: 56 },
-  { src: '/logos/11.svg', width: 140, height: 56 },
-  { src: '/logos/9.svg', width: 140, height: 56 },
+  '/logos/1.svg', '/logos/2.svg', '/logos/3.svg', '/logos/4.svg',
+  '/logos/5.svg', '/logos/6.svg', '/logos/7.svg', '/logos/8.svg',
+  '/logos/9.svg', '/logos/10.svg', '/logos/11.svg', '/logos/12.svg',
+  '/logos/13.svg', '/logos/14.svg', '/logos/15.svg', '/logos/16.svg',
+  '/logos/1.svg', '/logos/2.svg', '/logos/3.svg', '/logos/4.svg',
+  '/logos/5.svg', '/logos/6.svg', '/logos/7.svg', '/logos/8.svg',
+  '/logos/9.svg', '/logos/10.svg', '/logos/11.svg', '/logos/12.svg',
+  '/logos/13.svg', '/logos/14.svg', '/logos/15.svg', '/logos/16.svg',
 ];
 
 // Issue #1: No em-dashes. Issue #3: No arrow icons on service cards.
@@ -101,26 +103,7 @@ function FadeIn({ children, delay = 0, className = '' }) {
 
 function ParticleCanvas() {
   const canvasRef = useRef(null);
-  const [enabled, setEnabled] = useState(false);
-
   useEffect(() => {
-    if (typeof window === 'undefined') return undefined;
-
-    const media = window.matchMedia('(min-width: 768px)');
-    const updateEnabled = () => setEnabled(media.matches);
-    updateEnabled();
-
-    if (typeof media.addEventListener === 'function') {
-      media.addEventListener('change', updateEnabled);
-      return () => media.removeEventListener('change', updateEnabled);
-    }
-
-    media.addListener(updateEnabled);
-    return () => media.removeListener(updateEnabled);
-  }, []);
-
-  useEffect(() => {
-    if (!enabled) return undefined;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -150,10 +133,7 @@ function ParticleCanvas() {
     const handleResize = () => { w = canvas.width = canvas.offsetWidth; h = canvas.height = canvas.offsetHeight; };
     window.addEventListener('resize', handleResize);
     return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', handleResize); };
-  }, [enabled]);
-
-  if (!enabled) return null;
-
+  }, []);
   return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" />;
 }
 
@@ -193,15 +173,7 @@ function ProductSlider() {
         <div className="grid grid-cols-1 lg:grid-cols-2">
           <div className="relative overflow-hidden bg-[#0D1117]" style={{ minHeight: '280px' }}>
             <span className="absolute top-4 left-4 z-10 text-xs font-700 px-3 py-1 rounded-full bg-white text-black">{current.tag}</span>
-            <img
-              src={current.image}
-              alt={current.name}
-              width="298"
-              height="168"
-              fetchPriority="high"
-              decoding="async"
-              className={`absolute inset-0 h-full w-full ${current.imageClassName || 'object-cover'}`}
-            />
+            <img src={current.image} alt={current.name} className={`absolute inset-0 h-full w-full ${current.imageClassName || 'object-cover'}`} />
           </div>
           <div className="p-6 md:p-8 flex flex-col justify-center">
             <p className="text-xs font-600 uppercase tracking-widest mb-3" style={{ color: current.color }}>{current.name}</p>
@@ -358,16 +330,7 @@ export default function Home() {
           <div className="marquee-content">
             {[...clients, ...clients].map((logo, i) => (
               <div key={i} className="marquee-logo-card flex items-center justify-center rounded-xl px-6 py-4 sm:px-8" style={{ flexShrink: 0 }}>
-                <img
-                  src={logo.src}
-                  alt="Treva client brand logo"
-                  width={logo.width}
-                  height={logo.height}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-14 w-auto object-contain"
-                  style={{ maxWidth: '140px' }}
-                />
+                <img src={logo} alt="Treva client brand logo" className="h-14 w-auto object-contain" style={{ maxWidth: '140px' }} />
               </div>
             ))}
           </div>
