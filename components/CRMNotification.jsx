@@ -5,7 +5,23 @@ export default function CRMNotification() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    setVisible(true);
+    if (typeof window === 'undefined') return undefined;
+
+    const revealBanner = () => {
+      setVisible(true);
+      window.removeEventListener('scroll', revealBanner);
+      window.removeEventListener('pointerdown', revealBanner);
+    };
+
+    const timerId = window.setTimeout(revealBanner, 8000);
+    window.addEventListener('scroll', revealBanner, { once: true, passive: true });
+    window.addEventListener('pointerdown', revealBanner, { once: true, passive: true });
+
+    return () => {
+      window.clearTimeout(timerId);
+      window.removeEventListener('scroll', revealBanner);
+      window.removeEventListener('pointerdown', revealBanner);
+    };
   }, []);
 
   const closeBanner = () => {

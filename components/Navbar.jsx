@@ -46,8 +46,9 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-              <img src="/treva-logo.png" alt="Treva" className="h-9 w-auto object-contain" />
+          <Link href="/" className="treva-wordmark">
+            <span className="treva-wordmark-bar" aria-hidden="true" />
+            <span className="treva-wordmark-text">TREVA</span>
           </Link>
 
           {/* Desktop Nav */}
