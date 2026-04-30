@@ -192,13 +192,39 @@ function ProductSlider() {
         </div>
       </div>
       <div className="flex items-center justify-center gap-6 mt-8">
-        <button onClick={() => setActive((prev) => (prev - 1 + items.length) % items.length)} className="text-[#8A9AB0] hover:text-white transition-colors text-sm">PREV</button>
+        <button
+          type="button"
+          onClick={() => setActive((prev) => (prev - 1 + items.length) % items.length)}
+          className="min-h-11 px-3 text-[#8A9AB0] hover:text-white transition-colors text-sm"
+          aria-label="Show previous product"
+        >
+          PREV
+        </button>
         <div className="flex items-center gap-2">
           {items.map((_, i) => (
-            <button key={i} onClick={() => setActive(i)} className="w-2 h-2 rounded-full transition-all" style={{ background: i === active ? current.color : 'rgba(255,255,255,0.2)' }} />
+            <button
+              key={i}
+              type="button"
+              onClick={() => setActive(i)}
+              className="flex h-11 w-11 items-center justify-center rounded-full transition-all"
+              aria-label={`Show product ${i + 1}`}
+              aria-pressed={i === active}
+            >
+              <span
+                className="block h-2.5 w-2.5 rounded-full transition-all"
+                style={{ background: i === active ? current.color : 'rgba(255,255,255,0.2)' }}
+              />
+            </button>
           ))}
         </div>
-        <button onClick={() => setActive((prev) => (prev + 1) % items.length)} className="text-[#8A9AB0] hover:text-white transition-colors text-sm">NEXT</button>
+        <button
+          type="button"
+          onClick={() => setActive((prev) => (prev + 1) % items.length)}
+          className="min-h-11 px-3 text-[#8A9AB0] hover:text-white transition-colors text-sm"
+          aria-label="Show next product"
+        >
+          NEXT
+        </button>
       </div>
     </div>
   );

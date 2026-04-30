@@ -44,7 +44,8 @@ export default function App({ Component, pageProps, router }) {
 
       <Navbar />
       <AnimatePresence mode="wait">
-        <motion.div
+        <motion.main
+          id="main-content"
           key={router.pathname}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -52,7 +53,7 @@ export default function App({ Component, pageProps, router }) {
           transition={{ duration: 0.3, ease: 'easeInOut' }}
         >
           <Component {...pageProps} />
-        </motion.div>
+        </motion.main>
       </AnimatePresence>
       <CRMNotification />
       <Footer />
