@@ -106,6 +106,12 @@ export default function Footer() {
             © {new Date().getFullYear()} Treva. All rights reserved.
           </p>
 
+          <div className="flex items-center gap-4 text-sm">
+            <a href="/privacy-policy" className="text-[#8A9AB0] hover:text-[#29C8D5] transition-colors">Privacy Policy</a>
+            <span className="text-[rgba(41,200,213,0.3)]">·</span>
+            <a href="/terms-of-service" className="text-[#8A9AB0] hover:text-[#29C8D5] transition-colors">Terms of Service</a>
+          </div>
+
           {/* Socials */}
           <div className="flex items-center gap-4">
             {[
