@@ -3,14 +3,11 @@ import { ArrowUpRight, Instagram, Linkedin, Twitter, Facebook, Mail, Phone, MapP
 
 const footerLinks = {
   Services: [
-    { label: 'Performance Marketing', href: '/services#performance' },
-    { label: 'Google Search Ads', href: '/services#google-search' },
-    { label: 'Performance Max', href: '/services#performance-max' },
-    { label: 'YouTube Ads', href: '/services#youtube' },
     { label: 'Branding', href: '/services#branding' },
-    { label: 'Social Media', href: '/services#social' },
-    { label: 'Web Development', href: '/services#web' },
-    { label: 'App Development', href: '/services#app' },
+    { label: 'Social Media Marketing', href: '/services#social-media-marketing' },
+    { label: 'Web Development', href: '/services#web-development' },
+    { label: 'App Development', href: '/services#app-development' },
+    { label: 'Performance Marketing', href: '/services#performance-marketing' },
   ],
   Pages: [
     { label: 'Home', href: '/' },
