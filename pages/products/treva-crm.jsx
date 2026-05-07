@@ -72,7 +72,7 @@ function ScrollHeadline() {
   return (
     <section ref={ref} style={{ height: '500vh' }} className="relative bg-white">
       <div className="sticky top-0 z-10 flex min-h-screen flex-col items-center justify-center bg-white px-6 py-20">
-        <FadeIn className="mb-8"><SectionLabel>The Platform</SectionLabel></FadeIn>
+
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-[clamp(2rem,4.5vw,4rem)] font-black leading-tight tracking-tight">
             {words.map((word, i) => {
@@ -114,7 +114,7 @@ function FeatureTabs({ items }) {
   return (
     <section className="bg-white px-6 py-20">
       <div className="mx-auto max-w-6xl">
-        <FadeIn className="mb-2 text-center"><SectionLabel>Platform tour</SectionLabel></FadeIn>
+
         <FadeIn delay={0.05} className="mb-10 text-center">
           <h2 className="text-[clamp(1.75rem,3vw,2.75rem)] font-black tracking-tight text-gray-900">
             Six modules, one workspace.
@@ -381,11 +381,6 @@ export default function TrevaCRM() {
         <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-[28rem] w-[56rem] rounded-full bg-[radial-gradient(ellipse,rgba(41,200,213,0.07)_0%,transparent_70%)]" />
 
         <div className="relative mx-auto max-w-5xl">
-          {/* eyebrow */}
-          <FadeIn className="mb-5 flex justify-center">
-            <SectionLabel>Treva CRM</SectionLabel>
-          </FadeIn>
-
           {/* headline */}
           <FadeIn delay={0.05} className="text-center">
             <h1 className="text-[clamp(2.2rem,5vw,4.5rem)] font-black leading-[1.05] tracking-tight text-gray-900">
@@ -535,7 +530,6 @@ export default function TrevaCRM() {
       {/* ── JOURNEY TIMELINE ──────────────────────────────────────── */}
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-3xl">
-          <FadeIn className="mb-2 text-center"><SectionLabel>Customer journey</SectionLabel></FadeIn>
           <FadeIn delay={0.05} className="mb-12 text-center">
             <h2 className="text-[clamp(1.75rem,3vw,2.75rem)] font-black tracking-tight text-gray-900">
               From first touch to final payment.
@@ -575,7 +569,6 @@ export default function TrevaCRM() {
       {/* ── CAPABILITIES GRID ─────────────────────────────────────── */}
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-6xl">
-          <FadeIn className="mb-2"><SectionLabel>Everything included</SectionLabel></FadeIn>
           <FadeIn delay={0.05} className="mb-10">
             <h2 className="text-[clamp(1.75rem,3vw,2.75rem)] font-black tracking-tight text-gray-900">
               Built deep, not wide.
@@ -608,7 +601,6 @@ export default function TrevaCRM() {
       {/* ── SCREENSHOTS TRIPTYCH ──────────────────────────────────── */}
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-6xl">
-          <FadeIn className="mb-2 text-center"><SectionLabel>See it in action</SectionLabel></FadeIn>
           <FadeIn delay={0.05} className="mb-10 text-center">
             <h2 className="text-[clamp(1.75rem,3vw,2.75rem)] font-black tracking-tight text-gray-900">
               Real screens. Real workflows.
@@ -647,7 +639,6 @@ export default function TrevaCRM() {
       {/* ── TESTIMONIALS ──────────────────────────────────────────── */}
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-5xl">
-          <FadeIn className="mb-2 text-center"><SectionLabel>What teams say</SectionLabel></FadeIn>
           <FadeIn delay={0.05} className="mb-10 text-center">
             <h2 className="text-[clamp(1.75rem,3vw,2.75rem)] font-black tracking-tight text-gray-900">Built for real teams.</h2>
           </FadeIn>
@@ -676,7 +667,6 @@ export default function TrevaCRM() {
       {/* ── FREE PLAN CTA ─────────────────────────────────────────── */}
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-4xl">
-          <FadeIn className="mb-2 text-center"><SectionLabel>Pricing</SectionLabel></FadeIn>
           <FadeIn delay={0.05} className="mb-10 text-center">
             <h2 className="text-[clamp(1.75rem,3vw,2.75rem)] font-black tracking-tight text-gray-900">
               100% free. No catches.

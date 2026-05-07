@@ -8,20 +8,21 @@ import {
 } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 import { products as productCatalog } from '../data/products';
+import ReelCarousel from '../components/InstagramReel';
 
 const clients = [
   '/logos/1.svg', '/logos/2.svg', '/logos/3.svg', '/logos/4.svg',
   '/logos/5.svg', '/logos/6.svg', '/logos/7.svg', '/logos/8.svg',
   '/logos/9.svg', '/logos/10.svg', '/logos/11.svg', '/logos/12.svg',
   '/logos/13.svg', '/logos/14.svg', '/logos/15.svg', '/logos/16.svg',
+  '/logos/17.png', '/logos/18.png',
   '/logos/1.svg', '/logos/2.svg', '/logos/3.svg', '/logos/4.svg',
   '/logos/5.svg', '/logos/6.svg', '/logos/7.svg', '/logos/8.svg',
   '/logos/9.svg', '/logos/10.svg', '/logos/11.svg', '/logos/12.svg',
   '/logos/13.svg', '/logos/14.svg', '/logos/15.svg', '/logos/16.svg',
+  '/logos/17.png', '/logos/18.png',
 ];
 
-// Issue #1: No em-dashes. Issue #3: No arrow icons on service cards.
-// Issue #6: Equal-height cards via uniform desc length.
 const services = [
   { icon: Target,     title: 'Google Search Ads',    desc: 'Capture high-intent buyers at the exact moment they search. We engineer keyword strategies, ad structures and bidding systems that slash CPL while scaling volume.' },
   { icon: BarChart3,  title: 'Performance Max',       desc: "Google's most powerful campaign type managed with precision. Full asset optimisation, audience signal design and ROAS governance across every channel." },
@@ -29,13 +30,6 @@ const services = [
   { icon: Zap,        title: 'Display and Remarketing', desc: 'Re-engage prospects who did not convert. Segmented remarketing funnels that bring back lost revenue at a low cost per click.' },
   { icon: Video,      title: 'YouTube Ads',           desc: 'Performance-driven video campaigns tracked to actual conversions not just views. Mid-funnel intent built at scale across Google Video Network.' },
   { icon: Globe,      title: 'Landing Page and CRO',  desc: 'A great ad wasted on a weak landing page is money lost. We audit and optimise your post-click experience to turn more clicks into customers.' },
-];
-
-const stats = [
-  { value: '₹15 Cr+', label: 'Google Ads Managed',   sub: 'Across all active clients' },
-  { value: '3.8x',    label: 'Average ROAS Delivered', sub: 'Across all active campaigns' },
-  { value: '42%',     label: 'Average CPL Reduction',  sub: 'After Treva account takeover' },
-  { value: '200+',    label: 'Campaigns Launched',     sub: 'Google Ads campaigns optimised' },
 ];
 
 const workflowSteps = [
@@ -57,33 +51,6 @@ const testimonials = [
   {
     name: 'Ashok Reddy', role: 'CEO, BETSOL', stars: 5,
     text: "The agency's unwavering commitment to enhancing the customer experience and taking complete ownership of tasks is not only impressive but also incredibly inspiring.",
-  },
-];
-
-const homepageFAQ = [
-  {
-    q: 'How much Google Ads budget do you manage at Treva?',
-    a: 'Treva has managed over ₹15 Crore in Google Ads spend across industries including SaaS, eCommerce, real estate, education and healthcare in Bengaluru and across India.',
-  },
-  {
-    q: 'What is performance marketing?',
-    a: 'Performance marketing is a form of digital advertising where every rupee spent is tied to a measurable outcome such as a click, a lead, a sale or a customer. Unlike brand advertising, performance marketing campaigns are optimised in real-time based on data.',
-  },
-  {
-    q: 'How long does it take to see results from Google Ads?',
-    a: 'Most clients see improved CPL and ROAS within the first 4 to 6 weeks as the campaign optimises. Full performance typically stabilises within 90 days.',
-  },
-  {
-    q: 'Why is my Google Ads cost per lead so high?',
-    a: 'High CPL is usually caused by keyword sprawl, poor Quality Scores, broad match without negative keyword controls or a weak landing page. Treva audits all four in the account review.',
-  },
-  {
-    q: 'Do you work with small businesses or only enterprises?',
-    a: 'We work with growth-stage startups spending ₹50,000 per month and enterprise brands investing ₹50 Lakh or more per month. Our strategy scales to your budget.',
-  },
-  {
-    q: 'Are you based in Bangalore?',
-    a: 'Yes. Treva is based in Vijayanagar, Bengaluru. We serve clients across India and internationally.',
   },
 ];
 
@@ -197,9 +164,7 @@ function ProductSlider() {
           onClick={() => setActive((prev) => (prev - 1 + items.length) % items.length)}
           className="min-h-11 px-3 text-[#8A9AB0] hover:text-white transition-colors text-sm"
           aria-label="Show previous product"
-        >
-          PREV
-        </button>
+        >PREV</button>
         <div className="flex items-center gap-2">
           {items.map((_, i) => (
             <button
@@ -222,9 +187,7 @@ function ProductSlider() {
           onClick={() => setActive((prev) => (prev + 1) % items.length)}
           className="min-h-11 px-3 text-[#8A9AB0] hover:text-white transition-colors text-sm"
           aria-label="Show next product"
-        >
-          NEXT
-        </button>
+        >NEXT</button>
       </div>
     </div>
   );
@@ -241,22 +204,17 @@ export default function Home() {
         faqSchema={{
           '@context': 'https://schema.org',
           '@type': 'FAQPage',
-          mainEntity: homepageFAQ.map(({ q, a }) => ({
-            '@type': 'Question',
-            name: q,
-            acceptedAnswer: { '@type': 'Answer', text: a },
-          })),
+          mainEntity: [],
         }}
       />
 
-      {/* ── HERO fits 1920x1080 viewport, no pill, no em-dash ── */}
-      <section className="relative h-screen flex flex-col justify-center overflow-hidden bg-[#000000] grid-bg">
+      {/* HERO */}
+      <section className="relative h-screen flex flex-col justify-center items-center overflow-hidden bg-[#000000] grid-bg">
         <ParticleCanvas />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
           style={{ background: 'radial-gradient(circle, rgba(41,200,213,0.08) 0%, transparent 70%)' }} />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          {/* H1 */}
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -266,15 +224,11 @@ export default function Home() {
           >
             We Build Growth Through Performance Marketing
             <br />
-            <span
-              className="teal-gradient-text inline-block"
-              style={{ fontSize: 'clamp(1.35rem, 2.8vw, 2.3rem)', letterSpacing: '-0.02em' }}
-            >
+            <span className="teal-gradient-text inline-block" style={{ fontSize: 'clamp(1.35rem, 2.8vw, 2.3rem)', letterSpacing: '-0.02em' }}>
               Experts in Google Ads & Revenue Growth
             </span>
           </motion.h1>
 
-          {/* H2 */}
           <motion.h2
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -284,7 +238,6 @@ export default function Home() {
             Stop guessing. Start measuring. We build Google Ads campaigns engineered around your Cost Per Lead, ROAS and revenue goals.
           </motion.h2>
 
-          {/* CTAs no arrow icons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -298,34 +251,16 @@ export default function Home() {
               View Services
             </Link>
           </motion.div>
-
-          {/* Trust Bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.42 }}
-            className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-[#8A9AB0]"
-          >
-            <span><strong className="text-white">₹15 Cr+</strong> Google Ads Managed</span>
-            <span className="hidden sm:inline text-[#29C8D540]">|</span>
-            <span><strong className="text-white">3.8x</strong> Avg. ROAS</span>
-            <span className="hidden sm:inline text-[#29C8D540]">|</span>
-            <span><strong className="text-white">42%</strong> Avg. CPL Reduction</span>
-            <span className="hidden sm:inline text-[#29C8D540]">|</span>
-            <span><strong className="text-white">200+</strong> Campaigns Launched</span>
-          </motion.div>
         </div>
       </section>
 
-      {/* ── CLIENT MARQUEE ── */}
+      {/* CLIENT MARQUEE */}
       <section className="py-8 bg-[#000000] overflow-hidden relative">
         <p className="text-center text-[#8A9AB0] text-xs font-600 uppercase tracking-widest mb-6">
           Trusted by Brands Across India
         </p>
-        <div className="absolute left-0 top-0 bottom-0 w-64 z-10 pointer-events-none"
-          style={{ background: 'linear-gradient(to right, #000000, transparent)' }} />
-        <div className="absolute right-0 top-0 bottom-0 w-64 z-10 pointer-events-none"
-          style={{ background: 'linear-gradient(to left, #000000, transparent)' }} />
+        <div className="absolute left-0 top-0 bottom-0 w-64 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #000000, transparent)' }} />
+        <div className="absolute right-0 top-0 bottom-0 w-64 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #000000, transparent)' }} />
         <div className="marquee-wrapper">
           <div className="marquee-content">
             {[...clients, ...clients].map((logo, i) => (
@@ -337,44 +272,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── PROBLEM / AGITATION equal height cards ── */}
-      <section className="py-20 bg-[#080C10]">
-        <div className="max-w-5xl mx-auto px-6 text-center">
-          <FadeIn>
-            <span className="section-pill">Sound Familiar</span>
-            <h2 className="font-black text-white mt-4 mb-10"
-              style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', letterSpacing: '-0.02em' }}>
-              Is Your Google Ads Spend <span className="teal-gradient-text">Actually Working?</span>
-            </h2>
-          </FadeIn>
-          {/* Issue #2 and #6: all 3 cards same fixed height */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {[
-              'We are spending ₹5 Lakh per month on Google Ads but have no idea if it is working.',
-              'Our last agency sent reports, not results.',
-              'Our CPL is through the roof and our team cannot figure out why.',
-            ].map((quote, i) => (
-              <FadeIn key={i} delay={i * 0.1}>
-                <div className="bg-[#000000] border border-[rgba(41,200,213,0.1)] rounded-2xl p-6 text-left card-glow h-28 flex items-center">
-                  <p className="text-[#8A9AB0] text-sm leading-relaxed italic">"{quote}"</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-          <FadeIn delay={0.3}>
-            <p className="text-[#8A9AB0] text-base mt-8 max-w-xl mx-auto leading-relaxed">
-              These are not budget problems. They are strategy problems. That is exactly why Treva exists.{' '}
-              <Link href="/contact" className="text-[#29C8D5] hover:underline font-600">Book an audit</Link>
-            </p>
-          </FadeIn>
-        </div>
-      </section>
+      {/* INSTAGRAM REELS SHOWCASE */}
+      <ReelCarousel />
 
-      {/* ── SERVICES no arrow icons, equal height cards ── */}
-      <section className="py-20 bg-[#000000]">
+      {/* SERVICES */}
+      <section className="py-20 bg-[#080C10]">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-12">
-            <span className="section-pill">What We Do</span>
             <h2 className="font-black text-white mb-3"
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', letterSpacing: '-0.02em' }}>
               Google Ads Services <span className="teal-gradient-text">That Drive Real Revenue</span>
@@ -387,7 +291,6 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {services.map(({ icon: Icon, title, desc }, i) => (
               <FadeIn key={title} delay={i * 0.07}>
-                {/* Issue #2 and #6: fixed min-height so all cards are the same size */}
                 <Link href="/services"
                   className="group block bg-[#080C10] border border-[rgba(41,200,213,0.12)] rounded-2xl p-6 card-glow transition-all duration-300 flex flex-col" style={{ minHeight: '200px' }}>
                   <div className="w-11 h-11 rounded-xl bg-[rgba(41,200,213,0.08)] border border-[rgba(41,200,213,0.15)] flex items-center justify-center mb-4 group-hover:bg-[rgba(41,200,213,0.15)] transition-colors shrink-0">
@@ -408,41 +311,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── STATS equal sized cards ── */}
-      <section className="py-20 bg-[#080C10]">
-        <div className="max-w-7xl mx-auto px-6">
-          <FadeIn className="text-center mb-12">
-            <span className="section-pill">The Numbers</span>
-            <h2 className="font-black text-white mb-3"
-              style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', letterSpacing: '-0.02em' }}>
-              The Numbers Behind <span className="teal-gradient-text">Treva's Performance</span>
-            </h2>
-            <p className="text-[#8A9AB0] text-base max-w-lg mx-auto">We do not make promises. We show proof.</p>
-          </FadeIn>
-
-          {/* Issue #4: stat cards same size, font capped so last card is not bigger */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-            {stats.map(({ value, label, sub }, i) => (
-              <FadeIn key={label} delay={i * 0.1}>
-                <div className="bg-[#000000] border border-[rgba(41,200,213,0.1)] rounded-2xl p-6 card-glow text-center flex flex-col justify-between" style={{ minHeight: '140px' }}>
-                  <div className="font-black text-[#29C8D5] mb-1" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', letterSpacing: '-0.02em' }}>{value}</div>
-                  <div>
-                    <div className="text-white font-600 text-sm mb-1">{label}</div>
-                    <div className="text-[#8A9AB0] text-xs">{sub}</div>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHY TREVA stat cards equal height, no em-dash ── */}
+      {/* WHY TREVA */}
       <section className="py-20 bg-[#000000]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeIn>
-              <span className="section-pill">Why Treva</span>
               <h2 className="font-black text-white mb-5"
                 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '-0.02em' }}>
                 Why Bengaluru's Fastest-Growing Brands{' '}
@@ -470,7 +343,6 @@ export default function Home() {
               </Link>
             </FadeIn>
 
-            {/* Issue #4 and #6: all 4 stat cards same fixed height */}
             <div className="grid grid-cols-2 gap-4">
               {[
                 { value: '₹15 Cr+', label: 'Ad Spend Managed',  sub: 'Across all clients' },
@@ -493,11 +365,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── HOW WE WORK equal height step cards ── */}
+      {/* HOW WE WORK */}
       <section className="py-20 bg-[#080C10]">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-12">
-            <span className="section-pill">How We Work</span>
             <h2 className="font-black text-white mb-3"
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', letterSpacing: '-0.02em' }}>
               How We Turn Google Ads Spend Into{' '}
@@ -523,11 +394,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── PRODUCTS ── */}
+      {/* PRODUCTS */}
       <section className="py-20 bg-[#000000]">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-12">
-            <span className="section-pill">Our Products</span>
             <h2 className="font-black text-white mb-3"
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', letterSpacing: '-0.02em' }}>
               Built In-House <span className="teal-gradient-text">For the Future</span>
@@ -540,11 +410,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── TESTIMONIALS equal height cards ── */}
+      {/* TESTIMONIALS */}
       <section className="py-20 bg-[#080C10]">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-12">
-            <span className="section-pill">Testimonials</span>
             <h2 className="font-black text-white mb-3"
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', letterSpacing: '-0.02em' }}>
               Results Our Clients <span className="teal-gradient-text">Actually Talk About</span>
@@ -578,39 +447,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FAQ proper heading size, no arrow icons ── */}
-      <section className="py-20 bg-[#000000]">
-        <div className="max-w-4xl mx-auto px-6">
-          <FadeIn className="text-center mb-10">
-            <span className="section-pill">FAQ</span>
-            {/* Issue #7: heading size kept proportional, not massive */}
-            <h2 className="font-black text-white mb-3 mt-3"
-              style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.4rem)', letterSpacing: '-0.02em' }}>
-              Frequently Asked Questions About{' '}
-              <span className="teal-gradient-text">Performance Marketing and Google Ads</span>
-            </h2>
-            <p className="text-[#8A9AB0] text-sm max-w-xl mx-auto">
-              Everything you need to know before you pick up the phone.{' '}
-              <Link href="/faq" className="text-[#29C8D5] hover:underline">See all FAQs</Link>
-            </p>
-          </FadeIn>
-
-          <div className="space-y-3">
-            {homepageFAQ.map(({ q, a }, i) => (
-              <FadeIn key={i} delay={i * 0.04}>
-                <div className="bg-[#080C10] border border-[rgba(41,200,213,0.1)] rounded-xl p-5 card-glow">
-                  <h3 className="font-700 text-white mb-1.5 text-sm">{q}</h3>
-                  <p className="text-[#8A9AB0] text-sm leading-relaxed">{a}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA BANNER no em-dash, no arrow ── */}
+      {/* CTA BANNER */}
       <section className="py-20 bg-[#080C10]">
-        <div className="max-w-3xl mx-auto px-6">
+        <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
             <div className="relative rounded-3xl p-8 md:p-12 text-center overflow-hidden"
               style={{ background: 'radial-gradient(ellipse at bottom left, rgba(41,200,213,0.25) 0%, rgba(41,200,213,0.04) 50%, #0D1117 70%)' }}>

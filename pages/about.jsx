@@ -17,7 +17,6 @@ function FadeIn({ children, delay = 0, className = '' }) {
   );
 }
 
-// Issue #1: no em-dashes anywhere
 const principles = [
   { title: 'We track everything or we do not run it', desc: 'If we cannot measure it we cannot optimise it. Every campaign comes with full conversion tracking set up before a single rupee is spent.' },
   { title: 'Your CPL target is our north star not Google\'s suggested bid', desc: "Google's recommendations are designed to spend your budget not protect your ROI. We set targets based on your business model and hold ourselves accountable to them." },
@@ -50,7 +49,6 @@ export default function About() {
         }}
       />
 
-      {/* Issue #5 and #9: hero fits one screen, compact layout */}
       <section className="pt-28 pb-16 bg-[#000000] relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[400px] h-[400px] pointer-events-none opacity-20"
           style={{ background: 'radial-gradient(circle, rgba(41,200,213,0.1), transparent 70%)' }} />
@@ -81,7 +79,6 @@ export default function About() {
             </motion.div>
           </div>
 
-          {/* Issue #6: all 4 stat cards same fixed height */}
           <div className="grid grid-cols-2 gap-4">
             {[
               { value: '₹15 Cr+', label: 'Google Ads Managed' },
@@ -102,11 +99,10 @@ export default function About() {
         </div>
       </section>
 
-      {/* Brand Story compact */}
+      {/* Our Story */}
       <section className="py-16 bg-[#080C10]">
         <div className="max-w-4xl mx-auto px-6">
           <FadeIn>
-            <span className="section-pill">Our Story</span>
             <h2 className="font-black text-white mt-3 mb-6"
               style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.4rem)', letterSpacing: '-0.02em' }}>
               From Bengaluru, Built for Results
@@ -122,11 +118,10 @@ export default function About() {
         </div>
       </section>
 
-      {/* What We Learned equal height cards, no em-dash */}
+      {/* Expertise */}
       <section className="py-16 bg-[#000000]">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-10">
-            <span className="section-pill">Expertise</span>
             <h2 className="font-black text-white mt-3"
               style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.4rem)', letterSpacing: '-0.02em' }}>
               ₹15 Crore in Ad Spend Managed.{' '}
@@ -146,11 +141,10 @@ export default function About() {
         </div>
       </section>
 
-      {/* Principles equal height cards */}
+      {/* Principles */}
       <section className="py-16 bg-[#080C10]">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-10">
-            <span className="section-pill">How We Work</span>
             <h2 className="font-black text-white mt-3"
               style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.4rem)', letterSpacing: '-0.02em' }}>
               Our Principles. Why Clients Stay With Treva{' '}
@@ -173,11 +167,10 @@ export default function About() {
         </div>
       </section>
 
-      {/* Office compact */}
+      {/* Office */}
       <section className="py-16 bg-[#000000]">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-10">
-            <span className="section-pill">Where We Are</span>
             <h2 className="font-black text-white mt-3"
               style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.4rem)', letterSpacing: '-0.02em' }}>
               Our Bengaluru Office.{' '}

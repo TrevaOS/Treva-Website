@@ -53,13 +53,12 @@ export default function MakeMyCake() {
 
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           <div>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center gap-3 mb-5">
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center"
-                style={{ background: `${amber}15`, border: `1px solid ${amber}30` }}>
-                <Cake size={24} style={{ color: amber }} />
-              </div>
-              <span className="section-pill">Coming Soon</span>
-            </motion.div>
+             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center gap-3 mb-5">
+               <div className="w-12 h-12 rounded-xl flex items-center justify-center"
+                 style={{ background: `${amber}15`, border: `1px solid ${amber}30` }}>
+                 <Cake size={24} style={{ color: amber }} />
+               </div>
+             </motion.div>
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
               className="font-black text-white mb-4"
@@ -127,7 +126,6 @@ export default function MakeMyCake() {
       <section className="py-20 bg-[#080C10]">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-14">
-            <span className="section-pill">Features</span>
             <h2 className="font-black text-white mt-2 text-3xl md:text-4xl">
               How <span style={{ background: `linear-gradient(135deg, ${amber}, #FBBF24)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>It Works</span>
             </h2>

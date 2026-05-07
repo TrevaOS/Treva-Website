@@ -53,12 +53,11 @@ export default function TrevaAgent() {
 
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           <div>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center gap-3 mb-5">
-              <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center">
-                <Bot size={24} className="text-purple-400" />
-              </div>
-              <span className="section-pill">Coming Soon</span>
-            </motion.div>
+             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center gap-3 mb-5">
+               <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center">
+                 <Bot size={24} className="text-purple-400" />
+               </div>
+             </motion.div>
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
               className="font-black text-white mb-4"
@@ -114,7 +113,6 @@ export default function TrevaAgent() {
       <section className="py-20 bg-[#080C10]">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-14">
-            <span className="section-pill">Capabilities</span>
             <h2 className="font-black text-white mt-2 text-3xl md:text-4xl">
               What Treva Agent <span style={{ background: 'linear-gradient(135deg, #7C3AED, #A78BFA)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Does</span>
             </h2>

@@ -54,13 +54,12 @@ export default function TrevaOS() {
           style={{ background: 'radial-gradient(ellipse, rgba(41,200,213,0.07), transparent 70%)' }}
         />
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-          <div>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center gap-3 mb-5">
-              <div className="w-12 h-12 rounded-xl bg-[rgba(41,200,213,0.1)] border border-[rgba(41,200,213,0.2)] flex items-center justify-center">
-                <Zap size={24} className="text-[#29C8D5]" />
-              </div>
-              <span className="section-pill">Coming Soon</span>
-            </motion.div>
+           <div>
+             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center gap-3 mb-5">
+               <div className="w-12 h-12 rounded-xl bg-[rgba(41,200,213,0.1)] border border-[rgba(41,200,213,0.2)] flex items-center justify-center">
+                 <Zap size={24} className="text-[#29C8D5]" />
+               </div>
+             </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -144,7 +143,6 @@ export default function TrevaOS() {
       <section className="py-20 bg-[#080C10]">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-14">
-            <span className="section-pill">Features</span>
             <h2 className="font-black text-white mt-2 text-3xl md:text-4xl">
               Everything You Need, <span className="teal-gradient-text">Nothing You Don't</span>
             </h2>

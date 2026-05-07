@@ -41,19 +41,16 @@ export default function Blog() {
           className="absolute top-0 right-0 w-[500px] h-[400px] pointer-events-none"
           style={{ background: 'radial-gradient(circle, rgba(41,200,213,0.06), transparent 70%)' }}
         />
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="section-pill">
-            The Treva Blog
-          </motion.span>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-black text-white mt-2 mb-6"
-            style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', letterSpacing: '-0.03em' }}
-          >
-            Insights for the <span className="teal-gradient-text">Bold Brand</span>
-          </motion.h1>
+         <div className="max-w-7xl mx-auto px-6 text-center">
+           <motion.h1
+             initial={{ opacity: 0, y: 30 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ duration: 0.7, delay: 0.1 }}
+             className="font-black text-white mt-2 mb-6"
+             style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', letterSpacing: '-0.03em' }}
+           >
+             Insights for the <span className="teal-gradient-text">Bold Brand</span>
+           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
             className="text-[#8A9AB0] text-xl max-w-xl mx-auto">
             Where marketing intelligence meets practical strategy. No fluff, just ideas you can act on today.

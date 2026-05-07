@@ -139,7 +139,6 @@ export default function FAQPage() {
         <div className="pointer-events-none absolute right-0 top-0 h-[380px] w-[420px]"
           style={{ background: 'radial-gradient(circle, rgba(41,200,213,0.08), transparent 70%)' }} />
         <div className="mx-auto max-w-5xl px-6 text-center">
-          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="section-pill">FAQ</motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}

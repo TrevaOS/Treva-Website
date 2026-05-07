@@ -55,13 +55,10 @@ export default function Contact() {
       />
 
       {/* Hero fits viewport, no em-dash, no "free" push */}
-      <section className="pt-28 pb-12 bg-[#000000] relative overflow-hidden">
+       <section className="pt-28 pb-12 bg-[#000000] relative overflow-hidden">
         <div className="absolute top-0 left-0 w-[400px] h-[400px] pointer-events-none"
           style={{ background: 'radial-gradient(circle, rgba(41,200,213,0.06), transparent 70%)' }} />
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="section-pill">
-            Let's Talk
-          </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
