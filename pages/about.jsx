@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
-import { CheckCircle, MapPin, Phone, Mail } from 'lucide-react';
+import { CheckCircle, MapPin, Phone, Mail, ArrowUpRight } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 
 function FadeIn({ children, delay = 0, className = '' }) {
@@ -18,33 +18,33 @@ function FadeIn({ children, delay = 0, className = '' }) {
 }
 
 const principles = [
-  { title: 'We track everything or we do not run it', desc: 'If we cannot measure it we cannot optimise it. Every campaign comes with full conversion tracking set up before a single rupee is spent.' },
-  { title: 'Your CPL target is our north star not Google\'s suggested bid', desc: "Google's recommendations are designed to spend your budget not protect your ROI. We set targets based on your business model and hold ourselves accountable to them." },
-  { title: 'We tell you when something is not working before you ask', desc: 'Proactive communication is not optional. If a campaign underperforms you hear from us first with a plan not excuses.' },
-  { title: 'The strategist running your account is the person you speak to', desc: 'No account managers as middlemen. The expert optimising your Google Ads is the one answering your calls and emails.' },
+  { title: 'Measurement drives every decision', desc: 'If we cannot measure an outcome, we cannot improve it. Every product feature and service engagement comes with clear success metrics defined upfront.' },
+  { title: 'Your business goals are our north star', desc: "Platform recommendations and service strategies are designed around your specific objectives, not preset templates. We align technology and tactics to your unique business model." },
+  { title: 'We surface issues before they become problems', desc: 'Proactive monitoring is built into our products and services. If a platform underperforms or a campaign veers off track, we identify it first with a clear remediation plan.' },
+  { title: 'You work directly with the experts', desc: 'No account managers as intermediaries. The product specialists and strategists building your solutions are the ones in regular communication with your team.' },
 ];
 
 const learnings = [
-  { title: 'Most accounts are structured to spend not to convert', desc: 'After auditing hundreds of accounts the pattern is clear. Campaigns are built to satisfy Google\'s spend recommendations not the client\'s cost per lead goals.' },
-  { title: 'The gap between ad click and business outcome is where money is lost', desc: 'A technically perfect ad pointing to a weak landing page is money wasted. Performance marketing covers the full funnel not just the ad.' },
-  { title: 'Data without strategy is just expensive reports', desc: 'Dashboards full of impressions and clicks mean nothing if they are not tied to revenue. Every metric we report maps back to business outcome.' },
+  { title: 'Siloed tools create fragmented customer experiences', desc: 'After analyzing hundreds of business stacks the pattern is clear. Disconnected platforms create data gaps and broken workflows. Integrated product ecosystems eliminate friction between touchpoints.' },
+  { title: 'The gap between tool adoption and business outcome is where value is lost', desc: 'A technically perfect platform without strategic implementation is potential unrealized. Our services ensure every product feature maps to measurable business impact.' },
+  { title: 'Data without action is just expensive storage', desc: 'Dashboards full of metrics mean nothing if they are not tied to decisions. Every insight we surface connects directly to an executable next step for your team.' },
 ];
 
 export default function About() {
   return (
     <>
       <SEOHead
-        title="About Treva Bengaluru's Performance Marketing Specialists | ₹15 Cr+ Google Ads Managed"
-        description="Treva is a Bengaluru-based performance marketing agency in Vijayanagar. We have managed ₹15 Cr+ in Google Ads and obsess over one thing: your ROI."
+        title="Treva Bengaluru | Product + Service Ecosystem for Modern Brands"
+        description="Treva is a Bengaluru-based technology and growth partner. We build intelligent products (CRM, analytics, AI agents) and deliver strategic services (branding, development, growth marketing) for modern brands."
         url="https://www.treva.in/about"
-        keywords="about Treva, performance marketing agency Bengaluru, Google Ads agency Vijayanagar Bangalore, Treva performance marketing team"
+        keywords="Treva, product ecosystem, CRM platform, growth partner Bengaluru, intelligent business platform, strategic services, branding development marketing"
         faqSchema={{
           '@context': 'https://schema.org',
           '@type': 'FAQPage',
           mainEntity: [
             { '@type': 'Question', name: 'Where is Treva located?', acceptedAnswer: { '@type': 'Answer', text: 'Treva is based in Vijayanagar, Bengaluru, Karnataka, India. We serve clients across India and internationally.' } },
-            { '@type': 'Question', name: 'How much Google Ads budget has Treva managed?', acceptedAnswer: { '@type': 'Answer', text: 'Treva has managed over ₹15 Crore in Google Ads spend across SaaS, eCommerce, real estate, education and healthcare verticals.' } },
-            { '@type': 'Question', name: 'What makes Treva different from other digital marketing agencies?', acceptedAnswer: { '@type': 'Answer', text: 'Treva specialises exclusively in Google Ads performance marketing. Every client speaks directly to the strategist managing their account and every decision is tied back to CPL or ROAS targets.' } },
+            { '@type': 'Question', name: 'What products and services does Treva offer?', acceptedAnswer: { '@type': 'Answer', text: 'Treva offers an ecosystem of products (CRM, business OS, AI agent, analytics) and strategic services (branding, web/app development, social media, growth marketing).' } },
+            { '@type': 'Question', name: 'What makes Treva different?', acceptedAnswer: { '@type': 'Answer', text: 'Treva combines intelligent product platforms with expert strategic services. You work directly with our specialists to build integrated solutions that scale.' } },
           ],
         }}
       />
@@ -61,8 +61,8 @@ export default function About() {
               className="font-black text-white mt-3 mb-5"
               style={{ fontSize: 'clamp(2rem, 4vw, 3.4rem)', letterSpacing: '-0.03em' }}
             >
-              We Started Treva Because Great Google Ads Management Was Rare.{' '}
-              <span className="teal-gradient-text">Your Business Deserved Better.</span>
+              Building Intelligent Platforms & Strategic Services{' '}
+              <span className="teal-gradient-text">for Modern Brands.</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 18 }}
@@ -70,32 +70,32 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-[#8A9AB0] text-base leading-relaxed mb-7 max-w-lg"
             >
-              Treva was built in Bengaluru by performance marketers who had spent years watching businesses waste crores on Google Ads. Generic strategies, opaque reporting and account managers who changed every quarter.
+              Treva is a Bengaluru-based technology and growth partner combining intelligent product platforms with expert strategic services. We help modern brands build integrated ecosystems that scale with purpose.
             </motion.p>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.3 }}>
               <Link href="/contact" className="btn-primary text-sm">
-                Get Your Free Google Ads Audit
+                Explore Our Solutions <ArrowUpRight size={14} />
               </Link>
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            {[
-              { value: '₹15 Cr+', label: 'Google Ads Managed' },
-              { value: '3.8x',    label: 'Average ROAS' },
-              { value: '42%',     label: 'Avg. CPL Reduction' },
-              { value: '200+',    label: 'Campaigns Launched' },
-            ].map(({ value, label }, i) => (
-              <motion.div key={label}
-                initial={{ opacity: 0, scale: 0.92 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 + i * 0.09 }}
-                className="bg-[#080C10] border border-[rgba(41,200,213,0.12)] rounded-2xl p-6 card-glow flex flex-col justify-between" style={{ height: '130px' }}>
-                <div className="font-black text-[#29C8D5]" style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', letterSpacing: '-0.02em' }}>{value}</div>
-                <div className="text-[#8A9AB0] text-sm">{label}</div>
-              </motion.div>
-            ))}
-          </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { value: '5+',    label: 'Intelligent Products' },
+                { value: '5',     label: 'Core Services' },
+                { value: '₹15Cr+', label: 'Client Growth Engineered' },
+                { value: '200+',  label: 'Solutions Delivered' },
+              ].map(({ value, label }, i) => (
+                <motion.div key={label}
+                  initial={{ opacity: 0, scale: 0.92 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 + i * 0.09 }}
+                  className="bg-[#080C10] border border-[rgba(41,200,213,0.12)] rounded-2xl p-6 card-glow flex flex-col justify-between" style={{ height: '130px' }}>
+                  <div className="font-black text-[#29C8D5]" style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', letterSpacing: '-0.02em' }}>{value}</div>
+                  <div className="text-[#8A9AB0] text-sm">{label}</div>
+                </motion.div>
+              ))}
+            </div>
         </div>
       </section>
 
@@ -109,10 +109,10 @@ export default function About() {
             </h2>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <div className="space-y-4 text-[#8A9AB0] text-sm leading-relaxed">
-              <p>We decided to build something different. A performance marketing agency that operates more like a growth partner than a vendor. Where you speak directly to the strategist running your campaigns. Where every decision is tied back to one metric: does this improve your ROI?</p>
-              <p>Since then we have managed over <strong className="text-white">₹15 Crore in Google Ads budget</strong>, served brands ranging from McKinsey-grade enterprises to bootstrapped D2C founders and built a reputation in Bengaluru for one thing: measurable results.</p>
-              <p>We are based in Vijayanagar, Bengaluru. We are not a 500-person agency. We are a focused team of Google Ads specialists who believe depth beats breadth every time.</p>
+             <div className="space-y-4 text-[#8A9AB0] text-sm leading-relaxed">
+              <p>We decided to build something different. An integrated ecosystem of intelligent products and strategic services that work seamlessly together. Too many businesses juggle disconnected tools while growth opportunities slip through the cracks.</p>
+              <p>Since then we have helped clients engineer over <strong className="text-white">₹15 Crore in growth outcomes</strong>, serving brands ranging from McKinsey-grade enterprises to bootstrapped D2C founders. We built a reputation in Bengaluru for one thing: measurable results through integrated solutions.</p>
+              <p>We are based in Vijayanagar, Bengaluru. We are not a 500-person agency. We are a focused team of product builders and strategists who believe that the right system, implemented with purpose, creates compounding advantages.</p>
             </div>
           </FadeIn>
         </div>

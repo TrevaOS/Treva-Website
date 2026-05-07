@@ -1,195 +1,17 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
-import {
-  Target, BarChart3, Globe,
-  Smartphone, Video, Palette,
-  Star, Quote, CheckCircle, TrendingUp, Zap
-} from 'lucide-react';
+import { ArrowUpRight, ChevronDown, Palette, Megaphone, Globe, Smartphone, BarChart3 } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
-import { products as productCatalog } from '../data/products';
-import ReelCarousel from '../components/InstagramReel';
-
-const clients = [
-  '/logos/1.svg', '/logos/2.svg', '/logos/3.svg', '/logos/4.svg',
-  '/logos/5.svg', '/logos/6.svg', '/logos/7.svg', '/logos/8.svg',
-  '/logos/9.svg', '/logos/10.svg', '/logos/11.svg', '/logos/12.svg',
-  '/logos/13.svg', '/logos/14.svg', '/logos/15.svg', '/logos/16.svg',
-  '/logos/17.png', '/logos/18.png',
-  '/logos/1.svg', '/logos/2.svg', '/logos/3.svg', '/logos/4.svg',
-  '/logos/5.svg', '/logos/6.svg', '/logos/7.svg', '/logos/8.svg',
-  '/logos/9.svg', '/logos/10.svg', '/logos/11.svg', '/logos/12.svg',
-  '/logos/13.svg', '/logos/14.svg', '/logos/15.svg', '/logos/16.svg',
-  '/logos/17.png', '/logos/18.png',
-];
-
-const services = [
-  { icon: Target,     title: 'Google Search Ads',    desc: 'Capture high-intent buyers at the exact moment they search. We engineer keyword strategies, ad structures and bidding systems that slash CPL while scaling volume.' },
-  { icon: BarChart3,  title: 'Performance Max',       desc: "Google's most powerful campaign type managed with precision. Full asset optimisation, audience signal design and ROAS governance across every channel." },
-  { icon: TrendingUp, title: 'Google Shopping Ads',   desc: 'Feed-optimised Shopping campaigns that drive high purchase-intent traffic with efficient ROAS for eCommerce and D2C brands across India.' },
-  { icon: Zap,        title: 'Display and Remarketing', desc: 'Re-engage prospects who did not convert. Segmented remarketing funnels that bring back lost revenue at a low cost per click.' },
-  { icon: Video,      title: 'YouTube Ads',           desc: 'Performance-driven video campaigns tracked to actual conversions not just views. Mid-funnel intent built at scale across Google Video Network.' },
-  { icon: Globe,      title: 'Landing Page and CRO',  desc: 'A great ad wasted on a weak landing page is money lost. We audit and optimise your post-click experience to turn more clicks into customers.' },
-];
-
-const workflowSteps = [
-  { step: '01', title: 'Google Ads Audit',      desc: 'We review your existing account keyword waste, Quality Score gaps, bidding inefficiencies and missed opportunities. You get a full report at no charge.' },
-  { step: '02', title: 'Strategy Architecture', desc: 'We build a campaign architecture designed around your specific CPL or ROAS target. No templates and no copy-paste from previous clients.' },
-  { step: '03', title: 'Campaign Launch',        desc: 'Ad copy written, landing pages audited, conversion tracking verified and bid strategies set. We do not go live until every layer is right.' },
-  { step: '04', title: 'Optimise and Scale',     desc: 'Weekly bid adjustments, monthly creative refreshes and quarterly strategy reviews. You get a live dashboard not a once-a-month report.' },
-];
-
-const testimonials = [
-  {
-    name: 'Ankesh', role: 'McKinsey', stars: 5,
-    text: 'Treva helped us create a powerful brand that resonates with our target audience. The team is sharp, responsive and actually understands our business not just our ad account.',
-  },
-  {
-    name: 'Akhil Sikri', role: 'Co-founder, Zolostays', stars: 5,
-    text: "I have been consistently impressed by this agency's commitment to excellence. They have shouldered a multitude of responsibilities and proven to be an unwavering support system.",
-  },
-  {
-    name: 'Ashok Reddy', role: 'CEO, BETSOL', stars: 5,
-    text: "The agency's unwavering commitment to enhancing the customer experience and taking complete ownership of tasks is not only impressive but also incredibly inspiring.",
-  },
-];
 
 function FadeIn({ children, delay = 0, className = '' }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
   return (
-    <motion.div ref={ref}
-      initial={{ opacity: 0, y: 24 }}
+    <motion.div ref={ref} initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.55, delay, ease: 'easeOut' }}
-      className={className}>
-      {children}
-    </motion.div>
-  );
-}
-
-function ParticleCanvas() {
-  const canvasRef = useRef(null);
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let w = (canvas.width = canvas.offsetWidth);
-    let h = (canvas.height = canvas.offsetHeight);
-    const particles = Array.from({ length: 80 }, () => ({
-      x: Math.random() * w, y: Math.random() * h,
-      r: Math.random() * 1.5 + 0.3,
-      vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
-      opacity: Math.random() * 0.5 + 0.1,
-    }));
-    let raf;
-    function draw() {
-      ctx.clearRect(0, 0, w, h);
-      particles.forEach((p) => {
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
-        if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(41,200,213,${p.opacity})`;
-        ctx.fill();
-      });
-      raf = requestAnimationFrame(draw);
-    }
-    draw();
-    const handleResize = () => { w = canvas.width = canvas.offsetWidth; h = canvas.height = canvas.offsetHeight; };
-    window.addEventListener('resize', handleResize);
-    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', handleResize); };
-  }, []);
-  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" />;
-}
-
-function ProductSlider() {
-  const [active, setActive] = useState(0);
-  const items = [
-    {
-      name: 'Treva CRM', image: '/images/crm.png', tag: 'Now Live',
-      quote: 'Your sales pipeline, follow-ups and client history in one live workspace',
-      desc: 'Treva CRM is built for teams that want faster closures, cleaner handoffs and a better way to manage every lead from first touch to renewal.',
-      href: '/products/treva-crm', color: '#29C8D5', ctaLabel: 'View Details', external: false,
-      imageClassName: 'object-contain p-8 sm:p-10 bg-white',
-    },
-    {
-      name: 'Treva Agent', image: '/images/2.svg', tag: 'Coming Soon',
-      quote: 'Your 24/7 autonomous marketing agent that never sleeps',
-      desc: 'An autonomous AI agent that qualifies leads, monitors campaigns and books meetings without human intervention around the clock.',
-      href: '/products/treva-agent', color: '#7C3AED', ctaLabel: 'Join Waitlist',
-    },
-    {
-      name: 'Make My Cake', image: '/images/3.svg', tag: 'Coming Soon',
-      quote: 'Connecting cake lovers with artisan bakers near them',
-      desc: 'A two-sided marketplace connecting cake lovers with local artisan bakers. Smart discovery, seamless ordering and real-time tracking.',
-      href: '/products/make-my-cake', color: '#F59E0B', ctaLabel: 'Join Waitlist',
-    },
-    {
-      name: 'Treva EAMS', image: '/images/4.svg', tag: 'Coming Soon',
-      quote: 'Enterprise analytics and asset management in one suite',
-      desc: 'A powerful enterprise-grade analytics and asset management platform with unified reporting across all marketing channels.',
-      href: '/products/treva-eams', color: '#10B981', ctaLabel: 'Join Waitlist',
-    },
-  ];
-  const current = items[active];
-  return (
-    <div>
-      <div className="bg-[#080C10] border border-[rgba(41,200,213,0.1)] rounded-2xl overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2">
-          <div className="relative overflow-hidden bg-[#0D1117]" style={{ minHeight: '280px' }}>
-            <span className="absolute top-4 left-4 z-10 text-xs font-700 px-3 py-1 rounded-full bg-white text-black">{current.tag}</span>
-            <img src={current.image} alt={current.name} className={`absolute inset-0 h-full w-full ${current.imageClassName || 'object-cover'}`} />
-          </div>
-          <div className="p-6 md:p-8 flex flex-col justify-center">
-            <p className="text-xs font-600 uppercase tracking-widest mb-3" style={{ color: current.color }}>{current.name}</p>
-            <h3 className="font-black text-white text-xl md:text-2xl mb-4 leading-tight">"{current.quote}"</h3>
-            <p className="text-[#8A9AB0] text-sm leading-relaxed mb-6">{current.desc}</p>
-            {current.external ? (
-              <a href={current.href} target="_blank" rel="noopener noreferrer" className="btn-primary w-fit" style={{ background: current.color, color: '#000' }}>
-                {current.ctaLabel}
-              </a>
-            ) : (
-              <Link href={current.href} className="btn-primary w-fit" style={{ background: current.color, color: '#000' }}>
-                {current.ctaLabel}
-              </Link>
-            )}
-          </div>
-        </div>
-      </div>
-      <div className="flex items-center justify-center gap-6 mt-8">
-        <button
-          type="button"
-          onClick={() => setActive((prev) => (prev - 1 + items.length) % items.length)}
-          className="min-h-11 px-3 text-[#8A9AB0] hover:text-white transition-colors text-sm"
-          aria-label="Show previous product"
-        >PREV</button>
-        <div className="flex items-center gap-2">
-          {items.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => setActive(i)}
-              className="flex h-11 w-11 items-center justify-center rounded-full transition-all"
-              aria-label={`Show product ${i + 1}`}
-              aria-pressed={i === active}
-            >
-              <span
-                className="block h-2.5 w-2.5 rounded-full transition-all"
-                style={{ background: i === active ? current.color : 'rgba(255,255,255,0.2)' }}
-              />
-            </button>
-          ))}
-        </div>
-        <button
-          type="button"
-          onClick={() => setActive((prev) => (prev + 1) % items.length)}
-          className="min-h-11 px-3 text-[#8A9AB0] hover:text-white transition-colors text-sm"
-          aria-label="Show next product"
-        >NEXT</button>
-      </div>
-    </div>
+      transition={{ duration: 0.6, delay, ease: 'easeOut' }}
+      className={className}>{children}</motion.div>
   );
 }
 
@@ -197,276 +19,401 @@ export default function Home() {
   return (
     <>
       <SEOHead
-        title="Performance Marketing Agency in Bangalore | ₹15 Cr+ Google Ads Managed | Treva"
-        description="Treva is Bangalore's performance marketing agency with ₹15 Cr+ in Google Ads managed. We drive measurable ROI through Search, Shopping and Performance Max campaigns. Get a free audit."
-        url="https://www.treva.in"
-        keywords="performance marketing agency Bangalore, Google Ads agency Bengaluru, PPC agency Bangalore, Google Ads management India, Google Ads expert Bangalore, digital marketing agency Bengaluru"
-        faqSchema={{
-          '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          mainEntity: [],
-        }}
+        title="Treva | Product + Service Ecosystem for Modern Brands"
+        description="Treva: A complete ecosystem of intelligent products and strategic services. From CRM and analytics platforms to branding, web development, and performance marketing."
+        url="https://www.treva.in/"
+        keywords="Treva, product ecosystem, CRM platform, analytics platform, branding agency, web development, performance marketing, Treva CRM, Treva OS, Treva Agent"
       />
 
-      {/* HERO */}
-      <section className="relative h-screen flex flex-col justify-center items-center overflow-hidden bg-[#000000] grid-bg">
-        <ParticleCanvas />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(41,200,213,0.08) 0%, transparent 70%)' }} />
+      {/* Hero Section */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#000000]">
+        {/* Animated background */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#29C8D5]/10 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#7C3AED]/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
+        </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-black leading-tight mb-5"
-            style={{ fontSize: 'clamp(2.2rem, 4.8vw, 4rem)', letterSpacing: '-0.03em' }}
-          >
-            We Build Growth Through Performance Marketing
-            <br />
-            <span className="teal-gradient-text inline-block" style={{ fontSize: 'clamp(1.35rem, 2.8vw, 2.3rem)', letterSpacing: '-0.02em' }}>
-              Experts in Google Ads & Revenue Growth
-            </span>
-          </motion.h1>
+        <div className="max-w-7xl mx-auto px-6 py-20 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <FadeIn delay={0.1}>
+                <span className="inline-block px-4 py-2 rounded-full border border-[rgba(41,200,213,0.2)] bg-[rgba(41,200,213,0.05)] text-[#29C8D5] text-sm font-600 tracking-wider mb-6">
+                  Product + Service Ecosystem
+                </span>
+              </FadeIn>
+              <FadeIn delay={0.2}>
+                <h1 className="font-black text-white mt-2 mb-6" style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', letterSpacing: '-0.03em', lineHeight: '1.1' }}>
+                  Build Better.<br />
+                  <span className="teal-gradient-text">Grow Faster.</span>
+                </h1>
+              </FadeIn>
+              <FadeIn delay={0.3}>
+                 <p className="text-[#8A9AB0] text-xl lg:text-2xl leading-relaxed mb-10 max-w-2xl">
+                   A unified ecosystem of intelligent products and strategic services. From CRM and analytics platforms to 
+                   <Link href="#branding" className="text-[#29C8D5] font-700 underline hover:no-underline">
+                     branding
+                   </Link>, 
+                   <Link href="#web-development" className="text-[#29C8D5] font-700 underline hover:no-underline">
+                     development
+                   </Link>, and 
+                   <Link href="#performance-marketing" className="text-[#29C8D5] font-700 underline hover:no-underline">
+                     growth marketing
+                   </Link> — everything you need to scale.
+                 </p>
+              </FadeIn>
+              <FadeIn delay={0.4}>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link href="/products" className="btn-primary text-lg py-4 px-8 flex items-center justify-center gap-2">
+                    Explore Products <ChevronDown size={18} className="transition-transform group-hover:translate-y-1" />
+                  </Link>
+                  <Link href="/services" className="btn-outline text-lg py-4 px-8">
+                    View Services <ArrowUpRight size={16} />
+                  </Link>
+                </div>
+              </FadeIn>
+            </div>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-[#8A9AB0] text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed"
-          >
-            Stop guessing. Start measuring. We build Google Ads campaigns engineered around your Cost Per Lead, ROAS and revenue goals.
-          </motion.h2>
+            <div className="relative">
+              <FadeIn delay={0.3}>
+                <div className="grid grid-cols-2 gap-4">
+                  {[  
+                    { name: 'Treva CRM', color: '#29C8D5', status: 'Live', features: ['Lead Mgmt', 'Pipeline', 'Automation'] },
+                    { name: 'Treva OS', color: '#29C8D5', status: 'Soon', features: ['Analytics', 'Scheduler', 'CRM'] },
+                    { name: 'Treva Agent', color: '#7C3AED', status: 'Soon', features: ['AI Lead', 'Auto Ads', '24/7'] },
+                    { name: 'EAMS', color: '#10B981', status: 'Soon', features: ['Reporting', 'Assets', 'Collab'] },
+                  ].map((product, i) => (
+                    <motion.div
+                      key={product.name}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
+                      className="bg-[#080C10] border border-[rgba(41,200,213,0.15)] rounded-2xl p-5 hover:border-[rgba(41,200,213,0.3)] transition-all group cursor-pointer"
+                      style={{ minHeight: '160px' }}
+                    >
+                      <div className="flex items-start justify-between mb-3">
+                        <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: `${product.color}20`, border: `1px solid ${product.color}40` }}>
+                          <span className="font-black text-sm" style={{ color: product.color }}>{product.name.split(' ')[1]}</span>
+                        </div>
+                        <span className="text-xs px-2 py-0.5 rounded-full bg-[rgba(41,200,213,0.1)] text-[#29C8D5]" style={{ border: `1px solid ${product.color}30` }}>
+                          {product.status}
+                        </span>
+                      </div>
+                      <h3 className="font-700 text-white text-sm mb-2">{product.name}</h3>
+                      <div className="space-y-1.5">
+                        {product.features.map((f) => (
+                          <div key={f} className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: `${product.color}40` }}></span>
+                            <span className="text-[#8A9AB0] text-xs">{f}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </FadeIn>
+            </div>
+          </div>
+        </div>
 
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <Link href="/contact" className="btn-primary text-sm">
-              Get Your Free Google Ads Audit
-            </Link>
-            <Link href="/services" className="btn-outline text-sm">
-              View Services
-            </Link>
+            <ChevronDown size={24} className="text-[#8A9AB0]" />
           </motion.div>
         </div>
       </section>
 
-      {/* CLIENT MARQUEE */}
-      <section className="py-8 bg-[#000000] overflow-hidden relative">
-        <p className="text-center text-[#8A9AB0] text-xs font-600 uppercase tracking-widest mb-6">
-          Trusted by Brands Across India
-        </p>
-        <div className="absolute left-0 top-0 bottom-0 w-64 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #000000, transparent)' }} />
-        <div className="absolute right-0 top-0 bottom-0 w-64 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #000000, transparent)' }} />
-        <div className="marquee-wrapper">
-          <div className="marquee-content">
-            {[...clients, ...clients].map((logo, i) => (
-              <div key={i} className="marquee-logo-card flex items-center justify-center rounded-xl px-6 py-4 sm:px-8" style={{ flexShrink: 0 }}>
-                <img src={logo} alt="Treva client brand logo" className="h-14 w-auto object-contain" style={{ maxWidth: '140px' }} />
+      {/* Premium Dark Image Section - Full width with overlay */}
+      <section className="relative w-full overflow-hidden">
+        {/* Full-width background image */}
+        <div 
+          className="w-full min-h-[600px] relative flex items-center justify-center"
+          style={{
+            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=2400&q=80)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
+          {/* Black overlay for depth */}
+          <div className="absolute inset-0 bg-black/50" />
+          
+          {/* Content container */}
+          <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
+            <FadeIn delay={0.1}>
+              <span className="inline-block px-4 py-2 rounded-full border border-[rgba(255,255,255,0.15)] bg-[rgba(255,255,255,0.05)] text-white/90 text-sm font-600 tracking-widest uppercase mb-6">
+                Built for Modern Growth
+              </span>
+            </FadeIn>
+            
+            <FadeIn delay={0.2}>
+              <h2 className="font-black text-white mt-2 mb-6" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '-0.02em', lineHeight: '1.2' }}>
+                Smart Products. Strategic Services.<br />
+                <span className="teal-gradient-text">One Unified Ecosystem.</span>
+              </h2>
+            </FadeIn>
+            
+            <FadeIn delay={0.3}>
+              <p className="text-[#C4C4C4] text-lg lg:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
+                From intelligent platforms that automate your operations to expert services that accelerate your growth — Treva provides the complete infrastructure modern brands need to thrive in a digital-first world.
+              </p>
+            </FadeIn>
+            
+            <FadeIn delay={0.4}>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link href="/products" className="btn-primary text-lg py-4 px-8 bg-[#29C8D5] hover:bg-[#25b4c9] border-[#29C8D5] text-black font-700">
+                  View All Products <ArrowUpRight size={16} />
+                </Link>
+                <Link href="/services" className="btn-outline text-lg py-4 px-8 border-white/30 text-white hover:bg-white/5">
+                  Explore Services <ArrowUpRight size={16} />
+                </Link>
               </div>
-            ))}
+            </FadeIn>
+            
+            {/* Stats bar */}
+            <FadeIn delay={0.5}>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-12 border-t border-white/10">
+                <div className="text-center">
+                  <div className="font-black text-3xl lg:text-4xl text-white" style={{ letterSpacing: '-0.02em' }}>5+</div>
+                  <div className="text-[#C4C4C4] text-sm mt-1">Intelligent Products</div>
+                </div>
+                <div className="text-center">
+                  <div className="font-black text-3xl lg:text-4xl text-[#29C8D5]" style={{ letterSpacing: '-0.02em' }}>5</div>
+                  <div className="text-[#C4C4C4] text-sm mt-1">Core Services</div>
+                </div>
+                <div className="text-center">
+                  <div className="font-black text-3xl lg:text-4xl text-white" style={{ letterSpacing: '-0.02em' }}>₹15Cr+</div>
+                  <div className="text-[#C4C4C4] text-sm mt-1">Ad Spend Managed</div>
+                </div>
+                <div className="text-center">
+                  <div className="font-black text-3xl lg:text-4xl text-[#C4C4C4]" style={{ letterSpacing: '-0.02em' }}>200+</div>
+                  <div className="text-[#C4C4C4] text-sm mt-1">Campaigns Launched</div>
+                </div>
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* INSTAGRAM REELS SHOWCASE */}
-      <ReelCarousel />
-
-      {/* SERVICES */}
-      <section className="py-20 bg-[#080C10]">
+      {/* Services Section */}
+      <section id="services" className="py-20 bg-[#000000]">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-12">
-            <h2 className="font-black text-white mb-3"
-              style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', letterSpacing: '-0.02em' }}>
-              Google Ads Services <span className="teal-gradient-text">That Drive Real Revenue</span>
+            <h2 className="font-black text-white mt-4" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.02em' }}>
+              Strategic Services{' '}
+              <span className="teal-gradient-text">That Scale With You</span>
             </h2>
-            <p className="text-[#8A9AB0] text-base max-w-lg mx-auto">
-              We specialise in Google Ads performance and do it with obsessive depth. Every service is built around your CPL and ROAS targets.
-            </p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {services.map(({ icon: Icon, title, desc }, i) => (
-              <FadeIn key={title} delay={i * 0.07}>
-                <Link href="/services"
-                  className="group block bg-[#080C10] border border-[rgba(41,200,213,0.12)] rounded-2xl p-6 card-glow transition-all duration-300 flex flex-col" style={{ minHeight: '200px' }}>
-                  <div className="w-11 h-11 rounded-xl bg-[rgba(41,200,213,0.08)] border border-[rgba(41,200,213,0.15)] flex items-center justify-center mb-4 group-hover:bg-[rgba(41,200,213,0.15)] transition-colors shrink-0">
-                    <Icon size={20} className="text-[#29C8D5]" />
+          <div className="space-y-8">
+            {/* Branding */}
+            <FadeIn delay={0.05}>
+              <div id="branding" className="bg-[#080C10] border border-[rgba(41,200,213,0.1)] rounded-2xl p-8 md:p-10 card-glow">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                  <div>
+                    <span className="text-[#29C8D5] text-xs font-600 uppercase tracking-widest mb-3 block">Brand Identity</span>
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-[rgba(41,200,213,0.08)] border border-[rgba(41,200,213,0.15)] flex items-center justify-center shrink-0">
+                        <Palette size={22} className="text-[#29C8D5]" />
+                      </div>
+                      <div>
+                        <h2 className="font-800 text-white text-2xl">Branding</h2>
+                        <p className="text-[#8A9AB0] text-sm italic mt-1">Distinct identity that resonates.</p>
+                      </div>
+                    </div>
+                    <p className="text-[#8A9AB0] text-sm leading-relaxed mb-4">
+                      Build a brand that stands apart. Our identity design, visual systems, and brand strategy create cohesive experiences across every touchpoint — from logo to digital presence.
+                    </p>
+                    <Link href="/contact" className="btn-primary text-xs py-2.5 px-5">
+                      Get Started <ArrowUpRight size={12} />
+                    </Link>
                   </div>
-                  <h3 className="font-700 text-white text-base mb-2 group-hover:text-[#29C8D5] transition-colors">{title}</h3>
-                  <p className="text-[#8A9AB0] text-sm leading-relaxed flex-grow">{desc}</p>
-                </Link>
-              </FadeIn>
-            ))}
-          </div>
-
-          <FadeIn className="text-center mt-8">
-            <Link href="/services" className="btn-outline text-sm">
-              View All Services
-            </Link>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* WHY TREVA */}
-      <section className="py-20 bg-[#000000]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            <FadeIn>
-              <h2 className="font-black text-white mb-5"
-                style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '-0.02em' }}>
-                Why Bengaluru's Fastest-Growing Brands{' '}
-                <span className="teal-gradient-text">Choose Treva Over Larger Agencies</span>
-              </h2>
-              <p className="text-[#8A9AB0] text-sm leading-relaxed mb-7">
-                We are a focused team of Google Ads specialists based in Vijayanagar, Bengaluru. Depth beats breadth every time.
-              </p>
-              <div className="space-y-3">
-                {[
-                  'You speak directly to the strategist running your account',
-                  'Live reporting dashboard access not a monthly report',
-                  'Experts in Google Ads & Revenue Growth across SaaS, eCommerce, real estate and more',
-                  'CPL and ROAS targets set before a single rupee is spent',
-                  'Bengaluru-based team with local market expertise',
-                ].map((point) => (
-                  <div key={point} className="flex items-start gap-3">
-                    <CheckCircle size={15} className="text-[#29C8D5] mt-0.5 shrink-0" />
-                    <span className="text-[#8A9AB0] text-sm">{point}</span>
+                  <div>
+                    <h4 className="text-white font-600 text-sm mb-4 uppercase tracking-wider">What's Included</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {['Logo & brand mark system', 'Color palette & typography', 'Brand voice & messaging', 'Visual identity guidelines', 'Social media kit', 'Business collateral'].map((f) => (
+                        <div key={f} className="flex items-start gap-2">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#29C8D5" strokeWidth="2" className="mt-0.5 shrink-0"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                          <span className="text-[#8A9AB0] text-sm">{f}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                ))}
+                </div>
               </div>
-              <Link href="/about" className="btn-primary mt-7 inline-flex text-sm">
-                Meet the Team
-              </Link>
             </FadeIn>
 
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { value: '₹15 Cr+', label: 'Ad Spend Managed',  sub: 'Across all clients' },
-                { value: '3.8x',    label: 'Avg. ROAS',          sub: 'Across active campaigns' },
-                { value: '42%',     label: 'CPL Reduction',       sub: 'Post account takeover' },
-                { value: '48 hrs',  label: 'Audit Turnaround',   sub: 'Full campaign report' },
-              ].map(({ value, label, sub }, i) => (
-                <FadeIn key={label} delay={i * 0.1}>
-                  <div className="bg-[#080C10] border border-[rgba(41,200,213,0.1)] rounded-2xl p-6 card-glow flex flex-col justify-between" style={{ height: '160px' }}>
-                    <div className="font-black text-white" style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', letterSpacing: '-0.02em' }}>{value}</div>
-                    <div>
-                      <div className="text-white font-600 text-sm mb-0.5">{label}</div>
-                      <div className="text-[#8A9AB0] text-xs">{sub}</div>
+            {/* Social Media Marketing */}
+            <FadeIn delay={0.05}>
+              <div id="social-media-marketing" className="bg-[#080C10] border border-[rgba(41,200,213,0.1)] rounded-2xl p-8 md:p-10 card-glow">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                  <div>
+                    <span className="text-[#29C8D5] text-xs font-600 uppercase tracking-widest mb-3 block">Content & Social</span>
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-[rgba(41,200,213,0.08)] border border-[rgba(41,200,213,0.15)] flex items-center justify-center shrink-0">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#29C8D5" strokeWidth="2" className="shrink-0"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
+                      </div>
+                      <div>
+                        <h2 className="font-800 text-white text-2xl">Social Media</h2>
+                        <p className="text-[#8A9AB0] text-sm italic mt-1">Content that engages and converts.</p>
+                      </div>
+                    </div>
+                    <p className="text-[#8A9AB0] text-sm leading-relaxed mb-4">
+                      Strategic content that builds community and drives measurable engagement. From visual storytelling to performance-focused campaigns, we create social presence that supports business outcomes.
+                    </p>
+                    <Link href="/contact" className="btn-primary text-xs py-2.5 px-5">
+                      Get Started <ArrowUpRight size={12} />
+                    </Link>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-600 text-sm mb-4 uppercase tracking-wider">What's Included</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {['Content calendar & strategy', 'Carousel & reel production', 'Copywriting & hashtags', 'Community management', 'Trend analysis', 'Performance reporting'].map((f) => (
+                        <div key={f} className="flex items-start gap-2">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#29C8D5" strokeWidth="2" className="mt-0.5 shrink-0"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                          <span className="text-[#8A9AB0] text-sm">{f}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* HOW WE WORK */}
-      <section className="py-20 bg-[#080C10]">
-        <div className="max-w-7xl mx-auto px-6">
-          <FadeIn className="text-center mb-12">
-            <h2 className="font-black text-white mb-3"
-              style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', letterSpacing: '-0.02em' }}>
-              How We Turn Google Ads Spend Into{' '}
-              <span className="teal-gradient-text">Measurable Business Growth</span>
-            </h2>
-            <p className="text-[#8A9AB0] text-base max-w-lg mx-auto">
-              A proven 4-step process from audit to scaled revenue.
-            </p>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {workflowSteps.map(({ step, title, desc }, i) => (
-              <FadeIn key={step} delay={i * 0.08}>
-                <div className="relative bg-[#000000] border border-[rgba(41,200,213,0.1)] rounded-2xl p-6 card-glow flex flex-col" style={{ minHeight: '200px' }}>
-                  <div className="text-[3.5rem] font-black text-[rgba(255,255,255,0.05)] absolute top-3 right-5 leading-none select-none">{step}</div>
-                  <div className="text-[#29C8D5] font-700 text-xs mb-2 uppercase tracking-wider">Step {step}</div>
-                  <h3 className="font-700 text-white text-base mb-2">{title}</h3>
-                  <p className="text-[#8A9AB0] text-sm leading-relaxed flex-grow">{desc}</p>
                 </div>
-              </FadeIn>
-            ))}
+              </div>
+            </FadeIn>
+
+            {/* Web Development */}
+            <FadeIn delay={0.05}>
+              <div id="web-development" className="bg-[#080C10] border border-[rgba(41,200,213,0.1)] rounded-2xl p-8 md:p-10 card-glow">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                  <div>
+                    <span className="text-[#29C8D5] text-xs font-600 uppercase tracking-widest mb-3 block">Web Development</span>
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-[rgba(41,200,213,0.08)] border border-[rgba(41,200,213,0.15)] flex items-center justify-center shrink-0">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#29C8D5" strokeWidth="2" className="shrink-0"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><path d="M12 4v16"></path></svg>
+                      </div>
+                      <div>
+                        <h2 className="font-800 text-white text-2xl">Web Development</h2>
+                        <p className="text-[#8A9AB0] text-sm italic mt-1">Fast, secure, conversion-focused.</p>
+                      </div>
+                    </div>
+                    <p className="text-[#8A9AB0] text-sm leading-relaxed mb-4">
+                      Modern, performant websites built to convert. SEO-optimized, mobile-first experiences that load instantly and drive measurable results for your business.
+                    </p>
+                    <Link href="/contact" className="btn-primary text-xs py-2.5 px-5">
+                      Get Started <ArrowUpRight size={12} />
+                    </Link>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-600 text-sm mb-4 uppercase tracking-wider">What's Included</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {['Next.js / React development', 'SEO architecture & metadata', 'Mobile-first responsive design', 'Core Web Vitals optimization', 'CMS integration', 'Launch & maintenance'].map((f) => (
+                        <div key={f} className="flex items-start gap-2">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#29C8D5" strokeWidth="2" className="mt-0.5 shrink-0"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                          <span className="text-[#8A9AB0] text-sm">{f}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* App Development */}
+            <FadeIn delay={0.05}>
+              <div id="app-development" className="bg-[#080C10] border border-[rgba(41,200,213,0.1)] rounded-2xl p-8 md:p-10 card-glow">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                  <div>
+                    <span className="text-[#29C8D5] text-xs font-600 uppercase tracking-widest mb-3 block">App Development</span>
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-[rgba(41,200,213,0.08)] border border-[rgba(41,200,213,0.15)] flex items-center justify-center shrink-0">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#29C8D5" strokeWidth="2" className="shrink-0"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="7" y="7" width="3" height="3"></rect><rect x="14" y="7" width="3" height="3"></rect><rect x="7" y="14" width="3" height="3"></rect><rect x="14" y="14" width="3" height="3"></rect></svg>
+                      </div>
+                      <div>
+                        <h2 className="font-800 text-white text-2xl">App Development</h2>
+                        <p className="text-[#8A9AB0] text-sm italic mt-1">Native experiences users love.</p>
+                      </div>
+                    </div>
+                    <p className="text-[#8A9AB0] text-sm leading-relaxed mb-4">
+                      iOS and Android apps that deliver seamless user experiences. From MVP to full-scale mobile platforms with backend infrastructure and ongoing optimization.
+                    </p>
+                    <Link href="/contact" className="btn-primary text-xs py-2.5 px-5">
+                      Get Started <ArrowUpRight size={12} />
+                    </Link>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-600 text-sm mb-4 uppercase tracking-wider">What's Included</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {['iOS & Android native', 'React Native / Flutter', 'UI/UX design system', 'Backend API development', 'Testing & QA', 'App Store deployment'].map((f) => (
+                        <div key={f} className="flex items-start gap-2">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#29C8D5" strokeWidth="2" className="mt-0.5 shrink-0"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                          <span className="text-[#8A9AB0] text-sm">{f}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Performance Marketing */}
+            <FadeIn delay={0.05}>
+              <div id="performance-marketing" className="bg-[#080C10] border border-[rgba(41,200,213,0.1)] rounded-2xl p-8 md:p-10 card-glow">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                  <div>
+                    <span className="text-[#29C8D5] text-xs font-600 uppercase tracking-widest mb-3 block">Growth Marketing</span>
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-[rgba(41,200,213,0.08)] border border-[rgba(41,200,213,0.15)] flex items-center justify-center shrink-0">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#29C8D5" strokeWidth="2" className="shrink-0"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                      </div>
+                      <div>
+                        <h2 className="font-800 text-white text-2xl">Growth Marketing</h2>
+                        <p className="text-[#8A9AB0] text-sm italic mt-1">Data-driven customer acquisition.</p>
+                      </div>
+                    </div>
+                    <p className="text-[#8A9AB0] text-sm leading-relaxed mb-4">
+                      Full-funnel growth strategies combining paid acquisition, conversion optimization, and analytics. Every campaign built around measurable outcomes and continuous improvement.
+                    </p>
+                    <Link href="/contact" className="btn-primary text-xs py-2.5 px-5">
+                      Get Started <ArrowUpRight size={12} />
+                    </Link>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-600 text-sm mb-4 uppercase tracking-wider">What's Included</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {['Paid media strategy', 'Campaign setup & optimization', 'Conversion tracking', 'Landing page testing', 'Audience segmentation', 'Performance reporting'].map((f) => (
+                        <div key={f} className="flex items-start gap-2">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#29C8D5" strokeWidth="2" className="mt-0.5 shrink-0"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                          <span className="text-[#8A9AB0] text-sm">{f}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* PRODUCTS */}
+      {/* CTA Section */}
       <section className="py-20 bg-[#000000]">
-        <div className="max-w-7xl mx-auto px-6">
-          <FadeIn className="text-center mb-12">
-            <h2 className="font-black text-white mb-3"
-              style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', letterSpacing: '-0.02em' }}>
-              Built In-House <span className="teal-gradient-text">For the Future</span>
-            </h2>
-            <p className="text-[#8A9AB0] text-base max-w-lg mx-auto">
-              Beyond services we build products that solve real problems for businesses and consumers alike.
-            </p>
-          </FadeIn>
-          <ProductSlider />
-        </div>
-      </section>
-
-      {/* TESTIMONIALS */}
-      <section className="py-20 bg-[#080C10]">
-        <div className="max-w-7xl mx-auto px-6">
-          <FadeIn className="text-center mb-12">
-            <h2 className="font-black text-white mb-3"
-              style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', letterSpacing: '-0.02em' }}>
-              Results Our Clients <span className="teal-gradient-text">Actually Talk About</span>
-            </h2>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {testimonials.map(({ name, role, stars, text }, i) => (
-              <FadeIn key={name} delay={i * 0.1}>
-                <div className="bg-[#000000] border border-[rgba(41,200,213,0.1)] rounded-2xl p-7 card-glow relative flex flex-col" style={{ minHeight: '220px' }}>
-                  <Quote size={24} className="text-[rgba(41,200,213,0.15)] absolute top-5 right-5" />
-                  <div className="flex gap-1 mb-3">
-                    {Array.from({ length: stars }).map((_, j) => (
-                      <Star key={j} size={13} className="text-[#29C8D5] fill-[#29C8D5]" />
-                    ))}
-                  </div>
-                  <p className="text-[#8A9AB0] text-sm leading-relaxed mb-5 italic flex-grow">"{text}"</p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-[rgba(41,200,213,0.1)] border border-[rgba(41,200,213,0.2)] flex items-center justify-center shrink-0">
-                      <span className="text-[#29C8D5] font-700 text-xs">{name[0]}</span>
-                    </div>
-                    <div>
-                      <div className="text-white font-600 text-sm">{name}</div>
-                      <div className="text-[#8A9AB0] text-xs">{role}</div>
-                    </div>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA BANNER */}
-      <section className="py-20 bg-[#080C10]">
-        <div className="max-w-3xl mx-auto px-6 text-center">
+        <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeIn>
-            <div className="relative rounded-3xl p-8 md:p-12 text-center overflow-hidden"
-              style={{ background: 'radial-gradient(ellipse at bottom left, rgba(41,200,213,0.25) 0%, rgba(41,200,213,0.04) 50%, #0D1117 70%)' }}>
-              <h2 className="font-black text-white mb-4"
-                style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', letterSpacing: '-0.02em' }}>
-                Get Your Free Google Ads Audit.{' '}
-                <span className="teal-gradient-text">No Cost. No Obligation.</span>
+            <div className="border border-[rgba(41,200,213,0.2)] rounded-3xl p-12" style={{ background: 'radial-gradient(ellipse at center, rgba(41,200,213,0.06), transparent 70%), #080C10' }}>
+              <h2 className="font-black text-white text-3xl mb-4">
+                Build Your Ecosystem. <span className="teal-gradient-text">Scale With Purpose.</span>
               </h2>
-              <p className="text-[#8A9AB0] text-base mb-8 max-w-lg mx-auto">
-                We audit your Google Ads account, identify where budget is being wasted and give you a concrete roadmap to hit your CPL or ROAS targets.
+              <p className="text-[#8A9AB0] mb-8 max-w-lg mx-auto">
+                From product strategy to execution, we help modern brands build the infrastructure they need to grow. Let's discuss your roadmap.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link href="/contact" className="btn-primary text-sm">
-                  Claim My Free Audit
+                <Link href="/contact" className="btn-primary">
+                  Start the Conversation <ArrowUpRight size={16} />
                 </Link>
-                <Link href="/services" className="btn-outline text-sm">
-                  View Services
+                <Link href="/products" className="btn-outline">
+                  Browse Products <ArrowUpRight size={16} />
                 </Link>
               </div>
             </div>

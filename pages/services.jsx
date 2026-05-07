@@ -125,11 +125,11 @@ const services = [
 ];
 
 const servicesFAQ = [
-  { q: 'Which services does Treva offer?', a: 'Treva offers five core services: Branding (Brand Identity Agency), Social Media Marketing (Content Marketing Services), Web Development (Website Development Company), App Development (Mobile App Development), and Performance Marketing (Digital Marketing Agency).' },
-  { q: 'Do you build SEO-friendly websites?', a: 'Yes. Our web development includes SEO-ready page structure, metadata, responsive design, performance optimisation, and clean technical foundations. We are an SEO Website Development agency.' },
-  { q: 'Can Treva handle both organic and paid growth?', a: 'Yes. Social Media Marketing supports organic brand presence and content marketing, while Performance Marketing focuses on paid campaigns, Google Ads, Facebook Ads, leads, ROAS, and conversion tracking.' },
-  { q: 'Do you provide design along with development?', a: 'Yes. Branding, web development, and app development include visual identity, UI/UX design, and launch-ready design systems from our brand identity studio.' },
-  { q: 'Do you work with businesses outside Bangalore?', a: 'Yes. Treva works with clients across Bangalore, India, and remote markets. Our digital marketing services, app development, and web development cater to global clients.' },
+  { q: 'Which services does Treva offer?', a: 'Treva offers five core services: Branding, Social Media Marketing, Web Development, App Development, and Performance Marketing — all designed to work together as a unified growth ecosystem.' },
+  { q: 'Do you build SEO-friendly websites?', a: 'Yes. Our web development includes SEO-ready page structure, metadata, responsive design, performance optimisation, and clean technical foundations for optimal search visibility and user experience.' },
+  { q: 'Can you manage both organic and paid growth?', a: 'Yes. We combine organic Social Media Marketing and content strategy with Performance Marketing campaigns across paid channels, conversion tracking, and data-driven optimization for measurable ROI.' },
+  { q: 'Do you provide design along with development?', a: 'Yes. Our Branding, Web Development, and App Development services include comprehensive visual identity, UI/UX design, and launch-ready design systems for cohesive brand experiences.' },
+  { q: 'Do you work with businesses outside Bangalore?', a: 'Yes. Treva works with clients across Bangalore, India, and globally. Our services including app development, web development, and digital marketing cater to international markets.' },
 ];
 
 export default function Services() {

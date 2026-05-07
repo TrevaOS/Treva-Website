@@ -28,7 +28,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#080C10] border-t border-[rgba(41,200,213,0.08)]">
+    <footer className="bg-[#050a0e] border-t border-[rgba(41,200,213,0.1)] relative overflow-hidden" style={{ background: 'linear-gradient(180deg, rgba(10, 30, 35, 0.8) 0%, rgba(5, 15, 20, 0.9) 50%, rgba(3, 8, 12, 0.95) 100%), #050a0c' }}>
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
@@ -97,7 +97,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-[rgba(41,200,213,0.06)] py-6">
+      <div className="border-t border-[rgba(41,200,213,0.1)] py-6">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-[#8A9AB0] text-sm">
             © {new Date().getFullYear()} Treva. All rights reserved.

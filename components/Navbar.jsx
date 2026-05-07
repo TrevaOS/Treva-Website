@@ -51,12 +51,12 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-12">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-500 transition-colors duration-200 relative group ${
+                className={`text-base font-bold transition-colors duration-200 relative group ${
                   router.pathname === link.href
                     ? 'text-[#29C8D5]'
                     : 'text-[#8A9AB0] hover:text-white'
