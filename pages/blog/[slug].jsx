@@ -1,8 +1,10 @@
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Clock, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, Clock, ArrowUpRight, ChevronLeft, ChevronRight, Search } from 'lucide-react';
 import SEOHead from '../../components/SEOHead';
 import { blogPosts, blogContent } from '../../data/blogData';
+import { products } from '../../data/products';
 
 export async function getStaticPaths() {
   return {
@@ -31,6 +33,29 @@ export default function BlogDetail({ post, content }) {
     SEO: 'bg-green-500/10 text-green-400 border-green-500/20',
     'Web & Design': 'bg-[rgba(41,200,213,0.1)] text-[#29C8D5] border-[rgba(41,200,213,0.2)]',
   };
+
+  const [faqSearch, setFaqSearch] = useState('');
+  const [filteredFaqs, setFilteredFaqs] = useState(content?.faqs || []);
+  const searchRef = useRef(null);
+
+  useEffect(() => {
+    setFilteredFaqs(
+      (content?.faqs || []).filter((faq) =>
+        faq.question.toLowerCase().includes(faqSearch.toLowerCase()) ||
+        faq.answer.toLowerCase().includes(faqSearch.toLowerCase())
+      )
+    );
+  }, [faqSearch, content]);
+
+  const services = [
+    { id: 'branding', name: 'Branding', url: '/services#branding' },
+    { id: 'social-media-marketing', name: 'Social Media Marketing', url: '/services#social-media-marketing' },
+    { id: 'web-development', name: 'Web Development', url: '/services#web-development' },
+    { id: 'app-development', name: 'App Development', url: '/services#app-development' },
+    { id: 'performance-marketing', name: 'Performance Marketing', url: '/services#performance-marketing' },
+  ];
+
+  const productList = products;
 
   return (
     <>
@@ -107,30 +132,103 @@ export default function BlogDetail({ post, content }) {
             {content?.sections.map(({ heading, body }) => (
               <div key={heading} className="mb-8">
                 <h2 className="mb-3 text-xl font-800 text-white">{heading}</h2>
-                <p className="text-base leading-relaxed text-[#8A9AB0]">{body}</p>
+                <div className="text-base leading-relaxed text-[#8A9AB0]">
+                  {body.split('Treva CRM').map((part, i, arr) => (
+                    <span key={i}>
+                      {part}
+                      {i < arr.length - 1 && (
+                        <Link href="/products/treva-crm" className="text-[#29C8D5] hover:underline">
+                          Treva CRM
+                        </Link>
+                      )}
+                    </span>
+                  ))}
+                </div>
               </div>
             ))}
 
-            <div className="mt-10 grid gap-4 border-t border-[rgba(41,200,213,0.1)] pt-8 md:grid-cols-2">
-              {previousPost ? (
-                <Link href={`/blog/${previousPost.slug}`} className="rounded-2xl border border-[rgba(41,200,213,0.1)] bg-[#080C10] p-5 transition-colors hover:border-[#29C8D5]">
-                  <div className="mb-2 inline-flex items-center gap-2 text-xs font-600 uppercase tracking-wider text-[#8A9AB0]">
-                    <ChevronLeft size={14} />
-                    Previous
-                  </div>
-                  <p className="text-white">{previousPost.title}</p>
-                </Link>
-              ) : <div />}
-              {nextPost ? (
-                <Link href={`/blog/${nextPost.slug}`} className="rounded-2xl border border-[rgba(41,200,213,0.1)] bg-[#080C10] p-5 text-right transition-colors hover:border-[#29C8D5]">
-                  <div className="mb-2 inline-flex items-center gap-2 text-xs font-600 uppercase tracking-wider text-[#8A9AB0]">
-                    Next
-                    <ChevronRight size={14} />
-                  </div>
-                  <p className="text-white">{nextPost.title}</p>
-                </Link>
-              ) : null}
+            {/* Service Mapping Section */}
+            <div className="mt-12 border-t border-[rgba(41,200,213,0.1)] pt-8">
+              <h3 className="mb-4 text-lg font-700 text-white">Relevant Treva Services</h3>
+              <div className="flex flex-wrap gap-2">
+                {services.map((svc) => (
+                  <Link
+                    key={svc.id}
+                    href={svc.url}
+                    className="rounded-full border border-[rgba(41,200,213,0.3)] bg-[rgba(41,200,213,0.05)] px-4 py-1.5 text-sm text-[#29C8D5] transition-colors hover:bg-[rgba(41,200,213,0.1)]"
+                  >
+                    {svc.name}
+                  </Link>
+                ))}
+              </div>
             </div>
+
+            {/* Product Mapping Section */}
+            <div className="mt-8 border-t border-[rgba(41,200,213,0.1)] pt-8">
+              <h3 className="mb-4 text-lg font-700 text-white">Related Treva Products</h3>
+              <div className="flex flex-wrap gap-2">
+                {productList.map((p) => (
+                  <Link
+                    key={p.slug}
+                    href={`/products/${p.slug}`}
+                    className="rounded-full border border-[rgba(41,200,213,0.3)] bg-[rgba(41,200,213,0.05)] px-4 py-1.5 text-sm text-[#29C8D5] transition-colors hover:bg-[rgba(41,200,213,0.1)]"
+                  >
+                    {p.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* FAQ Section with Search Pill */}
+            {content?.faqs && content.faqs.length > 0 && (
+              <div className="mt-12 border-t border-[rgba(41,200,213,0.2)] pt-12">
+                <h3 className="mb-6 text-center text-2xl font-800 text-white">
+                  Frequently Asked Questions
+                </h3>
+                
+                {/* Search Pill */}
+                <div className="mb-8 flex justify-center">
+                  <div className="relative max-w-lg w-full">
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8A9AB0]" size={18} />
+                    <input
+                      ref={searchRef}
+                      type="text"
+                      placeholder="Search all FAQs..."
+                      value={faqSearch}
+                      onChange={(e) => setFaqSearch(e.target.value)}
+                      className="w-full rounded-full border border-[rgba(41,200,213,0.2)] bg-[#080C10] py-3 pl-11 pr-5 text-white placeholder-[#8A9AB0] focus:border-[#29C8D5] focus:outline-none focus:ring-1 focus:ring-[#29C8D5] transition-all"
+                    />
+                    {faqSearch && (
+                      <button
+                        onClick={() => setFaqSearch('')}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 text-[#8A9AB0] hover:text-white"
+                      >
+                        ✕
+                      </button>
+                    )}
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  {filteredFaqs.length === 0 ? (
+                    <p className="text-center text-[#8A9AB0] py-8">No FAQs match your search.</p>
+                  ) : (
+                    filteredFaqs.map((faq, idx) => (
+                      <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: idx * 0.05 }}
+                        className="rounded-2xl border border-[rgba(41,200,213,0.1)] bg-[#080C10] p-6 card-glow hover:border-[rgba(41,200,213,0.2)] transition-colors"
+                      >
+                        <h4 className="mb-2 text-white font-600 text-base leading-relaxed">{faq.question}</h4>
+                        <p className="text-[#8A9AB0] text-sm leading-relaxed">{faq.answer}</p>
+                      </motion.div>
+                    ))
+                  )}
+                </div>
+              </div>
+            )}
 
             <div
               className="mt-12 rounded-2xl border border-[rgba(41,200,213,0.2)] p-8 text-center"

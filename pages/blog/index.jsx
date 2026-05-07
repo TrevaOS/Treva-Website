@@ -1,7 +1,7 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
-import { ArrowUpRight, Clock } from 'lucide-react';
+import { ArrowUpRight, Clock, Search } from 'lucide-react';
 import SEOHead from '../../components/SEOHead';
 import { blogPosts } from '../../data/blogData';
 
@@ -143,6 +143,62 @@ export default function Blog() {
               </FadeIn>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FAQ Search Section */}
+      <section className="py-20 bg-[#080C10]">
+        <div className="mx-auto max-w-4xl px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <h2 className="mb-4 text-2xl font-800 text-white">
+              Explore All Blog FAQs
+            </h2>
+            <p className="mb-8 text-[#8A9AB0]">
+              Search through all blog posts to find answers to common questions
+            </p>
+            
+            {/* Search Pill */}
+            <div className="mb-8 flex justify-center">
+              <div className="relative max-w-lg w-full">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8A9AB0]" size={18} />
+                <input
+                  type="text"
+                  placeholder="Search all blog FAQs..."
+                  className="w-full rounded-full border border-[rgba(41,200,213,0.2)] bg-[#080C10] py-3 pl-11 pr-5 text-white placeholder-[#8A9AB0] focus:border-[#29C8D5] focus:outline-none focus:ring-1 focus:ring-[#29C8D5] transition-all"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              {blogPosts.slice(0, 4).map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}#faq`}
+                  className="group rounded-2xl border border-[rgba(41,200,213,0.1)] bg-[#000000] p-6 text-left card-glow transition-all hover:border-[rgba(41,200,213,0.2)]"
+                >
+                  <div className="mb-3 flex items-center gap-3">
+                    <span className="text-xs font-600 text-[#29C8D5]">{post.tag}</span>
+                    <span className="text-xs text-[#8A9AB0]">{post.readTime}</span>
+                  </div>
+                  <h3 className="mb-2 text-lg font-700 leading-tight text-white transition-colors group-hover:text-[#29C8D5]">
+                    {post.title}
+                  </h3>
+                  <p className="line-clamp-2 text-sm text-[#8A9AB0]">
+                    {post.excerpt.substring(0, 120)}...
+                  </p>
+                  <span className="mt-3 inline-flex items-center gap-1 text-sm text-[#29C8D5] opacity-0 transition-opacity group-hover:opacity-100">
+                    View FAQs <ArrowUpRight size={12} />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
     </>
