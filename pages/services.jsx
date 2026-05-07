@@ -1,11 +1,12 @@
-import { useRef } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
 import {
   Globe, Palette, Smartphone, Megaphone, LineChart,
-  ArrowUpRight, CheckCircle, ArrowRight
+  ArrowUpRight, CheckCircle, ArrowRight, Search
 } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
+import InternalTextLink from '../components/InternalTextLink';
 
 function FadeIn({ children, delay = 0, className = '' }) {
   const ref = useRef(null);
@@ -133,6 +134,17 @@ const servicesFAQ = [
 ];
 
 export default function Services() {
+  const [faqSearch, setFaqSearch] = useState('');
+  const filteredServiceFaqs = useMemo(() => {
+    const search = faqSearch.trim().toLowerCase();
+    if (!search) return servicesFAQ;
+
+    return servicesFAQ.filter(({ q, a }) =>
+      q.toLowerCase().includes(search) ||
+      a.toLowerCase().includes(search)
+    );
+  }, [faqSearch]);
+
   return (
     <>
       <SEOHead
@@ -152,7 +164,7 @@ export default function Services() {
       />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-[#000000] relative overflow-hidden">
+      <section className="relative overflow-hidden bg-[#000000] py-16 lg:flex lg:h-[calc(100vh-116px)] lg:min-h-[620px] lg:max-h-[820px] lg:items-center">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
           style={{ background: 'radial-gradient(ellipse, rgba(41,200,213,0.06), transparent 70%)' }} />
         <div className="max-w-7xl mx-auto px-6 text-center">
@@ -160,15 +172,15 @@ export default function Services() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-black text-white mt-2 mb-6"
-            style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', letterSpacing: '-0.03em' }}
+            className="font-black text-white mt-2 mb-5 leading-[1.02]"
+            style={{ fontSize: 'clamp(2.75rem, 5.2vw, 4.8rem)', letterSpacing: '-0.03em' }}
           >
-            Digital Services{' '}
+            Digital Services<br />
             <span className="teal-gradient-text">Built for Growth</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
-            className="text-[#8A9AB0] text-xl max-w-2xl mx-auto mb-8">
-            Treva is your Brand Identity Agency and Digital Marketing partner. We offer Content Marketing Services, Web Development, App Development, and Performance Marketing. As a leading branding agency in Bangalore and website development company, we deliver SEO-ready solutions for business growth.
+            className="text-[#8A9AB0] text-lg leading-relaxed max-w-2xl mx-auto mb-8">
+            <InternalTextLink text="Treva is your Brand Identity Agency and Digital Marketing partner. We offer Content Marketing Services, Web Development, App Development, and Performance Marketing. As a leading branding agency in Bangalore and website development company, we deliver SEO-ready solutions for business growth." />
           </motion.p>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -183,7 +195,7 @@ export default function Services() {
       </section>
 
       {/* Differentiator */}
-      <section className="py-16 bg-[#080C10]">
+      <section className="py-16 bg-[#080C10] lg:flex lg:min-h-[calc(100vh-116px)] lg:items-center">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-10">
             <h2 className="font-black text-white"
@@ -192,7 +204,7 @@ export default function Services() {
               <span className="teal-gradient-text">One Growth-Focused Team.</span>
             </h2>
             <p className="text-[#8A9AB0] mt-4 max-w-2xl mx-auto">
-              Five focused services: Brand Identity Agency, Content Marketing Services, Website Development Company, Mobile App Development, and Digital Marketing Agency. Each service supports the next - from brand identity to web, app, and performance marketing.
+              <InternalTextLink text="Five focused services: Brand Identity Agency, Content Marketing Services, Website Development Company, Mobile App Development, and Digital Marketing Agency. Each service supports the next - from brand identity to web, app, and performance marketing." />
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -214,7 +226,7 @@ export default function Services() {
       </section>
 
       {/* Services */}
-      <section id="services" className="py-20 bg-[#000000] scroll-mt-24">
+      <section id="services" className="py-16 bg-[#000000] scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="mb-12 text-center">
             <h2 className="font-black text-white mt-4"
@@ -241,7 +253,7 @@ export default function Services() {
                       </div>
                     </div>
                     <p className="text-[#8A9AB0] text-sm leading-relaxed mb-4">
-                      As a premier Brand Identity Agency and Branding Agency Bangalore, we deliver professional brand identity services including brand identity studio, logo branding firm solutions, brand style guide creation, and comprehensive brand identity design. Our best brand identity agency services help startups and businesses build premium brand presence. We offer graphic design services, copywriting expertise, and complete branding solutions for companies seeking professional brand identity agency partnerships.
+                      <InternalTextLink text="As a premier Brand Identity Agency and Branding Agency Bangalore, we deliver professional brand identity services including brand identity studio, logo branding firm solutions, brand style guide creation, and comprehensive brand identity design. Our best brand identity agency services help startups and businesses build premium brand presence. We offer graphic design services, copywriting expertise, and complete branding solutions for companies seeking professional brand identity agency partnerships." />
                     </p>
                     <Link href="/contact" className="btn-primary text-xs py-2.5 px-5">
                       Get Started <ArrowUpRight size={12} />
@@ -278,7 +290,7 @@ export default function Services() {
                       </div>
                     </div>
                     <p className="text-[#8A9AB0] text-sm leading-relaxed mb-4">
-                      Our Content Marketing Services include social media marketing strategy, content strategy services, video production, and content marketing for startups. As a content strategy agency in Bangalore, we provide Instagram marketing agency solutions, content marketing services for small business, and best content strategy services. We manage social media content, content planning, and deliver measurable organic growth through strategic content marketing.
+                      <InternalTextLink text="Our Content Marketing Services include Social Media Marketing strategy, content strategy services, video production, and content marketing for startups. As a content strategy agency in Bangalore, we provide Instagram marketing agency solutions, content marketing services for small business, and best content strategy services. We manage social media content, content planning, and deliver measurable organic growth through strategic content marketing." />
                     </p>
                     <Link href="/contact" className="btn-primary text-xs py-2.5 px-5">
                       Get Started <ArrowUpRight size={12} />
@@ -315,7 +327,7 @@ export default function Services() {
                       </div>
                     </div>
                     <p className="text-[#8A9AB0] text-sm leading-relaxed mb-4">
-                      As a Web Development Agency and Website Development Company in Bangalore, we provide comprehensive web development services, web development solutions, and SEO website development. Our best web development agency team delivers web development for startups, website development, and modern web applications. We are a web development studio focused on performance, SEO architecture, and conversion optimisation.
+                      <InternalTextLink text="As a Web Development Agency and Website Development Company in Bangalore, we provide comprehensive web development services, web development solutions, and SEO website development. Our best web development agency team delivers web development for startups, website development, and modern web applications. We are a web development studio focused on performance, SEO architecture, and conversion optimisation." />
                     </p>
                     <Link href="/contact" className="btn-primary text-xs py-2.5 px-5">
                       Get Started <ArrowUpRight size={12} />
@@ -352,7 +364,7 @@ export default function Services() {
                       </div>
                     </div>
                     <p className="text-[#8A9AB0] text-sm leading-relaxed mb-4">
-                      As an App Development Company offering mobile app development services in India, we provide app development solutions, app store optimization services, and custom app development for startups. Our app development agency delivers Android app development, iOS app development, and comprehensive mobile app growth strategies. We are a best app development company delivering scalable applications.
+                      <InternalTextLink text="As an App Development Company offering Mobile App Development services in India, we provide app development solutions, app store optimization services, and custom app development for startups. Our app development agency delivers Android app development, iOS app development, and comprehensive mobile app growth strategies. We are a best app development company delivering scalable applications." />
                     </p>
                     <Link href="/contact" className="btn-primary text-xs py-2.5 px-5">
                       Get Started <ArrowUpRight size={12} />
@@ -389,7 +401,7 @@ export default function Services() {
                       </div>
                     </div>
                     <p className="text-[#8A9AB0] text-sm leading-relaxed mb-4">
-                      As a Digital Marketing Agency offering Performance Marketing Services, we deliver online marketing services including Google Ads agency, Facebook Ads services, digital marketing strategy, and paid media strategy. Our best digital marketing agency in Bangalore provides digital marketing for startups and comprehensive online marketing solutions focused on lead generation, ROAS, and conversion tracking.
+                      <InternalTextLink text="As a Digital Marketing Agency offering Performance Marketing Services, we deliver online marketing services including Google Ads agency, Facebook Ads services, digital marketing strategy, and paid media strategy. Our best digital marketing agency in Bangalore provides digital marketing for startups and comprehensive online marketing solutions focused on lead generation, ROAS, and conversion tracking." />
                     </p>
                     <Link href="/contact" className="btn-primary text-xs py-2.5 px-5">
                       Get Started <ArrowUpRight size={12} />
@@ -414,7 +426,7 @@ export default function Services() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 bg-[#080C10]">
+      <section className="py-16 bg-[#080C10] lg:flex lg:min-h-[calc(100vh-116px)] lg:items-center">
         <div className="max-w-4xl mx-auto px-6">
           <FadeIn className="text-center mb-12">
             <h2 className="font-black text-white mt-4"
@@ -423,12 +435,30 @@ export default function Services() {
               <span className="teal-gradient-text">Our Services</span>
             </h2>
           </FadeIn>
+          <FadeIn className="mb-8">
+            <div className="relative mx-auto max-w-xl">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8A9AB0]" size={18} />
+              <input
+                type="text"
+                value={faqSearch}
+                onChange={(event) => setFaqSearch(event.target.value)}
+                placeholder="Search service FAQs..."
+                className="w-full rounded-full border border-[rgba(41,200,213,0.25)] bg-[#000000] py-3.5 pl-12 pr-5 text-white placeholder-[#8A9AB0] outline-none transition-all focus:border-[#29C8D5] focus:ring-1 focus:ring-[#29C8D5]"
+              />
+            </div>
+          </FadeIn>
           <div className="space-y-4">
-            {servicesFAQ.map(({ q, a }, i) => (
+            {filteredServiceFaqs.length === 0 ? (
+              <div className="rounded-2xl border border-[rgba(41,200,213,0.1)] bg-[#000000] p-6 text-center text-sm text-[#8A9AB0]">
+                No service FAQs match your search.
+              </div>
+            ) : filteredServiceFaqs.map(({ q, a }, i) => (
               <FadeIn key={i} delay={i * 0.05}>
                 <div className="bg-[#000000] border border-[rgba(41,200,213,0.1)] rounded-2xl p-6 card-glow">
                   <h3 className="font-700 text-white mb-2 text-base">{q}</h3>
-                  <p className="text-[#8A9AB0] text-sm leading-relaxed">{a}</p>
+                  <p className="text-[#8A9AB0] text-sm leading-relaxed">
+                    <InternalTextLink text={a} />
+                  </p>
                 </div>
               </FadeIn>
             ))}
@@ -437,7 +467,7 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#000000]">
+      <section className="py-16 bg-[#000000] lg:flex lg:min-h-[calc(100vh-116px)] lg:items-center">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeIn>
             <div className="border border-[rgba(41,200,213,0.2)] rounded-3xl p-12"

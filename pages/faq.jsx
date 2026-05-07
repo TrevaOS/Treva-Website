@@ -1,8 +1,9 @@
-import { useRef } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Search } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
+import InternalTextLink from '../components/InternalTextLink';
 
 function FadeIn({ children, delay = 0, className = '' }) {
   const ref = useRef(null);
@@ -113,6 +114,7 @@ const faqGroups = [
 ];
 
 export default function FAQPage() {
+  const [query, setQuery] = useState('');
   const allFAQs = faqGroups.flatMap((group) =>
     group.items.map((item) => ({
       '@type': 'Question',
@@ -120,6 +122,21 @@ export default function FAQPage() {
       acceptedAnswer: { '@type': 'Answer', text: item.a },
     }))
   );
+  const filteredGroups = useMemo(() => {
+    const search = query.trim().toLowerCase();
+    if (!search) return faqGroups;
+
+    return faqGroups
+      .map((group) => ({
+        ...group,
+        items: group.items.filter((item) =>
+          item.q.toLowerCase().includes(search) ||
+          item.a.toLowerCase().includes(search) ||
+          group.title.toLowerCase().includes(search)
+        ),
+      }))
+      .filter((group) => group.items.length > 0);
+  }, [query]);
 
   return (
     <>
@@ -153,12 +170,33 @@ export default function FAQPage() {
             className="mx-auto max-w-2xl text-xl text-[#8A9AB0]">
             Everything you need to know about Google Ads, ROAS, CPL, and working with Treva Bangalore's performance marketing agency.
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="mx-auto mt-9 max-w-xl"
+          >
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8A9AB0]" size={18} />
+              <input
+                type="text"
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder="Search all FAQ questions..."
+                className="w-full rounded-full border border-[rgba(41,200,213,0.25)] bg-[#080C10] py-4 pl-12 pr-5 text-white placeholder-[#8A9AB0] outline-none transition-all focus:border-[#29C8D5] focus:ring-1 focus:ring-[#29C8D5]"
+              />
+            </div>
+          </motion.div>
         </div>
       </section>
 
       <section className="bg-[#000000] py-16">
         <div className="mx-auto max-w-5xl space-y-12 px-6">
-          {faqGroups.map((group, groupIndex) => (
+          {filteredGroups.length === 0 ? (
+            <div className="rounded-2xl border border-[rgba(41,200,213,0.12)] bg-[#080C10] p-8 text-center text-[#8A9AB0]">
+              No questions match your search.
+            </div>
+          ) : filteredGroups.map((group, groupIndex) => (
             <FadeIn key={group.title} delay={groupIndex * 0.08}>
               <div>
                 <h2 className="mb-6 text-3xl font-black text-white">{group.title}</h2>
@@ -166,7 +204,9 @@ export default function FAQPage() {
                   {group.items.map((item) => (
                     <div key={item.q} className="rounded-2xl border border-[rgba(41,200,213,0.12)] bg-[#080C10] p-6">
                       <h3 className="mb-2 text-lg font-700 text-white">{item.q}</h3>
-                      <p className="text-sm leading-relaxed text-[#8A9AB0]">{item.a}</p>
+                      <p className="text-sm leading-relaxed text-[#8A9AB0]">
+                        <InternalTextLink text={item.a} />
+                      </p>
                     </div>
                   ))}
                 </div>

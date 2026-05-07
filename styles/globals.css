@@ -255,6 +255,17 @@ html, body {
   color: var(--primary-teal);
 }
 
+.internal-text-link {
+  color: var(--primary-teal);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.internal-text-link:hover {
+  color: var(--teal-light);
+}
+
 /* Grid background */
 .grid-bg {
   background-image: 

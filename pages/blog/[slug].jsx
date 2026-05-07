@@ -1,10 +1,68 @@
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Clock, ArrowUpRight, ChevronLeft, ChevronRight, Search } from 'lucide-react';
+import { ArrowLeft, Clock, ArrowUpRight, Search } from 'lucide-react';
 import SEOHead from '../../components/SEOHead';
+import InternalTextLink from '../../components/InternalTextLink';
 import { blogPosts, blogContent } from '../../data/blogData';
 import { products } from '../../data/products';
+
+const blogIndexHref = '/blog';
+const blogHref = (slug) => `/blog/${slug}`;
+const blogExportHref = (slug) => `/blog/${slug}.html`;
+const productHref = (product) => product.detailHref || product.ctaHref || `/products/${product.slug}`;
+
+const serviceOptions = [
+  {
+    id: 'branding',
+    name: 'Branding',
+    url: '/services#branding',
+    keywords: ['brand', 'branding', 'identity', 'trust', 'web3'],
+  },
+  {
+    id: 'social-media-marketing',
+    name: 'Social Media Marketing',
+    url: '/services#social-media-marketing',
+    keywords: ['social media', 'content', 'creator', 'influencer', 'organic'],
+  },
+  {
+    id: 'web-development',
+    name: 'Web Development',
+    url: '/services#web-development',
+    keywords: ['website', 'web development', 'web', 'geo', 'seo', 'conversational'],
+  },
+  {
+    id: 'app-development',
+    name: 'App Development',
+    url: '/services#app-development',
+    keywords: ['app', 'application', 'mobile', 'integration', 'api'],
+  },
+  {
+    id: 'performance-marketing',
+    name: 'Performance Marketing',
+    url: '/services#performance-marketing',
+    keywords: ['performance', 'ads', 'paid', 'campaign', 'roas', 'conversion', 'marketing'],
+  },
+];
+
+const productKeywordMap = {
+  'treva-crm': ['crm', 'customer', 'lead', 'sales', 'pipeline', 'follow-up'],
+  'make-my-cake': ['cake', 'bakery', 'delivery', 'marketplace', 'artisan'],
+  'treva-os': ['operating system', 'dashboard', 'analytics', 'campaign manager', 'brand health'],
+  'treva-agent': ['ai', 'agent', 'autonomous', 'automation', 'lead qualification'],
+  'creator-hub': ['creator', 'influencer', 'content', 'collaboration', 'monetize'],
+};
+
+function getArticleText(post, content) {
+  return [
+    post.title,
+    post.excerpt,
+    post.tag,
+    content?.intro,
+    ...(content?.sections || []).flatMap(({ heading, body }) => [heading, body]),
+    ...(content?.faqs || []).flatMap(({ question, answer }) => [question, answer]),
+  ].filter(Boolean).join(' ').toLowerCase();
+}
 
 export async function getStaticPaths() {
   return {
@@ -22,9 +80,13 @@ export async function getStaticProps({ params }) {
 
 export default function BlogDetail({ post, content }) {
   const others = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 2);
-  const currentIndex = blogPosts.findIndex((item) => item.slug === post.slug);
-  const previousPost = currentIndex > 0 ? blogPosts[currentIndex - 1] : null;
-  const nextPost = currentIndex < blogPosts.length - 1 ? blogPosts[currentIndex + 1] : null;
+  const articleText = getArticleText(post, content);
+  const relatedServices = serviceOptions
+    .filter((service) => service.keywords.some((keyword) => articleText.includes(keyword)))
+    .slice(0, 4);
+  const relatedProducts = products
+    .filter((product) => (productKeywordMap[product.slug] || []).some((keyword) => articleText.includes(keyword)))
+    .slice(0, 3);
 
   const tagColors = {
     Strategy: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
@@ -47,16 +109,6 @@ export default function BlogDetail({ post, content }) {
     );
   }, [faqSearch, content]);
 
-  const services = [
-    { id: 'branding', name: 'Branding', url: '/services#branding' },
-    { id: 'social-media-marketing', name: 'Social Media Marketing', url: '/services#social-media-marketing' },
-    { id: 'web-development', name: 'Web Development', url: '/services#web-development' },
-    { id: 'app-development', name: 'App Development', url: '/services#app-development' },
-    { id: 'performance-marketing', name: 'Performance Marketing', url: '/services#performance-marketing' },
-  ];
-
-  const productList = products;
-
   return (
     <>
       <SEOHead
@@ -69,7 +121,7 @@ export default function BlogDetail({ post, content }) {
       <article className="bg-[#000000] pb-20 pt-32">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <Link href="/blog" className="mb-8 inline-flex items-center gap-2 text-sm text-[#8A9AB0] transition-colors hover:text-white">
+            <Link href={blogIndexHref} as="/blog.html" className="mb-8 inline-flex items-center gap-2 text-sm text-[#8A9AB0] transition-colors hover:text-white">
               <ArrowLeft size={14} />
               Back to Blog
             </Link>
@@ -132,56 +184,50 @@ export default function BlogDetail({ post, content }) {
             {content?.sections.map(({ heading, body }) => (
               <div key={heading} className="mb-8">
                 <h2 className="mb-3 text-xl font-800 text-white">{heading}</h2>
-                <div className="text-base leading-relaxed text-[#8A9AB0]">
-                  {body.split('Treva CRM').map((part, i, arr) => (
-                    <span key={i}>
-                      {part}
-                      {i < arr.length - 1 && (
-                        <Link href="/products/treva-crm" className="text-[#29C8D5] hover:underline">
-                          Treva CRM
-                        </Link>
-                      )}
-                    </span>
-                  ))}
-                </div>
+                <p className="text-base leading-relaxed text-[#8A9AB0]">
+                  <InternalTextLink text={body} />
+                </p>
               </div>
             ))}
 
-            {/* Service Mapping Section */}
-            <div className="mt-12 border-t border-[rgba(41,200,213,0.1)] pt-8">
-              <h3 className="mb-4 text-lg font-700 text-white">Relevant Treva Services</h3>
-              <div className="flex flex-wrap gap-2">
-                {services.map((svc) => (
-                  <Link
-                    key={svc.id}
-                    href={svc.url}
-                    className="rounded-full border border-[rgba(41,200,213,0.3)] bg-[rgba(41,200,213,0.05)] px-4 py-1.5 text-sm text-[#29C8D5] transition-colors hover:bg-[rgba(41,200,213,0.1)]"
-                  >
-                    {svc.name}
-                  </Link>
-                ))}
+            {relatedServices.length > 0 && (
+              <div className="mt-12 border-t border-[rgba(41,200,213,0.1)] pt-8">
+                <h3 className="mb-4 text-lg font-700 text-white">Relevant Treva Services</h3>
+                <div className="flex flex-wrap gap-2">
+                  {relatedServices.map((svc) => (
+                    <Link
+                      key={svc.id}
+                      href={svc.url}
+                      className="rounded-full border border-[rgba(41,200,213,0.3)] bg-[rgba(41,200,213,0.05)] px-4 py-1.5 text-sm text-[#29C8D5] transition-colors hover:bg-[rgba(41,200,213,0.1)]"
+                    >
+                      {svc.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Product Mapping Section */}
-            <div className="mt-8 border-t border-[rgba(41,200,213,0.1)] pt-8">
-              <h3 className="mb-4 text-lg font-700 text-white">Related Treva Products</h3>
-              <div className="flex flex-wrap gap-2">
-                {productList.map((p) => (
-                  <Link
-                    key={p.slug}
-                    href={`/products/${p.slug}`}
-                    className="rounded-full border border-[rgba(41,200,213,0.3)] bg-[rgba(41,200,213,0.05)] px-4 py-1.5 text-sm text-[#29C8D5] transition-colors hover:bg-[rgba(41,200,213,0.1)]"
-                  >
-                    {p.name}
-                  </Link>
-                ))}
+            {relatedProducts.length > 0 && (
+              <div className="mt-8 border-t border-[rgba(41,200,213,0.1)] pt-8">
+                <h3 className="mb-4 text-lg font-700 text-white">Related Treva Products</h3>
+                <div className="flex flex-wrap gap-2">
+                  {relatedProducts.map((p) => (
+                    <Link
+                      key={p.slug}
+                      href={productHref(p)}
+                      className="rounded-full border border-[rgba(41,200,213,0.3)] bg-[rgba(41,200,213,0.05)] px-4 py-1.5 text-sm text-[#29C8D5] transition-colors hover:bg-[rgba(41,200,213,0.1)]"
+                    >
+                      {p.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* FAQ Section with Search Pill */}
             {content?.faqs && content.faqs.length > 0 && (
-              <div className="mt-12 border-t border-[rgba(41,200,213,0.2)] pt-12">
+              <div id="faq" className="mt-12 scroll-mt-28 border-t border-[rgba(41,200,213,0.2)] pt-12">
                 <h3 className="mb-6 text-center text-2xl font-800 text-white">
                   Frequently Asked Questions
                 </h3>
@@ -255,7 +301,8 @@ export default function BlogDetail({ post, content }) {
               {others.map((item) => (
                 <Link
                   key={item.slug}
-                  href={`/blog/${item.slug}`}
+                  href={blogHref(item.slug)}
+                  as={blogExportHref(item.slug)}
                   className="group block rounded-2xl border border-[rgba(41,200,213,0.1)] bg-[#000000] p-6 card-glow"
                 >
                   <div className="mb-3 flex items-center gap-3">

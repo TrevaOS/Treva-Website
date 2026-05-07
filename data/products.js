@@ -24,7 +24,7 @@ export const products = [
   },
   {
     slug: 'make-my-cake',
-    image: '/images/3.svg',
+    image: 'https://images.pexels.com/photos/17365318/pexels-photo-17365318.jpeg?auto=compress&cs=tinysrgb&w=1800',
     name: 'Make My Cake',
     tagline: 'Artisan cakes, delivered.',
     desc: 'A two-sided marketplace connecting cake lovers with local artisan bakers. Smart discovery by occasion, seamless ordering, real-time tracking.',
@@ -45,7 +45,7 @@ export const products = [
   },
   {
     slug: 'treva-os',
-    image: '/images/1.svg',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1800&q=85',
     name: 'Treva OS',
     tagline: 'Your Brand Operating System.',
     desc: 'An all-in-one intelligent business platform. Manage campaigns, track analytics, schedule content, handle CRM, and view your brand health dashboard all in one place.',
@@ -66,7 +66,7 @@ export const products = [
   },
   {
     slug: 'treva-agent',
-    image: '/images/2.svg',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1800&q=85',
     name: 'Treva AI',
     tagline: 'Your 24/7 autonomous marketing agent.',
     desc: 'An AI agent that qualifies leads, monitors campaigns, pauses underperforming ads, sends follow-up emails, and books meetings. Tireless growth.',
@@ -87,14 +87,14 @@ export const products = [
   },
   {
     slug: 'creator-hub',
-    image: '/images/4.svg',
+    image: 'https://images.pexels.com/photos/7676488/pexels-photo-7676488.jpeg?auto=compress&cs=tinysrgb&w=1800',
     name: 'Creator Hub',
     tagline: 'The Influencer Platform.',
     desc: 'A scalable platform for creators, brands, and agencies to collaborate, track campaigns, manage content, and monetize influence at scale.',
     status: 'Coming Soon',
     color: '#EC4899',
     ctaLabel: 'Join Waitlist',
-    ctaHref: '/products/creator-hub',
+    ctaHref: '/products#creator-hub',
     external: false,
     imageClassName: 'object-cover',
     features: [

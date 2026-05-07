@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
 import { CheckCircle, MapPin, Phone, Mail, ArrowUpRight } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
+import InternalTextLink from '../components/InternalTextLink';
 
 function FadeIn({ children, delay = 0, className = '' }) {
   const ref = useRef(null);
@@ -70,7 +71,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-[#8A9AB0] text-base leading-relaxed mb-7 max-w-lg"
             >
-              Treva is a Bengaluru-based technology and growth partner combining intelligent product platforms with expert strategic services. We help modern brands build integrated ecosystems that scale with purpose.
+              <InternalTextLink text="Treva is a Bengaluru-based technology and growth partner combining intelligent product platforms with expert strategic services. We help modern brands build integrated ecosystems that scale with purpose through products, branding, web development, app development, and performance marketing." />
             </motion.p>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.3 }}>
               <Link href="/contact" className="btn-primary text-sm">
@@ -110,9 +111,9 @@ export default function About() {
           </FadeIn>
           <FadeIn delay={0.1}>
              <div className="space-y-4 text-[#8A9AB0] text-sm leading-relaxed">
-              <p>We decided to build something different. An integrated ecosystem of intelligent products and strategic services that work seamlessly together. Too many businesses juggle disconnected tools while growth opportunities slip through the cracks.</p>
-              <p>Since then we have helped clients engineer over <strong className="text-white">₹15 Crore in growth outcomes</strong>, serving brands ranging from McKinsey-grade enterprises to bootstrapped D2C founders. We built a reputation in Bengaluru for one thing: measurable results through integrated solutions.</p>
-              <p>We are based in Vijayanagar, Bengaluru. We are not a 500-person agency. We are a focused team of product builders and strategists who believe that the right system, implemented with purpose, creates compounding advantages.</p>
+              <p><InternalTextLink text="We decided to build something different. An integrated ecosystem of intelligent products and strategic services that work seamlessly together. Too many businesses juggle disconnected tools while growth opportunities slip through the cracks." /></p>
+              <p>Since then we have helped clients engineer over <strong className="text-white">₹15 Crore in growth outcomes</strong>, serving brands ranging from McKinsey-grade enterprises to bootstrapped D2C founders. <InternalTextLink text="We built a reputation in Bengaluru for measurable results through Treva CRM, web development, branding, and performance marketing." /></p>
+              <p><InternalTextLink text="We are based in Vijayanagar, Bengaluru. We are not a 500-person agency. We are a focused team of product builders and strategists who believe that the right system, implemented with purpose, creates compounding advantages." /></p>
             </div>
           </FadeIn>
         </div>
@@ -133,7 +134,9 @@ export default function About() {
               <FadeIn key={title} delay={i * 0.1} className="h-full">
                 <div className="bg-[#080C10] border border-[rgba(41,200,213,0.1)] rounded-2xl p-6 card-glow flex flex-col h-full" style={{ minHeight: '180px' }}>
                   <h3 className="font-700 text-white text-base mb-3">{title}</h3>
-                  <p className="text-[#8A9AB0] text-sm leading-relaxed flex-grow">{desc}</p>
+                  <p className="text-[#8A9AB0] text-sm leading-relaxed flex-grow">
+                    <InternalTextLink text={desc} />
+                  </p>
                 </div>
               </FadeIn>
             ))}
@@ -158,7 +161,9 @@ export default function About() {
                   <CheckCircle size={18} className="text-[#29C8D5] mt-0.5 shrink-0" />
                   <div>
                     <h3 className="font-700 text-white text-sm mb-1.5">{title}</h3>
-                    <p className="text-[#8A9AB0] text-sm leading-relaxed">{desc}</p>
+                    <p className="text-[#8A9AB0] text-sm leading-relaxed">
+                      <InternalTextLink text={desc} />
+                    </p>
                   </div>
                 </div>
               </FadeIn>

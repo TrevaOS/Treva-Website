@@ -48,6 +48,24 @@ function SectionLabel({ children }) {
   );
 }
 
+function ScrollWord({ word, index, total, accent, progress }) {
+  const start = index / total;
+  const end = Math.min((index + 1.2) / total, 1);
+  const opacity = useTransform(progress, [start, end], [0.15, 1]);
+  const startColor = accent ? '#c5eef2' : '#d1d5db';
+  const endColor = accent ? '#29C8D5' : '#111827';
+  const color = useTransform(progress, [start, end], [startColor, endColor]);
+
+  return (
+    <motion.span
+      style={{ opacity, color }}
+      className="mr-[0.18em] inline-block"
+    >
+      {word}
+    </motion.span>
+  );
+}
+
 /* ── Scroll-lock word-by-word headline ─────────────────────────── */
 /*
    The outer section is tall (600vh) so the page content scrolls through it.
@@ -76,20 +94,15 @@ function ScrollHeadline() {
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-[clamp(2rem,4.5vw,4rem)] font-black leading-tight tracking-tight">
             {words.map((word, i) => {
-              const start = i / words.length;
-              const end = Math.min((i + 1.2) / words.length, 1);
-              const opacity = useTransform(scrollYProgress, [start, end], [0.15, 1]);
-              const color = accentIdx.has(i)
-                ? useTransform(scrollYProgress, [start, end], ['#c5eef2', '#29C8D5'])
-                : useTransform(scrollYProgress, [start, end], ['#d1d5db', '#111827']);
               return (
-                <motion.span
+                <ScrollWord
                   key={i}
-                  style={{ opacity, color }}
-                  className="mr-[0.18em] inline-block"
-                >
-                  {word}
-                </motion.span>
+                  word={word}
+                  index={i}
+                  total={words.length}
+                  accent={accentIdx.has(i)}
+                  progress={scrollYProgress}
+                />
               );
             })}
           </p>

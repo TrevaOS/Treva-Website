@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import SEOHead from '../../components/SEOHead';
+import InternalTextLink from '../../components/InternalTextLink';
 import { products } from '../../data/products';
 
 function FadeIn({ children, delay = 0, className = '' }) {
@@ -61,7 +62,7 @@ export default function Products() {
         <div className="mx-auto max-w-7xl space-y-8 px-6">
           {products.map(({ slug, image, name, tagline, desc, status, color, features, ctaLabel, ctaHref, external, imageClassName, detailLabel, detailHref }, i) => (
             <FadeIn key={slug} delay={i * 0.08}>
-              <div className="card-glow overflow-hidden rounded-2xl border border-[rgba(41,200,213,0.1)] bg-[#080C10]">
+              <div id={slug} className="card-glow scroll-mt-28 overflow-hidden rounded-2xl border border-[rgba(41,200,213,0.1)] bg-[#080C10]">
                 <div className="grid gap-0 lg:grid-cols-2">
                   <div className="relative min-h-[260px] overflow-hidden bg-[#0D1117] sm:min-h-[320px]">
                     <img
@@ -85,7 +86,9 @@ export default function Products() {
                       {name}
                     </p>
                     <h3 className="mb-3 text-2xl font-black text-white">{tagline}</h3>
-                    <p className="mb-8 text-sm leading-relaxed text-[#8A9AB0]">{desc}</p>
+                    <p className="mb-8 text-sm leading-relaxed text-[#8A9AB0]">
+                      <InternalTextLink text={desc} />
+                    </p>
 
                     <h4 className="mb-4 text-sm font-600 uppercase tracking-wider text-white">Key Features</h4>
                     <div className="mb-8 grid grid-cols-1 gap-2 sm:grid-cols-2">

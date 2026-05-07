@@ -1,9 +1,9 @@
-import { useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
 import { ArrowUpRight, Clock, Search } from 'lucide-react';
 import SEOHead from '../../components/SEOHead';
-import { blogPosts } from '../../data/blogData';
+import { blogContent, blogPosts } from '../../data/blogData';
 
 function FadeIn({ children, delay = 0, className = '' }) {
   const ref = useRef(null);
@@ -24,8 +24,28 @@ const tagColors = {
   'Web & Design': 'bg-[rgba(41,200,213,0.1)] text-[#29C8D5] border-[rgba(41,200,213,0.2)]',
 };
 
+const blogHref = (slug) => `/blog/${slug}`;
+const blogExportHref = (slug, hash = '') => `/blog/${slug}.html${hash}`;
+
 export default function Blog() {
   const [featured, ...rest] = blogPosts;
+  const [faqSearch, setFaqSearch] = useState('');
+  const blogFaqs = useMemo(() => blogPosts.flatMap((post) =>
+    (blogContent[post.slug]?.faqs || []).map((faq) => ({ ...faq, post }))
+  ), []);
+  const filteredFaqs = useMemo(() => {
+    const search = faqSearch.trim().toLowerCase();
+    const results = search
+      ? blogFaqs.filter(({ question, answer, post }) =>
+          question.toLowerCase().includes(search) ||
+          answer.toLowerCase().includes(search) ||
+          post.title.toLowerCase().includes(search) ||
+          post.tag.toLowerCase().includes(search)
+        )
+      : blogFaqs;
+
+    return results.slice(0, 6);
+  }, [blogFaqs, faqSearch]);
 
   return (
     <>
@@ -64,7 +84,8 @@ export default function Blog() {
           {/* Featured Post */}
           <FadeIn className="mb-12">
             <Link
-              href={`/blog/${featured.slug}`}
+              href={blogHref(featured.slug)}
+              as={blogExportHref(featured.slug)}
               className="group block bg-[#080C10] border border-[rgba(41,200,213,0.12)] rounded-2xl overflow-hidden card-glow"
             >
               <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -108,7 +129,8 @@ export default function Blog() {
             {rest.map(({ slug, tag, title, excerpt, readTime, date, image }, i) => (
               <FadeIn key={slug} delay={i * 0.08}>
                 <Link
-                  href={`/blog/${slug}`}
+                  href={blogHref(slug)}
+                  as={blogExportHref(slug)}
                   className="group block bg-[#080C10] border border-[rgba(41,200,213,0.1)] rounded-2xl overflow-hidden card-glow h-full"
                 >
                   <div className="h-44 bg-[#0D1117] relative overflow-hidden">
@@ -169,6 +191,8 @@ export default function Blog() {
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8A9AB0]" size={18} />
                 <input
                   type="text"
+                  value={faqSearch}
+                  onChange={(event) => setFaqSearch(event.target.value)}
                   placeholder="Search all blog FAQs..."
                   className="w-full rounded-full border border-[rgba(41,200,213,0.2)] bg-[#080C10] py-3 pl-11 pr-5 text-white placeholder-[#8A9AB0] focus:border-[#29C8D5] focus:outline-none focus:ring-1 focus:ring-[#29C8D5] transition-all"
                 />
@@ -176,10 +200,11 @@ export default function Blog() {
             </div>
 
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              {blogPosts.slice(0, 4).map((post) => (
+              {filteredFaqs.map(({ question, answer, post }) => (
                 <Link
-                  key={post.slug}
-                  href={`/blog/${post.slug}#faq`}
+                  key={`${post.slug}-${question}`}
+                  href={`${blogHref(post.slug)}#faq`}
+                  as={blogExportHref(post.slug, '#faq')}
                   className="group rounded-2xl border border-[rgba(41,200,213,0.1)] bg-[#000000] p-6 text-left card-glow transition-all hover:border-[rgba(41,200,213,0.2)]"
                 >
                   <div className="mb-3 flex items-center gap-3">
@@ -187,10 +212,10 @@ export default function Blog() {
                     <span className="text-xs text-[#8A9AB0]">{post.readTime}</span>
                   </div>
                   <h3 className="mb-2 text-lg font-700 leading-tight text-white transition-colors group-hover:text-[#29C8D5]">
-                    {post.title}
+                    {question}
                   </h3>
                   <p className="line-clamp-2 text-sm text-[#8A9AB0]">
-                    {post.excerpt.substring(0, 120)}...
+                    {answer.substring(0, 140)}...
                   </p>
                   <span className="mt-3 inline-flex items-center gap-1 text-sm text-[#29C8D5] opacity-0 transition-opacity group-hover:opacity-100">
                     View FAQs <ArrowUpRight size={12} />
