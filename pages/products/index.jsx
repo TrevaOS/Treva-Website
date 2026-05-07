@@ -26,8 +26,8 @@ export default function Products() {
   return (
     <>
       <SEOHead
-        title="Products Treva OS, Treva Agent, Make My Cake & EAMS"
-        description="Explore Treva's product suite including the live Treva CRM and upcoming Treva OS, Treva Agent, Make My Cake, and Treva EAMS."
+        title="Products Treva CRM, Nimma GBA, Treva OS, Treva Agent & Make My Cake"
+        description="Explore Treva's product suite including the live Treva CRM and upcoming Nimma GBA, Treva OS, Treva Agent, Make My Cake, and Creator Hub."
         url="https://www.treva.in/products"
       />
 

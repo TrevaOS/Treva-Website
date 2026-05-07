@@ -6,6 +6,8 @@ const defaultLinks = [
   { text: 'Treva Agent', href: '/products/treva-agent' },
   { text: 'Treva OS', href: '/products/treva-os' },
   { text: 'Make My Cake', href: '/products/make-my-cake' },
+  { text: 'Nimma GBA', href: '/products/nimma-gba' },
+  { text: 'Sahavani', href: '/products/nimma-gba' },
   { text: 'Creator Hub', href: '/products#creator-hub' },
   { text: 'Branding', href: '/services#branding' },
   { text: 'Brand Identity Agency', href: '/services#branding' },

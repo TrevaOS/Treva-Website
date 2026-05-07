@@ -22,7 +22,7 @@ const footerLinks = {
     { label: 'Treva OS', href: '/products/treva-os' },
     { label: 'Treva Agent', href: '/products/treva-agent' },
     { label: 'Make My Cake', href: '/products/make-my-cake' },
-    { label: 'Treva EAMS', href: '/products/treva-eams' },
+    { label: 'Nimma GBA', href: '/products/nimma-gba' },
   ],
 };
 
