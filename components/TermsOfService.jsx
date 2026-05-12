@@ -22,7 +22,7 @@ const SECTIONS = [
   {
     id: 'scope', title: 'Scope & Acceptance', Icon: FileText,
     items: [
-      { heading: 'Who These Terms Apply To', body: 'These Terms govern your access to and use of all Treva platform modules — CRM, Restaurant, Ads, Creator Hub, and any modules added in the future. By creating an account or accessing the platform, you agree to be bound by these Terms.' },
+      { heading: 'Who These Terms Apply To', body: 'These Terms govern your access to and use of all Treva platform modules: CRM, Restaurant, Ads, Creator Hub, and any future modules. By creating an account or accessing the platform, you agree to be bound by these Terms.' },
       { heading: 'Organization Agreement', body: 'If you access Treva on behalf of an organization, you represent that you have authority to bind that organization to these Terms. "You" includes both the individual user and the organization they represent.' },
       { heading: 'Minimum Age', body: 'You must be at least 18 years of age with legal capacity to enter contracts under applicable law to use Treva.' },
     ],
@@ -114,8 +114,8 @@ const SECTIONS = [
   {
     id: 'contact', title: 'Contact', Icon: Mail,
     items: [
-      { heading: 'Legal & Compliance', body: 'info@treva.in (subject: Legal Notice) — for disputes, formal notices, or compliance questions.' },
-      { heading: 'Billing Queries', body: 'info@treva.in (subject: Billing) — for subscription and payment questions.' },
+      { heading: 'Legal & Compliance', body: 'info@treva.in (subject: Legal Notice), for disputes, formal notices, or compliance questions.' },
+      { heading: 'Billing Queries', body: 'info@treva.in (subject: Billing), for subscription and payment questions.' },
       { heading: 'Registered Address', body: 'Treva Technologies Pvt. Ltd., Bengaluru, Karnataka, India.' },
       { heading: 'Canonical URL', body: 'https://treva.in/terms-of-service' },
     ],

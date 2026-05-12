@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowUpRight, Instagram, Linkedin, Twitter, Facebook, Mail, Phone, MapPin } from 'lucide-react';
+import { Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
 const footerLinks = {
   Services: [
@@ -28,16 +28,16 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#050a0e] border-t border-[rgba(41,200,213,0.1)] relative overflow-hidden" style={{ background: 'linear-gradient(180deg, rgba(10, 30, 35, 0.8) 0%, rgba(5, 15, 20, 0.9) 50%, rgba(3, 8, 12, 0.95) 100%), #050a0c' }}>
+    <footer className="bg-gray-50 border-t border-gray-200 relative overflow-hidden">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4 group">
-              <img src="/treva-logo.png" alt="Treva" className="h-10 w-auto object-contain" />
+              <img src="/treva-logo-dark.png" alt="Treva" className="h-10 w-auto object-contain" />
             </Link>
-            <p className="text-[#8A9AB0] text-sm leading-relaxed mb-6 max-w-xs">
+            <p className="text-gray-500 text-sm leading-relaxed mb-6 max-w-xs">
               Where creativity meets technology. We help brands grow with strategy, design, and intelligent solutions.
             </p>
 
@@ -45,19 +45,19 @@ export default function Footer() {
             <div className="space-y-3 mb-6">
               <a
                 href="mailto:info@treva.in"
-                className="flex items-center gap-2 text-sm text-[#8A9AB0] hover:text-[#29C8D5] transition-colors"
+                className="flex items-center gap-2 text-sm text-gray-500 hover:text-[#29C8D5] transition-colors"
               >
                 <Mail size={14} className="text-[#29C8D5]" />
                 info@treva.in
               </a>
               <a
                 href="tel:+917022922526"
-                className="flex items-center gap-2 text-sm text-[#8A9AB0] hover:text-[#29C8D5] transition-colors"
+                className="flex items-center gap-2 text-sm text-gray-500 hover:text-[#29C8D5] transition-colors"
               >
                 <Phone size={14} className="text-[#29C8D5]" />
-                +91 70229 22526
+                +91 70229 22526
               </a>
-              <div className="flex items-start gap-2 text-sm text-[#8A9AB0]">
+              <div className="flex items-start gap-2 text-sm text-gray-500">
                 <MapPin size={14} className="text-[#29C8D5] mt-0.5 shrink-0" />
                 4, 2nd Floor, Tarang Complex, Attiguppe, Chandra Layout Main Rd, Vijayanagar, Bengaluru, Karnataka 560040
               </div>
@@ -67,7 +67,7 @@ export default function Footer() {
           {/* Links */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="text-white font-700 text-sm mb-4 uppercase tracking-wider">{title}</h4>
+              <h4 className="text-gray-900 font-700 text-sm mb-4 uppercase tracking-wider">{title}</h4>
               <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link.label}>
@@ -76,14 +76,14 @@ export default function Footer() {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#8A9AB0] text-sm hover:text-[#29C8D5] transition-colors"
+                        className="text-gray-500 text-sm hover:text-[#29C8D5] transition-colors"
                       >
                         {link.label}
                       </a>
                     ) : (
                       <Link
                         href={link.href}
-                        className="text-[#8A9AB0] text-sm hover:text-[#29C8D5] transition-colors"
+                        className="text-gray-500 text-sm hover:text-[#29C8D5] transition-colors"
                       >
                         {link.label}
                       </Link>
@@ -97,16 +97,16 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-[rgba(41,200,213,0.1)] py-6">
+      <div className="border-t border-gray-200 py-6">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-[#8A9AB0] text-sm">
+          <p className="text-gray-400 text-sm">
             © {new Date().getFullYear()} Treva. All rights reserved.
           </p>
 
           <div className="flex items-center gap-4 text-sm">
-            <a href="/privacy-policy" className="text-[#8A9AB0] hover:text-[#29C8D5] transition-colors">Privacy Policy</a>
-            <span className="text-[rgba(41,200,213,0.3)]">·</span>
-            <a href="/terms-of-service" className="text-[#8A9AB0] hover:text-[#29C8D5] transition-colors">Terms of Service</a>
+            <a href="/privacy-policy" className="text-gray-400 hover:text-[#29C8D5] transition-colors">Privacy Policy</a>
+            <span className="text-gray-300">·</span>
+            <a href="/terms-of-service" className="text-gray-400 hover:text-[#29C8D5] transition-colors">Terms of Service</a>
           </div>
 
           {/* Socials */}
@@ -121,7 +121,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="w-9 h-9 rounded-lg border border-[rgba(41,200,213,0.15)] flex items-center justify-center text-[#8A9AB0] hover:text-[#29C8D5] hover:border-[#29C8D5] transition-all"
+                className="w-9 h-9 rounded-lg border border-gray-200 flex items-center justify-center text-gray-400 hover:text-[#29C8D5] hover:border-[#29C8D5] transition-all"
               >
                 <Icon size={15} />
               </a>

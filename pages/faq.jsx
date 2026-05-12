@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
 import { ArrowUpRight, Search } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
-import InternalTextLink from '../components/InternalTextLink';
 
 function FadeIn({ children, delay = 0, className = '' }) {
   const ref = useRef(null);
@@ -152,22 +151,22 @@ export default function FAQPage() {
         }}
       />
 
-      <section className="relative overflow-hidden bg-[#000000] pb-16 pt-32">
+      <section className="relative overflow-hidden bg-white pb-16 pt-32">
         <div className="pointer-events-none absolute right-0 top-0 h-[380px] w-[420px]"
-          style={{ background: 'radial-gradient(circle, rgba(41,200,213,0.08), transparent 70%)' }} />
+          style={{ background: 'radial-gradient(circle, rgba(41,200,213,0.06), transparent 70%)' }} />
         <div className="mx-auto max-w-5xl px-6 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="mt-3 mb-6 font-black text-white"
+            className="mt-3 mb-6 font-black text-gray-900"
             style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', letterSpacing: '-0.03em' }}
           >
             Frequently Asked Questions About{' '}
             <span className="teal-gradient-text">Performance Marketing and Google Ads</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
-            className="mx-auto max-w-2xl text-xl text-[#8A9AB0]">
+            className="mx-auto max-w-2xl text-xl text-gray-500">
             Everything you need to know about Google Ads, ROAS, CPL, and working with Treva Bangalore's performance marketing agency.
           </motion.p>
           <motion.div
@@ -177,36 +176,34 @@ export default function FAQPage() {
             className="mx-auto mt-9 max-w-xl"
           >
             <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8A9AB0]" size={18} />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
               <input
                 type="text"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Search all FAQ questions..."
-                className="w-full rounded-full border border-[rgba(41,200,213,0.25)] bg-[#080C10] py-4 pl-12 pr-5 text-white placeholder-[#8A9AB0] outline-none transition-all focus:border-[#29C8D5] focus:ring-1 focus:ring-[#29C8D5]"
+                className="w-full rounded-full border border-gray-200 bg-white py-4 pl-12 pr-5 text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#29C8D5] focus:ring-1 focus:ring-[#29C8D5]"
               />
             </div>
           </motion.div>
         </div>
       </section>
 
-      <section className="bg-[#000000] py-16">
+      <section className="bg-gray-50 py-16">
         <div className="mx-auto max-w-5xl space-y-12 px-6">
           {filteredGroups.length === 0 ? (
-            <div className="rounded-2xl border border-[rgba(41,200,213,0.12)] bg-[#080C10] p-8 text-center text-[#8A9AB0]">
+            <div className="rounded-2xl border border-gray-100 bg-white p-8 text-center text-gray-400 shadow-sm">
               No questions match your search.
             </div>
           ) : filteredGroups.map((group, groupIndex) => (
             <FadeIn key={group.title} delay={groupIndex * 0.08}>
               <div>
-                <h2 className="mb-6 text-3xl font-black text-white">{group.title}</h2>
+                <h2 className="mb-6 text-3xl font-black text-gray-900">{group.title}</h2>
                 <div className="space-y-4">
                   {group.items.map((item) => (
-                    <div key={item.q} className="rounded-2xl border border-[rgba(41,200,213,0.12)] bg-[#080C10] p-6">
-                      <h3 className="mb-2 text-lg font-700 text-white">{item.q}</h3>
-                      <p className="text-sm leading-relaxed text-[#8A9AB0]">
-                        <InternalTextLink text={item.a} />
-                      </p>
+                    <div key={item.q} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+                      <h3 className="mb-2 text-lg font-semibold text-gray-900">{item.q}</h3>
+                      <p className="text-sm leading-relaxed text-gray-500">{item.a}</p>
                     </div>
                   ))}
                 </div>
@@ -216,15 +213,15 @@ export default function FAQPage() {
         </div>
       </section>
 
-      <section className="bg-[#080C10] py-16">
+      <section className="bg-white py-16">
         <div className="mx-auto max-w-2xl px-6 text-center">
           <FadeIn>
-            <h2 className="font-black text-white text-3xl mb-4">
+            <h2 className="font-black text-gray-900 text-3xl mb-4">
               Still Have Questions?{' '}
-              <span className="teal-gradient-text">Let's Talk.</span>
+              <span className="teal-gradient-text">Let&apos;s Talk.</span>
             </h2>
-            <p className="text-[#8A9AB0] mb-8">
-              Book a free 30-minute Google Ads audit call. We will review your account and answer every question you have no obligation.
+            <p className="text-gray-500 mb-8">
+              Book a free 30-minute Google Ads audit call. We will review your account and answer every question you have. No obligation.
             </p>
             <Link href="/contact" className="btn-primary">
               Claim My Free Audit <ArrowUpRight size={16} />

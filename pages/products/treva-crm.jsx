@@ -147,7 +147,7 @@ function FeatureTabs({ items }) {
                 onClick={() => setActive(i)}
                 className={`flex items-center gap-1.5 rounded-full border px-4 py-2 text-xs font-semibold transition-all ${
                   active === i
-                    ? 'border-gray-900 bg-gray-900 text-white'
+                    ? 'border-gray-900 bg-gray-900 text-gray-900'
                     : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'
                 }`}
               >
@@ -317,7 +317,7 @@ export default function TrevaCRM() {
           <div className="mb-1.5 text-[10px] font-bold uppercase tracking-wide text-gray-400">Setup steps</div>
           {['Create account', 'Configure org', 'Import contacts', 'Go live'].map((s, i) => (
             <div key={s} className="flex items-center gap-2 py-0.5 text-xs text-gray-600">
-              <span className={`flex h-4 w-4 items-center justify-center rounded-full text-[9px] font-bold ${i < 3 ? 'bg-[#29C8D5] text-white' : 'bg-gray-100 text-gray-400'}`}>{i + 1}</span>
+              <span className={`flex h-4 w-4 items-center justify-center rounded-full text-[9px] font-bold ${i < 3 ? 'bg-[#29C8D5] text-gray-900' : 'bg-gray-100 text-gray-400'}`}>{i + 1}</span>
               {s}
             </div>
           ))}
@@ -415,7 +415,7 @@ export default function TrevaCRM() {
           <FadeIn delay={0.14} className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-gray-800"
+              className="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-6 py-2.5 text-sm font-semibold text-gray-900 transition hover:bg-gray-800"
             >
               Get started it's free
               <ArrowUpRight size={15} />
@@ -482,7 +482,7 @@ export default function TrevaCRM() {
                   className="absolute bottom-6 right-6 z-10 rounded-xl bg-gray-900 p-3 shadow-lg"
                 >
                   <div className="text-[10px] font-bold text-[#7fe7ff]">Today</div>
-                  <div className="mt-1 flex items-center gap-1.5 text-xs font-semibold text-white">
+                  <div className="mt-1 flex items-center gap-1.5 text-xs font-semibold text-gray-900">
                     <CheckCircle2 size={12} className="text-[#29C8D5]" />
                     3 deals moved to won
                   </div>
@@ -711,7 +711,7 @@ export default function TrevaCRM() {
                 <div className="flex flex-col items-start justify-start gap-3 md:items-end">
                   <a
                     href="/contact"
-                    className="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-gray-800"
+                    className="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-6 py-2.5 text-sm font-semibold text-gray-900 transition hover:bg-gray-800"
                   >
                     Get started free
                     <ArrowUpRight size={14} />
@@ -741,7 +741,7 @@ export default function TrevaCRM() {
                 Free 
               </span>
             </div>
-            <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-tight tracking-tight text-white">
+            <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-tight tracking-tight text-gray-900">
               Your whole revenue team,<br />
               <span className="bg-gradient-to-r from-[#29C8D5] to-[#7fe7ff] bg-clip-text text-transparent">
                 in one workspace.
@@ -760,7 +760,7 @@ export default function TrevaCRM() {
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/15 px-7 py-3 text-sm font-semibold text-white transition hover:border-white/30"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/15 px-7 py-3 text-sm font-semibold text-gray-900 transition hover:border-white/30"
               >
                 Book a walkthrough
                 <ChevronRight size={15} />

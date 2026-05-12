@@ -47,7 +47,7 @@ export default function MakeMyCake() {
         url="https://www.treva.in/products/make-my-cake"
       />
 
-      <section className="pt-32 pb-20 bg-[#000000] relative overflow-hidden">
+      <section className="pt-32 pb-20 bg-white relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] pointer-events-none"
           style={{ background: `radial-gradient(ellipse, ${amber}0D, transparent 70%)` }} />
 
@@ -61,16 +61,16 @@ export default function MakeMyCake() {
              </motion.div>
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-black text-white mb-4"
+              className="font-black text-gray-900 mb-4"
               style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', letterSpacing: '-0.03em' }}>
               Make My <span style={{ background: `linear-gradient(135deg, ${amber}, #FBBF24)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Cake</span>
             </motion.h1>
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
-              className="text-[#8A9AB0] text-xl mb-3 font-500 italic">
+              className="text-gray-500 text-xl mb-3 font-500 italic">
               Artisan Cakes, Delivered to Your Door
             </motion.p>
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-              className="text-[#8A9AB0] text-base leading-relaxed mb-8 max-w-lg">
+              className="text-gray-500 text-base leading-relaxed mb-8 max-w-lg">
               We believe every occasion deserves a cake made with passion. Make My Cake connects
               you with talented local bakers who craft custom creations  just for you.
             </motion.p>
@@ -87,7 +87,7 @@ export default function MakeMyCake() {
           {/* App preview mock */}
           <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-[#080C10] rounded-2xl p-6 border"
+            className="bg-gray-50 rounded-2xl p-6 border"
             style={{ borderColor: `${amber}20` }}>
             <div className="text-center mb-4">
               <span className="text-xs font-600 uppercase tracking-widest" style={{ color: amber }}>
@@ -100,21 +100,21 @@ export default function MakeMyCake() {
                 { name: 'The Cake Lab', rating: '4.8', orders: '189 orders', specialty: 'Custom Character Cakes', price: 'From ₹650' },
                 { name: 'Melt & Mix', rating: '4.7', orders: '156 orders', specialty: 'Eggless & Vegan', price: 'From ₹550' },
               ].map(({ name, rating, orders, specialty, price }) => (
-                <div key={name} className="bg-[#0D1117] rounded-xl p-4 flex items-center gap-4">
+                <div key={name} className="bg-gray-100 rounded-xl p-4 flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
                     style={{ background: `${amber}10`, border: `1px solid ${amber}20` }}>
                     <Cake size={20} style={{ color: amber }} />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="text-white font-600 text-sm truncate">{name}</div>
-                    <div className="text-[#8A9AB0] text-xs">{specialty}</div>
+                    <div className="text-gray-500 text-xs">{specialty}</div>
                   </div>
                   <div className="text-right shrink-0">
                     <div className="flex items-center gap-1 justify-end mb-1">
                       <Star size={10} style={{ color: amber, fill: amber }} />
                       <span className="text-white text-xs font-600">{rating}</span>
                     </div>
-                    <div className="text-[#8A9AB0] text-xs">{price}</div>
+                    <div className="text-gray-500 text-xs">{price}</div>
                   </div>
                 </div>
               ))}
@@ -123,23 +123,23 @@ export default function MakeMyCake() {
         </div>
       </section>
 
-      <section className="py-20 bg-[#080C10]">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-14">
-            <h2 className="font-black text-white mt-2 text-3xl md:text-4xl">
+            <h2 className="font-black text-gray-900 mt-2 text-3xl md:text-4xl">
               How <span style={{ background: `linear-gradient(135deg, ${amber}, #FBBF24)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>It Works</span>
             </h2>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {features.map(({ icon: Icon, title, desc }, i) => (
               <FadeIn key={title} delay={i * 0.08}>
-                <div className="bg-[#000000] rounded-2xl p-7 card-glow border" style={{ borderColor: `${amber}10` }}>
+                <div className="bg-white rounded-2xl p-7 card-glow border" style={{ borderColor: `${amber}10` }}>
                   <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4"
                     style={{ background: `${amber}10`, border: `1px solid ${amber}20` }}>
                     <Icon size={20} style={{ color: amber }} />
                   </div>
-                  <h3 className="font-700 text-white text-lg mb-2">{title}</h3>
-                  <p className="text-[#8A9AB0] text-sm leading-relaxed">{desc}</p>
+                  <h3 className="font-700 text-gray-900 text-lg mb-2">{title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -147,14 +147,14 @@ export default function MakeMyCake() {
         </div>
       </section>
 
-      <section id="waitlist" className="py-20 bg-[#000000]">
+      <section id="waitlist" className="py-20 bg-white">
         <div className="max-w-2xl mx-auto px-6">
           <FadeIn>
-            <div className="bg-[#080C10] rounded-2xl p-10 text-center border" style={{ borderColor: `${amber}20` }}>
-              <h2 className="font-black text-white text-3xl mb-3">
+            <div className="bg-gray-50 rounded-2xl p-10 text-center border" style={{ borderColor: `${amber}20` }}>
+              <h2 className="font-black text-gray-900 text-3xl mb-3">
                 Be First on <span style={{ background: `linear-gradient(135deg, ${amber}, #FBBF24)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Make My Cake</span>
               </h2>
-              <p className="text-[#8A9AB0] mb-8">Join as a customer or baker  early members get exclusive launch perks.</p>
+              <p className="text-gray-500 mb-8">Join as a customer or baker  early members get exclusive launch perks.</p>
               {isSubmitSuccessful ? (
                 <div className="flex flex-col items-center gap-3">
                   <CheckCircle size={40} style={{ color: amber }} />
@@ -164,7 +164,7 @@ export default function MakeMyCake() {
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3" noValidate>
                   <div className="flex flex-col sm:flex-row gap-3">
                     <input {...register('email', { required: true })} type="email" placeholder="Enter your email"
-                      className="flex-1 bg-[#0D1117] rounded-lg px-4 py-3 text-white text-sm placeholder-[#4A5568] focus:outline-none transition-colors border"
+                      className="flex-1 bg-gray-100 rounded-lg px-4 py-3 text-gray-900 text-sm placeholder-[#4A5568] focus:outline-none transition-colors border"
                       style={{ borderColor: `${amber}20` }} />
                     <button type="submit" className="btn-primary whitespace-nowrap" style={{ background: amber, color: '#000' }}>
                       Join Waitlist <ArrowUpRight size={14} />

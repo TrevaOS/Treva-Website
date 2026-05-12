@@ -11,7 +11,7 @@ export default function NotFound() {
         description="The page you're looking for doesn't exist. Head back to Treva's homepage."
         url="https://www.treva.in/404"
       />
-      <section className="min-h-screen bg-[#000000] flex items-center justify-center relative overflow-hidden">
+      <section className="min-h-screen bg-white flex items-center justify-center relative overflow-hidden">
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] pointer-events-none"
           style={{ background: 'radial-gradient(ellipse, rgba(41,200,213,0.07), transparent 70%)' }}
@@ -28,10 +28,10 @@ export default function NotFound() {
             >
               404
             </div>
-            <h1 className="font-black text-white text-2xl md:text-3xl mb-4" style={{ letterSpacing: '-0.02em' }}>
+            <h1 className="font-black text-gray-900 text-2xl md:text-3xl mb-4" style={{ letterSpacing: '-0.02em' }}>
               Page Not Found
             </h1>
-            <p className="text-[#8A9AB0] text-base leading-relaxed mb-10">
+            <p className="text-gray-500 text-base leading-relaxed mb-10">
               Looks like this page took a wrong turn. Let's get you back on track.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

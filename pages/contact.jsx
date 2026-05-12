@@ -56,7 +56,7 @@ export default function Contact() {
       />
 
       {/* Hero fits viewport, no em-dash, no "free" push */}
-       <section className="pt-28 pb-12 bg-[#000000] relative overflow-hidden">
+       <section className="pt-28 pb-12 bg-white relative overflow-hidden">
         <div className="absolute top-0 left-0 w-[400px] h-[400px] pointer-events-none"
           style={{ background: 'radial-gradient(circle, rgba(41,200,213,0.06), transparent 70%)' }} />
         <div className="max-w-7xl mx-auto px-6 text-center">
@@ -64,28 +64,28 @@ export default function Contact() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-black text-white mt-3 mb-5"
+            className="font-black text-gray-900 mt-3 mb-5"
             style={{ fontSize: 'clamp(2rem, 4vw, 3.4rem)', letterSpacing: '-0.03em' }}
           >
             Get Your Google Ads Audit.{' '}
             <span className="teal-gradient-text">No Charge. No Obligation.</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
-            className="text-[#8A9AB0] text-base max-w-xl mx-auto">
+            className="text-gray-500 text-base max-w-xl mx-auto">
             We audit your Google Ads account, identify where budget is being wasted and give you a concrete roadmap to hit your CPL or ROAS targets.
           </motion.p>
         </div>
       </section>
 
       {/* Contact Info + Form issue #8: form on left, info+map on right */}
-      <section className="py-12 bg-[#000000]">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
 
             {/* Info moved to right via order-last on desktop */}
             <div className="lg:col-span-2 space-y-5 lg:order-last">
               <FadeIn>
-                <h2 className="font-800 text-white text-lg mb-3">What You Get in the Audit</h2>
+                <h2 className="font-800 text-gray-900 text-lg mb-3">What You Get in the Audit</h2>
                 <div className="space-y-2 mt-3">
                   {[
                     'Complete keyword waste analysis. Where you are paying for irrelevant clicks.',
@@ -96,19 +96,19 @@ export default function Contact() {
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-2">
                       <span className="text-[#29C8D5] mt-0.5 shrink-0 text-xs">✓</span>
-                      <p className="text-[#8A9AB0] text-sm leading-relaxed">{item}</p>
+                      <p className="text-gray-500 text-sm leading-relaxed">{item}</p>
                     </div>
                   ))}
                 </div>
                 <div className="mt-5 pt-5 border-t border-[rgba(41,200,213,0.1)]">
-                  <h3 className="text-white font-700 text-sm mb-2">What Happens After You Submit</h3>
+                  <h3 className="text-gray-900 font-700 text-sm mb-2">What Happens After You Submit</h3>
                   <div className="space-y-1.5">
                     {[
                       'Step 1: We respond within 4 business hours',
                       'Step 2: 30-minute discovery call to understand your goals',
                       'Step 3: You receive your audit report within 48 hours',
                     ].map((step, i) => (
-                      <p key={i} className="text-[#8A9AB0] text-xs leading-relaxed">{step}</p>
+                      <p key={i} className="text-gray-500 text-xs leading-relaxed">{step}</p>
                     ))}
                   </div>
                 </div>
@@ -121,16 +121,16 @@ export default function Contact() {
                 { Icon: Clock, label: 'Working Hours', value: 'Mon to Fri, 9AM to 6PM IST', href: null },
               ].map(({ Icon, label, value, href }, i) => (
                 <FadeIn key={label} delay={i * 0.08}>
-                  <div className="bg-[#080C10] border border-[rgba(41,200,213,0.1)] rounded-xl p-5 flex gap-4 items-start card-glow">
-                    <div className="w-10 h-10 rounded-lg bg-[rgba(41,200,213,0.08)] border border-[rgba(41,200,213,0.15)] flex items-center justify-center shrink-0">
+                  <div className="bg-white border border-[rgba(41,200,213,0.1)] rounded-xl p-5 flex gap-4 items-start card-glow">
+                    <div className="w-10 h-10 rounded-lg bg-[rgba(41,200,213,0.08)] border border-gray-200 flex items-center justify-center shrink-0">
                       <Icon size={16} className="text-[#29C8D5]" />
                     </div>
                     <div>
-                      <p className="text-[#8A9AB0] text-xs mb-1">{label}</p>
+                      <p className="text-gray-500 text-xs mb-1">{label}</p>
                       {href && href !== '#' ? (
-                        <a href={href} className="text-white text-sm font-600 hover:text-[#29C8D5] transition-colors">{value}</a>
+                        <a href={href} className="text-gray-900 text-sm font-600 hover:text-[#29C8D5] transition-colors">{value}</a>
                       ) : (
-                        <p className="text-white text-sm font-500">{value}</p>
+                        <p className="text-gray-900 text-sm font-500">{value}</p>
                       )}
                     </div>
                   </div>
@@ -147,8 +147,8 @@ export default function Contact() {
                 >
                   <MessageSquare size={20} className="text-[#25D366]" />
                   <div>
-                    <p className="text-white text-sm font-600">Chat on WhatsApp</p>
-                    <p className="text-[#8A9AB0] text-xs">Fastest way to reach us</p>
+                    <p className="text-gray-900 text-sm font-600">Chat on WhatsApp</p>
+                    <p className="text-gray-500 text-xs">Fastest way to reach us</p>
                   </div>
                   <ArrowUpRight size={14} className="text-[#25D366] ml-auto" />
                 </a>
@@ -173,9 +173,9 @@ export default function Contact() {
 
             {/* Form */}
             <FadeIn className="lg:col-span-3" delay={0.1}>
-              <div className="bg-[#080C10] border border-[rgba(41,200,213,0.12)] rounded-2xl p-8 md:p-10">
-                <h2 className="font-800 text-white text-2xl mb-2">Book Your Google Ads Audit</h2>
-                <p className="text-[#8A9AB0] text-sm mb-8">
+              <div className="bg-white border border-gray-100 rounded-2xl p-8 md:p-10">
+                <h2 className="font-800 text-gray-900 text-2xl mb-2">Book Your Google Ads Audit</h2>
+                <p className="text-gray-500 text-sm mb-8">
                   Fill in the form and we will respond within 4 business hours.
                 </p>
 
@@ -184,27 +184,27 @@ export default function Contact() {
                     <div className="w-16 h-16 rounded-full bg-[rgba(41,200,213,0.1)] border border-[#29C8D5] flex items-center justify-center mx-auto mb-4">
                       <Send size={24} className="text-[#29C8D5]" />
                     </div>
-                    <h3 className="text-white font-700 text-xl mb-2">Message Sent!</h3>
-                    <p className="text-[#8A9AB0] text-sm">We'll be in touch within 24 hours.</p>
+                    <h3 className="text-gray-900 font-700 text-xl mb-2">Message Sent!</h3>
+                    <p className="text-gray-500 text-sm">We'll be in touch within 24 hours.</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div>
-                        <label className="block text-[#8A9AB0] text-xs font-600 mb-2 uppercase tracking-wider">First Name *</label>
+                        <label className="block text-gray-500 text-xs font-600 mb-2 uppercase tracking-wider">First Name *</label>
                         <input
                           {...register('firstName', { required: 'Required' })}
                           placeholder="Jane"
-                          className={`w-full bg-[#0D1117] border rounded-lg px-4 py-3 text-white text-sm placeholder-[#4A5568] focus:outline-none transition-colors ${errors.firstName ? 'border-red-500' : 'border-[rgba(41,200,213,0.15)] focus:border-[#29C8D5]'}`}
+                          className={`w-full bg-gray-50 border rounded-lg px-4 py-3 text-gray-900 text-sm placeholder-gray-400 focus:outline-none transition-colors ${errors.firstName ? 'border-red-500' : 'border-gray-200 focus:border-[#29C8D5]'}`}
                         />
                         {errors.firstName && <p className="text-red-400 text-xs mt-1">{errors.firstName.message}</p>}
                       </div>
                       <div>
-                        <label className="block text-[#8A9AB0] text-xs font-600 mb-2 uppercase tracking-wider">Last Name *</label>
+                        <label className="block text-gray-500 text-xs font-600 mb-2 uppercase tracking-wider">Last Name *</label>
                         <input
                           {...register('lastName', { required: 'Required' })}
                           placeholder="Smith"
-                          className={`w-full bg-[#0D1117] border rounded-lg px-4 py-3 text-white text-sm placeholder-[#4A5568] focus:outline-none transition-colors ${errors.lastName ? 'border-red-500' : 'border-[rgba(41,200,213,0.15)] focus:border-[#29C8D5]'}`}
+                          className={`w-full bg-gray-50 border rounded-lg px-4 py-3 text-gray-900 text-sm placeholder-gray-400 focus:outline-none transition-colors ${errors.lastName ? 'border-red-500' : 'border-gray-200 focus:border-[#29C8D5]'}`}
                         />
                         {errors.lastName && <p className="text-red-400 text-xs mt-1">{errors.lastName.message}</p>}
                       </div>
@@ -212,40 +212,40 @@ export default function Contact() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div>
-                        <label className="block text-[#8A9AB0] text-xs font-600 mb-2 uppercase tracking-wider">Email *</label>
+                        <label className="block text-gray-500 text-xs font-600 mb-2 uppercase tracking-wider">Email *</label>
                         <input
                           {...register('email', { required: 'Required', pattern: { value: /\S+@\S+\.\S+/, message: 'Invalid email' } })}
                           type="email"
                           placeholder="jane@company.com"
-                          className={`w-full bg-[#0D1117] border rounded-lg px-4 py-3 text-white text-sm placeholder-[#4A5568] focus:outline-none transition-colors ${errors.email ? 'border-red-500' : 'border-[rgba(41,200,213,0.15)] focus:border-[#29C8D5]'}`}
+                          className={`w-full bg-gray-50 border rounded-lg px-4 py-3 text-gray-900 text-sm placeholder-gray-400 focus:outline-none transition-colors ${errors.email ? 'border-red-500' : 'border-gray-200 focus:border-[#29C8D5]'}`}
                         />
                         {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email.message}</p>}
                       </div>
                       <div>
-                        <label className="block text-[#8A9AB0] text-xs font-600 mb-2 uppercase tracking-wider">Phone</label>
+                        <label className="block text-gray-500 text-xs font-600 mb-2 uppercase tracking-wider">Phone</label>
                         <input
                           {...register('phone')}
                           type="tel"
                           placeholder="+91 70229 22526"
-                          className="w-full bg-[#0D1117] border border-[rgba(41,200,213,0.15)] rounded-lg px-4 py-3 text-white text-sm placeholder-[#4A5568] focus:outline-none focus:border-[#29C8D5] transition-colors"
+                          className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:border-[#29C8D5] transition-colors"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-[#8A9AB0] text-xs font-600 mb-2 uppercase tracking-wider">Company Name</label>
+                      <label className="block text-gray-500 text-xs font-600 mb-2 uppercase tracking-wider">Company Name</label>
                       <input
                         {...register('company')}
                         placeholder="Your Company"
-                        className="w-full bg-[#0D1117] border border-[rgba(41,200,213,0.15)] rounded-lg px-4 py-3 text-white text-sm placeholder-[#4A5568] focus:outline-none focus:border-[#29C8D5] transition-colors"
+                        className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:border-[#29C8D5] transition-colors"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[#8A9AB0] text-xs font-600 mb-2 uppercase tracking-wider">Service Interested In *</label>
+                      <label className="block text-gray-500 text-xs font-600 mb-2 uppercase tracking-wider">Service Interested In *</label>
                       <select
                         {...register('service', { required: 'Please select a service' })}
-                        className={`w-full bg-[#0D1117] border rounded-lg px-4 py-3 text-white text-sm focus:outline-none transition-colors appearance-none ${errors.service ? 'border-red-500' : 'border-[rgba(41,200,213,0.15)] focus:border-[#29C8D5]'}`}
+                        className={`w-full bg-gray-50 border rounded-lg px-4 py-3 text-gray-900 text-sm focus:outline-none transition-colors appearance-none ${errors.service ? 'border-red-500' : 'border-gray-200 focus:border-[#29C8D5]'}`}
                       >
                         <option value="">Select a service…</option>
                         {services.map((s) => <option key={s} value={s}>{s}</option>)}
@@ -255,32 +255,32 @@ export default function Contact() {
 
                     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                       <div>
-                        <label className="block text-[#8A9AB0] text-xs font-600 mb-2 uppercase tracking-wider">Product Interested In</label>
+                        <label className="block text-gray-500 text-xs font-600 mb-2 uppercase tracking-wider">Product Interested In</label>
                         <select
                           {...register('product')}
-                          className="w-full appearance-none rounded-lg border border-[rgba(41,200,213,0.15)] bg-[#0D1117] px-4 py-3 text-sm text-white transition-colors focus:border-[#29C8D5] focus:outline-none"
+                          className="w-full appearance-none rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 transition-colors focus:border-[#29C8D5] focus:outline-none"
                         >
                           <option value="">Select a product...</option>
                           {products.map((product) => <option key={product} value={product}>{product}</option>)}
                         </select>
                       </div>
                       <div>
-                        <label className="block text-[#8A9AB0] text-xs font-600 mb-2 uppercase tracking-wider">Product Details Needed</label>
+                        <label className="block text-gray-500 text-xs font-600 mb-2 uppercase tracking-wider">Product Details Needed</label>
                         <input
                           {...register('productDetails')}
                           placeholder="Demo, pricing, free CRM access, setup help..."
-                          className="w-full rounded-lg border border-[rgba(41,200,213,0.15)] bg-[#0D1117] px-4 py-3 text-sm text-white placeholder-[#4A5568] transition-colors focus:border-[#29C8D5] focus:outline-none"
+                          className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 placeholder-gray-400 transition-colors focus:border-[#29C8D5] focus:outline-none"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-[#8A9AB0] text-xs font-600 mb-2 uppercase tracking-wider">Message *</label>
+                      <label className="block text-gray-500 text-xs font-600 mb-2 uppercase tracking-wider">Message *</label>
                       <textarea
                         {...register('message', { required: 'Please tell us about your project' })}
                         rows={4}
                         placeholder="Tell us about your project, goals, and timeline…"
-                        className={`w-full bg-[#0D1117] border rounded-lg px-4 py-3 text-white text-sm placeholder-[#4A5568] focus:outline-none transition-colors resize-none ${errors.message ? 'border-red-500' : 'border-[rgba(41,200,213,0.15)] focus:border-[#29C8D5]'}`}
+                        className={`w-full bg-gray-50 border rounded-lg px-4 py-3 text-gray-900 text-sm placeholder-gray-400 focus:outline-none transition-colors resize-none ${errors.message ? 'border-red-500' : 'border-gray-200 focus:border-[#29C8D5]'}`}
                       />
                       {errors.message && <p className="text-red-400 text-xs mt-1">{errors.message.message}</p>}
                     </div>

@@ -13,15 +13,15 @@ export default function ReelCarousel() {
   const reels = instagramReels;
 
   return (
-    <section className="py-8 bg-[#000000]">
+    <section className="py-8 bg-white">
       <div className="max-w-7xl mx-auto px-4">
-        <h3 className="font-black text-white mb-4 text-center"
+        <h3 className="font-black text-gray-900 mb-4 text-center"
           style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)', letterSpacing: '-0.02em' }}>
           Our <span className="teal-gradient-text">Work</span>
         </h3>
 
         <div className="relative max-w-[320px] mx-auto">
-          <div className="aspect-[9/16] bg-[#080C10] rounded-lg overflow-hidden border border-[rgba(41,200,213,0.15)]">
+          <div className="aspect-[9/16] bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
             <iframe
               key={current}
               src={`https://www.instagram.com/reel/${reels[current].id}/embed`}
@@ -32,8 +32,8 @@ export default function ReelCarousel() {
               title={reels[current].caption}
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-2.5 pointer-events-none">
-              <p className="text-white text-xs font-medium">{reels[current].caption}</p>
-              <p className="text-[#8A9AB0] text-xs mt-0.5">{reels[current].author}</p>
+              <p className="text-gray-900 text-xs font-medium">{reels[current].caption}</p>
+              <p className="text-gray-500 text-xs mt-0.5">{reels[current].author}</p>
             </div>
           </div>
 
@@ -68,7 +68,7 @@ export default function ReelCarousel() {
           ))}
         </div>
 
-        <p className="text-center text-[#8A9AB0] text-xs mt-1.5">
+        <p className="text-center text-gray-500 text-xs mt-1.5">
           {current + 1} / {reels.length}
         </p>
       </div>

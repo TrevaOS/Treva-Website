@@ -47,7 +47,7 @@ export default function TrevaAgent() {
         url="https://www.treva.in/products/treva-agent"
       />
 
-      <section className="pt-32 pb-20 bg-[#000000] relative overflow-hidden">
+      <section className="pt-32 pb-20 bg-white relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] pointer-events-none"
           style={{ background: 'radial-gradient(ellipse, rgba(124,58,237,0.06), transparent 70%)' }} />
 
@@ -60,16 +60,16 @@ export default function TrevaAgent() {
              </motion.div>
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-black text-white mb-4"
+              className="font-black text-gray-900 mb-4"
               style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', letterSpacing: '-0.03em' }}>
               Treva <span style={{ background: 'linear-gradient(135deg, #7C3AED, #A78BFA)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Agent</span>
             </motion.h1>
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
-              className="text-[#8A9AB0] text-xl mb-3 font-500 italic">
+              className="text-gray-500 text-xl mb-3 font-500 italic">
               Your 24/7 Autonomous Marketing Agent
             </motion.p>
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-              className="text-[#8A9AB0] text-base leading-relaxed mb-8 max-w-lg">
+              className="text-gray-500 text-base leading-relaxed mb-8 max-w-lg">
               Imagine a marketing team member who never sleeps. Treva Agent qualifies leads, pauses
               underperforming ads, sends follow-ups, and books meetings  completely autonomously.
             </motion.p>
@@ -83,7 +83,7 @@ export default function TrevaAgent() {
           {/* Activity feed mock */}
           <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-[#080C10] border border-purple-500/15 rounded-2xl p-6 relative overflow-hidden">
+            className="bg-gray-50 border border-purple-500/15 rounded-2xl p-6 relative overflow-hidden">
             <div className="text-purple-400 text-xs font-600 mb-4 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" /> AGENT ACTIVITY LOG
             </div>
@@ -95,13 +95,13 @@ export default function TrevaAgent() {
                 { time: '1h ago', action: 'Sent follow-up email sequence to 14 warm leads', type: 'info' },
                 { time: '2h ago', action: 'Launched creative variant B for Campaign #4', type: 'success' },
               ].map(({ time, action, type }) => (
-                <div key={action} className="flex gap-3 items-start p-3 bg-[#0D1117] rounded-lg">
+                <div key={action} className="flex gap-3 items-start p-3 bg-gray-100 rounded-lg">
                   <div className={`w-2 h-2 rounded-full mt-1.5 shrink-0 ${
                     type === 'success' ? 'bg-green-400' : type === 'warning' ? 'bg-yellow-400' : 'bg-purple-400'
                   }`} />
                   <div>
                     <p className="text-white text-xs leading-relaxed">{action}</p>
-                    <span className="text-[#8A9AB0] text-xs">{time}</span>
+                    <span className="text-gray-500 text-xs">{time}</span>
                   </div>
                 </div>
               ))}
@@ -110,22 +110,22 @@ export default function TrevaAgent() {
         </div>
       </section>
 
-      <section className="py-20 bg-[#080C10]">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-14">
-            <h2 className="font-black text-white mt-2 text-3xl md:text-4xl">
+            <h2 className="font-black text-gray-900 mt-2 text-3xl md:text-4xl">
               What Treva Agent <span style={{ background: 'linear-gradient(135deg, #7C3AED, #A78BFA)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Does</span>
             </h2>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {features.map(({ icon: Icon, title, desc }, i) => (
               <FadeIn key={title} delay={i * 0.08}>
-                <div className="bg-[#000000] border border-purple-500/10 rounded-2xl p-7 hover:border-purple-500/25 transition-all">
+                <div className="bg-white border border-purple-500/10 rounded-2xl p-7 hover:border-purple-500/25 transition-all">
                   <div className="w-11 h-11 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-4">
                     <Icon size={20} className="text-purple-400" />
                   </div>
-                  <h3 className="font-700 text-white text-lg mb-2">{title}</h3>
-                  <p className="text-[#8A9AB0] text-sm leading-relaxed">{desc}</p>
+                  <h3 className="font-700 text-gray-900 text-lg mb-2">{title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -133,12 +133,12 @@ export default function TrevaAgent() {
         </div>
       </section>
 
-      <section id="waitlist" className="py-20 bg-[#000000]">
+      <section id="waitlist" className="py-20 bg-white">
         <div className="max-w-2xl mx-auto px-6">
           <FadeIn>
-            <div className="bg-[#080C10] border border-purple-500/20 rounded-2xl p-10 text-center">
-              <h2 className="font-black text-white text-3xl mb-3">Join the <span style={{ background: 'linear-gradient(135deg, #7C3AED, #A78BFA)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Agent</span> Waitlist</h2>
-              <p className="text-[#8A9AB0] mb-8">Get early access and founding member pricing when Treva Agent launches.</p>
+            <div className="bg-gray-50 border border-purple-500/20 rounded-2xl p-10 text-center">
+              <h2 className="font-black text-gray-900 text-3xl mb-3">Join the <span style={{ background: 'linear-gradient(135deg, #7C3AED, #A78BFA)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Agent</span> Waitlist</h2>
+              <p className="text-gray-500 mb-8">Get early access and founding member pricing when Treva Agent launches.</p>
               {isSubmitSuccessful ? (
                 <div className="flex flex-col items-center gap-3">
                   <CheckCircle size={40} className="text-purple-400" />
@@ -148,7 +148,7 @@ export default function TrevaAgent() {
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3" noValidate>
                   <div className="flex flex-col sm:flex-row gap-3">
                     <input {...register('email', { required: true })} type="email" placeholder="Enter your email"
-                      className="flex-1 bg-[#0D1117] border border-purple-500/15 rounded-lg px-4 py-3 text-white text-sm placeholder-[#4A5568] focus:outline-none focus:border-purple-500 transition-colors" />
+                      className="flex-1 bg-gray-100 border border-purple-500/15 rounded-lg px-4 py-3 text-gray-900 text-sm placeholder-[#4A5568] focus:outline-none focus:border-purple-500 transition-colors" />
                     <button type="submit" style={{ background: '#7C3AED' }} className="btn-primary whitespace-nowrap">
                       Join Waitlist <ArrowUpRight size={14} />
                     </button>

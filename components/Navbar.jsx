@@ -40,14 +40,14 @@ export default function Navbar() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-black/90 backdrop-blur-xl border-b border-[rgba(41,200,213,0.1)] ${
-          scrolled ? 'py-4' : 'py-6'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/95 backdrop-blur-xl border-b border-gray-200 ${
+          scrolled ? 'py-4 shadow-sm' : 'py-6'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-              <img src="/treva-logo.png" alt="Treva" className="h-9 w-auto object-contain" />
+            <img src="/treva-logo-dark.png" alt="Treva" className="h-9 w-auto object-contain" />
           </Link>
 
           {/* Desktop Nav */}
@@ -59,7 +59,7 @@ export default function Navbar() {
                 className={`text-base font-bold transition-colors duration-200 relative group ${
                   router.pathname === link.href
                     ? 'text-[#29C8D5]'
-                    : 'text-[#8A9AB0] hover:text-white'
+                    : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
                 {link.label}
@@ -82,7 +82,7 @@ export default function Navbar() {
           {/* Mobile Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden text-white p-2 rounded-lg border border-[rgba(41,200,213,0.2)] hover:border-[#29C8D5] transition-colors"
+            className="lg:hidden text-gray-700 p-2 rounded-lg border border-gray-200 hover:border-[#29C8D5] transition-colors"
             aria-label="Toggle Menu"
           >
             {mobileOpen ? <X size={20} /> : <Menu size={20} />}
@@ -98,7 +98,7 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
-            className="fixed inset-0 z-40 bg-[#000000] flex flex-col items-center justify-center gap-6 lg:hidden"
+            className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center gap-6 lg:hidden"
           >
             {navLinks.map((link, i) => (
               <motion.div
@@ -110,7 +110,7 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   className={`text-2xl font-700 transition-colors ${
-                    router.pathname === link.href ? 'text-[#29C8D5]' : 'text-white hover:text-[#29C8D5]'
+                    router.pathname === link.href ? 'text-[#29C8D5]' : 'text-gray-900 hover:text-[#29C8D5]'
                   }`}
                 >
                   {link.label}

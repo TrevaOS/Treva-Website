@@ -7,16 +7,16 @@
   --primary-teal: #29C8D5;
   --teal-dark: #1AA8B4;
   --teal-light: #5DD8E2;
-  --teal-glow: rgba(41, 200, 213, 0.15);
-  --teal-glow-md: rgba(41, 200, 213, 0.25);
-  --bg-black: #000000;
-  --bg-dark-1: #080C10;
-  --bg-dark-2: #0D1117;
-  --bg-card: #0F1520;
-  --text-white: #FFFFFF;
-  --text-grey: #8A9AB0;
-  --border-subtle: rgba(41, 200, 213, 0.12);
-  --border-active: rgba(41, 200, 213, 0.4);
+  --teal-glow: rgba(41, 200, 213, 0.12);
+  --teal-glow-md: rgba(41, 200, 213, 0.20);
+  --bg-black: #ffffff;
+  --bg-dark-1: #f5f7fa;
+  --bg-dark-2: #eef1f6;
+  --bg-card: #f0f4f8;
+  --text-white: #0d1117;
+  --text-grey: #5a6a80;
+  --border-subtle: rgba(41, 200, 213, 0.18);
+  --border-active: rgba(41, 200, 213, 0.45);
 }
 
 * {
@@ -31,8 +31,8 @@ html {
 
 body {
   font-family: 'Poppins', 'Gilroy', 'Satoshi', 'Helvetica Neue', sans-serif;
-  background-color: var(--bg-black);
-  color: var(--text-white);
+  background-color: #ffffff;
+  color: #0d1117;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -55,7 +55,7 @@ html, body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-dark-1);
+  background: #f0f4f8;
 }
 ::-webkit-scrollbar-thumb {
   background: var(--primary-teal);
@@ -67,18 +67,18 @@ html, body {
 
 /* Selection */
 ::selection {
-  background: rgba(41, 200, 213, 0.3);
-  color: #fff;
+  background: rgba(41, 200, 213, 0.25);
+  color: #0d1117;
 }
 
 /* Teal glow text */
 .teal-glow-text {
-  text-shadow: 0 0 30px rgba(41, 200, 213, 0.5);
+  text-shadow: 0 0 30px rgba(41, 200, 213, 0.4);
 }
 
 /* Teal gradient text */
 .teal-gradient-text {
-  background: linear-gradient(135deg, #29C8D5, #5DD8E2);
+  background: linear-gradient(135deg, #1AA8B4, #29C8D5);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -90,14 +90,9 @@ html, body {
   overflow: hidden;
   border-radius: 24px;
 
-  background: radial-gradient(
-    ellipse at bottom left,
-    rgba(41,200,213,0.30) 0%,
-    rgba(41,200,213,0.08) 40%,
-    #0D1117 70%
-  );
+  background: #ffffff;
 
-  border: 1px solid rgba(41,200,213,0.12);
+  border: 1px solid rgba(41,200,213,0.15);
   transition: all 0.35s ease;
 }
 .card-glow::before {
@@ -107,7 +102,7 @@ html, body {
   height: 320px;
   bottom: -120px;
   left: -120px;
-  background: radial-gradient(circle, rgba(41,200,213,0.25), transparent 70%);
+  background: radial-gradient(circle, rgba(41,200,213,0.1), transparent 70%);
   filter: blur(70px);
   pointer-events: none;
 }
@@ -116,24 +111,19 @@ html, body {
   position: absolute;
   width: 220px;
   height: 220px;
-  background: radial-gradient(circle, rgba(41,200,213,0.18), transparent 70%);
+  background: radial-gradient(circle, rgba(41,200,213,0.08), transparent 70%);
   pointer-events: none;
   border-radius: 50%;
   filter: blur(10px);
 }
 .card-glow:hover {
-  box-shadow: 0 12px 60px rgba(41,200,213,0.18);
-  border-color: rgba(41,200,213,0.35) !important;
+  box-shadow: 0 8px 40px rgba(41,200,213,0.12);
+  border-color: rgba(41,200,213,0.4) !important;
   transform: translateY(-4px);
 }
 .cta-glow-card {
-  background: radial-gradient(
-    ellipse at bottom left,
-    rgba(41,200,213,0.30) 0%,
-    rgba(41,200,213,0.08) 40%,
-    #0D1117 70%
-  );
-  border: 1px solid rgba(41,200,213,0.12);
+  background: #f5f9fa;
+  border: 1px solid rgba(41,200,213,0.15);
   border-radius: 24px;
   position: relative;
   overflow: hidden;
@@ -145,7 +135,7 @@ html, body {
   position: absolute;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  opacity: 0.04;
+  opacity: 0.03;
   pointer-events: none;
   z-index: 0;
 }
@@ -190,8 +180,9 @@ html, body {
 }
 
 .marquee-logo-card {
-  background: #ffffff;
+  background: #f5f7fa;
   flex: 0 0 auto;
+  border: 1px solid rgba(41,200,213,0.12);
 }
 
 @keyframes marquee {
@@ -216,7 +207,7 @@ html, body {
   gap: 0.5rem;
   padding: 14px 28px;
   background: var(--primary-teal);
-  color: #000;
+  color: #fff;
   font-weight: 700;
   font-size: 0.875rem;
   letter-spacing: 0.05em;
@@ -228,8 +219,8 @@ html, body {
   text-decoration: none;
 }
 .btn-primary:hover {
-  background: var(--teal-light);
-  box-shadow: 0 0 30px rgba(41, 200, 213, 0.4);
+  background: var(--teal-dark);
+  box-shadow: 0 0 30px rgba(41, 200, 213, 0.3);
   transform: translateY(-2px);
 }
 
@@ -239,13 +230,13 @@ html, body {
   gap: 0.5rem;
   padding: 13px 28px;
   background: transparent;
-  color: #fff;
+  color: #0d1117;
   font-weight: 600;
   font-size: 0.875rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(13,17,23,0.25);
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
@@ -263,14 +254,14 @@ html, body {
 }
 
 .internal-text-link:hover {
-  color: var(--teal-light);
+  color: var(--teal-dark);
 }
 
 /* Grid background */
 .grid-bg {
-  background-image: 
-    linear-gradient(rgba(41,200,213,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(41,200,213,0.03) 1px, transparent 1px);
+  background-image:
+    linear-gradient(rgba(41,200,213,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(41,200,213,0.05) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -282,7 +273,7 @@ html, body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.98);
+    background: rgba(255, 255, 255, 0.98);
     z-index: 100;
     display: flex;
     flex-direction: column;
@@ -291,7 +282,7 @@ html, body {
     gap: 2rem;
   }
 }
-/* Testomonial */
+/* Testimonial */
 .testimonial-card::after {
   display: none;
 }
@@ -308,8 +299,8 @@ html, body {
 .crm-live-banner {
   position: relative;
   background:
-    radial-gradient(circle at top left, rgba(41, 200, 213, 0.22), transparent 42%),
-    linear-gradient(145deg, rgba(8, 12, 16, 0.98), rgba(13, 17, 23, 0.98));
+    radial-gradient(circle at top left, rgba(41, 200, 213, 0.12), transparent 42%),
+    linear-gradient(145deg, #f5f9fa, #eef4f6);
   border-color: rgba(41, 200, 213, 0.18);
   backdrop-filter: blur(18px);
 }
@@ -334,7 +325,7 @@ html, body {
     min-width: 124px;
     max-width: 124px;
     padding: 0.75rem 0.9rem;
-    background: #ffffff;
+    background: #f5f7fa;
     border-radius: 14px;
   }
 

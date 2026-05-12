@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { ArrowLeft, Clock, ArrowUpRight, Search } from 'lucide-react';
 import SEOHead from '../../components/SEOHead';
 import InternalTextLink from '../../components/InternalTextLink';
@@ -9,7 +8,6 @@ import { products } from '../../data/products';
 
 const blogIndexHref = '/blog';
 const blogHref = (slug) => `/blog/${slug}`;
-const blogExportHref = (slug) => `/blog/${slug}.html`;
 const productHref = (product) => product.detailHref || product.ctaHref || `/products/${product.slug}`;
 
 const serviceOptions = [
@@ -89,11 +87,11 @@ export default function BlogDetail({ post, content }) {
     .slice(0, 3);
 
   const tagColors = {
-    Strategy: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
-    'AI & Technology': 'bg-purple-500/10 text-purple-400 border-purple-500/20',
-    Marketing: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
-    SEO: 'bg-green-500/10 text-green-400 border-green-500/20',
-    'Web & Design': 'bg-[rgba(41,200,213,0.1)] text-[#29C8D5] border-[rgba(41,200,213,0.2)]',
+    Strategy: 'bg-blue-50 text-blue-600 border-blue-100',
+    'AI & Technology': 'bg-purple-50 text-purple-600 border-purple-100',
+    Marketing: 'bg-orange-50 text-orange-600 border-orange-100',
+    SEO: 'bg-green-50 text-green-600 border-green-100',
+    'Web & Design': 'bg-[rgba(41,200,213,0.08)] text-[#1AA8B4] border-[rgba(41,200,213,0.2)]',
   };
 
   const [faqSearch, setFaqSearch] = useState('');
@@ -118,87 +116,71 @@ export default function BlogDetail({ post, content }) {
         type="article"
       />
 
-      <article className="bg-[#000000] pb-20 pt-32">
+      <article className="bg-white pb-20 pt-32">
         <div className="mx-auto max-w-3xl px-6">
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <Link href={blogIndexHref} as="/blog.html" className="mb-8 inline-flex items-center gap-2 text-sm text-[#8A9AB0] transition-colors hover:text-white">
+          <div>
+            <Link href={blogIndexHref} className="mb-8 inline-flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-gray-700">
               <ArrowLeft size={14} />
               Back to Blog
             </Link>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-8"
-          >
+          <div className="mb-8">
             <div className="mb-4 flex flex-wrap items-center gap-3">
-              <span className={`rounded-full border px-3 py-1 text-xs font-600 ${tagColors[post.tag]}`}>
+              <span className={`rounded-full border px-3 py-1 text-xs font-semibold ${tagColors[post.tag] || 'bg-gray-50 text-gray-500 border-gray-200'}`}>
                 {post.tag}
               </span>
-              <span className="flex items-center gap-1 text-xs text-[#8A9AB0]">
+              <span className="flex items-center gap-1 text-xs text-gray-400">
                 <Clock size={12} /> {post.readTime}
               </span>
-              <span className="text-xs text-[#8A9AB0]">{post.date}</span>
+              <span className="text-xs text-gray-400">{post.date}</span>
             </div>
 
             <h1
-              className="mb-6 font-black leading-tight text-white"
+              className="mb-6 font-black leading-tight text-gray-900"
               style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', letterSpacing: '-0.02em' }}
             >
               {post.title}
             </h1>
 
-            <div className="flex items-center gap-3 border-b border-[rgba(41,200,213,0.1)] pb-8">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(41,200,213,0.2)] bg-[rgba(41,200,213,0.1)]">
-                <span className="text-sm font-700 text-[#29C8D5]">T</span>
+            <div className="flex items-center gap-3 border-b border-gray-100 pb-8">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(41,200,213,0.2)] bg-[rgba(41,200,213,0.08)]">
+                <span className="text-sm font-bold text-[#29C8D5]">T</span>
               </div>
               <div>
-                <p className="text-sm font-600 text-white">Treva Team</p>
-                <p className="text-xs text-[#8A9AB0]">Published by Treva Digital Agency</p>
+                <p className="text-sm font-semibold text-gray-900">Treva Team</p>
+                <p className="text-xs text-gray-400">Published by Treva Digital Agency</p>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="relative mb-10 h-64 overflow-hidden rounded-2xl border border-[rgba(41,200,213,0.1)] bg-[#080C10] md:h-80"
-          >
+          <div className="relative mb-10 h-64 overflow-hidden rounded-2xl border border-gray-100 bg-gray-100 md:h-80">
             <img src={post.image} alt={post.title} className="h-full w-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/35 via-transparent to-transparent" />
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="prose-treva"
-          >
-            <p className="mb-8 border-l-2 border-[#29C8D5] pl-5 text-lg italic leading-relaxed text-[#8A9AB0]">
+          <div className="prose-treva">
+            <p className="mb-8 border-l-4 border-[#29C8D5] pl-5 text-lg italic leading-relaxed text-gray-500">
               {content?.intro}
             </p>
 
             {content?.sections.map(({ heading, body }) => (
               <div key={heading} className="mb-8">
-                <h2 className="mb-3 text-xl font-800 text-white">{heading}</h2>
-                <p className="text-base leading-relaxed text-[#8A9AB0]">
+                <h2 className="mb-3 text-xl font-bold text-gray-900">{heading}</h2>
+                <p className="text-base leading-relaxed text-gray-600">
                   <InternalTextLink text={body} />
                 </p>
               </div>
             ))}
 
             {relatedServices.length > 0 && (
-              <div className="mt-12 border-t border-[rgba(41,200,213,0.1)] pt-8">
-                <h3 className="mb-4 text-lg font-700 text-white">Relevant Treva Services</h3>
+              <div className="mt-12 border-t border-gray-100 pt-8">
+                <h3 className="mb-4 text-lg font-bold text-gray-900">Relevant Treva Services</h3>
                 <div className="flex flex-wrap gap-2">
                   {relatedServices.map((svc) => (
                     <Link
                       key={svc.id}
                       href={svc.url}
-                      className="rounded-full border border-[rgba(41,200,213,0.3)] bg-[rgba(41,200,213,0.05)] px-4 py-1.5 text-sm text-[#29C8D5] transition-colors hover:bg-[rgba(41,200,213,0.1)]"
+                      className="rounded-full border border-[rgba(41,200,213,0.3)] bg-[rgba(41,200,213,0.06)] px-4 py-1.5 text-sm font-medium text-[#1AA8B4] transition-colors hover:bg-[rgba(41,200,213,0.12)]"
                     >
                       {svc.name}
                     </Link>
@@ -207,16 +189,15 @@ export default function BlogDetail({ post, content }) {
               </div>
             )}
 
-            {/* Product Mapping Section */}
             {relatedProducts.length > 0 && (
-              <div className="mt-8 border-t border-[rgba(41,200,213,0.1)] pt-8">
-                <h3 className="mb-4 text-lg font-700 text-white">Related Treva Products</h3>
+              <div className="mt-8 border-t border-gray-100 pt-8">
+                <h3 className="mb-4 text-lg font-bold text-gray-900">Related Treva Products</h3>
                 <div className="flex flex-wrap gap-2">
                   {relatedProducts.map((p) => (
                     <Link
                       key={p.slug}
                       href={productHref(p)}
-                      className="rounded-full border border-[rgba(41,200,213,0.3)] bg-[rgba(41,200,213,0.05)] px-4 py-1.5 text-sm text-[#29C8D5] transition-colors hover:bg-[rgba(41,200,213,0.1)]"
+                      className="rounded-full border border-[rgba(41,200,213,0.3)] bg-[rgba(41,200,213,0.06)] px-4 py-1.5 text-sm font-medium text-[#1AA8B4] transition-colors hover:bg-[rgba(41,200,213,0.12)]"
                     >
                       {p.name}
                     </Link>
@@ -225,29 +206,27 @@ export default function BlogDetail({ post, content }) {
               </div>
             )}
 
-            {/* FAQ Section with Search Pill */}
             {content?.faqs && content.faqs.length > 0 && (
-              <div id="faq" className="mt-12 scroll-mt-28 border-t border-[rgba(41,200,213,0.2)] pt-12">
-                <h3 className="mb-6 text-center text-2xl font-800 text-white">
+              <div id="faq" className="mt-12 scroll-mt-28 border-t border-gray-100 pt-12">
+                <h3 className="mb-6 text-center text-2xl font-bold text-gray-900">
                   Frequently Asked Questions
                 </h3>
-                
-                {/* Search Pill */}
+
                 <div className="mb-8 flex justify-center">
                   <div className="relative max-w-lg w-full">
-                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8A9AB0]" size={18} />
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
                     <input
                       ref={searchRef}
                       type="text"
                       placeholder="Search all FAQs..."
                       value={faqSearch}
                       onChange={(e) => setFaqSearch(e.target.value)}
-                      className="w-full rounded-full border border-[rgba(41,200,213,0.2)] bg-[#080C10] py-3 pl-11 pr-5 text-white placeholder-[#8A9AB0] focus:border-[#29C8D5] focus:outline-none focus:ring-1 focus:ring-[#29C8D5] transition-all"
+                      className="w-full rounded-full border border-gray-200 bg-white py-3 pl-11 pr-5 text-gray-900 placeholder-gray-400 focus:border-[#29C8D5] focus:outline-none focus:ring-1 focus:ring-[#29C8D5] transition-all"
                     />
                     {faqSearch && (
                       <button
                         onClick={() => setFaqSearch('')}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 text-[#8A9AB0] hover:text-white"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700"
                       >
                         ✕
                       </button>
@@ -257,31 +236,25 @@ export default function BlogDetail({ post, content }) {
 
                 <div className="space-y-4">
                   {filteredFaqs.length === 0 ? (
-                    <p className="text-center text-[#8A9AB0] py-8">No FAQs match your search.</p>
+                    <p className="text-center text-gray-400 py-8">No FAQs match your search.</p>
                   ) : (
                     filteredFaqs.map((faq, idx) => (
-                      <motion.div
+                      <div
                         key={idx}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: idx * 0.05 }}
-                        className="rounded-2xl border border-[rgba(41,200,213,0.1)] bg-[#080C10] p-6 card-glow hover:border-[rgba(41,200,213,0.2)] transition-colors"
+                        className="rounded-2xl border border-gray-100 bg-gray-50 p-6 shadow-sm"
                       >
-                        <h4 className="mb-2 text-white font-600 text-base leading-relaxed">{faq.question}</h4>
-                        <p className="text-[#8A9AB0] text-sm leading-relaxed">{faq.answer}</p>
-                      </motion.div>
+                        <h4 className="mb-2 text-gray-900 font-semibold text-base leading-relaxed">{faq.question}</h4>
+                        <p className="text-gray-500 text-sm leading-relaxed">{faq.answer}</p>
+                      </div>
                     ))
                   )}
                 </div>
               </div>
             )}
 
-            <div
-              className="mt-12 rounded-2xl border border-[rgba(41,200,213,0.2)] p-8 text-center"
-              style={{ background: 'radial-gradient(ellipse at center, rgba(41,200,213,0.05), transparent), #080C10' }}
-            >
-              <h3 className="mb-2 text-xl font-800 text-white">Want to Apply These Strategies?</h3>
-              <p className="mb-6 text-sm text-[#8A9AB0]">
+            <div className="mt-12 rounded-2xl border border-gray-100 bg-gray-50 p-8 text-center shadow-sm">
+              <h3 className="mb-2 text-xl font-bold text-gray-900">Want to Apply These Strategies?</h3>
+              <p className="mb-6 text-sm text-gray-500">
                 Book a free strategy call with the Treva team. We&apos;ll audit your current approach and show you exactly where the opportunities are.
               </p>
               <Link href="/contact" className="btn-primary">
@@ -289,30 +262,29 @@ export default function BlogDetail({ post, content }) {
                 <ArrowUpRight size={14} />
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </article>
 
       {others.length > 0 && (
-        <section className="border-t border-[rgba(41,200,213,0.08)] bg-[#080C10] py-16">
+        <section className="border-t border-gray-100 bg-gray-50 py-16">
           <div className="mx-auto max-w-7xl px-6">
-            <h2 className="mb-8 text-2xl font-800 text-white">More from the Blog</h2>
+            <h2 className="mb-8 text-2xl font-bold text-gray-900">More from the Blog</h2>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 items-stretch">
               {others.map((item) => (
                 <Link
                   key={item.slug}
                   href={blogHref(item.slug)}
-                  as={blogExportHref(item.slug)}
-                  className="group block rounded-2xl border border-[rgba(41,200,213,0.1)] bg-[#000000] p-6 card-glow"
+                  className="group block rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
                 >
                   <div className="mb-3 flex items-center gap-3">
-                    <span className="text-xs font-600 text-[#29C8D5]">{item.tag}</span>
-                    <span className="text-xs text-[#8A9AB0]">{item.readTime}</span>
+                    <span className="text-xs font-semibold text-[#29C8D5]">{item.tag}</span>
+                    <span className="text-xs text-gray-400">{item.readTime}</span>
                   </div>
-                  <h3 className="mb-2 text-lg font-700 leading-tight text-white transition-colors group-hover:text-[#29C8D5]">
+                  <h3 className="mb-2 text-lg font-bold leading-tight text-gray-900 transition-colors group-hover:text-[#29C8D5]">
                     {item.title}
                   </h3>
-                  <p className="line-clamp-2 text-sm text-[#8A9AB0]">{item.excerpt}</p>
+                  <p className="line-clamp-2 text-sm text-gray-500">{item.excerpt}</p>
                 </Link>
               ))}
             </div>

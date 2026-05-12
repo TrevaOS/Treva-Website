@@ -31,7 +31,7 @@ const SECTIONS = [
   {
     id: 'use', title: 'How We Use Data', Icon: Zap,
     items: [
-      { heading: 'Service Delivery', body: 'To operate and improve all Treva modules — serving dashboards, executing queries, processing business records, and routing data to connected integrations on your behalf.' },
+      { heading: 'Service Delivery', body: 'To operate and improve all Treva modules including serving dashboards, executing queries, processing business records, and routing data to connected integrations on your behalf.' },
       { heading: 'Authentication & Security', body: 'To verify identity, manage sessions, prevent unauthorized access, and detect abuse. OTPs expire within 10 minutes of issuance.' },
       { heading: 'Support & Communication', body: 'To respond to support requests, deliver critical service alerts, and communicate significant policy or product changes. Treva does not send unsolicited marketing.' },
     ],
@@ -59,7 +59,7 @@ const SECTIONS = [
     items: [
       { heading: 'Tenant Isolation', body: 'Strict logical data isolation is enforced at the database level, ensuring no data access can cross organizational boundaries under any circumstances.' },
       { heading: 'Encryption', body: 'All data in transit is protected by TLS 1.2+. Data at rest is encrypted using industry-standard encryption at the infrastructure level.' },
-      { heading: 'Sessions & Secrets', body: 'Session tokens are short-lived and scoped to your authenticated session. Integration credentials (OAuth tokens, API keys) are stored encrypted and never exposed in full to client applications — only redacted representations appear in the UI.' },
+      { heading: 'Sessions & Secrets', body: 'Session tokens are short-lived and scoped to your authenticated session. Integration credentials (OAuth tokens, API keys) are stored encrypted and never exposed in full to client applications. Only redacted representations appear in the UI.' },
     ],
   },
   {
@@ -88,7 +88,7 @@ const SECTIONS = [
   {
     id: 'contact', title: 'Contact', Icon: Mail,
     items: [
-      { heading: 'Privacy Desk', body: 'info@treva.in — for data access, correction, deletion, or any privacy-related questions.' },
+      { heading: 'Privacy Desk', body: 'info@treva.in, for data access, correction, deletion, or any privacy-related questions.' },
       { heading: 'Registered Address', body: 'Treva Technologies Pvt. Ltd., Bengaluru, Karnataka, India.' },
       { heading: 'Canonical URL', body: 'https://treva.in/privacy-policy' },
     ],

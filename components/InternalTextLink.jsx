@@ -45,7 +45,7 @@ export default function InternalTextLink({ text, links = defaultLinks, className
   const linkedTexts = new Set();
   const linkedHrefs = new Set();
 
-  return text.split(pattern).map((part, index) => {
+  const parts = text.split(pattern).map((part, index) => {
     const key = part.toLowerCase();
     const match = linkMap.get(key);
     if (!match || linkedTexts.has(key) || linkedHrefs.has(match.href)) return part;
@@ -59,4 +59,6 @@ export default function InternalTextLink({ text, links = defaultLinks, className
       </Link>
     );
   });
+
+  return <span suppressHydrationWarning>{parts}</span>;
 }

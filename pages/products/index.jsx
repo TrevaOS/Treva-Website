@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import SEOHead from '../../components/SEOHead';
-import InternalTextLink from '../../components/InternalTextLink';
 import { products } from '../../data/products';
 
 function FadeIn({ children, delay = 0, className = '' }) {
@@ -31,7 +30,7 @@ export default function Products() {
         url="https://www.treva.in/products"
       />
 
-      <section className="relative overflow-hidden bg-[#000000] pb-16 pt-32">
+      <section className="relative overflow-hidden bg-white pb-16 pt-32">
         <div
           className="pointer-events-none absolute left-1/2 top-1/2 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2"
           style={{ background: 'radial-gradient(ellipse, rgba(41,200,213,0.05), transparent 70%)' }}
@@ -41,7 +40,7 @@ export default function Products() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="mb-6 mt-2 font-black text-white"
+            className="mb-6 mt-2 font-black text-gray-900"
             style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', letterSpacing: '-0.03em' }}
           >
             Products for the <span className="teal-gradient-text">Future</span>
@@ -50,7 +49,7 @@ export default function Products() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="mx-auto max-w-2xl text-xl text-[#8A9AB0]"
+            className="mx-auto max-w-2xl text-xl text-gray-500"
           >
             Beyond services we build products that solve real problems. Each one is shaped by the
             needs we see every day while working with ambitious brands.
@@ -58,13 +57,13 @@ export default function Products() {
         </div>
       </section>
 
-      <section className="bg-[#000000] py-16">
+      <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl space-y-8 px-6">
           {products.map(({ slug, image, name, tagline, desc, status, color, features, ctaLabel, ctaHref, external, imageClassName, detailLabel, detailHref }, i) => (
             <FadeIn key={slug} delay={i * 0.08}>
-              <div id={slug} className="card-glow scroll-mt-28 overflow-hidden rounded-2xl border border-[rgba(41,200,213,0.1)] bg-[#080C10]">
+              <div id={slug} className="card-glow scroll-mt-28 overflow-hidden rounded-2xl border border-gray-100 bg-gray-50">
                 <div className="grid gap-0 lg:grid-cols-2">
-                  <div className="relative min-h-[260px] overflow-hidden bg-[#0D1117] sm:min-h-[320px]">
+                  <div className="relative min-h-[260px] overflow-hidden bg-gray-100 sm:min-h-[320px]">
                     <img
                       src={image}
                       alt={name}
@@ -85,17 +84,17 @@ export default function Products() {
                     <p className="mb-2 text-xs font-600 uppercase tracking-widest" style={{ color }}>
                       {name}
                     </p>
-                    <h3 className="mb-3 text-2xl font-black text-white">{tagline}</h3>
-                    <p className="mb-8 text-sm leading-relaxed text-[#8A9AB0]">
-                      <InternalTextLink text={desc} />
+                    <h3 className="mb-3 text-2xl font-black text-gray-900">{tagline}</h3>
+                    <p className="mb-8 text-sm leading-relaxed text-gray-500">
+                      {desc}
                     </p>
 
-                    <h4 className="mb-4 text-sm font-600 uppercase tracking-wider text-white">Key Features</h4>
+                    <h4 className="mb-4 text-sm font-600 uppercase tracking-wider text-gray-900">Key Features</h4>
                     <div className="mb-8 grid grid-cols-1 gap-2 sm:grid-cols-2">
                       {features.map((feature) => (
                         <div key={feature} className="flex items-center gap-2">
                           <div className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: color }} />
-                          <span className="text-sm text-[#8A9AB0]">{feature}</span>
+                          <span className="text-sm text-gray-500">{feature}</span>
                         </div>
                       ))}
                     </div>
