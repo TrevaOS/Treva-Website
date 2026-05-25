@@ -49,10 +49,10 @@ export default function Contact() {
   return (
     <>
       <SEOHead
-        title="Talk to Treva Free Google Ads Audit | Performance Marketing Agency Bangalore"
-        description="Get a free Google Ads audit from Treva Bangalore's performance marketing agency. We'll identify budget waste, CPL issues, and give you an actionable roadmap. No obligation."
+        title="Contact Treva | Digital Marketing Agency Bangalore – Free Strategy Call"
+        description="Talk to Treva, Bangalore's full-service digital marketing agency. Get a free Google Ads audit or book a strategy call for branding, social media marketing, web development, or performance marketing."
         url="https://www.treva.in/contact"
-        keywords="free Google Ads audit Bangalore, contact performance marketing agency Bengaluru, Google Ads consultation India, book free audit Treva"
+        keywords="contact digital marketing agency Bangalore, digital marketing agency near me, marketing agency near me, advertising agency near me, Google Ads agency Bangalore, free Google Ads audit, book strategy call, social media marketing agency contact, branding agency Bangalore contact"
       />
 
       {/* Hero fits viewport, no em-dash, no "free" push */}
@@ -243,26 +243,36 @@ export default function Contact() {
 
                     <div>
                       <label className="block text-gray-500 text-xs font-600 mb-2 uppercase tracking-wider">Service Interested In *</label>
-                      <select
-                        {...register('service', { required: 'Please select a service' })}
-                        className={`w-full bg-gray-50 border rounded-lg px-4 py-3 text-gray-900 text-sm focus:outline-none transition-colors appearance-none ${errors.service ? 'border-red-500' : 'border-gray-200 focus:border-[#29C8D5]'}`}
-                      >
-                        <option value="">Select a service…</option>
-                        {services.map((s) => <option key={s} value={s}>{s}</option>)}
-                      </select>
+                      <div className="relative">
+                        <select
+                          {...register('service', { required: 'Please select a service' })}
+                          className={`w-full bg-gray-50 border rounded-lg px-4 py-3 pr-10 text-gray-900 text-sm focus:outline-none transition-colors appearance-none ${errors.service ? 'border-red-500' : 'border-gray-200 focus:border-[#29C8D5]'}`}
+                        >
+                          <option value="">Select a service…</option>
+                          {services.map((s) => <option key={s} value={s}>{s}</option>)}
+                        </select>
+                        <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
+                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                        </span>
+                      </div>
                       {errors.service && <p className="text-red-400 text-xs mt-1">{errors.service.message}</p>}
                     </div>
 
                     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                       <div>
                         <label className="block text-gray-500 text-xs font-600 mb-2 uppercase tracking-wider">Product Interested In</label>
-                        <select
-                          {...register('product')}
-                          className="w-full appearance-none rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 transition-colors focus:border-[#29C8D5] focus:outline-none"
-                        >
-                          <option value="">Select a product...</option>
-                          {products.map((product) => <option key={product} value={product}>{product}</option>)}
-                        </select>
+                        <div className="relative">
+                          <select
+                            {...register('product')}
+                            className="w-full appearance-none rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 pr-10 text-sm text-gray-900 transition-colors focus:border-[#29C8D5] focus:outline-none"
+                          >
+                            <option value="">Select a product...</option>
+                            {products.map((product) => <option key={product} value={product}>{product}</option>)}
+                          </select>
+                          <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                          </span>
+                        </div>
                       </div>
                       <div>
                         <label className="block text-gray-500 text-xs font-600 mb-2 uppercase tracking-wider">Product Details Needed</label>

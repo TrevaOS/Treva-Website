@@ -180,9 +180,9 @@ html, body {
 }
 
 .marquee-logo-card {
-  background: #f5f7fa;
+  background: #ffffff;
   flex: 0 0 auto;
-  border: 1px solid rgba(41,200,213,0.12);
+  border: none;
 }
 
 @keyframes marquee {
@@ -322,15 +322,16 @@ html, body {
   }
 
   .marquee-logo-card {
-    min-width: 124px;
-    max-width: 124px;
+    min-width: 160px;
+    max-width: 160px;
     padding: 0.75rem 0.9rem;
-    background: #f5f7fa;
+    background: #ffffff;
+    border: none;
     border-radius: 14px;
   }
 
   .marquee-logo-card img {
-    height: 52px;
-    max-width: 92px !important;
+    height: 68px;
+    max-width: 120px !important;
   }
 }

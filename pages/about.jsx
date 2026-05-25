@@ -34,10 +34,10 @@ export default function About() {
   return (
     <>
       <SEOHead
-        title="Treva Bengaluru | Product + Service Ecosystem for Modern Brands"
-        description="Treva is a Bengaluru-based technology and growth partner. We build intelligent products (CRM, analytics, AI agents) and deliver strategic services (branding, development, growth marketing) for modern brands."
+        title="About Treva | Digital Marketing Agency & Growth Partner in Bangalore"
+        description="Learn how Treva became Bangalore's trusted digital marketing agency. ₹15 Cr+ in ad spend managed. Experts in Google Ads, branding, web development, and performance marketing for modern brands."
         url="https://www.treva.in/about"
-        keywords="Treva, product ecosystem, CRM platform, growth partner Bengaluru, intelligent business platform, strategic services, branding development marketing"
+        keywords="digital marketing agency Bangalore, performance marketing agency, Google Ads agency Bengaluru, branding agency Bangalore, growth marketing agency, marketing company near me, digital marketing company, advertising agency Bangalore, best digital marketing agency near me"
         faqSchema={{
           '@context': 'https://schema.org',
           '@type': 'FAQPage',

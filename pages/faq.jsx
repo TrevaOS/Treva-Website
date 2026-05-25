@@ -140,10 +140,10 @@ export default function FAQPage() {
   return (
     <>
       <SEOHead
-        title="FAQ Performance Marketing, Google Ads & Treva | Frequently Asked Questions"
-        description="Answers to the most common questions about Google Ads, performance marketing, ROAS, CPL, and working with Treva Bangalore's performance marketing agency."
+        title="FAQ | Digital Marketing Agency, Google Ads & Branding Services | Treva Bangalore"
+        description="Common questions about Treva's digital marketing services: Google Ads management, social media marketing, branding, web development, performance marketing, and pricing. Get clear answers."
         url="https://www.treva.in/faq"
-        keywords="performance marketing FAQ, Google Ads FAQ India, ROAS Google Ads, CPL Google Ads, Treva FAQ, performance marketing agency questions"
+        keywords="digital marketing agency FAQ, Google Ads FAQ India, performance marketing questions, social media marketing FAQ, branding agency FAQ, PPC agency questions, digital marketing services pricing, marketing company FAQ Bangalore"
         faqSchema={{
           '@context': 'https://schema.org',
           '@type': 'FAQPage',

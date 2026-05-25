@@ -48,9 +48,10 @@ export default function Blog() {
   return (
     <>
       <SEOHead
-        title="Blog AI, Marketing & Technology Insights"
-        description="Treva's blog covers the latest in AI marketing, GEO, performance marketing, web development, and digital strategy for modern brands in 2026."
+        title="Digital Marketing Blog | Strategy, SEO, Google Ads & Social Media | Treva"
+        description="Treva's blog delivers expert insights on digital marketing, social media strategy, SEO, Google Ads, performance marketing, branding, and AI for modern brands in 2026."
         url="https://www.treva.in/blog"
+        keywords="digital marketing blog, social media marketing strategy, SEO tips, Google Ads guide, performance marketing insights, branding strategy, content marketing, digital marketing 2026, online marketing tips"
       />
 
       {/* Hero */}

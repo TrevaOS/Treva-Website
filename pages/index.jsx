@@ -5,18 +5,27 @@ import { ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 import { products } from '../data/products';
 
-const clients = [
-  '/logos/1.svg', '/logos/2.svg', '/logos/3.svg', '/logos/4.svg',
-  '/logos/5.svg', '/logos/6.svg', '/logos/7.svg', '/logos/8.svg',
-  '/logos/9.svg', '/logos/10.svg', '/logos/11.svg', '/logos/12.svg',
-  '/logos/13.svg', '/logos/14.svg', '/logos/15.svg', '/logos/16.svg',
-  '/logos/17.png', '/logos/18.png',
-  '/logos/1.svg', '/logos/2.svg', '/logos/3.svg', '/logos/4.svg',
-  '/logos/5.svg', '/logos/6.svg', '/logos/7.svg', '/logos/8.svg',
-  '/logos/9.svg', '/logos/10.svg', '/logos/11.svg', '/logos/12.svg',
-  '/logos/13.svg', '/logos/14.svg', '/logos/15.svg', '/logos/16.svg',
-  '/logos/17.png', '/logos/18.png',
+const clientList = [
+  { src: '/logos/1.svg',  name: 'N Salon' },
+  { src: '/logos/2.svg',  name: 'Brother Barley' },
+  { src: '/logos/3.svg',  name: 'District 6' },
+  { src: '/logos/4.svg',  name: 'The Watering Hole' },
+  { src: '/logos/5.svg',  name: 'Balcony Bar' },
+  { src: '/logos/6.svg',  name: 'The Biere Club' },
+  { src: '/logos/7.svg',  name: 'Hoot Craft Work' },
+  { src: '/logos/8.svg',  name: 'Nailashes' },
+  { src: '/logos/9.svg',  name: 'Zolo' },
+  { src: '/logos/10.svg', name: 'Zmanda' },
+  { src: '/logos/11.svg', name: 'Toyota' },
+  { src: '/logos/12.svg', name: 'La Glaze' },
+  { src: '/logos/13.svg', name: 'Deck of Brews' },
+  { src: '/logos/14.svg', name: 'Almarooj Dairy' },
+  { src: '/logos/15.svg', name: 'Chifa Yong' },
+  { src: '/logos/16.svg', name: 'Amazon' },
+  { src: '/logos/17.png', name: 'La Glaze' },
+  { src: '/logos/18.png', name: 'Legends Microbrewery' },
 ];
+const clients = [...clientList, ...clientList];
 
 function FadeIn({ children, delay = 0, className = '' }) {
   const ref = useRef(null);
@@ -45,10 +54,10 @@ export default function Home() {
   return (
     <>
       <SEOHead
-        title="Treva - Digital Marketing Agency | Branding, Web & Performance Marketing"
-        description="Treva is a Bengaluru-based digital marketing agency offering branding, web development, app development, content marketing, and performance marketing services."
+        title="Treva – Digital Marketing Agency in Bangalore | Branding, Web & Performance Marketing"
+        description="Treva is a full-service digital marketing agency in Bangalore. We deliver branding, web development, social media marketing, Google Ads, and performance marketing for modern brands. Get a free strategy call."
         url="https://www.treva.in"
-        keywords="digital marketing agency Bangalore, branding agency, web development company, performance marketing, content marketing services"
+        keywords="digital marketing agency, digital marketing agency near me, digital marketing agency Bangalore, full service digital marketing agency, branding agency, branding agency Bangalore, web agency, performance marketing agency, social media marketing agency, social media marketing, Google Ads agency, PPC agency, online marketing, digital advertising, marketing company near me, growth marketing agency"
       />
 
       {/* Hero — full viewport, heading + subheading + 2 CTAs */}
@@ -82,8 +91,8 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.18 }}
             className="mb-10 mx-auto max-w-2xl text-lg leading-relaxed text-gray-500"
           >
-            We are a full-service digital marketing agency helping modern brands grow through branding,
-            web development, app development, and performance marketing. Everything under one roof.
+            We are a full-service digital marketing agency in Bangalore helping modern brands grow through branding,
+            social media marketing, web development, and Google Ads performance marketing. Everything under one roof.
           </motion.p>
 
           <motion.div
@@ -103,12 +112,13 @@ export default function Home() {
       </section>
 
       {/* Client logos marquee */}
-      <section className="border-y border-gray-100 bg-gray-50 py-8">
+      <section className="border-y border-gray-100 bg-white py-8">
         <div className="marquee-wrapper">
           <div className="marquee-content">
-            {clients.map((logo, index) => (
-              <div key={`${logo}-${index}`} className="marquee-logo-card flex h-24 w-40 items-center justify-center rounded-2xl p-5">
-                <img src={logo} alt="Treva client logo" className="max-h-14 max-w-28 object-contain" />
+            {clients.map((client, index) => (
+              <div key={`${client.src}-${index}`} className="marquee-logo-card flex h-32 w-52 flex-col items-center justify-center gap-2 rounded-2xl p-5">
+                <img src={client.src} alt={client.name} className="object-contain" style={{ maxHeight: '4.5rem', maxWidth: '10rem' }} />
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-gray-400">{client.name}</span>
               </div>
             ))}
           </div>
@@ -124,7 +134,7 @@ export default function Home() {
               From Bengaluru, Building a Practical Growth Stack
             </h2>
             <p className="mb-7 text-base leading-relaxed text-gray-500">
-              Treva works as a technology and growth partner, not a disconnected agency. Our products give teams cleaner systems
+              Treva is a digital marketing agency and technology growth partner, not a disconnected vendor. Our products give teams cleaner systems
               while our services turn strategy into campaigns, websites, apps, and brand assets that compound over time.
             </p>
             <Link href="/about" className="btn-primary">
@@ -134,9 +144,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-3">
             {[
-              { href: '/services#branding', label: 'Branding', detail: 'Identity, voice, and design systems' },
-              { href: '/services#web-development', label: 'Web Development', detail: 'Fast websites built to rank and convert' },
-              { href: '/services#performance-marketing', label: 'Performance Marketing', detail: 'Google Ads, paid media, and conversion growth' },
+              { href: '/services#branding', label: 'Branding Agency', detail: 'Brand identity, logo design, and voice systems' },
+              { href: '/services#web-development', label: 'Web Development', detail: 'SEO-ready websites built to rank and convert' },
+              { href: '/services#performance-marketing', label: 'Performance Marketing', detail: 'Google Ads, PPC, and paid social media management' },
             ].map((service, index) => (
               <FadeIn key={service.href} delay={index * 0.08}>
                 <Link href={service.href} className="card-glow block min-h-[220px] rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all hover:-translate-y-1">
@@ -231,7 +241,7 @@ export default function Home() {
                 Ready to Build Your Ecosystem? <span className="teal-gradient-text">Let&apos;s Talk.</span>
               </h2>
               <p className="mx-auto mb-8 max-w-xl text-base leading-relaxed text-gray-500">
-                Book a call with Treva to connect your product stack, website, brand, and growth campaigns into one clearer operating system.
+                Book a call with Treva, your digital marketing agency in Bangalore, to connect your branding, website, social media marketing, and Google Ads campaigns into one clear growth system.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Link href="/contact" className="btn-primary">

@@ -34,8 +34,8 @@ const services = [
     title: 'Social Media Marketing',
     tagline: 'Content that keeps your brand active and relevant.',
     label: 'Content Marketing Services',
-    desc: 'Our Content Marketing Services span social media marketing, content strategy, and video production for brands across Bangalore. We deliver content marketing for startups and social media content services that drive organic visibility on Instagram, LinkedIn, Facebook, and more.',
-    features: ['Monthly content calendar & strategy', 'Graphic, carousel & reel planning', 'Caption writing & hashtag research', 'Community management guidance', 'Competitor and trend analysis', 'Monthly performance reports'],
+    desc: 'Treva is a social media marketing agency in Bangalore managing organic growth across Instagram, LinkedIn, Facebook, and more. Our social media marketing services include content strategy, social media management, paid social ads, and monthly performance reporting. Built for small businesses, startups, and enterprises alike.',
+    features: ['Monthly content calendar & strategy', 'Graphic, carousel & reel planning', 'Caption writing & hashtag research', 'Social media management & scheduling', 'Paid social media advertising', 'Monthly performance reports'],
   },
   {
     id: 'web-development',
@@ -61,17 +61,18 @@ const services = [
     title: 'Performance Marketing',
     tagline: 'Campaigns built around measurable growth.',
     label: 'Digital Marketing Agency',
-    desc: 'As a full-service Digital Marketing Agency in Bangalore, we specialise in Performance Marketing with a focus on Google Ads, Facebook Ads, and paid media strategy. Our services cover strategy, optimisation, and conversion tracking to drive measurable ROAS for brands of all sizes.',
-    features: ['Google Ads campaign setup & management', 'Meta Ads strategy and optimisation', 'Conversion tracking and analytics setup', 'Landing page and funnel recommendations', 'Audience and keyword planning', 'Weekly optimisation and reporting'],
+    desc: 'As a PPC agency and Google Ads partner in Bangalore, we specialise in performance marketing covering Google Search Ads, Performance Max, Shopping campaigns, and Meta Ads. Our paid media agency services include strategy, optimisation, conversion tracking, and ROAS reporting for small businesses, SaaS, ecommerce, and enterprise brands.',
+    features: ['Google Ads campaign setup & management', 'Meta & paid social ads strategy', 'Conversion tracking and analytics setup', 'Landing page and funnel recommendations', 'Audience and keyword research', 'Weekly optimisation and ROAS reporting'],
   },
 ];
 
 const servicesFAQ = [
-  { q: 'Which services does Treva offer?', a: 'Treva offers five core services: Branding, Social Media Marketing, Web Development, App Development, and Performance Marketing. All designed to work together as a unified growth ecosystem.' },
-  { q: 'Do you build SEO-friendly websites?', a: 'Yes. Our web development includes SEO-ready page structure, metadata, responsive design, performance optimisation, and clean technical foundations for optimal search visibility and user experience.' },
-  { q: 'Can you manage both organic and paid growth?', a: 'Yes. We combine organic Social Media Marketing and content strategy with Performance Marketing campaigns across paid channels, conversion tracking, and data-driven optimization for measurable ROI.' },
-  { q: 'Do you provide design along with development?', a: 'Yes. Our Branding, Web Development, and App Development services include comprehensive visual identity, UI/UX design, and launch-ready design systems for cohesive brand experiences.' },
-  { q: 'Do you work with businesses outside Bangalore?', a: 'Yes. Treva works with clients across Bangalore, India, and globally. Our services including app development, web development, and digital marketing cater to international markets.' },
+  { q: 'Which services does Treva offer?', a: 'Treva offers five core digital marketing services: Branding, Social Media Marketing, Web Development, App Development, and Performance Marketing (Google Ads & paid media). All designed to work together as a unified growth ecosystem.' },
+  { q: 'Do you build SEO-friendly websites?', a: 'Yes. Our web development agency builds SEO-ready websites with clean page structure, metadata optimisation, responsive mobile-first design, Core Web Vitals performance, and technical SEO foundations built in from day one.' },
+  { q: 'Can you manage both organic social media and Google Ads?', a: 'Yes. As a full-service digital marketing agency, we combine organic social media marketing and content strategy with Google Ads, paid social, and performance marketing campaigns, including conversion tracking and data-driven optimisation for measurable ROI.' },
+  { q: 'Are you a branding agency too, not just a digital agency?', a: 'Yes. Treva is a branding agency offering logo design, brand identity systems, brand style guides, and brand voice frameworks. We combine branding with web development and digital marketing for cohesive brand experiences.' },
+  { q: 'Is Treva a good marketing agency for small business?', a: 'Yes. We work with startups, small businesses, and enterprises. Our digital marketing packages for small businesses cover social media management, Google Ads, branding, and web development, tailored to your budget and growth goals.' },
+  { q: 'Do you work with businesses outside Bangalore?', a: 'Yes. Treva serves clients across Bangalore, India, and globally. Our digital marketing services, including SEO, Google Ads, social media marketing, and web development, cater to national and international markets.' },
 ];
 
 export default function Services() {
@@ -87,10 +88,10 @@ export default function Services() {
   return (
     <>
       <SEOHead
-        title="Branding Agency, Content Marketing, Web Development, App Development & Digital Marketing | Treva"
-        description="Treva is a leading digital agency offering Brand Identity Agency services, Content Marketing Services, Website Development Company solutions, Mobile App Development, and Digital Marketing Agency services in Bangalore."
+        title="Digital Marketing Services Bangalore | Branding, Social Media, Web & Performance Marketing | Treva"
+        description="Treva offers end-to-end digital marketing services in Bangalore: brand identity, social media marketing, web development, app development, and Google Ads performance marketing. One growth-focused team."
         url="https://www.treva.in/services"
-        keywords="Brand Identity Agency, Branding Agency Bangalore, Content Marketing Services, Social Media Marketing Agency, Web Development Agency, Website Development Company, App Development Company, Mobile App Development, Digital Marketing Agency, Performance Marketing Services, Digital Marketing Bangalore"
+        keywords="digital marketing services, digital marketing services near me, branding agency, social media marketing agency, social media marketing services, web development agency, website development company, app development company, mobile app development, performance marketing agency, Google Ads agency, PPC agency, content marketing services, digital marketing agency for small business, marketing agency for startups, lead generation agency"
         faqSchema={{
           '@context': 'https://schema.org',
           '@type': 'FAQPage',
@@ -118,7 +119,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.08 }}
-            className="font-black text-gray-900 mb-6 leading-[1.05]"
+            className="font-black text-gray-900 mb-6 leading-[1.1]"
             style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', letterSpacing: '-0.03em' }}
           >
             Digital Services<br />
@@ -130,8 +131,8 @@ export default function Services() {
             transition={{ delay: 0.2 }}
             className="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto mb-10"
           >
-            We are your branding, web development, app development, and performance marketing partner.
-            As a leading digital agency in Bangalore, we deliver SEO-ready, growth-focused solutions for modern brands.
+            We are your branding agency, social media marketing agency, web development partner, and Google Ads performance marketing team.
+            As a leading full-service digital marketing agency in Bangalore, we deliver SEO-ready, growth-focused solutions for modern brands.
           </motion.p>
           <motion.div
             initial={{ opacity: 0 }}

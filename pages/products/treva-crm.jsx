@@ -48,30 +48,7 @@ function SectionLabel({ children }) {
   );
 }
 
-function ScrollWord({ word, index, total, accent, progress }) {
-  const start = index / total;
-  const end = Math.min((index + 1.2) / total, 1);
-  const opacity = useTransform(progress, [start, end], [0.15, 1]);
-  const startColor = accent ? '#c5eef2' : '#d1d5db';
-  const endColor = accent ? '#29C8D5' : '#111827';
-  const color = useTransform(progress, [start, end], [startColor, endColor]);
-
-  return (
-    <motion.span
-      style={{ opacity, color }}
-      className="mr-[0.18em] inline-block"
-    >
-      {word}
-    </motion.span>
-  );
-}
-
 /* ── Scroll-lock word-by-word headline ─────────────────────────── */
-/*
-   The outer section is tall (600vh) so the page content scrolls through it.
-   Inside, a sticky container holds the headline pinned in place.
-   Each word animates in as you scroll through the section's height.
-*/
 function ScrollHeadline() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -80,37 +57,79 @@ function ScrollHeadline() {
   });
 
   const words = [
-    'Every', 'deal.', 'Every', 'contact.',
-    'Every', 'invoice.', 'Every', 'follow‑up.',
-    'One', 'connected', 'revenue', 'workspace.',
+    { w: 'Every', accent: false },
+    { w: 'deal.', accent: true },
+    { w: 'Every', accent: false },
+    { w: 'contact.', accent: true },
+    { w: 'Every', accent: false },
+    { w: 'invoice.', accent: true },
+    { w: 'Every', accent: false },
+    { w: 'follow‑up.', accent: true },
+    { w: 'One', accent: false },
+    { w: 'connected', accent: false },
+    { w: 'revenue', accent: false },
+    { w: 'workspace.', accent: true },
   ];
 
-  const accentIdx = new Set([1, 3, 5, 7, 11]);
+  const total = words.length;
+
+  const w0op  = useTransform(scrollYProgress, [0/total, Math.min(1.2/total,1)], [0.15,1]);
+  const w0col = useTransform(scrollYProgress, [0/total, Math.min(1.2/total,1)], ['#d1d5db','#111827']);
+  const w1op  = useTransform(scrollYProgress, [1/total, Math.min(2.2/total,1)], [0.15,1]);
+  const w1col = useTransform(scrollYProgress, [1/total, Math.min(2.2/total,1)], ['#c5eef2','#29C8D5']);
+  const w2op  = useTransform(scrollYProgress, [2/total, Math.min(3.2/total,1)], [0.15,1]);
+  const w2col = useTransform(scrollYProgress, [2/total, Math.min(3.2/total,1)], ['#d1d5db','#111827']);
+  const w3op  = useTransform(scrollYProgress, [3/total, Math.min(4.2/total,1)], [0.15,1]);
+  const w3col = useTransform(scrollYProgress, [3/total, Math.min(4.2/total,1)], ['#c5eef2','#29C8D5']);
+  const w4op  = useTransform(scrollYProgress, [4/total, Math.min(5.2/total,1)], [0.15,1]);
+  const w4col = useTransform(scrollYProgress, [4/total, Math.min(5.2/total,1)], ['#d1d5db','#111827']);
+  const w5op  = useTransform(scrollYProgress, [5/total, Math.min(6.2/total,1)], [0.15,1]);
+  const w5col = useTransform(scrollYProgress, [5/total, Math.min(6.2/total,1)], ['#c5eef2','#29C8D5']);
+  const w6op  = useTransform(scrollYProgress, [6/total, Math.min(7.2/total,1)], [0.15,1]);
+  const w6col = useTransform(scrollYProgress, [6/total, Math.min(7.2/total,1)], ['#d1d5db','#111827']);
+  const w7op  = useTransform(scrollYProgress, [7/total, Math.min(8.2/total,1)], [0.15,1]);
+  const w7col = useTransform(scrollYProgress, [7/total, Math.min(8.2/total,1)], ['#c5eef2','#29C8D5']);
+  const w8op  = useTransform(scrollYProgress, [8/total, Math.min(9.2/total,1)], [0.15,1]);
+  const w8col = useTransform(scrollYProgress, [8/total, Math.min(9.2/total,1)], ['#d1d5db','#111827']);
+  const w9op  = useTransform(scrollYProgress, [9/total, Math.min(10.2/total,1)], [0.15,1]);
+  const w9col = useTransform(scrollYProgress, [9/total, Math.min(10.2/total,1)], ['#d1d5db','#111827']);
+  const w10op  = useTransform(scrollYProgress, [10/total, Math.min(11.2/total,1)], [0.15,1]);
+  const w10col = useTransform(scrollYProgress, [10/total, Math.min(11.2/total,1)], ['#d1d5db','#111827']);
+  const w11op  = useTransform(scrollYProgress, [11/total, 1], [0.15,1]);
+  const w11col = useTransform(scrollYProgress, [11/total, 1], ['#c5eef2','#29C8D5']);
+  const subOp  = useTransform(scrollYProgress, [0.75, 1], [0, 1]);
+
+  const wordStyles = [
+    { opacity: w0op, color: w0col },
+    { opacity: w1op, color: w1col },
+    { opacity: w2op, color: w2col },
+    { opacity: w3op, color: w3col },
+    { opacity: w4op, color: w4col },
+    { opacity: w5op, color: w5col },
+    { opacity: w6op, color: w6col },
+    { opacity: w7op, color: w7col },
+    { opacity: w8op, color: w8col },
+    { opacity: w9op, color: w9col },
+    { opacity: w10op, color: w10col },
+    { opacity: w11op, color: w11col },
+  ];
 
   return (
     <section ref={ref} style={{ height: '500vh' }} className="relative bg-white">
       <div className="sticky top-0 z-10 flex min-h-screen flex-col items-center justify-center bg-white px-6 py-20">
-
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-[clamp(2rem,4.5vw,4rem)] font-black leading-tight tracking-tight">
-            {words.map((word, i) => {
-              return (
-                <ScrollWord
-                  key={i}
-                  word={word}
-                  index={i}
-                  total={words.length}
-                  accent={accentIdx.has(i)}
-                  progress={scrollYProgress}
-                />
-              );
-            })}
+            {words.map((item, i) => (
+              <motion.span key={i} style={wordStyles[i]} className="mr-[0.18em] inline-block">
+                {item.w}
+              </motion.span>
+            ))}
           </p>
           <motion.p
-            style={{ opacity: useTransform(scrollYProgress, [0.75, 1], [0, 1]) }}
+            style={{ opacity: subOp }}
             className="mx-auto mt-6 max-w-md text-base text-gray-500"
           >
-            From first contact to collected invoice Treva CRM keeps your whole team moving.
+            From first contact to collected invoice, Treva CRM keeps your whole team moving.
           </motion.p>
         </div>
       </div>
@@ -415,9 +434,9 @@ export default function TrevaCRM() {
           <FadeIn delay={0.14} className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-6 py-2.5 text-sm font-semibold text-gray-900 transition hover:bg-gray-800"
+              className="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-gray-800"
             >
-              Get started it's free
+              Get started it&apos;s free
               <ArrowUpRight size={15} />
             </a>
             <Link
