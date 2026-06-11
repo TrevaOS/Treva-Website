@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import Script from 'next/script';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
 import { CheckCircle, MapPin, Phone, Mail, ArrowUpRight } from 'lucide-react';
@@ -33,19 +34,24 @@ const learnings = [
 export default function About() {
   return (
     <>
+      <Script
+        src="https://api.treva.in/reserve.js?key=rsv_f417c58a6a914aa699126b5a99fed74c"
+        strategy="afterInteractive"
+      />
       <SEOHead
-        title="About Treva | Digital Marketing Agency & Growth Partner in Bangalore"
-        description="Learn how Treva became Bangalore's trusted digital marketing agency. ₹15 Cr+ in ad spend managed. Experts in Google Ads, branding, web development, and performance marketing for modern brands."
+        title="About Treva | Growth Partner, Not Just an Agency | Bangalore"
+        description="Treva is a Bangalore-based growth partner combining 360° digital marketing, proprietary tech (Treva CRM, Restaurant Dashboard) and Creator Hub UGC into one compounding growth system."
         url="https://www.treva.in/about"
         keywords="digital marketing agency Bangalore, performance marketing agency, Google Ads agency Bengaluru, branding agency Bangalore, growth marketing agency, marketing company near me, digital marketing company, advertising agency Bangalore, best digital marketing agency near me"
-        faqSchema={{
+        schema={{
           '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          mainEntity: [
-            { '@type': 'Question', name: 'Where is Treva located?', acceptedAnswer: { '@type': 'Answer', text: 'Treva is based in Vijayanagar, Bengaluru, Karnataka, India. We serve clients across India and internationally.' } },
-            { '@type': 'Question', name: 'What products and services does Treva offer?', acceptedAnswer: { '@type': 'Answer', text: 'Treva offers an ecosystem of products (CRM, business OS, AI agent, analytics) and strategic services (branding, web/app development, social media, growth marketing).' } },
-            { '@type': 'Question', name: 'What makes Treva different?', acceptedAnswer: { '@type': 'Answer', text: 'Treva combines intelligent product platforms with expert strategic services. You work directly with our specialists to build integrated solutions that scale.' } },
-          ],
+          '@type': 'Organization',
+          name: 'Treva',
+          url: 'https://treva.in',
+          foundingLocation: 'Bangalore, India',
+          description: "Treva is a Bangalore-based 360° growth partner combining digital marketing, proprietary technology including Treva CRM and Restaurant Dashboard, and Creator Hub UGC into one growth system.",
+          address: { '@type': 'PostalAddress', addressLocality: 'Bangalore', addressRegion: 'Karnataka', addressCountry: 'IN' },
+          sameAs: ['https://www.instagram.com/treva.in', 'https://www.linkedin.com/company/treva-in'],
         }}
       />
 
@@ -67,22 +73,20 @@ export default function About() {
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-black text-gray-900 mt-3 mb-5"
+              className="font-black text-gray-900 mt-3 mb-4"
               style={{ fontSize: 'clamp(2rem, 4vw, 3.4rem)', letterSpacing: '-0.03em' }}
             >
-              Building Intelligent Platforms &amp; Strategic Services{' '}
-              <span className="teal-gradient-text">for Modern Brands.</span>
+              We&apos;re Not Your Agency.{' '}
+              <span className="teal-gradient-text">We&apos;re Your Growth Partner.</span>
             </motion.h1>
-            <motion.p
+            <motion.h2
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-gray-500 text-base leading-relaxed mb-7 max-w-lg"
+              className="text-gray-500 text-base leading-relaxed mb-7 max-w-lg font-normal"
             >
-              Treva is a Bengaluru-based technology and growth partner combining intelligent product platforms with
-              expert strategic services. We help modern brands build integrated ecosystems that scale with purpose
-              through products, branding, web development, app development, and performance marketing.
-            </motion.p>
+              Treva combines marketing, technology and creator commerce so your business compounds — not just runs campaigns.
+            </motion.h2>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.3 }}>
               <Link href="/contact" className="btn-primary text-sm">
                 Explore Our Solutions <ArrowUpRight size={14} />
@@ -124,8 +128,95 @@ export default function About() {
               <p>We decided to build something different: an integrated ecosystem of intelligent products and strategic services that work seamlessly together. Too many businesses juggle disconnected tools while growth opportunities slip through the cracks.</p>
               <p>Since then we have helped clients engineer over <strong className="text-gray-900">₹15 Crore in growth outcomes</strong>, serving brands ranging from McKinsey-grade enterprises to bootstrapped D2C founders. We built a reputation in Bengaluru for measurable results through Treva CRM, web development, branding, and performance marketing.</p>
               <p>We are based in Vijayanagar, Bengaluru. We are not a 500-person agency. We are a focused team of product builders and strategists who believe that the right system, implemented with purpose, creates compounding advantages.</p>
+              <p>Treva is built differently. Most agencies run campaigns and send reports. We build systems — marketing, technology and creator commerce that connect to each other, feed each other&apos;s data, and get smarter over time. That&apos;s what we mean by growth partner.</p>
             </div>
           </FadeIn>
+        </div>
+      </section>
+
+      {/* Why Growth Partner */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <FadeIn className="mb-8">
+            <h2 className="font-black text-gray-900 mt-3"
+              style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.4rem)', letterSpacing: '-0.02em' }}>
+              Why Growth Partner — Not Agency?
+            </h2>
+          </FadeIn>
+          <div className="space-y-4">
+            {[
+              'An agency manages your campaigns. A growth partner connects your campaigns to your CRM, your CRM to your content, and your content to your revenue.',
+              "We built Treva CRM and Restaurant Dashboard because we needed tools our clients' marketing data could actually plug into.",
+              "Creator Hub exists because UGC is the highest-converting content format — and we wanted to connect brands to creators without the traditional agency markup.",
+            ].map((point, i) => (
+              <FadeIn key={i} delay={i * 0.07}>
+                <div className="flex items-start gap-3 rounded-2xl border border-gray-100 bg-gray-50 p-6 shadow-sm">
+                  <CheckCircle size={18} className="text-[#29C8D5] mt-0.5 shrink-0" />
+                  <p className="text-gray-600 text-sm leading-relaxed">{point}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Stack */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6">
+          <FadeIn className="mb-2">
+            <h2 className="font-black text-gray-900 mt-3 mb-1"
+              style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.4rem)', letterSpacing: '-0.02em' }}>
+              Our Stack
+            </h2>
+            <p className="text-gray-500 text-sm mb-8">Services and products that work as one.</p>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <FadeIn delay={0.05}>
+              <div className="rounded-2xl border border-gray-100 bg-white p-7 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-4">Services</h3>
+                <ul className="space-y-3">
+                  {['Performance Marketing (Google Ads, Meta)', 'Social Media Management', 'Branding & Identity', 'Web & App Development', 'SEO'].map((s) => (
+                    <li key={s} className="flex items-center gap-2 text-sm text-gray-500">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#29C8D5] shrink-0" />
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <div className="rounded-2xl border border-gray-100 bg-white p-7 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-4">Products</h3>
+                <ul className="space-y-3">
+                  {['Treva CRM', 'Restaurant Dashboard', 'Creator Hub'].map((p) => (
+                    <li key={p} className="flex items-center gap-2 text-sm text-gray-500">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#29C8D5] shrink-0" />
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* Credibility Stats */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {[
+              { value: '[X]+ Clients Served' },      /* [UPDATE] replace with real numbers */
+              { value: '[X]+ Years Experience' },    /* [UPDATE] replace with real numbers */
+              { value: '₹[X]Cr+ Revenue Driven' },  /* [UPDATE] replace with real numbers */
+            ].map(({ value }, i) => (
+              <FadeIn key={value} delay={i * 0.08}>
+                <div className="rounded-2xl border border-gray-100 bg-gray-50 p-8 shadow-sm text-center card-glow">
+                  <div className="font-black text-[#29C8D5] text-3xl mb-2">{value}</div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
 

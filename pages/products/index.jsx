@@ -25,9 +25,19 @@ export default function Products() {
   return (
     <>
       <SEOHead
-        title="Products Treva CRM, Nimma GBA, Treva OS, Treva Agent & Make My Cake"
-        description="Explore Treva's product suite including the live Treva CRM and upcoming Nimma GBA, Treva OS, Treva Agent, Make My Cake, and Creator Hub."
+        title="Treva Products | CRM, Restaurant Dashboard, Creator Hub UGC & More | Bangalore"
+        description="Treva builds intelligent products: Treva CRM for sales pipelines, Restaurant Dashboard for F&B operations, and Creator Hub — India's simplest platform connecting brands to UGC creators."
         url="https://www.treva.in/products"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          name: 'Treva Products',
+          itemListElement: [
+            { '@type': 'Product', position: 1, name: 'Treva CRM', description: 'A sales pipeline and CRM tool built for growing businesses.', brand: { '@type': 'Brand', name: 'Treva' }, url: 'https://treva.in/products' },
+            { '@type': 'Product', position: 2, name: 'Restaurant Dashboard', description: 'A unified operations and marketing performance dashboard built for F&B businesses.', brand: { '@type': 'Brand', name: 'Treva' }, url: 'https://treva.in/products' },
+            { '@type': 'Product', position: 3, name: 'Creator Hub', description: 'Creator Hub connects brands to UGC video creators filtered by category and budget. Available across India.', brand: { '@type': 'Brand', name: 'Treva' }, url: 'https://treva.in/products/creator-hub' },
+          ],
+        }}
       />
 
       <section className="relative overflow-hidden bg-white pb-16 pt-32">
@@ -40,20 +50,20 @@ export default function Products() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="mb-6 mt-2 font-black text-gray-900"
+            className="mb-4 mt-2 font-black text-gray-900"
             style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', letterSpacing: '-0.03em' }}
           >
-            Products for the <span className="teal-gradient-text">Future</span>
+            Products That Give Your Business an{' '}
+            <span className="teal-gradient-text">Unfair Advantage</span>
           </motion.h1>
-          <motion.p
+          <motion.h2
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="mx-auto max-w-2xl text-xl text-gray-500"
+            className="mx-auto max-w-2xl text-xl text-gray-500 font-normal"
           >
-            Beyond services we build products that solve real problems. Each one is shaped by the
-            needs we see every day while working with ambitious brands.
-          </motion.p>
+            Our technology stack — built by marketers, for marketers.
+          </motion.h2>
         </div>
       </section>
 
@@ -133,6 +143,23 @@ export default function Products() {
               </div>
             </FadeIn>
           ))}
+        </div>
+      </section>
+
+      {/* Your Products and Services — One System */}
+      <section className="bg-gray-50 py-20">
+        <div className="mx-auto max-w-3xl px-6 text-center">
+          <FadeIn>
+            <div className="rounded-3xl border border-gray-100 bg-white p-10 shadow-sm">
+              <h2 className="mb-4 font-black text-gray-900" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', letterSpacing: '-0.02em' }}>
+                Your Products and Services —{' '}
+                <span className="teal-gradient-text">One System</span>
+              </h2>
+              <p className="mx-auto max-w-xl text-base leading-relaxed text-gray-500">
+                Treva CRM feeds data into your ad campaigns. Restaurant Dashboard informs your content strategy. Creator Hub delivers UGC that runs on your paid channels. Everything is connected because we built it that way.
+              </p>
+            </div>
+          </FadeIn>
         </div>
       </section>
     </>

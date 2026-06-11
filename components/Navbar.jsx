@@ -9,6 +9,7 @@ const navLinks = [
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
   { href: '/products', label: 'Products' },
+  { href: '/work', label: 'Our Work' },
   { href: '/blog', label: 'Blog' },
   { href: '/faq', label: 'FAQ' },
   { href: '/contact', label: 'Contact' },
@@ -52,24 +53,28 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-12">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-base font-bold transition-colors duration-200 relative group ${
-                  router.pathname === link.href
-                    ? 'text-[#29C8D5]'
-                    : 'text-gray-600 hover:text-gray-900'
-                }`}
-              >
-                {link.label}
-                <span
-                  className={`absolute -bottom-1 left-0 h-px bg-[#29C8D5] transition-all duration-300 ${
-                    router.pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'
+            {navLinks.map((link) => {
+              const isActive =
+                link.href === '/work'
+                  ? router.pathname.startsWith('/work')
+                  : router.pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`text-base font-bold transition-colors duration-200 relative group ${
+                    isActive ? 'text-[#29C8D5]' : 'text-gray-600 hover:text-gray-900'
                   }`}
-                />
-              </Link>
-            ))}
+                >
+                  {link.label}
+                  <span
+                    className={`absolute -bottom-1 left-0 h-px bg-[#29C8D5] transition-all duration-300 ${
+                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
+                  />
+                </Link>
+              );
+            })}
           </div>
 
           {/* CTA */}
@@ -100,23 +105,29 @@ export default function Navbar() {
             transition={{ duration: 0.4, ease: 'easeInOut' }}
             className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center gap-6 lg:hidden"
           >
-            {navLinks.map((link, i) => (
-              <motion.div
-                key={link.href}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.08 }}
-              >
-                <Link
-                  href={link.href}
-                  className={`text-2xl font-700 transition-colors ${
-                    router.pathname === link.href ? 'text-[#29C8D5]' : 'text-gray-900 hover:text-[#29C8D5]'
-                  }`}
+            {navLinks.map((link, i) => {
+              const isActive =
+                link.href === '/work'
+                  ? router.pathname.startsWith('/work')
+                  : router.pathname === link.href;
+              return (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.08 }}
                 >
-                  {link.label}
-                </Link>
-              </motion.div>
-            ))}
+                  <Link
+                    href={link.href}
+                    className={`text-2xl font-700 transition-colors ${
+                      isActive ? 'text-[#29C8D5]' : 'text-gray-900 hover:text-[#29C8D5]'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              );
+            })}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

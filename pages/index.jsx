@@ -5,6 +5,17 @@ import { ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 import { products } from '../data/products';
 
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Treva',
+  url: 'https://treva.in',
+  logo: 'https://treva.in/logo.png',
+  description: 'Treva is a Bangalore-based 360° growth partner combining performance marketing, social media, web & app development, Treva CRM, Restaurant Dashboard, and Creator Hub UGC.',
+  address: { '@type': 'PostalAddress', addressLocality: 'Bangalore', addressRegion: 'Karnataka', addressCountry: 'IN' },
+  sameAs: ['https://www.instagram.com/treva.in', 'https://www.linkedin.com/company/treva-in'],
+};
+
 const clientList = [
   { src: '/logos/1.svg',  name: 'N Salon' },
   { src: '/logos/2.svg',  name: 'Brother Barley' },
@@ -54,10 +65,11 @@ export default function Home() {
   return (
     <>
       <SEOHead
-        title="Treva – Digital Marketing Agency in Bangalore | Branding, Web & Performance Marketing"
-        description="Treva is a full-service digital marketing agency in Bangalore. We deliver branding, web development, social media marketing, Google Ads, and performance marketing for modern brands. Get a free strategy call."
+        title="Treva — 360° Growth Partner | Marketing, Tech & Creator Commerce | Bangalore"
+        description="Treva is your growth partner — combining performance marketing, social media, web & app development, Treva CRM, Restaurant Dashboard, and Creator Hub UGC into one growth system. Based in Bangalore."
         url="https://www.treva.in"
         keywords="digital marketing agency, digital marketing agency near me, digital marketing agency Bangalore, full service digital marketing agency, branding agency, branding agency Bangalore, web agency, performance marketing agency, social media marketing agency, social media marketing, Google Ads agency, PPC agency, online marketing, digital advertising, marketing company near me, growth marketing agency"
+        schema={orgSchema}
       />
 
       {/* Hero — full viewport, heading + subheading + 2 CTAs */}
@@ -78,22 +90,21 @@ export default function Home() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.08 }}
-            className="mb-6 font-black text-gray-900 leading-[1.0]"
+            className="mb-4 font-black text-gray-900 leading-[1.0]"
             style={{ fontSize: 'clamp(2.8rem, 6vw, 5.5rem)', letterSpacing: '-0.03em' }}
           >
-            Build Better.<br />
-            <span className="teal-gradient-text">Grow Faster.</span>
+            Your 360° Growth Partner{' '}
+            <span className="teal-gradient-text">in Bangalore</span>
           </motion.h1>
 
-          <motion.p
+          <motion.h2
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.18 }}
-            className="mb-10 mx-auto max-w-2xl text-lg leading-relaxed text-gray-500"
+            transition={{ duration: 0.6, delay: 0.14 }}
+            className="mb-10 mx-auto max-w-2xl text-lg leading-relaxed text-gray-500 font-normal"
           >
-            We are a full-service digital marketing agency in Bangalore helping modern brands grow through branding,
-            social media marketing, web development, and Google Ads performance marketing. Everything under one roof.
-          </motion.p>
+            We build brands, run campaigns, ship products and close the loop — so your marketing compounds over time.
+          </motion.h2>
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -101,11 +112,11 @@ export default function Home() {
             transition={{ duration: 0.55, delay: 0.28 }}
             className="flex flex-col gap-4 sm:flex-row items-center justify-center"
           >
-            <Link href="/contact" className="btn-primary">
-              Contact Us <ArrowUpRight size={16} />
+            <Link href="/services" className="btn-primary">
+              See How We Work <ArrowUpRight size={16} />
             </Link>
-            <Link href="/services" className="btn-outline">
-              View Services <ArrowUpRight size={16} />
+            <Link href="/contact" className="btn-outline">
+              Contact Us <ArrowUpRight size={16} />
             </Link>
           </motion.div>
         </div>
@@ -122,6 +133,65 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* One Partner. Every Growth Layer. */}
+      <section className="bg-white py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-6">
+          <FadeIn className="mb-12 text-center">
+            <h2 className="mb-3 font-black text-gray-900" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.02em' }}>
+              One Partner. <span className="teal-gradient-text">Every Growth Layer.</span>
+            </h2>
+          </FadeIn>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {[
+              { heading: 'Performance Marketing', copy: 'Google Ads, Meta Ads, SEO — tracked to revenue, not just clicks.' },
+              { heading: 'Tech That Works For You', copy: 'Treva CRM, Restaurant Dashboard, custom web & app development.' },
+              { heading: 'Creator Commerce & UGC', copy: 'Creator Hub matches your brand to video creators your audience trusts.' },
+            ].map((card, i) => (
+              <FadeIn key={card.heading} delay={i * 0.08}>
+                <div className="card-glow rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+                  <h3 className="mb-3 text-xl font-bold text-gray-900">{card.heading}</h3>
+                  <p className="text-sm leading-relaxed text-gray-500">{card.copy}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Running a Restaurant? */}
+      <section className="bg-gray-50 py-20 lg:py-28">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <FadeIn>
+            <h2 className="mb-4 font-black text-gray-900" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '-0.02em' }}>
+              Running a Restaurant? We Built Something for You.
+            </h2>
+            <p className="mb-8 mx-auto max-w-2xl text-base leading-relaxed text-gray-500">
+              Treva&apos;s Restaurant Dashboard gives F&amp;B owners one view of operations, reservations and marketing performance. Used by Bangalore&apos;s top bars and breweries.
+            </p>
+            <Link href="/products" className="btn-primary">
+              Explore Restaurant Dashboard <ArrowUpRight size={16} />
+            </Link>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* UGC That Actually Converts */}
+      <section className="bg-white py-20 lg:py-28">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <FadeIn>
+            <h2 className="mb-4 font-black text-gray-900" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '-0.02em' }}>
+              UGC That Actually Converts
+            </h2>
+            <p className="mb-8 mx-auto max-w-2xl text-base leading-relaxed text-gray-500">
+              Creator Hub is Treva&apos;s platform connecting brands to vetted video creators — filtered by category and budget. No middleman. Real results.
+            </p>
+            <Link href="/products/creator-hub" className="btn-primary">
+              See Creator Hub <ArrowUpRight size={16} />
+            </Link>
+          </FadeIn>
         </div>
       </section>
 
@@ -228,6 +298,43 @@ export default function Home() {
                 </div>
               </div>
             </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Answers FAQ */}
+      <section className="bg-gray-50 py-20 lg:py-28">
+        <div className="mx-auto max-w-3xl px-6">
+          <FadeIn className="mb-10 text-center">
+            <h2 className="font-black text-gray-900" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '-0.02em' }}>
+              Quick Answers
+            </h2>
+          </FadeIn>
+          <div className="space-y-4">
+            {[
+              {
+                q: 'What does Treva do?',
+                a: 'Treva is a Bangalore-based 360° growth partner combining performance marketing (Google Ads, Meta), social media management, branding, web and app development, Treva CRM, Restaurant Dashboard, and Creator Hub UGC into one compounding system.',
+              },
+              {
+                q: 'Is Treva a marketing agency or a tech company?',
+                a: 'Both. Treva runs campaigns and builds products. Our services and proprietary technology work together so your marketing data feeds your CRM, your CRM informs your ads, and your UGC content drives your social — all from one partner.',
+              },
+              {
+                q: 'Does Treva work with businesses outside Bangalore?',
+                a: 'Yes. While Treva is headquartered in Bangalore, we work with brands across India. Creator Hub operates nationally.',
+              },
+            ].map((item) => (
+              <FadeIn key={item.q}>
+                <details className="group rounded-2xl border border-gray-100 bg-white shadow-sm">
+                  <summary className="flex cursor-pointer items-center justify-between gap-4 p-6 font-semibold text-gray-900 list-none">
+                    {item.q}
+                    <span className="shrink-0 text-[#29C8D5] transition-transform group-open:rotate-45 text-xl leading-none">+</span>
+                  </summary>
+                  <p className="px-6 pb-6 text-sm leading-relaxed text-gray-500">{item.a}</p>
+                </details>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>

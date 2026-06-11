@@ -110,6 +110,39 @@ const faqGroups = [
       },
     ],
   },
+  {
+    title: 'Growth, UGC & Creator Commerce',
+    items: [
+      {
+        q: 'What is a growth partner vs a marketing agency?',
+        a: 'At Treva, we define a growth partner as a team that connects your marketing, technology, and data into one compounding system — not just a vendor that runs campaigns and sends monthly reports. Agencies execute. Growth partners build systems that get smarter over time.',
+      },
+      {
+        q: 'What is Creator Hub and how does UGC marketing work?',
+        a: 'Creator Hub is Treva\'s platform that connects brands to UGC video creators filtered by category and budget. UGC (User Generated Content) is authentic video made by real people — not polished brand ads. It builds trust faster, performs better as paid content, and costs less than traditional production. Creator Hub removes the middleman.',
+      },
+      {
+        q: 'Does Treva offer a restaurant-specific marketing package?',
+        a: 'Yes. Treva works with restaurants, bars, and breweries across Bangalore offering social media management, Google Ads, UGC creator content through Creator Hub, and our Restaurant Dashboard — a unified view of operations and marketing performance. Book a free strategy call to discuss your F&B brand.',
+      },
+      {
+        q: 'What is Treva CRM and who is it for?',
+        a: 'Treva CRM is a sales pipeline and customer management tool built for growing businesses that want their marketing data and sales data to talk to each other. It is designed for businesses that run Treva\'s marketing services and want one dashboard for leads, pipeline, and campaign performance.',
+      },
+      {
+        q: 'Can Treva manage both organic social media and Google Ads?',
+        a: 'Yes. Treva manages both organic social media — content creation, scheduling, community management — and paid performance marketing including Google Ads and Meta Ads. When organic and paid work from the same strategy, results compound. That is how we build it.',
+      },
+      {
+        q: 'How does Treva measure ROAS for performance campaigns?',
+        a: 'At Treva, we measure ROAS (Return on Ad Spend) by tracking conversions at the campaign, ad set, and keyword level — not just impressions or clicks. We connect ad platform data to actual revenue events and report in weekly dashboards. Every rupee is accounted for.',
+      },
+      {
+        q: 'Does Treva work with brands outside Bangalore?',
+        a: 'Yes. Treva is headquartered in Bangalore but works with brands across India. Creator Hub, our UGC creator platform, operates nationally. Performance marketing and social media services are location-agnostic. Contact us to discuss your brand\'s location.',
+      },
+    ],
+  },
 ];
 
 export default function FAQPage() {

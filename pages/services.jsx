@@ -2,10 +2,19 @@ import { useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
 import {
-  Globe, Palette, Smartphone, Megaphone, LineChart,
+  Globe, Palette, Smartphone, Megaphone, LineChart, Search as SearchIcon,
   ArrowUpRight, CheckCircle, ArrowRight, Search
 } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
+
+const servicesFaqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'What digital marketing services does Treva offer?', acceptedAnswer: { '@type': 'Answer', text: 'Treva offers branding, social media marketing, Google Ads and Meta performance marketing, SEO, website development, mobile app development, UGC creator commerce through Creator Hub, and Treva CRM. All services are connected into one growth system.' } },
+    { '@type': 'Question', name: 'Does Treva offer SEO services in Bangalore?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Treva provides on-page SEO, technical audits, content strategy, and local SEO. SEO is integrated with our broader digital marketing system so rankings feed into paid campaigns and conversion tracking.' } },
+  ],
+};
 
 function FadeIn({ children, delay = 0, className = '' }) {
   const ref = useRef(null);
@@ -64,6 +73,25 @@ const services = [
     desc: 'As a PPC agency and Google Ads partner in Bangalore, we specialise in performance marketing covering Google Search Ads, Performance Max, Shopping campaigns, and Meta Ads. Our paid media agency services include strategy, optimisation, conversion tracking, and ROAS reporting for small businesses, SaaS, ecommerce, and enterprise brands.',
     features: ['Google Ads campaign setup & management', 'Meta & paid social ads strategy', 'Conversion tracking and analytics setup', 'Landing page and funnel recommendations', 'Audience and keyword research', 'Weekly optimisation and ROAS reporting'],
   },
+  {
+    id: 'seo',
+    icon: SearchIcon,
+    title: 'Search Engine Optimisation (SEO)',
+    tagline: 'Get found. On Google. In Bangalore and beyond.',
+    label: 'SEO Agency Bangalore',
+    desc: 'We get your brand found. On-page SEO, technical audits, content strategy and local SEO for Bangalore and beyond — all tied to your broader growth system.',
+    features: ['On-page SEO & metadata optimisation', 'Technical SEO audits', 'Content strategy & keyword planning', 'Local SEO for Bangalore', 'Backlink strategy', 'SEO performance reporting'],
+  },
+  {
+    id: 'creator-commerce',
+    icon: Megaphone,
+    title: 'Creator Commerce & UGC',
+    tagline: 'Real creators. Real audiences. Real results.',
+    label: 'UGC & Creator Commerce',
+    desc: 'Through Creator Hub, we match your brand with vetted video creators filtered by niche and budget. UGC content that builds trust and converts — at scale.',
+    features: ['Creator matching by category & budget', 'UGC video content delivery', 'F&B, beauty, tech, lifestyle & more', 'End-to-end campaign management', 'Content rights & brand ownership', 'Available across India'],
+    ctaHref: '/products/creator-hub',
+  },
 ];
 
 const servicesFAQ = [
@@ -88,19 +116,11 @@ export default function Services() {
   return (
     <>
       <SEOHead
-        title="Digital Marketing Services Bangalore | Branding, Social Media, Web & Performance Marketing | Treva"
-        description="Treva offers end-to-end digital marketing services in Bangalore: brand identity, social media marketing, web development, app development, and Google Ads performance marketing. One growth-focused team."
+        title="Digital Marketing Services Bangalore | Social, Performance, Web, App & Creator Commerce | Treva"
+        description="Treva offers 360° digital services: branding, social media marketing, Google Ads performance marketing, website & app development, influencer UGC, and Treva CRM. Your growth partner in Bangalore."
         url="https://www.treva.in/services"
         keywords="digital marketing services, digital marketing services near me, branding agency, social media marketing agency, social media marketing services, web development agency, website development company, app development company, mobile app development, performance marketing agency, Google Ads agency, PPC agency, content marketing services, digital marketing agency for small business, marketing agency for startups, lead generation agency"
-        faqSchema={{
-          '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          mainEntity: servicesFAQ.map(({ q, a }) => ({
-            '@type': 'Question',
-            name: q,
-            acceptedAnswer: { '@type': 'Answer', text: a },
-          })),
-        }}
+        faqSchema={servicesFaqSchema}
       />
 
       {/* Hero — fits one viewport */}
@@ -119,21 +139,20 @@ export default function Services() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.08 }}
-            className="font-black text-gray-900 mb-6 leading-[1.1]"
+            className="font-black text-gray-900 mb-4 leading-[1.1]"
             style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', letterSpacing: '-0.03em' }}
           >
-            Digital Services<br />
-            <span className="teal-gradient-text">Built for Growth</span>
+            Everything a Growing Business Needs —{' '}
+            <span className="teal-gradient-text">Under One Roof</span>
           </motion.h1>
-          <motion.p
+          <motion.h2
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto mb-10"
+            className="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto mb-10 font-normal"
           >
-            We are your branding agency, social media marketing agency, web development partner, and Google Ads performance marketing team.
-            As a leading full-service digital marketing agency in Bangalore, we deliver SEO-ready, growth-focused solutions for modern brands.
-          </motion.p>
+            From brand identity to performance campaigns, website to mobile app, CRM to UGC creator commerce — Treva is the team that connects all of it.
+          </motion.h2>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -233,6 +252,58 @@ export default function Services() {
                 </FadeIn>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* How It All Connects */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-6">
+          <FadeIn className="text-center mb-8">
+            <h2 className="font-black text-gray-900 mt-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '-0.02em' }}>
+              How It All Connects
+            </h2>
+            <p className="text-gray-500 mt-3 text-base">We&apos;re not a menu of services — we&apos;re a connected system.</p>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+              <div className="flex flex-wrap items-center justify-center gap-2 text-sm font-semibold text-gray-700">
+                {['Brand & Strategy', 'Social & Content', 'Performance Ads', 'Web / App', 'CRM & Data', 'UGC & Creators'].map((step, i, arr) => (
+                  <span key={step} className="flex items-center gap-2">
+                    <span className="rounded-full border border-[rgba(41,200,213,0.3)] bg-[rgba(41,200,213,0.06)] px-4 py-2 text-[#1AA8B4]">{step}</span>
+                    {i < arr.length - 1 && <span className="text-gray-300">→</span>}
+                  </span>
+                ))}
+              </div>
+              <p className="mt-6 text-center text-sm leading-relaxed text-gray-500">
+                When every layer talks to the next, your marketing compounds. That&apos;s the Treva difference.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Growth Partner, Not Just an Agency */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <FadeIn className="mb-8">
+            <h2 className="font-black text-gray-900 mt-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '-0.02em' }}>
+              Growth Partner, Not Just an Agency
+            </h2>
+          </FadeIn>
+          <div className="space-y-4">
+            {[
+              'Agencies report on campaigns. We build systems that make every campaign smarter than the last.',
+              'We own the tech stack — Treva CRM and Restaurant Dashboard are not third-party tools.',
+              'We connect marketing to revenue, not just metrics.',
+            ].map((point, i) => (
+              <FadeIn key={i} delay={i * 0.06}>
+                <div className="flex items-start gap-3 rounded-2xl border border-gray-100 bg-gray-50 p-6 shadow-sm">
+                  <CheckCircle size={18} className="text-[#29C8D5] mt-0.5 shrink-0" />
+                  <p className="text-gray-700 text-base leading-relaxed">{point}</p>
+                </div>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>
