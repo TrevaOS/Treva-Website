@@ -59,10 +59,81 @@ export default function Products() {
 
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl space-y-8 px-6">
-          {products.map(({ slug, image, name, tagline, desc, status, color, features, ctaLabel, ctaHref, external, imageClassName, detailLabel, detailHref }, i) => (
+          {products.map(({ slug, image, name, tagline, desc, status, color, features, ctaLabel, ctaHref, external, imageClassName, detailLabel, detailHref }, i) => {
+            const isLightImage = (imageClassName || '').includes('bg-white');
+            return (
             <FadeIn key={slug} delay={i * 0.08}>
               <div id={slug} className="card-glow scroll-mt-28 overflow-hidden rounded-2xl border border-gray-100 bg-gray-50">
-                <div className="grid gap-0 lg:grid-cols-2">
+                {/* Mobile: image card with overlay content */}
+                <div className={`relative flex min-h-[460px] flex-col overflow-hidden rounded-2xl lg:hidden ${isLightImage ? 'bg-white' : ''}`}>
+                  <img
+                    src={image}
+                    alt={name}
+                    className={`absolute inset-0 h-full w-full ${imageClassName || 'object-cover'}`}
+                  />
+                  {!isLightImage && (
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
+                  )}
+                  <span
+                    className={`relative z-10 m-4 self-start px-3 py-1 text-xs font-700 ${
+                      status === 'Now Live'
+                        ? 'section-pill-live border border-[#29C8D5]/30 bg-[#29C8D5]/10 text-[#0D1117]'
+                        : 'rounded-full bg-white text-black'
+                    }`}
+                  >
+                    {status}
+                  </span>
+
+                  <div
+                    className={`relative z-10 mt-auto flex flex-col p-6 text-center ${
+                      isLightImage ? 'bg-white' : ''
+                    }`}
+                  >
+                    <p className="mb-1 text-xs font-600 uppercase tracking-widest" style={{ color }}>
+                      {name}
+                    </p>
+                    <h3 className={`mb-2 text-2xl font-black ${isLightImage ? 'text-gray-900' : 'text-white'}`}>{tagline}</h3>
+                    <p className={`mb-5 text-sm leading-relaxed ${isLightImage ? 'text-gray-500' : 'text-gray-300'}`}>
+                      {desc}
+                    </p>
+
+                    <div className="flex flex-wrap justify-center gap-3">
+                      {external && detailHref ? (
+                        <Link
+                          href={detailHref}
+                          className={`rounded-full px-6 py-3 text-sm font-700 ${
+                            isLightImage ? 'border border-gray-200 text-gray-900' : 'bg-white text-black'
+                          }`}
+                        >
+                          {detailLabel || 'Details'}
+                        </Link>
+                      ) : null}
+
+                      {external ? (
+                        <a
+                          href={ctaHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="rounded-full px-6 py-3 text-sm font-700"
+                          style={{ background: color, color: '#000' }}
+                        >
+                          {ctaLabel}
+                        </a>
+                      ) : (
+                        <Link
+                          href={ctaHref || `/products/${slug}`}
+                          className="rounded-full px-6 py-3 text-sm font-700"
+                          style={{ background: color, color: '#000' }}
+                        >
+                          {ctaLabel}
+                        </Link>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Desktop: side-by-side layout */}
+                <div className="hidden gap-0 lg:grid lg:grid-cols-2">
                   <div className="relative min-h-[260px] overflow-hidden bg-gray-100 sm:min-h-[320px]">
                     <img
                       src={image}
@@ -132,7 +203,8 @@ export default function Products() {
                 </div>
               </div>
             </FadeIn>
-          ))}
+            );
+          })}
         </div>
       </section>
     </>

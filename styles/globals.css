@@ -173,10 +173,18 @@ html, body {
 }
 .marquee-content {
   display: inline-flex;
-  animation: marquee 300s linear infinite;
+  animation: marquee 55s linear infinite;
   gap: 2rem;
   will-change: transform;
   width: max-content;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 .marquee-logo-card {

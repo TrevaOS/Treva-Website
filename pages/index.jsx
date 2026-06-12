@@ -1,7 +1,8 @@
 import { useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { motion, useInView } from 'framer-motion';
-import { ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Search } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 import { products } from '../data/products';
 
@@ -10,7 +11,7 @@ const clientList = [
   { src: '/logos/2.svg',  name: 'Brother Barley' },
   { src: '/logos/3.svg',  name: 'District 6' },
   { src: '/logos/4.svg',  name: 'The Watering Hole' },
-  { src: '/logos/5.svg',  name: 'Balcony Bar' },
+  { src: '/logos/5.svg',  name: '153 Bier Street' },
   { src: '/logos/6.svg',  name: 'The Biere Club' },
   { src: '/logos/7.svg',  name: 'Hoot Craft Work' },
   { src: '/logos/8.svg',  name: 'Nailashes' },
@@ -26,6 +27,163 @@ const clientList = [
   { src: '/logos/18.png', name: 'Legends Microbrewery' },
 ];
 const clients = [...clientList, ...clientList];
+
+const serviceOptions = [
+  'Social Media Marketing',
+  'Performance Marketing',
+  'SEO Services',
+  'Influencer Marketing',
+  'Branding',
+  'Content Marketing',
+  'Lead Generation',
+  'Website Development',
+  'App Development',
+  'Marketing Services',
+];
+
+const locationOptions = [
+  'Bangalore',
+  'Mysore',
+  'Chitradurga',
+  'Mangalore',
+  'Hubli',
+  'Belgaum',
+  'Davangere',
+];
+
+const industryOptions = [
+  { value: 'Restaurants', headline: 'Restaurants', copy: 'restaurant businesses' },
+  { value: 'Real Estate', headline: 'Real Estate Companies', copy: 'real estate businesses' },
+  { value: 'Healthcare', headline: 'Healthcare Businesses', copy: 'healthcare businesses' },
+  { value: 'Education', headline: 'Education Businesses', copy: 'education businesses' },
+  { value: 'E-commerce', headline: 'E-commerce Brands', copy: 'e-commerce businesses' },
+  { value: 'Fashion', headline: 'Fashion Brands', copy: 'fashion businesses' },
+  { value: 'Startups', headline: 'Startups', copy: 'startup teams' },
+  { value: 'Manufacturing', headline: 'Manufacturing Businesses', copy: 'manufacturing businesses' },
+  { value: 'Hospitality', headline: 'Hospitality Businesses', copy: 'hospitality businesses' },
+];
+
+const heroSuggestions = [
+  { label: 'Website Development', service: 'Website Development', href: '/services#web-development' },
+  { label: 'Performance Marketing', service: 'Performance Marketing', href: '/services#performance-marketing' },
+  { label: 'Social Media Marketing', service: 'Social Media Marketing', href: '/services#social-media-marketing' },
+  { label: 'App Development', service: 'App Development', href: '/services#app-development' },
+  { label: 'Branding', service: 'Branding', href: '/services#branding' },
+];
+
+function normalizeValue(value) {
+  if (Array.isArray(value)) return normalizeValue(value[0]);
+  if (!value || typeof value !== 'string') return '';
+  return value
+    .replace(/[-_]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+}
+
+function matchOption(rawValue, options) {
+  const normalized = normalizeValue(rawValue);
+  if (!normalized) return '';
+  return options.find((option) => normalizeValue(option) === normalized) || '';
+}
+
+function matchIndustry(rawValue) {
+  const normalized = normalizeValue(rawValue);
+  if (!normalized) return null;
+  return industryOptions.find((option) => normalizeValue(option.value) === normalized) || null;
+}
+
+function detectService(intent) {
+  const normalized = normalizeValue(intent);
+  if (!normalized) return '';
+
+  const exact = serviceOptions.find((service) => normalized.includes(normalizeValue(service)));
+  if (exact) return exact;
+
+  if (/\bseo\b|search engine/.test(normalized)) return 'SEO Services';
+  if (/performance|ppc|paid ads|google ads|meta ads/.test(normalized)) return 'Performance Marketing';
+  if (/social media|instagram|facebook/.test(normalized)) return 'Social Media Marketing';
+  if (/influencer|creator/.test(normalized)) return 'Influencer Marketing';
+  if (/brand|logo|identity/.test(normalized)) return 'Branding';
+  if (/content|copywriting|blog/.test(normalized)) return 'Content Marketing';
+  if (/lead generation|leads/.test(normalized)) return 'Lead Generation';
+  if (/website|web development|web design/.test(normalized)) return 'Website Development';
+  if (/app|mobile app|android|ios/.test(normalized)) return 'App Development';
+  if (/marketing|agency|company/.test(normalized)) return 'Marketing Services';
+  return '';
+}
+
+function detectLocation(intent) {
+  const normalized = normalizeValue(intent);
+  return locationOptions.find((location) => normalized.includes(normalizeValue(location))) || '';
+}
+
+function detectIndustry(intent) {
+  const normalized = normalizeValue(intent);
+  if (!normalized) return null;
+  if (/restaurant|cafe|food|bar|brewery/.test(normalized)) return industryOptions[0];
+  return industryOptions.find((industry) => normalized.includes(normalizeValue(industry.value))) || null;
+}
+
+function buildHeroContent(query) {
+  const searchIntent = normalizeValue(query.q || query.search || query.intent);
+  const service = matchOption(query.service, serviceOptions) || detectService(searchIntent);
+  const location = matchOption(query.location || query.city, locationOptions) || detectLocation(searchIntent);
+  const industry = matchIndustry(query.industry) || detectIndustry(searchIntent);
+
+  if (service && industry && location) {
+    return {
+      service,
+      location,
+      industry,
+      headline: `Looking for ${service} for ${industry.headline} in ${location}?`,
+      subheading: `Helping ${industry.copy} across ${location} generate more leads, sales, customers, and brand visibility through expert ${service.toLowerCase()} strategies.`,
+      searchValue: searchIntent,
+    };
+  }
+
+  if (service && location) {
+    return {
+      service,
+      location,
+      industry,
+      headline: `Looking for ${service} in ${location}?`,
+      subheading: `Helping businesses across ${location} grow faster through proven ${service.toLowerCase()} strategies that deliver measurable results.`,
+      searchValue: searchIntent,
+    };
+  }
+
+  if (service && industry) {
+    return {
+      service,
+      location,
+      industry,
+      headline: `Looking for ${service} for ${industry.headline}?`,
+      subheading: `Helping ${industry.copy} attract more customers and grow faster through expert ${service.toLowerCase()} solutions.`,
+      searchValue: searchIntent,
+    };
+  }
+
+  if (service) {
+    return {
+      service,
+      location,
+      industry,
+      headline: `Looking for ${service} Near You?`,
+      subheading: `Helping local businesses grow through proven ${service.toLowerCase()} strategies that drive leads, sales, and long-term growth.`,
+      searchValue: searchIntent,
+    };
+  }
+
+  return {
+    service,
+    location,
+    industry,
+    headline: 'Looking for Marketing Services Near You?',
+    subheading: 'Helping businesses like yours generate more leads, customers, and revenue through modern digital marketing solutions.',
+    searchValue: searchIntent,
+  };
+}
 
 function FadeIn({ children, delay = 0, className = '' }) {
   const ref = useRef(null);
@@ -43,81 +201,158 @@ function FadeIn({ children, delay = 0, className = '' }) {
   );
 }
 
+function renderHeroHeadline(headline) {
+  const target = 'Services Near You?';
+  if (!headline.includes(target)) return headline;
+
+  const [before, after] = headline.split(target);
+  return (
+    <>
+      {before}
+      <span className="text-[#29C8D5]">{target}</span>
+      {after}
+    </>
+  );
+}
+
 export default function Home() {
+  const router = useRouter();
   const [activeProduct, setActiveProduct] = useState(0);
   const product = products[activeProduct];
+  const hero = useMemo(() => buildHeroContent(router.query), [router.query]);
 
   const moveProduct = (step) => {
     setActiveProduct((current) => (current + step + products.length) % products.length);
   };
 
+  const handleHeroSearch = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const query = String(formData.get('hero-search') || '').trim();
+    if (!query) return;
+    router.push({ pathname: '/search', query: { q: query } });
+  };
+
   return (
     <>
       <SEOHead
-        title="Treva – Digital Marketing Agency in Bangalore | Branding, Web & Performance Marketing"
-        description="Treva is a full-service digital marketing agency in Bangalore. We deliver branding, web development, social media marketing, Google Ads, and performance marketing for modern brands. Get a free strategy call."
+        title="Treva – Your Growth Partner in Bangalore | 360 Marketing, Tech & Creator-Led Growth"
+        description="Treva is your growth partner in Bangalore, combining social media, performance marketing, web and app development, Treva CRM, restaurant dashboards, and creator-led UGC into one compounding growth system."
         url="https://www.treva.in"
-        keywords="digital marketing agency, digital marketing agency near me, digital marketing agency Bangalore, full service digital marketing agency, branding agency, branding agency Bangalore, web agency, performance marketing agency, social media marketing agency, social media marketing, Google Ads agency, PPC agency, online marketing, digital advertising, marketing company near me, growth marketing agency"
+        keywords="growth partner Bangalore, 360 marketing agency Bangalore, digital marketing agency Bangalore, creator led growth, UGC marketing agency India, Treva CRM, restaurant dashboard, performance marketing agency, social media marketing agency, web development agency, app development company, branding agency Bangalore"
       />
 
-      {/* Hero — full viewport, heading + subheading + 2 CTAs */}
-      <section className="relative overflow-hidden bg-white flex min-h-screen items-center">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_60%_30%,rgba(41,200,213,0.07),transparent_55%)]" />
-        <div className="pointer-events-none absolute bottom-0 left-0 w-[500px] h-[500px] bg-[radial-gradient(ellipse,rgba(41,200,213,0.04),transparent_60%)]" />
-        <div className="relative z-10 mx-auto w-full max-w-4xl px-6 py-32 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-6 inline-flex rounded-full border border-[rgba(41,200,213,0.3)] bg-[rgba(41,200,213,0.06)] px-5 py-2 text-sm font-semibold tracking-wider text-[#1AA8B4]"
-          >
-            Digital Marketing Agency · Bengaluru
-          </motion.div>
+      {/* Hero */}
+      <section className="relative isolate flex h-[100svh] items-center overflow-hidden bg-[#101418] pt-20 text-white lg:pt-24">
+        <video
+          className="absolute inset-0 h-full w-full object-cover opacity-70"
+          src="/assets/0_Office_Co_working_Space_1920x1080.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.84)_0%,rgba(0,0,0,0.66)_42%,rgba(0,0,0,0.32)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/65 to-transparent" />
 
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-8 lg:py-10">
+          <div className="max-w-5xl">
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.08 }}
-            className="mb-6 font-black text-gray-900 leading-[1.0]"
-            style={{ fontSize: 'clamp(2.8rem, 6vw, 5.5rem)', letterSpacing: '-0.03em' }}
+            className="mb-4 max-w-4xl font-semibold leading-[1.02] text-white"
+            style={{ fontSize: 'clamp(2.25rem, 5.2vw, 5.25rem)' }}
           >
-            Build Better.<br />
-            <span className="teal-gradient-text">Grow Faster.</span>
+            {renderHeroHeadline(hero.headline)}
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.18 }}
-            className="mb-10 mx-auto max-w-2xl text-lg leading-relaxed text-gray-500"
+            className="mb-5 max-w-3xl text-base leading-relaxed text-white/82 md:text-lg"
           >
-            We are a full-service digital marketing agency in Bangalore helping modern brands grow through branding,
-            social media marketing, web development, and Google Ads performance marketing. Everything under one roof.
+            {hero.subheading}
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.28 }}
-            className="flex flex-col gap-4 sm:flex-row items-center justify-center"
+            className="mb-4"
+          >
+            <form key={router.asPath} onSubmit={handleHeroSearch} className="flex w-full max-w-5xl items-center rounded-xl bg-white p-2 shadow-2xl shadow-black/30">
+              <label htmlFor="hero-search" className="sr-only">Search marketing services</label>
+              <input
+                id="hero-search"
+                name="hero-search"
+                type="search"
+                defaultValue={hero.searchValue}
+                placeholder="Search for any service..."
+                className="min-w-0 flex-1 rounded-lg px-4 py-3 text-sm font-medium text-gray-900 outline-none placeholder:text-gray-400 md:px-5 md:text-lg"
+              />
+              <button
+                type="submit"
+                aria-label="Search"
+                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#20242a] text-white transition-colors hover:bg-[#29C8D5] md:h-14 md:w-14"
+              >
+                <Search size={26} />
+              </button>
+            </form>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.34 }}
+            className="relative mb-5"
+          >
+            <div className="no-scrollbar flex gap-2 overflow-x-auto pr-10 md:flex-wrap md:overflow-visible md:pr-0">
+              {heroSuggestions.map((suggestion) => (
+                <Link
+                  key={suggestion.label}
+                  href={suggestion.href}
+                  className="inline-flex min-h-9 shrink-0 items-center gap-2 whitespace-nowrap rounded-md border border-white/40 bg-black/10 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur transition-colors hover:border-[#29C8D5] hover:bg-[#29C8D5]/20 md:text-sm"
+                >
+                  {suggestion.label}
+                  <ArrowRight size={15} />
+                </Link>
+              ))}
+            </div>
+            <div className="pointer-events-none absolute right-0 top-1/2 flex h-full -translate-y-1/2 items-center bg-gradient-to-l from-black/60 via-black/35 to-transparent pl-8 pr-1 text-white md:hidden">
+              <ArrowRight size={18} />
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.42 }}
+            className="flex flex-col gap-3 sm:flex-row"
           >
             <Link href="/contact" className="btn-primary">
-              Contact Us <ArrowUpRight size={16} />
+              Get Free Consultation <ArrowUpRight size={16} />
             </Link>
-            <Link href="/services" className="btn-outline">
-              View Services <ArrowUpRight size={16} />
+            <Link href="/services" className="inline-flex items-center gap-2 rounded-lg border border-white/35 px-7 py-[13px] text-sm font-bold uppercase tracking-[0.05em] text-white transition-colors hover:border-[#29C8D5] hover:text-[#29C8D5]">
+              View Case Studies <ArrowUpRight size={16} />
             </Link>
           </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Client logos marquee */}
       <section className="border-y border-gray-100 bg-white py-8">
+        <div className="mx-auto mb-5 max-w-7xl px-6">
+          <p className="text-center text-xs font-bold uppercase tracking-[0.22em] text-gray-400">Trusted by growing brands</p>
+        </div>
         <div className="marquee-wrapper">
           <div className="marquee-content">
             {clients.map((client, index) => (
               <div key={`${client.src}-${index}`} className="marquee-logo-card flex h-32 w-52 flex-col items-center justify-center gap-2 rounded-2xl p-5">
-                <img src={client.src} alt={client.name} className="object-contain" style={{ maxHeight: '4.5rem', maxWidth: '10rem' }} />
+                <img src={client.src} alt={client.name} className="object-contain" style={{ maxHeight: '6rem', maxWidth: '12rem' }} />
                 <span className="text-[10px] font-semibold uppercase tracking-wider text-gray-400">{client.name}</span>
               </div>
             ))}
@@ -175,7 +410,74 @@ export default function Home() {
             </p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+          {/* Mobile: image card with overlay content */}
+          {(() => {
+            const isLightImage = (product.imageClassName || '').includes('bg-white');
+            return (
+              <FadeIn className="lg:hidden">
+                <div className={`relative flex min-h-[460px] flex-col overflow-hidden rounded-2xl border border-gray-100 ${isLightImage ? 'bg-white' : ''}`}>
+                  <img src={product.image} alt={product.name} className={`absolute inset-0 h-full w-full ${product.imageClassName || 'object-cover'}`} />
+                  {!isLightImage && (
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
+                  )}
+                  <span
+                    className={`relative z-10 m-4 self-start px-3 py-1 text-xs font-700 ${
+                      product.status === 'Now Live'
+                        ? 'section-pill-live border border-[#29C8D5]/30 bg-[#29C8D5]/10 text-[#0D1117]'
+                        : 'rounded-full bg-white text-black'
+                    }`}
+                  >
+                    {product.status}
+                  </span>
+
+                  <div className={`relative z-10 mt-auto flex flex-col p-6 text-center ${isLightImage ? 'bg-white' : ''}`}>
+                    <h3 className={`mb-2 text-2xl font-black ${isLightImage ? 'text-gray-900' : 'text-white'}`}>{product.name}</h3>
+                    <p className={`mb-5 text-sm leading-relaxed ${isLightImage ? 'text-gray-500' : 'text-gray-300'}`}>
+                      {product.desc}
+                    </p>
+
+                    <div className="flex flex-wrap justify-center gap-3">
+                      <Link
+                        href={product.ctaHref || `/products/${product.slug}`}
+                        className="rounded-full px-6 py-3 text-sm font-700"
+                        style={{ background: product.color, color: '#000' }}
+                      >
+                        {product.ctaLabel}
+                      </Link>
+                      <button type="button" onClick={() => moveProduct(-1)} className={`flex h-11 w-11 items-center justify-center rounded-full ${isLightImage ? 'border border-gray-200 text-gray-900' : 'border border-white/30 text-white'}`} aria-label="Previous product">
+                        <ChevronLeft size={18} />
+                      </button>
+                      <button type="button" onClick={() => moveProduct(1)} className={`flex h-11 w-11 items-center justify-center rounded-full ${isLightImage ? 'border border-gray-200 text-gray-900' : 'border border-white/30 text-white'}`} aria-label="Next product">
+                        <ChevronRight size={18} />
+                      </button>
+                    </div>
+
+                    <div className="mt-5 flex flex-wrap justify-center gap-2">
+                      {products.map((item, index) => (
+                        <button
+                          key={item.slug}
+                          type="button"
+                          onClick={() => setActiveProduct(index)}
+                          className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
+                            index === activeProduct
+                              ? 'border-[#29C8D5] bg-[rgba(41,200,213,0.08)] text-[#29C8D5]'
+                              : isLightImage
+                                ? 'border-gray-200 text-gray-400 hover:border-[#29C8D5]/50 hover:text-[#29C8D5]'
+                                : 'border-white/30 text-gray-300 hover:border-[#29C8D5]/50 hover:text-[#29C8D5]'
+                          }`}
+                        >
+                          {item.name}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </FadeIn>
+            );
+          })()}
+
+          {/* Desktop: side-by-side layout */}
+          <div className="hidden grid-cols-1 gap-10 lg:grid lg:grid-cols-[0.85fr_1.15fr]">
             <FadeIn>
               <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm md:p-8">
                 <p className="mb-3 text-xs font-bold uppercase tracking-widest text-[#29C8D5]">{product.status}</p>
