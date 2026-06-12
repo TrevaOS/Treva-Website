@@ -2,27 +2,34 @@ import { useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { motion, useInView } from 'framer-motion';
-import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Search } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Clock, Megaphone, Quote, Search, Sparkles, Star, TrendingUp, Users } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 import { products } from '../data/products';
+import { blogPosts } from '../data/blogData';
+
+const tagColors = {
+  'Strategy': 'bg-blue-50 text-blue-600 border-blue-100',
+  'AI & Technology': 'bg-purple-50 text-purple-600 border-purple-100',
+  'Marketing': 'bg-orange-50 text-orange-600 border-orange-100',
+  'SEO': 'bg-green-50 text-green-600 border-green-100',
+  'Web & Design': 'bg-[rgba(41,200,213,0.08)] text-[#1AA8B4] border-[rgba(41,200,213,0.2)]',
+};
 
 const clientList = [
+  { src: '/logos/3.svg',  name: 'District 6' },
+  { src: '/logos/6.svg',  name: 'The Biere Club' },
+  { src: '/logos/9.svg',  name: 'Zolo' },
+  { src: '/logos/11.svg', name: 'Toyota' },
+  { src: '/logos/16.svg', name: 'Amazon' },
   { src: '/logos/1.svg',  name: 'N Salon' },
   { src: '/logos/2.svg',  name: 'Brother Barley' },
-  { src: '/logos/3.svg',  name: 'District 6' },
   { src: '/logos/4.svg',  name: 'The Watering Hole' },
   { src: '/logos/5.svg',  name: '153 Bier Street' },
-  { src: '/logos/6.svg',  name: 'The Biere Club' },
   { src: '/logos/7.svg',  name: 'Hoot Craft Work' },
   { src: '/logos/8.svg',  name: 'Nailashes' },
-  { src: '/logos/9.svg',  name: 'Zolo' },
   { src: '/logos/10.svg', name: 'Zmanda' },
-  { src: '/logos/11.svg', name: 'Toyota' },
   { src: '/logos/12.svg', name: 'La Glaze' },
-  { src: '/logos/13.svg', name: 'Deck of Brews' },
   { src: '/logos/14.svg', name: 'Almarooj Dairy' },
-  { src: '/logos/15.svg', name: 'Chifa Yong' },
-  { src: '/logos/16.svg', name: 'Amazon' },
   { src: '/logos/17.png', name: 'La Glaze' },
   { src: '/logos/18.png', name: 'Legends Microbrewery' },
 ];
@@ -61,6 +68,64 @@ const industryOptions = [
   { value: 'Startups', headline: 'Startups', copy: 'startup teams' },
   { value: 'Manufacturing', headline: 'Manufacturing Businesses', copy: 'manufacturing businesses' },
   { value: 'Hospitality', headline: 'Hospitality Businesses', copy: 'hospitality businesses' },
+];
+
+const companyStats = [
+  {
+    icon: TrendingUp,
+    value: '₹15+ Cr',
+    label: 'Google Ads Budget Managed',
+    desc: 'Performance campaigns managed across industries on Google Ads.',
+    color: '#0D3B66',
+  },
+  {
+    icon: Megaphone,
+    value: '₹15+ Cr',
+    label: 'Meta Ads Budget Managed',
+    desc: 'Generating ₹350+ Crore in revenue per month for brands.',
+    color: '#1AA8B4',
+  },
+  {
+    icon: Users,
+    value: '80+',
+    label: 'Clients Served',
+    desc: 'Brands across categories trust Treva with their growth.',
+    color: '#E0A732',
+  },
+  {
+    icon: Sparkles,
+    value: '1000+',
+    label: 'Influencer Network',
+    desc: 'A creator base ready to power UGC and influencer campaigns.',
+    color: '#7C3AED',
+  },
+];
+
+const testimonials = [
+  {
+    name: 'Dheeraj',
+    role: 'District 6',
+    stars: 5,
+    text: 'Treva runs our event campaigns end-to-end now. Their social content actually resonates with our crowd, and our weekend turnouts have never been more consistent.',
+  },
+  {
+    name: 'Ramesh',
+    role: 'Finca',
+    stars: 5,
+    text: "Working with Treva felt different from day one. They took the time to understand our brand and built a marketing system that brings in steady footfall every month.",
+  },
+  {
+    name: 'Akhil',
+    role: 'Zolo',
+    stars: 5,
+    text: 'Our social media presence has completely transformed since we started with Treva. The content quality and consistency have driven real engagement growth.',
+  },
+  {
+    name: 'Varun',
+    role: 'Brother Barley',
+    stars: 5,
+    text: "Treva's team understands hospitality marketing in a way most agencies don't. From campaigns to creative, everything is built around what actually gets people through the door.",
+  },
 ];
 
 const heroSuggestions = [
@@ -180,7 +245,7 @@ function buildHeroContent(query) {
     location,
     industry,
     headline: 'Looking for Marketing Services Near You?',
-    subheading: 'Helping businesses like yours generate more leads, customers, and revenue through modern digital marketing solutions.',
+    subheading: 'Helping businesses like yours generate more leads, customers, and revenue through AI-driven marketing solutions.',
     searchValue: searchIntent,
   };
 }
@@ -212,6 +277,72 @@ function renderHeroHeadline(headline) {
       <span className="text-[#29C8D5]">{target}</span>
       {after}
     </>
+  );
+}
+
+function LogoMarquee({ clients }) {
+  const trackRef = useRef(null);
+  const resumeTimer = useRef(null);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const pauseTemporarily = () => {
+    setIsPaused(true);
+    if (resumeTimer.current) clearTimeout(resumeTimer.current);
+    resumeTimer.current = setTimeout(() => setIsPaused(false), 2500);
+  };
+
+  const scrollByCard = (direction) => {
+    const track = trackRef.current;
+    if (!track) return;
+    pauseTemporarily();
+    track.scrollBy({ left: direction * 240, behavior: 'smooth' });
+  };
+
+  return (
+    <div className="relative">
+      <button
+        type="button"
+        onClick={() => scrollByCard(-1)}
+        aria-label="Scroll logos left"
+        className="absolute left-1 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-md transition-colors hover:border-[#29C8D5] hover:text-[#29C8D5] sm:flex"
+      >
+        <ChevronLeft size={20} />
+      </button>
+
+      <div
+        ref={trackRef}
+        className={`marquee-wrapper no-scrollbar ${isPaused ? 'is-paused' : ''}`}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={pauseTemporarily}
+        onScroll={pauseTemporarily}
+      >
+        <div className="marquee-content">
+          {clients.map((client, index) => (
+            <div key={`${client.src}-${index}`} className="marquee-logo-card flex h-32 w-52 flex-col items-center justify-center gap-2 rounded-2xl p-5">
+              <img
+                src={client.src}
+                alt={client.name}
+                loading="lazy"
+                decoding="async"
+                className="object-contain"
+                style={{ maxHeight: '6rem', maxWidth: '12rem' }}
+              />
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-gray-400">{client.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <button
+        type="button"
+        onClick={() => scrollByCard(1)}
+        aria-label="Scroll logos right"
+        className="absolute right-1 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-md transition-colors hover:border-[#29C8D5] hover:text-[#29C8D5] sm:flex"
+      >
+        <ChevronRight size={20} />
+      </button>
+    </div>
   );
 }
 
@@ -344,17 +475,48 @@ export default function Home() {
       </section>
 
       {/* Client logos marquee */}
-      <section className="border-y border-gray-100 bg-white py-8">
-        <div className="mx-auto mb-5 max-w-7xl px-6">
-          <p className="text-center text-xs font-bold uppercase tracking-[0.22em] text-gray-400">Trusted by growing brands</p>
+      <section className="border-y border-gray-100 bg-white py-10">
+        <div className="mx-auto mb-8 max-w-7xl px-6 text-center">
+          <div className="inline-block rounded-2xl bg-[#E6FAFC] px-6 py-4 sm:px-10 sm:py-5">
+            <h2 className="font-black text-gray-900" style={{ fontSize: 'clamp(1.4rem, 3vw, 2.25rem)', letterSpacing: '-0.02em' }}>
+              Trusted by Growing Brands
+            </h2>
+            <p className="mt-1 text-sm text-gray-600 sm:text-base">
+              From cafes to corporates, brands across Bangalore partner with Treva to grow.
+            </p>
+          </div>
         </div>
-        <div className="marquee-wrapper">
-          <div className="marquee-content">
-            {clients.map((client, index) => (
-              <div key={`${client.src}-${index}`} className="marquee-logo-card flex h-32 w-52 flex-col items-center justify-center gap-2 rounded-2xl p-5">
-                <img src={client.src} alt={client.name} className="object-contain" style={{ maxHeight: '6rem', maxWidth: '12rem' }} />
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-gray-400">{client.name}</span>
-              </div>
+        <LogoMarquee clients={clients} />
+      </section>
+
+      {/* Company stats */}
+      <section className="bg-gray-50 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <FadeIn className="mb-12 text-center">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#29C8D5]">By the Numbers</p>
+            <h2 className="font-black text-gray-900" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.02em' }}>
+              Results That Compound
+            </h2>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+            {companyStats.map((stat, index) => (
+              <FadeIn key={stat.label} delay={index * 0.08}>
+                <div
+                  className="relative rounded-2xl border-l-4 border-t-4 pl-6 pt-4"
+                  style={{ borderColor: stat.color }}
+                >
+                  <span
+                    className="absolute -right-2 -top-5 flex h-11 w-11 items-center justify-center rounded-full text-white shadow-md"
+                    style={{ backgroundColor: stat.color }}
+                  >
+                    <stat.icon size={20} />
+                  </span>
+                  <p className="mb-2 text-3xl font-black text-gray-900 sm:text-4xl">{stat.value}</p>
+                  <p className="mb-2 text-sm font-bold uppercase tracking-wide" style={{ color: stat.color }}>{stat.label}</p>
+                  <p className="text-sm leading-relaxed text-gray-500">{stat.desc}</p>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -391,6 +553,43 @@ export default function Home() {
                     Explore <ArrowUpRight size={13} />
                   </span>
                 </Link>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="bg-white py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-6">
+          <FadeIn className="mb-12 text-center">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#29C8D5]">What Clients Say</p>
+            <h2 className="font-black text-gray-900" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.02em' }}>
+              Loved by Growing Brands
+            </h2>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {testimonials.map(({ name, role, stars, text }, index) => (
+              <FadeIn key={name} delay={index * 0.08}>
+                <div className="equal-card relative rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+                  <Quote size={28} className="absolute right-5 top-5 text-[rgba(41,200,213,0.15)]" />
+                  <div className="mb-4 flex gap-1">
+                    {Array.from({ length: stars }).map((_, starIndex) => (
+                      <Star key={starIndex} size={14} className="fill-[#29C8D5] text-[#29C8D5]" />
+                    ))}
+                  </div>
+                  <p className="mb-6 text-sm italic leading-relaxed text-gray-500">&quot;{text}&quot;</p>
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(41,200,213,0.2)] bg-[rgba(41,200,213,0.08)]">
+                      <span className="text-sm font-bold text-[#1AA8B4]">{name[0]}</span>
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold text-gray-900">{name}</div>
+                      <div className="text-xs text-gray-400">{role}</div>
+                    </div>
+                  </div>
+                </div>
               </FadeIn>
             ))}
           </div>
@@ -476,60 +675,135 @@ export default function Home() {
             );
           })()}
 
-          {/* Desktop: side-by-side layout */}
-          <div className="hidden grid-cols-1 gap-10 lg:grid lg:grid-cols-[0.85fr_1.15fr]">
+          {/* Desktop: unified card layout */}
+          <div className="hidden lg:block">
             <FadeIn>
-              <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm md:p-8">
-                <p className="mb-3 text-xs font-bold uppercase tracking-widest text-[#29C8D5]">{product.status}</p>
-                <h3 className="mb-4 text-3xl font-black text-gray-900">{product.name}</h3>
-                <p className="mb-6 text-base leading-relaxed text-gray-500">
-                  {product.desc}
-                </p>
-                <div className="mb-7 grid grid-cols-1 gap-2 sm:grid-cols-2">
-                  {product.features.map((feature) => (
-                    <div key={feature} className="flex items-center gap-2 text-sm text-gray-500">
-                      <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: product.color }} />
-                      {feature}
-                    </div>
-                  ))}
-                </div>
-                <div className="flex flex-wrap items-center gap-3">
-                  <Link href={product.ctaHref || `/products/${product.slug}`} className="btn-primary" style={{ background: product.color }}>
-                    {product.ctaLabel} <ArrowUpRight size={14} />
-                  </Link>
-                  <button type="button" onClick={() => moveProduct(-1)} className="btn-outline px-4" aria-label="Previous product">
-                    <ChevronLeft size={18} />
-                  </button>
-                  <button type="button" onClick={() => moveProduct(1)} className="btn-outline px-4" aria-label="Next product">
-                    <ChevronRight size={18} />
-                  </button>
-                </div>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={0.12}>
-              <div className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
-                <div className="relative flex aspect-video items-center justify-center overflow-hidden rounded-xl bg-gray-50">
+              <div className="grid grid-cols-1 overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm lg:grid-cols-2">
+                <div className="relative flex aspect-square items-center justify-center overflow-hidden bg-gray-50 lg:aspect-auto">
                   <img src={product.image} alt={product.name} className={`h-full w-full ${product.imageClassName || 'object-cover'}`} />
+                  <span
+                    className={`absolute left-4 top-4 px-3 py-1 text-xs font-700 ${
+                      product.status === 'Now Live'
+                        ? 'section-pill-live border border-[#29C8D5]/30 bg-[#29C8D5]/10 text-[#0D1117]'
+                        : 'rounded-full bg-white text-black shadow-sm'
+                    }`}
+                  >
+                    {product.status}
+                  </span>
                 </div>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {products.map((item, index) => (
-                    <button
-                      key={item.slug}
-                      type="button"
-                      onClick={() => setActiveProduct(index)}
-                      className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
-                        index === activeProduct
-                          ? 'border-[#29C8D5] bg-[rgba(41,200,213,0.08)] text-[#29C8D5]'
-                          : 'border-gray-200 text-gray-400 hover:border-[#29C8D5]/50 hover:text-[#29C8D5]'
-                      }`}
-                    >
-                      {item.name}
+
+                <div className="flex flex-col justify-center p-6 md:p-10">
+                  <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: product.color }}>{product.tagline}</p>
+                  <h3 className="mb-4 text-3xl font-black text-gray-900">{product.name}</h3>
+                  <p className="mb-6 text-base leading-relaxed text-gray-500">
+                    {product.desc}
+                  </p>
+                  <div className="mb-7 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                    {product.features.map((feature) => (
+                      <div key={feature} className="flex items-center gap-2 text-sm text-gray-500">
+                        <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: product.color }} />
+                        {feature}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mb-7 flex flex-wrap items-center gap-3">
+                    {product.external ? (
+                      <a href={product.ctaHref} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ background: product.color }}>
+                        {product.ctaLabel} <ArrowUpRight size={14} />
+                      </a>
+                    ) : (
+                      <Link href={product.ctaHref || `/products/${product.slug}`} className="btn-primary" style={{ background: product.color }}>
+                        {product.ctaLabel} <ArrowUpRight size={14} />
+                      </Link>
+                    )}
+                    {product.external && product.detailHref && (
+                      <Link href={product.detailHref} className="btn-outline">
+                        {product.detailLabel || 'Details'}
+                      </Link>
+                    )}
+                    <button type="button" onClick={() => moveProduct(-1)} className="btn-outline px-4" aria-label="Previous product">
+                      <ChevronLeft size={18} />
                     </button>
-                  ))}
+                    <button type="button" onClick={() => moveProduct(1)} className="btn-outline px-4" aria-label="Next product">
+                      <ChevronRight size={18} />
+                    </button>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {products.map((item, index) => (
+                      <button
+                        key={item.slug}
+                        type="button"
+                        onClick={() => setActiveProduct(index)}
+                        className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
+                          index === activeProduct
+                            ? 'border-[#29C8D5] bg-[rgba(41,200,213,0.08)] text-[#29C8D5]'
+                            : 'border-gray-200 text-gray-400 hover:border-[#29C8D5]/50 hover:text-[#29C8D5]'
+                        }`}
+                      >
+                        {item.name}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* Blog preview */}
+      <section className="bg-white py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-6">
+          <FadeIn className="mb-12 flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
+            <div>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#29C8D5]">From the Blog</p>
+              <h2 className="font-black text-gray-900" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.02em' }}>
+                Latest Insights &amp; Guides
+              </h2>
+            </div>
+            <Link href="/blog" className="inline-flex items-center gap-2 whitespace-nowrap text-sm font-semibold text-[#29C8D5] hover:text-[#1AA8B4]">
+              View All Articles <ArrowRight size={16} />
+            </Link>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {blogPosts.slice(0, 3).map(({ slug, tag, title, excerpt, readTime, date, image }, index) => (
+              <FadeIn key={slug} delay={index * 0.08}>
+                <Link
+                  href={`/blog/${slug}`}
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-shadow hover:shadow-md"
+                >
+                  <div className="relative h-44 overflow-hidden bg-gray-100">
+                    <img
+                      src={image}
+                      alt={title}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute left-3 top-3">
+                      <span className={`rounded-full border px-2.5 py-1 text-xs font-semibold ${tagColors[tag] || 'border-gray-200 bg-gray-50 text-gray-500'}`}>
+                        {tag}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    <div className="mb-3 flex items-center gap-3">
+                      <span className="flex items-center gap-1 text-xs text-gray-400">
+                        <Clock size={11} /> {readTime}
+                      </span>
+                      <span className="text-xs text-gray-400">{date}</span>
+                    </div>
+                    <h3 className="mb-3 line-clamp-2 text-lg font-bold leading-tight text-gray-900 transition-colors group-hover:text-[#29C8D5]">
+                      {title}
+                    </h3>
+                    <p className="mb-4 line-clamp-2 flex-1 text-sm leading-relaxed text-gray-500">{excerpt}</p>
+                    <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#29C8D5]">
+                      Read More <ArrowUpRight size={11} />
+                    </span>
+                  </div>
+                </Link>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>

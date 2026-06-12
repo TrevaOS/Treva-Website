@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
 import { ArrowUpRight, Search } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
+import { blogContent, blogPosts } from '../data/blogData';
 
 function FadeIn({ children, delay = 0, className = '' }) {
   const ref = useRef(null);
@@ -112,20 +113,66 @@ const faqGroups = [
   },
 ];
 
+const blogFaqGroups = blogPosts.reduce((groups, post) => {
+  const faqs = blogContent[post.slug]?.faqs || [];
+  if (faqs.length === 0) return groups;
+
+  let group = groups.find((entry) => entry.title === post.tag);
+  if (!group) {
+    group = { title: `${post.tag} (From the Blog)`, items: [] };
+    groups.push(group);
+  }
+
+  faqs.forEach((faq) => {
+    group.items.push({
+      q: faq.question,
+      a: faq.answer,
+      href: `/blog/${post.slug}#faq`,
+    });
+  });
+
+  return groups;
+}, []);
+
+const allFaqGroups = [...faqGroups, ...blogFaqGroups];
+
+const STOP_WORDS = new Set(['a', 'an', 'the', 'is', 'are', 'do', 'does', 'i', 'you', 'your', 'to', 'of', 'for', 'in', 'on', 'and', 'or', 'what', 'how', 'can', 'with', 'my', 'at']);
+
+function getTokens(text) {
+  return text.toLowerCase().match(/[a-z0-9]+/g) || [];
+}
+
+function scoreItem(searchTokens, item, groupTitle) {
+  const itemTokens = new Set([...getTokens(item.q), ...getTokens(item.a), ...getTokens(groupTitle)]);
+  let score = 0;
+  searchTokens.forEach((token) => {
+    if (itemTokens.has(token)) {
+      score += STOP_WORDS.has(token) ? 0.5 : 2;
+    } else {
+      itemTokens.forEach((itemToken) => {
+        if (itemToken.length > 3 && (itemToken.includes(token) || token.includes(itemToken))) {
+          score += 1;
+        }
+      });
+    }
+  });
+  return score;
+}
+
 export default function FAQPage() {
   const [query, setQuery] = useState('');
-  const allFAQs = faqGroups.flatMap((group) =>
+  const allFAQs = allFaqGroups.flatMap((group) =>
     group.items.map((item) => ({
       '@type': 'Question',
       name: item.q,
       acceptedAnswer: { '@type': 'Answer', text: item.a },
     }))
   );
-  const filteredGroups = useMemo(() => {
+  const { filteredGroups, isFuzzy } = useMemo(() => {
     const search = query.trim().toLowerCase();
-    if (!search) return faqGroups;
+    if (!search) return { filteredGroups: faqGroups, isFuzzy: false };
 
-    return faqGroups
+    const exactGroups = allFaqGroups
       .map((group) => ({
         ...group,
         items: group.items.filter((item) =>
@@ -135,6 +182,31 @@ export default function FAQPage() {
         ),
       }))
       .filter((group) => group.items.length > 0);
+
+    if (exactGroups.length > 0) return { filteredGroups: exactGroups, isFuzzy: false };
+
+    const searchTokens = getTokens(search).filter((token) => !STOP_WORDS.has(token));
+    if (searchTokens.length === 0) return { filteredGroups: [], isFuzzy: false };
+
+    const scored = allFaqGroups.flatMap((group) =>
+      group.items.map((item) => ({
+        group: group.title,
+        item,
+        score: scoreItem(searchTokens, item, group.title),
+      }))
+    );
+
+    const topMatches = scored
+      .filter((entry) => entry.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 5);
+
+    if (topMatches.length === 0) return { filteredGroups: [], isFuzzy: false };
+
+    return {
+      filteredGroups: [{ title: 'Related Questions', items: topMatches.map((entry) => entry.item) }],
+      isFuzzy: true,
+    };
   }, [query]);
 
   return (
@@ -193,25 +265,73 @@ export default function FAQPage() {
         <div className="mx-auto max-w-5xl space-y-12 px-6">
           {filteredGroups.length === 0 ? (
             <div className="rounded-2xl border border-gray-100 bg-white p-8 text-center text-gray-400 shadow-sm">
-              No questions match your search.
+              No questions match your search. Try a different keyword or{' '}
+              <Link href="/contact" className="internal-text-link">ask us directly</Link>.
             </div>
-          ) : filteredGroups.map((group, groupIndex) => (
-            <FadeIn key={group.title} delay={groupIndex * 0.08}>
-              <div>
-                <h2 className="mb-6 text-3xl font-black text-gray-900">{group.title}</h2>
-                <div className="space-y-4">
-                  {group.items.map((item) => (
-                    <div key={item.q} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-                      <h3 className="mb-2 text-lg font-semibold text-gray-900">{item.q}</h3>
-                      <p className="text-sm leading-relaxed text-gray-500">{item.a}</p>
+          ) : (
+            <>
+              {isFuzzy && (
+                <p className="text-center text-sm text-gray-400">
+                  No exact match found. Here are the closest questions to what you searched for.
+                </p>
+              )}
+              {filteredGroups.map((group, groupIndex) => (
+                <FadeIn key={group.title} delay={groupIndex * 0.08}>
+                  <div>
+                    <h2 className="mb-6 text-3xl font-black text-gray-900">{group.title}</h2>
+                    <div className="space-y-4">
+                      {group.items.map((item) => (
+                        <div key={item.q} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+                          <h3 className="mb-2 text-lg font-semibold text-gray-900">{item.q}</h3>
+                          <p className="text-sm leading-relaxed text-gray-500">{item.a}</p>
+                          {item.href && (
+                            <Link href={item.href} className="internal-text-link mt-3 inline-flex items-center gap-1 text-sm">
+                              Read full article <ArrowUpRight size={13} />
+                            </Link>
+                          )}
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
-            </FadeIn>
-          ))}
+                  </div>
+                </FadeIn>
+              ))}
+            </>
+          )}
         </div>
       </section>
+
+      {!query.trim() && (
+        <section className="bg-white py-16">
+          <div className="mx-auto max-w-5xl px-6">
+            <FadeIn className="mb-10 text-center">
+              <h2 className="mb-3 text-3xl font-black text-gray-900">More Questions From Our Blog</h2>
+              <p className="text-gray-500">Topic-specific questions answered in our latest guides and articles.</p>
+            </FadeIn>
+            <div className="space-y-8">
+              {blogFaqGroups.map((group, groupIndex) => (
+                <FadeIn key={group.title} delay={groupIndex * 0.05}>
+                  <div className="rounded-2xl border border-gray-100 bg-gray-50 p-6">
+                    <h3 className="mb-4 text-xl font-bold text-gray-900">{group.title}</h3>
+                    <div className="space-y-2">
+                      {group.items.map((item) => (
+                        <details key={item.q} className="group rounded-xl border border-gray-100 bg-white p-4 open:shadow-sm">
+                          <summary className="cursor-pointer list-none text-sm font-semibold text-gray-900 marker:content-none">
+                            {item.q}
+                          </summary>
+                          <p className="mt-3 text-sm leading-relaxed text-gray-500">{item.a}</p>
+                          <Link href={item.href} className="internal-text-link mt-3 inline-flex items-center gap-1 text-sm">
+                            Read full article <ArrowUpRight size={13} />
+                          </Link>
+                        </details>
+                      ))}
+                    </div>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="bg-white py-16">
         <div className="mx-auto max-w-2xl px-6 text-center">

@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
-import { CheckCircle, MapPin, Phone, Mail, ArrowUpRight } from 'lucide-react';
+import { CheckCircle, MapPin, Phone, Mail, ArrowUpRight, Megaphone, Sparkles, TrendingUp, Users } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 
 function FadeIn({ children, delay = 0, className = '' }) {
@@ -22,6 +22,37 @@ const principles = [
   { title: 'Your business goals are our north star', desc: 'Platform recommendations and service strategies are designed around your specific objectives, not preset templates. We align technology and tactics to your unique business model.' },
   { title: 'We surface issues before they become problems', desc: 'Proactive monitoring is built into our products and services. If a platform underperforms or a campaign veers off track, we identify it first with a clear remediation plan.' },
   { title: 'You work directly with the experts', desc: 'No account managers as intermediaries. The product specialists and strategists building your solutions are the ones in regular communication with your team.' },
+];
+
+const companyStats = [
+  {
+    icon: TrendingUp,
+    value: '₹15+ Cr',
+    label: 'Google Ads Budget Managed',
+    desc: 'Performance campaigns managed across industries on Google Ads.',
+    color: '#0D3B66',
+  },
+  {
+    icon: Megaphone,
+    value: '₹15+ Cr',
+    label: 'Meta Ads Budget Managed',
+    desc: 'Generating ₹350+ Crore in revenue per month for brands.',
+    color: '#1AA8B4',
+  },
+  {
+    icon: Users,
+    value: '80+',
+    label: 'Clients Served',
+    desc: 'Brands across categories trust Treva with their growth.',
+    color: '#E0A732',
+  },
+  {
+    icon: Sparkles,
+    value: '1000+',
+    label: 'Influencer Network',
+    desc: 'A creator base ready to power UGC and influencer campaigns.',
+    color: '#7C3AED',
+  },
 ];
 
 const learnings = [
@@ -110,8 +141,41 @@ export default function About() {
         </div>
       </section>
 
+      {/* Company stats */}
+      <section className="bg-gray-50 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <FadeIn className="mb-12 text-center">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#29C8D5]">By the Numbers</p>
+            <h2 className="font-black text-gray-900" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.02em' }}>
+              Results That Compound
+            </h2>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+            {companyStats.map((stat, index) => (
+              <FadeIn key={stat.label} delay={index * 0.08}>
+                <div
+                  className="relative rounded-2xl border-l-4 border-t-4 pl-6 pt-4"
+                  style={{ borderColor: stat.color }}
+                >
+                  <span
+                    className="absolute -right-2 -top-5 flex h-11 w-11 items-center justify-center rounded-full text-white shadow-md"
+                    style={{ backgroundColor: stat.color }}
+                  >
+                    <stat.icon size={20} />
+                  </span>
+                  <p className="mb-2 text-3xl font-black text-gray-900 sm:text-4xl">{stat.value}</p>
+                  <p className="mb-2 text-sm font-bold uppercase tracking-wide" style={{ color: stat.color }}>{stat.label}</p>
+                  <p className="text-sm leading-relaxed text-gray-500">{stat.desc}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Our Story */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <FadeIn>
             <h2 className="font-black text-gray-900 mt-3 mb-6"
@@ -130,7 +194,7 @@ export default function About() {
       </section>
 
       {/* Expertise */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-10">
             <h2 className="font-black text-gray-900 mt-3"
@@ -153,7 +217,7 @@ export default function About() {
       </section>
 
       {/* Principles */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-10">
             <h2 className="font-black text-gray-900 mt-3"
@@ -179,7 +243,7 @@ export default function About() {
       </section>
 
       {/* Office */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-10">
             <h2 className="font-black text-gray-900 mt-3"
@@ -217,7 +281,7 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
             <div className="border border-gray-100 rounded-3xl p-10 bg-white shadow-sm">

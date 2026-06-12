@@ -2,8 +2,8 @@ export const blogPosts = [
   {
     slug: 'choosing-digital-marketing-agency-bangalore-2026',
     tag: 'Strategy',
-    title: 'How to Choose a Digital Marketing Agency in Bangalore: 12 Questions You Must Ask (2026 Guide)',
-    excerpt: 'Most businesses waste ₹3-10L on the wrong agency because they ask the wrong questions. This guide gives you a 12-point checklist, from ROAS tracking to ownership of creatives, so you hire a growth partner, not a vendor.',
+    title: 'How to Choose a Digital Marketing Agency in Bangalore: 7 Questions You Must Ask (2026 Guide)',
+    excerpt: 'Most businesses waste ₹3-10L on the wrong agency because they ask the wrong questions. This guide gives you a 7-point checklist, from ROAS tracking to ownership of creatives, so you hire a growth partner, not a vendor.',
     readTime: '9 min read',
     date: 'Jul 1, 2026',
     featured: true,
@@ -205,7 +205,7 @@ export const blogPosts = [
 
 export const blogContent = {
   'choosing-digital-marketing-agency-bangalore-2026': {
-    intro: 'Most businesses do not lose money on marketing because they picked the "wrong channel." They lose money because they picked the wrong agency, and did not find out until six months and several lakhs later. Bangalore has thousands of agencies, freelancers, and "growth consultants" competing for your budget. This guide gives you a 12-point checklist to separate genuine growth partners from vendors who will burn your budget on vanity metrics. Quick answer: choose an agency that owns your strategy, tracks revenue (not just impressions), and gives you transparent, real-time reporting.',
+    intro: 'Most businesses do not lose money on marketing because they picked the "wrong channel." They lose money because they picked the wrong agency, and did not find out until six months and several lakhs later. Bangalore has thousands of agencies, freelancers, and "growth consultants" competing for your budget. This guide gives you a 7-point checklist to separate genuine growth partners from vendors who will burn your budget on vanity metrics. Quick answer: choose an agency that owns your strategy, tracks revenue (not just impressions), and gives you transparent, real-time reporting.',
     sections: [
       {
         heading: '1. Do They Ask About Your Revenue Goals Before Pitching a Plan?',
@@ -220,24 +220,24 @@ export const blogContent = {
         body: 'This is one of the most overlooked questions, and one of the most expensive mistakes. Some agencies build your Google Ads account, Meta Business Manager, and creative library under their own ownership. If you ever leave, you leave with nothing, no historical data, no creative files, no account access. A growth partner sets up everything under your business\'s ownership from day one.',
       },
       {
-        heading: '4. How Do They Report Results, and How Often?',
-        body: 'Monthly PDF reports with screenshots of "reach" and "engagement" are not reporting, they are decoration. Ask whether you will get access to live dashboards, whether ROAS and CAC are tracked, and how often you will have a strategy call. Treva CRM connects directly to ad platforms so clients can see real-time pipeline data tied to specific campaigns, not just platform-reported metrics.',
+        heading: '4. How Do They Report Results, and Do They Track ROAS and CAC?',
+        body: 'Monthly PDF reports with screenshots of "reach" and "engagement" are not reporting, they are decoration. Ask whether you will get access to live dashboards, whether ROAS (return on ad spend) and CAC (customer acquisition cost) are tracked alongside conversion rate, and how often you will have a strategy call. Treva CRM connects directly to ad platforms so clients can see real-time pipeline data tied to specific campaigns, not just platform-reported metrics. If "reach" and "engagement" are the headline metrics in every report, your agency is optimising for things that look good in a slide deck, not for your bottom line.',
       },
       {
-        heading: '5. Do They Track ROAS, CAC, and Conversion Rate, or Just Reach and Impressions?',
-        body: 'Reach and impressions tell you how many people saw something. ROAS (return on ad spend), CAC (customer acquisition cost), and conversion rate tell you whether your business made money. If "reach" and "engagement" are the headline metrics in every report, your agency is optimising for things that look good in a slide deck, not for your bottom line.',
+        heading: '5. Who Will Actually Work on Your Account, and How Do They Communicate?',
+        body: 'Ask who will actually work on your account, not just who is in the sales pitch. Ask how quickly they respond to questions, weekly syncs are healthier than radio silence between monthly calls. Also ask whether they specialise in your industry, a restaurant marketing playbook is very different from a SaaS or real estate playbook, and an agency that treats every client the same is not tailoring strategy to your business. Finally, check contract length and exit terms; month-to-month or short notice periods signal confidence in results.',
       },
       {
-        heading: '6 to 9: Team, Contracts, Communication, and Specialisation',
-        body: 'Ask who will actually work on your account, not just who is in the sales pitch. Ask about contract length and exit terms; month-to-month or short notice periods signal confidence in results. Ask how quickly they respond to questions, weekly syncs are healthier than radio silence between monthly calls. And ask whether they specialise in your industry, a restaurant marketing playbook is very different from a SaaS or real estate playbook, and an agency that treats every client the same is not tailoring strategy to your business.',
+        heading: '6. Is Their Pricing Transparent, and How Is Creative Produced?',
+        body: 'Get a clear breakdown of what is agency fee versus ad spend versus tools, vague "all-inclusive" packages often hide markups. Ask how creative gets made: in-house team, freelancers, or UGC creators through a platform like Creator Hub, each has different speed and cost implications.',
       },
       {
-        heading: '10 to 12: Pricing Transparency, Creative Process, and Long-Term Thinking',
-        body: 'Get a clear breakdown of what is agency fee versus ad spend versus tools, vague "all-inclusive" packages often hide markups. Ask how creative gets made: in-house team, freelancers, or UGC creators through a platform like Creator Hub, each has different speed and cost implications. Finally, ask how they think about your business in twelve months, not just next month\'s report. A growth partner should be able to describe how this quarter\'s work compounds into next year\'s results.',
+        heading: '7. How Do They Think About Your Business Beyond Next Month?',
+        body: 'Ask how they think about your business in twelve months, not just next month\'s report. A growth partner should be able to describe how this quarter\'s work compounds into next year\'s results, rather than treating every month as a fresh, disconnected sprint.',
       },
       {
         heading: 'Putting the Checklist Into Practice',
-        body: 'You do not need to interrogate every agency with all 12 questions in one call. But before signing any retainer, you should be able to answer: who owns my data and accounts, how will I know if this is working within 90 days, and what does this agency do differently for businesses like mine? If those three answers are vague, keep looking.',
+        body: 'You do not need to interrogate every agency with all 7 questions in one call. But before signing any retainer, you should be able to answer: who owns my data and accounts, how will I know if this is working within 90 days, and what does this agency do differently for businesses like mine? If those three answers are vague, keep looking.',
       },
     ],
     faqs: [

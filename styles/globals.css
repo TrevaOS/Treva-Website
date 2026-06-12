@@ -167,16 +167,25 @@ html, body {
 
 /* Marquee container */
 .marquee-wrapper {
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   width: 100%;
   padding-inline: 1rem;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 .marquee-content {
   display: inline-flex;
-  animation: marquee 55s linear infinite;
+  animation: marquee 35s linear infinite;
+  animation-play-state: running;
   gap: 2rem;
   will-change: transform;
   width: max-content;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+.marquee-wrapper.is-paused .marquee-content {
+  animation-play-state: paused;
 }
 
 .no-scrollbar {

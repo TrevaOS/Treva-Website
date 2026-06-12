@@ -26,8 +26,26 @@ const tagColors = {
 
 const blogHref = (slug) => `/blog/${slug}`;
 
+const categories = ['All', ...Object.keys(
+  blogPosts.reduce((acc, post) => {
+    acc[post.tag] = true;
+    return acc;
+  }, {})
+)];
+
 export default function Blog() {
-  const [featured, ...rest] = blogPosts;
+  const [activeCategory, setActiveCategory] = useState('All');
+  const categoryCounts = useMemo(() => {
+    const counts = { All: blogPosts.length };
+    categories.slice(1).forEach((tag) => {
+      counts[tag] = blogPosts.filter((post) => post.tag === tag).length;
+    });
+    return counts;
+  }, []);
+  const visiblePosts = useMemo(() => (
+    activeCategory === 'All' ? blogPosts : blogPosts.filter((post) => post.tag === activeCategory)
+  ), [activeCategory]);
+  const [featured, ...rest] = visiblePosts;
   const [faqSearch, setFaqSearch] = useState('');
   const blogFaqs = useMemo(() => blogPosts.flatMap((post) =>
     (blogContent[post.slug]?.faqs || []).map((faq) => ({ ...faq, post }))
@@ -81,6 +99,30 @@ export default function Blog() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
 
+          {/* Category Filter */}
+          <FadeIn className="mb-10 flex flex-wrap justify-center gap-2">
+            {categories.map((category) => (
+              <button
+                key={category}
+                type="button"
+                onClick={() => setActiveCategory(category)}
+                className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
+                  activeCategory === category
+                    ? 'border-[#29C8D5] bg-[#29C8D5] text-white'
+                    : 'border-gray-200 bg-white text-gray-500 hover:border-[#29C8D5]/50 hover:text-[#29C8D5]'
+                }`}
+              >
+                {category} <span className="opacity-70">({categoryCounts[category]})</span>
+              </button>
+            ))}
+          </FadeIn>
+
+          {visiblePosts.length === 0 ? (
+            <div className="rounded-2xl border border-gray-100 bg-white p-10 text-center text-gray-400 shadow-sm">
+              No posts in this category yet.
+            </div>
+          ) : (
+          <>
           {/* Featured Post */}
           <FadeIn className="mb-12">
             <Link
@@ -161,6 +203,8 @@ export default function Blog() {
               </FadeIn>
             ))}
           </div>
+          </>
+          )}
         </div>
       </section>
 
